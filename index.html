@@ -1,629 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RYDEN INTERNATIONAL | MLBB Account Marketplace</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#080808;
-    color:#fff;
-}
-
-header{
-    background:#0d0d0d;
-    border-bottom:1px solid #c9a227;
-    padding:18px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    color:#d4af37;
-    font-size:24px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-    font-size:14px;
-}
-
-nav a:hover{
-    color:#d4af37;
-}
-
-.hero{
-    min-height:70vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:50px 20px;
-    background:
-    radial-gradient(circle at center,#211b08 0%,#080808 55%);
-}
-
-.hero h1{
-    font-size:clamp(38px,7vw,80px);
-    color:#d4af37;
-    letter-spacing:5px;
-}
-
-.hero p{
-    margin-top:15px;
-    color:#bbb;
-    font-size:18px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:13px 25px;
-    border:1px solid #d4af37;
-    background:#d4af37;
-    color:#000;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.btn:hover{
-    background:#fff;
-}
-
-section{
-    padding:70px 6%;
-}
-
-.section-title{
-    text-align:center;
-    color:#d4af37;
-    font-size:32px;
-    margin-bottom:40px;
-}
-
-.accounts{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:12px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#d4af37;
-}
-
-.card img{
-    width:100%;
-    height:210px;
-    object-fit:cover;
-    background:#222;
-}
-
-.card-content{
-    padding:20px;
-}
-
-.card h3{
-    color:#d4af37;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#aaa;
-    margin:7px 0;
-}
-
-.price{
-    font-size:20px;
-    font-weight:bold;
-    color:#fff;
-    margin-top:15px;
-}
-
-.buy{
-    width:100%;
-    margin-top:15px;
-    padding:12px;
-    background:#d4af37;
-    border:0;
-    border-radius:5px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.buy:hover{
-    background:#fff;
-}
-
-.sell-box{
-    max-width:700px;
-    margin:auto;
-    background:#111;
-    border:1px solid #333;
-    padding:30px;
-    border-radius:12px;
-    text-align:center;
-}
-
-.sell-box p{
-    color:#aaa;
-    line-height:1.7;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    border-top:1px solid #222;
-    color:#777;
-}
-
-/* ADMIN */
-
-.admin{
-    display:none;
-    max-width:800px;
-    margin:auto;
-    background:#111;
-    padding:30px;
-    border:1px solid #d4af37;
-    border-radius:12px;
-}
-
-.admin input,
-.admin textarea{
-    width:100%;
-    padding:12px;
-    margin:8px 0 15px;
-    background:#080808;
-    border:1px solid #333;
-    color:#fff;
-    border-radius:5px;
-}
-
-.admin h2{
-    color:#d4af37;
-    margin-bottom:20px;
-}
-
-.small-btn{
-    padding:9px 14px;
-    margin:5px;
-    border:0;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-.delete{
-    background:#b00020;
-    color:#fff;
-}
-
-.logout{
-    background:#555;
-    color:#fff;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">RYDEN INTERNATIONAL</div>
-
-<nav>
-<a href="#home">HOME</a>
-<a href="#accounts">ACCOUNTS</a>
-<a href="#sell">SELL</a>
-<a href="#contact">CONTACT</a>
-</nav>
-
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<h1>RYDEN INTERNATIONAL</h1>
-
-<p>Premium MLBB Account Marketplace</p>
-
-<a href="#accounts" class="btn">BROWSE ACCOUNTS</a>
-
-</section>
-
-
-<!-- ACCOUNTS -->
-
-<section id="accounts">
-
-<h2 class="section-title">AVAILABLE ACCOUNTS</h2>
-
-<div class="accounts" id="accountList"></div>
-
-</section>
-
-
-<!-- SELL -->
-
-<section id="sell">
-
-<h2 class="section-title">SELL YOUR MLBB ACCOUNT</h2>
-
-<div class="sell-box">
-
-<p>
-Want to sell your MLBB account?
-Send your account details, screenshots,
-skin information and expected price to our team.
-</p>
-
-<a class="btn"
-href="https://wa.me/YOURNUMBER"
-target="_blank">
-CONTACT TO SELL
-</a>
-
-</div>
-
-</section>
-
-
-<!-- +91 9233657553 -->
-
-<section id="contact">
-
-<h2 class="section-title">CONTACT RYDEN INTERNATIONAL</h2>
-
-<div class="sell-box">
-
-<p>
-For buying, selling and account enquiries,
-contact RYDEN INTERNATIONAL.
-</p>
-
-<a class="btn"
-href="https://wa.me/YOURNUMBER"
-target="_blank">
-WHATSAPP US
-</a>
-
-</div>
-
-</section>
-
-
-<!-- ADMIN -->
-
-<section>
-
-<div class="admin" id="adminPanel">
-
-<h2>RYDEN ADMIN PANEL</h2>
-
-<input id="adminName"
-placeholder="Account name">
-
-<input id="adminPrice"
-placeholder="Price (Example: ₹18,000 / $180)">
-
-<input id="adminImage"
-placeholder="Account image URL">
-
-<textarea id="adminDetails"
-placeholder="Account details"></textarea>
-
-<button class="btn" onclick="addAccount()">
-ADD ACCOUNT
-</button>
-
-<hr style="margin:30px 0;border-color:#333">
-
-<h3 style="color:#d4af37">Manage Accounts</h3>
-
-<div id="adminAccounts"></div>
-
-<button class="small-btn logout"
-onclick="logoutAdmin()">
-LOGOUT
-</button>
-
-</div>
-
-</section>
-
-
-<footer>
-
-© 2026 RYDEN INTERNATIONAL  
-<br>
-MLBB Account Marketplace
-
-</footer>
-
-
-<script>
-
-let accounts =
-JSON.parse(localStorage.getItem("rydenAccounts")) || [
-
-{
-name:"MLBB Collector Account",
-price:"₹18,000 / $180",
-image:"https://placehold.co/600x400/111/Gold?text=RYDEN+ACCOUNT",
-details:"Collector skins • Premium heroes • High value account"
-},
-
-{
-name:"MLBB Epic Account",
-price:"₹10,000 / $120",
-image:"https://placehold.co/600x400/111/Gold?text=MLBB+ACCOUNT",
-details:"Epic skins • Multiple heroes • Ready to play"
-}
-
-];
-
-
-function saveAccounts(){
-
-localStorage.setItem(
-"rydenAccounts",
-JSON.stringify(accounts)
-);
-
-}
-
-
-function displayAccounts(){
-
-const list =
-document.getElementById("accountList");
-
-list.innerHTML="";
-
-accounts.forEach((account,index)=>{
-
-list.innerHTML += `
-
-<div class="card">
-
-<img src="${account.image}" alt="MLBB Account">
-
-<div class="card-content">
-
-<h3>${account.name}</h3>
-
-<p>${account.details}</p>
-
-<div class="price">
-${account.price}
-</div>
-
-<button class="buy"
-onclick="buyAccount('${account.name}')">
-BUY ACCOUNT
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-displayAdminAccounts();
-
-}
-
-
-function buyAccount(name){
-
-const message =
-"Hello RYDEN INTERNATIONAL, I am interested in buying: "
-+ name;
-
-window.open(
-"https://wa.me/YOURNUMBER?text="
-+encodeURIComponent(message),
-"_blank"
-);
-
-}
-
-
-function addAccount(){
-
-const name =
-document.getElementById("adminName").value;
-
-const price =
-document.getElementById("adminPrice").value;
-
-const image =
-document.getElementById("adminImage").value;
-
-const details =
-document.getElementById("adminDetails").value;
-
-if(!name || !price){
-
-alert("Please enter account name and price.");
-
-return;
-
-}
-
-accounts.push({
-name:name,
-price:price,
-image:image || "https://placehold.co/600x400/111/Gold?text=MLBB",
-details:details || "Premium MLBB Account"
-});
-
-saveAccounts();
-
-displayAccounts();
-
-document.getElementById("adminName").value="";
-document.getElementById("adminPrice").value="";
-document.getElementById("adminImage").value="";
-document.getElementById("adminDetails").value="";
-
-alert("Account added!");
-
-}
-
-
-function displayAdminAccounts(){
-
-const box =
-document.getElementById("adminAccounts");
-
-if(!box) return;
-
-box.innerHTML="";
-
-accounts.forEach((account,index)=>{
-
-box.innerHTML += `
-
-<div style="
-padding:15px;
-margin:10px 0;
-background:#181818;
-border:1px solid #333;
-border-radius:6px;
-">
-
-<strong>${account.name}</strong>
-
-<br>
-
-${account.price}
-
-<br>
-
-<button class="small-btn delete"
-onclick="deleteAccount(${index})">
-DELETE
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function deleteAccount(index){
-
-if(confirm("Delete this account?")){
-
-accounts.splice(index,1);
-
-saveAccounts();
-
-displayAccounts();
-
-}
-
-}
-
-
-/* DEMO ADMIN LOGIN */
-
-function adminLogin(){
-
-const password =
-prompt("Enter Admin Password:");
-
-if(password === "RYDEN123"){
-
-document.getElementById(
-"adminPanel"
-).style.display="block";
-
-window.location.hash="admin";
-
-}else{
-
-alert("Wrong password!");
-
-}
-
-}
-
-
-function logoutAdmin(){
-
-document.getElementById(
-"adminPanel"
-).style.display="none";
-
-}
-
-
-/* Open admin with URL */
-
-if(window.location.hash === "#admin"){
-
-adminLogin();
-
-}
-
-
-displayAccounts();
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RYDEN INTERNATIONAL | MLBB Account Marketplace</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 html{
@@ -634,6 +24,8 @@ body{
     background:#050505;
     color:white;
 }
+
+/* ================= HEADER ================= */
 
 header{
     position:sticky;
@@ -666,6 +58,8 @@ nav a:hover{
     color:#ffd700;
 }
 
+/* ================= HERO ================= */
+
 .hero{
     min-height:480px;
     display:flex;
@@ -674,8 +68,14 @@ nav a:hover{
     align-items:center;
     text-align:center;
     padding:60px 20px;
+
     background:
-    radial-gradient(circle at center,#292000 0%,#0a0905 35%,#050505 70%);
+    radial-gradient(
+        circle at center,
+        #292000 0%,
+        #0a0905 35%,
+        #050505 70%
+    );
 }
 
 .hero h1{
@@ -691,6 +91,8 @@ nav a:hover{
     margin-bottom:30px;
 }
 
+/* ================= BUTTON ================= */
+
 .btn{
     display:inline-block;
     padding:13px 25px;
@@ -701,12 +103,15 @@ nav a:hover{
     font-weight:bold;
     border:none;
     cursor:pointer;
+    transition:.2s;
 }
 
 .btn:hover{
     background:#fff0a0;
     transform:translateY(-2px);
 }
+
+/* ================= SECTIONS ================= */
 
 section{
     padding:70px 6%;
@@ -719,18 +124,26 @@ section{
     margin-bottom:40px;
 }
 
+/* ================= ACCOUNTS ================= */
+
 .accounts{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
 
 .card{
-    background:linear-gradient(145deg,#161616,#0b0b0b);
+    background:
+    linear-gradient(145deg,#161616,#0b0b0b);
+
     border:1px solid #292929;
     border-radius:14px;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.5);
+
     transition:.3s;
 }
 
@@ -741,9 +154,10 @@ section{
 
 .card img{
     width:100%;
-    height:220px;
+    height:250px;
     object-fit:cover;
     background:#111;
+    display:block;
 }
 
 .card-content{
@@ -781,12 +195,16 @@ section{
     grid-column:1/-1;
 }
 
+/* ================= INFO BOX ================= */
+
 .info-box{
     max-width:700px;
     margin:auto;
+
     background:#101010;
     border:1px solid #292929;
     border-radius:14px;
+
     padding:35px;
     text-align:center;
 }
@@ -801,6 +219,8 @@ section{
     line-height:1.7;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
     border-top:1px solid #222;
     padding:30px;
@@ -808,7 +228,7 @@ footer{
     color:#777;
 }
 
-/* ADMIN */
+/* ================= ADMIN ================= */
 
 .admin-login,
 .admin-panel{
@@ -816,11 +236,13 @@ footer{
 }
 
 .admin-box{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
+
     background:#101010;
     border:1px solid #333;
     border-radius:15px;
+
     padding:30px;
 }
 
@@ -832,12 +254,16 @@ footer{
 input,
 textarea{
     width:100%;
+
     background:#080808;
     color:white;
+
     border:1px solid #333;
     border-radius:7px;
+
     padding:13px;
     margin:8px 0 15px;
+
     outline:none;
 }
 
@@ -851,28 +277,79 @@ textarea{
     resize:vertical;
 }
 
-.admin-actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+/* ================= IMAGE UPLOAD ================= */
+
+.upload-box{
+    border:1px dashed #555;
+    border-radius:10px;
+    padding:20px;
+    margin:8px 0 15px;
+    text-align:center;
+    background:#080808;
 }
+
+.upload-box:hover{
+    border-color:#ffd700;
+}
+
+.upload-label{
+    display:inline-block;
+    padding:12px 20px;
+
+    background:#ffd700;
+    color:#000;
+
+    border-radius:6px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#accountImageFile{
+    display:none;
+}
+
+#imagePreview{
+    display:none;
+
+    width:100%;
+    max-height:300px;
+
+    object-fit:contain;
+
+    margin-top:15px;
+
+    border-radius:8px;
+    border:1px solid #333;
+}
+
+/* ================= ADMIN BUTTONS ================= */
 
 .delete-btn{
     background:#b00020;
     color:white;
+
     border:none;
+
     padding:9px 15px;
+
     border-radius:5px;
+
     cursor:pointer;
 }
 
 .logout-btn{
     background:#333;
     color:white;
+
     border:none;
+
     padding:10px 18px;
+
     border-radius:5px;
+
     cursor:pointer;
+
     margin-bottom:20px;
 }
 
@@ -882,15 +359,37 @@ textarea{
 
 .admin-item{
     background:#181818;
+
     border:1px solid #292929;
+
     padding:15px;
+
     margin-bottom:10px;
+
     border-radius:8px;
+
     display:flex;
+
     justify-content:space-between;
     align-items:center;
+
     gap:15px;
 }
+
+.admin-item img{
+    width:80px;
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:5px;
+
+    margin-right:12px;
+
+    vertical-align:middle;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -919,63 +418,97 @@ textarea{
         flex-direction:column;
         align-items:flex-start;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-<div class="logo">RYDEN INTERNATIONAL</div>
+<div class="logo">
+RYDEN INTERNATIONAL
+</div>
 
 <nav>
+
 <a href="#home">HOME</a>
+
 <a href="#accounts">ACCOUNTS</a>
+
 <a href="#sell">SELL</a>
+
 <a href="#contact">CONTACT</a>
+
 </nav>
 
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section class="hero" id="home">
 
-<h1>RYDEN INTERNATIONAL</h1>
+<h1>
+RYDEN INTERNATIONAL
+</h1>
 
-<p>Premium MLBB Account Marketplace</p>
+<p>
+Premium MLBB Account Marketplace
+</p>
 
-<a href="#accounts" class="btn">BROWSE ACCOUNTS</a>
+<a
+href="#accounts"
+class="btn">
+
+BROWSE ACCOUNTS
+
+</a>
 
 </section>
 
 
-<!-- ACCOUNTS -->
+<!-- ================= ACCOUNTS ================= -->
 
 <section id="accounts">
 
-<h2 class="section-title">AVAILABLE ACCOUNTS</h2>
+<h2 class="section-title">
+AVAILABLE ACCOUNTS
+</h2>
 
-<div class="accounts" id="accountList"></div>
+<div
+class="accounts"
+id="accountList">
+</div>
 
 </section>
 
 
-<!-- SELL -->
+<!-- ================= SELL ================= -->
 
 <section id="sell">
 
-<h2 class="section-title">SELL YOUR MLBB ACCOUNT</h2>
+<h2 class="section-title">
+SELL YOUR MLBB ACCOUNT
+</h2>
 
 <div class="info-box">
 
-<h3>Want to Sell Your Account?</h3>
+<h3>
+Want to Sell Your Account?
+</h3>
 
 <p>
-Send your MLBB account details, screenshots and expected price
-to our WhatsApp. Our team will review your account.
+Send your MLBB account details,
+screenshots and expected price
+to our WhatsApp.
+Our team will review your account.
 </p>
 
 <br>
@@ -984,7 +517,9 @@ to our WhatsApp. Our team will review your account.
 class="btn"
 href="https://wa.me/919233657553?text=Hello%20RYDEN%20INTERNATIONAL%2C%20I%20want%20to%20sell%20my%20MLBB%20account."
 target="_blank">
+
 SELL ON WHATSAPP
+
 </a>
 
 </div>
@@ -992,19 +527,24 @@ SELL ON WHATSAPP
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<h2 class="section-title">CONTACT</h2>
+<h2 class="section-title">
+CONTACT
+</h2>
 
 <div class="info-box">
 
-<h3>RYDEN INTERNATIONAL</h3>
+<h3>
+RYDEN INTERNATIONAL
+</h3>
 
 <p>
-For buying accounts, selling accounts or any enquiry,
-contact us directly on WhatsApp.
+For buying accounts, selling accounts
+or any enquiry, contact us directly
+on WhatsApp.
 </p>
 
 <br>
@@ -1013,7 +553,9 @@ contact us directly on WhatsApp.
 class="btn"
 href="https://wa.me/919233657553?text=Hello%20RYDEN%20INTERNATIONAL%2C%20I%20have%20an%20enquiry."
 target="_blank">
+
 CONTACT US
+
 </a>
 
 </div>
@@ -1021,47 +563,75 @@ CONTACT US
 </section>
 
 
-<!-- ADMIN LOGIN -->
+<!-- ================= ADMIN LOGIN ================= -->
 
-<section id="adminLogin" class="admin-login">
+<section
+id="adminLogin"
+class="admin-login">
 
 <div class="admin-box">
 
-<h2>ADMIN LOGIN</h2>
+<h2>
+ADMIN LOGIN
+</h2>
 
 <input
 type="password"
 id="adminPassword"
 placeholder="Enter admin password">
 
-<button class="btn" onclick="loginAdmin()">
+<button
+class="btn"
+onclick="loginAdmin()">
+
 LOGIN
+
 </button>
 
-<p id="loginMessage" style="color:#ff5555;margin-top:15px;"></p>
+<p
+id="loginMessage"
+style="color:#ff5555;margin-top:15px;">
+</p>
 
 </div>
 
 </section>
 
 
-<!-- ADMIN PANEL -->
+<!-- ================= ADMIN PANEL ================= -->
 
-<section id="adminPanel" class="admin-panel">
+<section
+id="adminPanel"
+class="admin-panel">
 
 <div class="admin-box">
 
-<h2>RYDEN ADMIN PANEL</h2>
+<h2>
+RYDEN ADMIN PANEL
+</h2>
 
-<button class="logout-btn" onclick="logoutAdmin()">
+<button
+class="logout-btn"
+onclick="logoutAdmin()">
+
 LOGOUT
+
 </button>
 
-<h3 style="color:#ffd700;margin-bottom:10px;">
+
+<h3
+style="color:#ffd700;margin-bottom:10px;">
+
 ADD NEW ACCOUNT
+
 </h3>
 
-<label>Account Name</label>
+
+<!-- ACCOUNT NAME -->
+
+<label>
+Account Name
+</label>
 
 <input
 type="text"
@@ -1069,7 +639,11 @@ id="accountName"
 placeholder="Example: MLBB Collector Account">
 
 
-<label>Price INR</label>
+<!-- INR -->
+
+<label>
+Price INR
+</label>
 
 <input
 type="number"
@@ -1077,7 +651,11 @@ id="accountINR"
 placeholder="18000">
 
 
-<label>Price USD</label>
+<!-- USD -->
+
+<label>
+Price USD
+</label>
 
 <input
 type="number"
@@ -1085,33 +663,75 @@ id="accountUSD"
 placeholder="180">
 
 
-<label>Image URL</label>
+<!-- IMAGE UPLOAD -->
+
+<label>
+Account Photo
+</label>
+
+<div class="upload-box">
+
+<label
+for="accountImageFile"
+class="upload-label">
+
+📷 CHOOSE ACCOUNT PHOTO
+
+</label>
 
 <input
-type="text"
-id="accountImage"
-placeholder="Paste account image URL">
+type="file"
+id="accountImageFile"
+accept="image/*">
+
+<img
+id="imagePreview"
+alt="Account Photo Preview">
+
+<p
+style="color:#888;margin-top:10px;font-size:13px;">
+
+Choose JPG, PNG or WEBP image
+
+</p>
+
+</div>
 
 
-<label>Account Details</label>
+<!-- DETAILS -->
+
+<label>
+Account Details
+</label>
 
 <textarea
 id="accountDetails"
-placeholder="Example: 80+ skins, 10 collectors, rare skins..."></textarea>
+placeholder="Example: 80+ skins, 10 collectors, rare skins...">
+</textarea>
 
 
-<button class="btn" onclick="addAccount()">
+<button
+class="btn"
+onclick="addAccount()">
+
 + ADD ACCOUNT
+
 </button>
 
 
+<!-- MANAGE -->
+
 <div class="admin-list">
 
-<h3 style="color:#ffd700;margin-bottom:15px;">
+<h3
+style="color:#ffd700;margin-bottom:15px;">
+
 MANAGE ACCOUNTS
+
 </h3>
 
-<div id="adminAccountList"></div>
+<div id="adminAccountList">
+</div>
 
 </div>
 
@@ -1120,67 +740,88 @@ MANAGE ACCOUNTS
 </section>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-© 2026 RYDEN INTERNATIONAL — Premium MLBB Account Marketplace
+© 2026 RYDEN INTERNATIONAL
+<br>
+Premium MLBB Account Marketplace
 
 </footer>
 
 
 <script>
 
-/* =========================
-   WHATSAPP NUMBER
-========================= */
+
+/* ==================================================
+   WHATSAPP
+================================================== */
 
 const WHATSAPP = "919233657553";
 
 
-/* =========================
+/* ==================================================
    ADMIN PASSWORD
-========================= */
+================================================== */
 
 const ADMIN_PASSWORD = "RYDEN123";
 
 
-/* =========================
+/* ==================================================
    DEFAULT ACCOUNTS
-========================= */
+================================================== */
 
 const defaultAccounts = [
 
 {
 id:1,
+
 name:"MLBB Collector Account",
+
 inr:"18000",
+
 usd:"180",
-image:"https://via.placeholder.com/800x500/111111/FFD700?text=RYDEN+ACCOUNT",
-details:"Premium MLBB account with Collector skins and rare items."
+
+image:
+"https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT",
+
+details:
+"Premium MLBB account with Collector skins and rare items."
 },
 
 {
 id:2,
+
 name:"MLBB Epic Account",
+
 inr:"10000",
+
 usd:"120",
-image:"https://via.placeholder.com/800x500/111111/FFD700?text=MLBB+ACCOUNT",
-details:"Epic account with multiple skins and valuable heroes."
+
+image:
+"https://placehold.co/800x500/111111/FFD700?text=MLBB+ACCOUNT",
+
+details:
+"Epic account with multiple skins and valuable heroes."
 }
 
 ];
 
 
-/* =========================
+/* ==================================================
    LOAD ACCOUNTS
-========================= */
+================================================== */
 
 let accounts =
-JSON.parse(localStorage.getItem("rydenAccounts")) || defaultAccounts;
+JSON.parse(
+localStorage.getItem("rydenAccounts")
+) || defaultAccounts;
 
 
-/* =========================
+/* ==================================================
    SAVE ACCOUNTS
-========================= */
+================================================== */
 
 function saveAccounts(){
 
@@ -1192,16 +833,161 @@ JSON.stringify(accounts)
 }
 
 
-/* =========================
-   SHOW ACCOUNTS
-========================= */
+/* ==================================================
+   IMAGE UPLOAD
+================================================== */
+
+let uploadedImage = "";
+
+
+document
+.getElementById("accountImageFile")
+.addEventListener(
+"change",
+function(event){
+
+const file =
+event.target.files[0];
+
+if(!file){
+    return;
+}
+
+
+/* CHECK IMAGE */
+
+if(!file.type.startsWith("image/")){
+
+alert("Please select an image file.");
+
+return;
+
+}
+
+
+/* FILE SIZE */
+
+if(file.size > 10 * 1024 * 1024){
+
+alert(
+"Image is too large. Please choose an image under 10MB."
+);
+
+return;
+
+}
+
+
+/* READ IMAGE */
+
+const reader =
+new FileReader();
+
+
+reader.onload = function(e){
+
+const img =
+new Image();
+
+
+img.onload = function(){
+
+/* COMPRESS IMAGE */
+
+const canvas =
+document.createElement("canvas");
+
+const maxWidth = 1200;
+const maxHeight = 1200;
+
+let width = img.width;
+let height = img.height;
+
+
+if(width > maxWidth){
+
+height =
+height * maxWidth / width;
+
+width =
+maxWidth;
+
+}
+
+
+if(height > maxHeight){
+
+width =
+width * maxHeight / height;
+
+height =
+maxHeight;
+
+}
+
+
+canvas.width = width;
+canvas.height = height;
+
+
+const ctx =
+canvas.getContext("2d");
+
+
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
+
+
+/* CREATE COMPRESSED IMAGE */
+
+uploadedImage =
+canvas.toDataURL(
+"image/jpeg",
+0.75
+);
+
+
+/* PREVIEW */
+
+const preview =
+document.getElementById("imagePreview");
+
+preview.src =
+uploadedImage;
+
+preview.style.display =
+"block";
+
+};
+
+
+img.src =
+e.target.result;
+
+};
+
+
+reader.readAsDataURL(file);
+
+});
+
+
+/* ==================================================
+   DISPLAY ACCOUNTS
+================================================== */
 
 function displayAccounts(){
 
 const list =
 document.getElementById("accountList");
 
-list.innerHTML="";
+list.innerHTML = "";
+
 
 if(accounts.length === 0){
 
@@ -1212,32 +998,44 @@ return;
 
 }
 
+
 accounts.forEach(account => {
 
-const card = document.createElement("div");
+const card =
+document.createElement("div");
 
-card.className="card";
+card.className =
+"card";
+
 
 card.innerHTML = `
 
 <img
 src="${account.image}"
 alt="${account.name}"
-onerror="this.src='https://via.placeholder.com/800x500/111111/FFD700?text=RYDEN+INTERNATIONAL'"
+onerror="this.src='https://placehold.co/800x500/111111/FFD700?text=RYDEN+INTERNATIONAL'"
 >
 
 <div class="card-content">
 
-<h3>${account.name}</h3>
+<h3>
+${account.name}
+</h3>
 
 <div class="price">
+
 ₹${Number(account.inr).toLocaleString("en-IN")}
+
 &nbsp; | &nbsp;
+
 $${account.usd}
+
 </div>
 
 <div class="details">
+
 ${account.details}
+
 </div>
 
 <a
@@ -1260,6 +1058,7 @@ BUY NOW
 
 `;
 
+
 list.appendChild(card);
 
 });
@@ -1267,28 +1066,46 @@ list.appendChild(card);
 }
 
 
-/* =========================
+/* ==================================================
    ADMIN LOGIN
-========================= */
+================================================== */
 
 function loginAdmin(){
 
 const password =
-document.getElementById("adminPassword").value;
+document
+.getElementById("adminPassword")
+.value;
+
 
 if(password === ADMIN_PASSWORD){
 
-document.getElementById("adminLogin").style.display="none";
+document
+.getElementById("adminLogin")
+.style.display = "none";
 
-document.getElementById("adminPanel").style.display="block";
 
-document.getElementById("loginMessage").innerText="";
+document
+.getElementById("adminPanel")
+.style.display = "block";
+
+
+document
+.getElementById("loginMessage")
+.innerText = "";
+
 
 loadAdminAccounts();
 
+
+window.location.hash =
+"admin";
+
 }else{
 
-document.getElementById("loginMessage").innerText =
+document
+.getElementById("loginMessage")
+.innerText =
 "Wrong password.";
 
 }
@@ -1296,51 +1113,87 @@ document.getElementById("loginMessage").innerText =
 }
 
 
-/* =========================
+/* ==================================================
    LOGOUT
-========================= */
+================================================== */
 
 function logoutAdmin(){
 
-document.getElementById("adminPanel").style.display="none";
+document
+.getElementById("adminPanel")
+.style.display = "none";
 
-document.getElementById("adminLogin").style.display="block";
 
-document.getElementById("adminPassword").value="";
+document
+.getElementById("adminLogin")
+.style.display = "block";
+
+
+document
+.getElementById("adminPassword")
+.value = "";
+
+
+window.location.hash = "";
 
 }
 
 
-/* =========================
+/* ==================================================
    ADD ACCOUNT
-========================= */
+================================================== */
 
 function addAccount(){
 
 const name =
-document.getElementById("accountName").value.trim();
+document
+.getElementById("accountName")
+.value
+.trim();
+
 
 const inr =
-document.getElementById("accountINR").value.trim();
+document
+.getElementById("accountINR")
+.value
+.trim();
+
 
 const usd =
-document.getElementById("accountUSD").value.trim();
+document
+.getElementById("accountUSD")
+.value
+.trim();
 
-const image =
-document.getElementById("accountImage").value.trim();
 
 const details =
-document.getElementById("accountDetails").value.trim();
+document
+.getElementById("accountDetails")
+.value
+.trim();
 
+
+/* VALIDATION */
 
 if(!name || !inr || !usd || !details){
 
-alert("Please fill Account Name, INR, USD and Details.");
+alert(
+"Please fill Account Name, INR, USD and Details."
+);
 
 return;
 
 }
 
+
+/* IMAGE */
+
+const image =
+uploadedImage ||
+"https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT";
+
+
+/* CREATE ACCOUNT */
 
 const newAccount = {
 
@@ -1352,45 +1205,91 @@ inr:inr,
 
 usd:usd,
 
-image:image ||
-"https://via.placeholder.com/800x500/111111/FFD700?text=RYDEN+ACCOUNT",
+image:image,
 
 details:details
 
 };
 
 
+/* ADD */
+
 accounts.push(newAccount);
 
+
+/* SAVE */
+
 saveAccounts();
+
+
+/* REFRESH */
 
 displayAccounts();
 
 loadAdminAccounts();
 
 
-document.getElementById("accountName").value="";
-document.getElementById("accountINR").value="";
-document.getElementById("accountUSD").value="";
-document.getElementById("accountImage").value="";
-document.getElementById("accountDetails").value="";
+/* CLEAR */
+
+document
+.getElementById("accountName")
+.value = "";
 
 
-alert("Account added successfully!");
+document
+.getElementById("accountINR")
+.value = "";
+
+
+document
+.getElementById("accountUSD")
+.value = "";
+
+
+document
+.getElementById("accountDetails")
+.value = "";
+
+
+/* CLEAR IMAGE */
+
+document
+.getElementById("accountImageFile")
+.value = "";
+
+
+uploadedImage = "";
+
+
+document
+.getElementById("imagePreview")
+.src = "";
+
+
+document
+.getElementById("imagePreview")
+.style.display = "none";
+
+
+alert(
+"Account added successfully!"
+);
 
 }
 
 
-/* =========================
+/* ==================================================
    ADMIN ACCOUNT LIST
-========================= */
+================================================== */
 
 function loadAdminAccounts(){
 
 const list =
-document.getElementById("adminAccountList");
+document
+.getElementById("adminAccountList");
 
-list.innerHTML="";
+
+list.innerHTML = "";
 
 
 if(accounts.length === 0){
@@ -1408,26 +1307,39 @@ accounts.forEach(account => {
 const item =
 document.createElement("div");
 
-item.className="admin-item";
+item.className =
+"admin-item";
 
 
 item.innerHTML = `
 
 <div>
 
-<strong style="color:#ffd700;">
+<img
+src="${account.image}"
+alt="Account">
+
+<strong
+style="color:#ffd700;">
+
 ${account.name}
+
 </strong>
 
 <br>
 
 <span style="color:#aaa;">
+
 ₹${Number(account.inr).toLocaleString("en-IN")}
+
 |
+
 $${account.usd}
+
 </span>
 
 </div>
+
 
 <button
 class="delete-btn"
@@ -1439,6 +1351,7 @@ DELETE
 
 `;
 
+
 list.appendChild(item);
 
 });
@@ -1446,20 +1359,28 @@ list.appendChild(item);
 }
 
 
-/* =========================
+/* ==================================================
    DELETE ACCOUNT
-========================= */
+================================================== */
 
 function deleteAccount(id){
 
 const confirmDelete =
-confirm("Are you sure you want to delete this account?");
+confirm(
+"Are you sure you want to delete this account?"
+);
 
-if(!confirmDelete) return;
+
+if(!confirmDelete){
+    return;
+}
 
 
 accounts =
-accounts.filter(account => account.id !== id);
+accounts.filter(
+account => account.id !== id
+);
+
 
 saveAccounts();
 
@@ -1470,19 +1391,26 @@ loadAdminAccounts();
 }
 
 
-/* =========================
+/* ==================================================
    ADMIN HASH
-========================= */
+================================================== */
 
 function checkAdminHash(){
 
-if(window.location.hash === "#admin"){
+if(
+window.location.hash === "#admin"
+){
 
-document.getElementById("adminLogin").style.display="block";
+document
+.getElementById("adminLogin")
+.style.display = "block";
+
 
 window.scrollTo(
 0,
-document.getElementById("adminLogin").offsetTop
+document
+.getElementById("adminLogin")
+.offsetTop
 );
 
 }
@@ -1490,13 +1418,14 @@ document.getElementById("adminLogin").offsetTop
 }
 
 
-/* =========================
-   START
-========================= */
+/* ==================================================
+   START WEBSITE
+================================================== */
 
 displayAccounts();
 
 checkAdminHash();
+
 
 </script>
 
