@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RYDEN INTERNATIONAL | MLBB Account Marketplace</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -16,16 +14,12 @@
     font-family:Arial,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     background:#050505;
     color:white;
 }
-
-/* ================= HEADER ================= */
 
 header{
     position:sticky;
@@ -54,11 +48,7 @@ nav a{
     font-size:14px;
 }
 
-nav a:hover{
-    color:#ffd700;
-}
-
-/* ================= HERO ================= */
+nav a:hover{color:#ffd700;}
 
 .hero{
     min-height:480px;
@@ -68,14 +58,8 @@ nav a:hover{
     align-items:center;
     text-align:center;
     padding:60px 20px;
-
     background:
-    radial-gradient(
-        circle at center,
-        #292000 0%,
-        #0a0905 35%,
-        #050505 70%
-    );
+    radial-gradient(circle at center,#292000 0%,#0a0905 35%,#050505 70%);
 }
 
 .hero h1{
@@ -90,8 +74,6 @@ nav a:hover{
     font-size:17px;
     margin-bottom:30px;
 }
-
-/* ================= BUTTON ================= */
 
 .btn{
     display:inline-block;
@@ -111,11 +93,7 @@ nav a:hover{
     transform:translateY(-2px);
 }
 
-/* ================= SECTIONS ================= */
-
-section{
-    padding:70px 6%;
-}
+section{padding:70px 6%;}
 
 .section-title{
     text-align:center;
@@ -124,26 +102,18 @@ section{
     margin-bottom:40px;
 }
 
-/* ================= ACCOUNTS ================= */
-
 .accounts{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
 
 .card{
-    background:
-    linear-gradient(145deg,#161616,#0b0b0b);
-
+    background:linear-gradient(145deg,#161616,#0b0b0b);
     border:1px solid #292929;
     border-radius:14px;
     overflow:hidden;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.5);
-
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
     transition:.3s;
 }
 
@@ -160,9 +130,7 @@ section{
     display:block;
 }
 
-.card-content{
-    padding:22px;
-}
+.card-content{padding:22px;}
 
 .card h3{
     color:#ffd700;
@@ -195,16 +163,12 @@ section{
     grid-column:1/-1;
 }
 
-/* ================= INFO BOX ================= */
-
 .info-box{
     max-width:700px;
     margin:auto;
-
     background:#101010;
     border:1px solid #292929;
     border-radius:14px;
-
     padding:35px;
     text-align:center;
 }
@@ -219,16 +183,12 @@ section{
     line-height:1.7;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
     border-top:1px solid #222;
     padding:30px;
     text-align:center;
     color:#777;
 }
-
-/* ================= ADMIN ================= */
 
 .admin-login,
 .admin-panel{
@@ -238,11 +198,9 @@ footer{
 .admin-box{
     max-width:750px;
     margin:auto;
-
     background:#101010;
     border:1px solid #333;
     border-radius:15px;
-
     padding:30px;
 }
 
@@ -251,24 +209,18 @@ footer{
     margin-bottom:20px;
 }
 
-input,
-textarea{
+input,textarea{
     width:100%;
-
     background:#080808;
     color:white;
-
     border:1px solid #333;
     border-radius:7px;
-
     padding:13px;
     margin:8px 0 15px;
-
     outline:none;
 }
 
-input:focus,
-textarea:focus{
+input:focus,textarea:focus{
     border-color:#ffd700;
 }
 
@@ -277,7 +229,47 @@ textarea{
     resize:vertical;
 }
 
-/* ================= IMAGE UPLOAD ================= */
+.delete-btn{
+    background:#b00020;
+    color:white;
+    border:none;
+    padding:9px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.logout-btn{
+    background:#333;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.admin-list{margin-top:30px;}
+
+.admin-item{
+    background:#181818;
+    border:1px solid #292929;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.admin-item img{
+    width:80px;
+    height:60px;
+    object-fit:cover;
+    border-radius:5px;
+    margin-right:12px;
+    vertical-align:middle;
+}
 
 .upload-box{
     border:1px dashed #555;
@@ -288,193 +280,82 @@ textarea{
     background:#080808;
 }
 
-.upload-box:hover{
-    border-color:#ffd700;
-}
-
 .upload-label{
     display:inline-block;
     padding:12px 20px;
-
     background:#ffd700;
     color:#000;
-
     border-radius:6px;
     font-weight:bold;
-
     cursor:pointer;
 }
 
-#accountImageFile{
-    display:none;
-}
+#accountImageFile{display:none;}
 
 #imagePreview{
     display:none;
-
     width:100%;
     max-height:300px;
-
     object-fit:contain;
-
     margin-top:15px;
-
     border-radius:8px;
     border:1px solid #333;
 }
 
-/* ================= ADMIN BUTTONS ================= */
-
-.delete-btn{
-    background:#b00020;
-    color:white;
-
-    border:none;
-
-    padding:9px 15px;
-
-    border-radius:5px;
-
-    cursor:pointer;
-}
-
-.logout-btn{
-    background:#333;
-    color:white;
-
-    border:none;
-
-    padding:10px 18px;
-
-    border-radius:5px;
-
-    cursor:pointer;
-
+.status{
+    text-align:center;
+    color:#999;
     margin-bottom:20px;
 }
 
-.admin-list{
-    margin-top:30px;
-}
-
-.admin-item{
-    background:#181818;
-
-    border:1px solid #292929;
-
-    padding:15px;
-
-    margin-bottom:10px;
-
-    border-radius:8px;
-
-    display:flex;
-
-    justify-content:space-between;
-    align-items:center;
-
-    gap:15px;
-}
-
-.admin-item img{
-    width:80px;
-    height:60px;
-
-    object-fit:cover;
-
-    border-radius:5px;
-
-    margin-right:12px;
-
-    vertical-align:middle;
-}
-
-/* ================= MOBILE ================= */
-
 @media(max-width:700px){
+    header{padding:15px 4%;}
 
-    header{
-        padding:15px 4%;
-    }
-
-    .logo{
-        font-size:17px;
-    }
+    .logo{font-size:17px;}
 
     nav a{
         margin-left:8px;
         font-size:11px;
     }
 
-    .hero h1{
-        font-size:35px;
-    }
+    .hero h1{font-size:35px;}
 
-    section{
-        padding:50px 5%;
-    }
+    section{padding:50px 5%;}
 
     .admin-item{
         flex-direction:column;
         align-items:flex-start;
     }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
 <header>
-
-<div class="logo">
-RYDEN INTERNATIONAL
-</div>
+<div class="logo">RYDEN INTERNATIONAL</div>
 
 <nav>
-
 <a href="#home">HOME</a>
-
 <a href="#accounts">ACCOUNTS</a>
-
 <a href="#sell">SELL</a>
-
 <a href="#contact">CONTACT</a>
-
 </nav>
-
 </header>
 
 
-<!-- ================= HOME ================= -->
-
 <section class="hero" id="home">
 
-<h1>
-RYDEN INTERNATIONAL
-</h1>
+<h1>RYDEN INTERNATIONAL</h1>
 
-<p>
-Premium MLBB Account Marketplace
-</p>
+<p>Premium MLBB Account Marketplace</p>
 
-<a
-href="#accounts"
-class="btn">
-
+<a href="#accounts" class="btn">
 BROWSE ACCOUNTS
-
 </a>
 
 </section>
 
-
-<!-- ================= ACCOUNTS ================= -->
 
 <section id="accounts">
 
@@ -482,15 +363,14 @@ BROWSE ACCOUNTS
 AVAILABLE ACCOUNTS
 </h2>
 
-<div
-class="accounts"
-id="accountList">
-</div>
+<p id="loadingMessage" class="status">
+Loading accounts...
+</p>
+
+<div class="accounts" id="accountList"></div>
 
 </section>
 
-
-<!-- ================= SELL ================= -->
 
 <section id="sell">
 
@@ -500,15 +380,11 @@ SELL YOUR MLBB ACCOUNT
 
 <div class="info-box">
 
-<h3>
-Want to Sell Your Account?
-</h3>
+<h3>Want to Sell Your Account?</h3>
 
 <p>
-Send your MLBB account details,
-screenshots and expected price
-to our WhatsApp.
-Our team will review your account.
+Send your MLBB account details, screenshots and expected price
+to our WhatsApp. Our team will review your account.
 </p>
 
 <br>
@@ -523,11 +399,8 @@ SELL ON WHATSAPP
 </a>
 
 </div>
-
 </section>
 
-
-<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
@@ -537,14 +410,11 @@ CONTACT
 
 <div class="info-box">
 
-<h3>
-RYDEN INTERNATIONAL
-</h3>
+<h3>RYDEN INTERNATIONAL</h3>
 
 <p>
-For buying accounts, selling accounts
-or any enquiry, contact us directly
-on WhatsApp.
+For buying accounts, selling accounts or any enquiry,
+contact us directly on WhatsApp.
 </p>
 
 <br>
@@ -559,79 +429,47 @@ CONTACT US
 </a>
 
 </div>
-
 </section>
 
 
-<!-- ================= ADMIN LOGIN ================= -->
-
-<section
-id="adminLogin"
-class="admin-login">
+<section id="adminLogin" class="admin-login">
 
 <div class="admin-box">
 
-<h2>
-ADMIN LOGIN
-</h2>
+<h2>ADMIN LOGIN</h2>
 
 <input
 type="password"
 id="adminPassword"
 placeholder="Enter admin password">
 
-<button
-class="btn"
-onclick="loginAdmin()">
-
+<button class="btn" onclick="loginAdmin()">
 LOGIN
-
 </button>
 
-<p
-id="loginMessage"
+<p id="loginMessage"
 style="color:#ff5555;margin-top:15px;">
 </p>
 
 </div>
-
 </section>
 
 
-<!-- ================= ADMIN PANEL ================= -->
-
-<section
-id="adminPanel"
-class="admin-panel">
+<section id="adminPanel" class="admin-panel">
 
 <div class="admin-box">
 
-<h2>
-RYDEN ADMIN PANEL
-</h2>
+<h2>RYDEN ADMIN PANEL</h2>
 
-<button
-class="logout-btn"
-onclick="logoutAdmin()">
-
+<button class="logout-btn" onclick="logoutAdmin()">
 LOGOUT
-
 </button>
 
-
-<h3
-style="color:#ffd700;margin-bottom:10px;">
-
+<h3 style="color:#ffd700;margin-bottom:10px;">
 ADD NEW ACCOUNT
-
 </h3>
 
-
-<!-- ACCOUNT NAME -->
-
-<label>
-Account Name
-</label>
+<label>Account Name</label>
 
 <input
 type="text"
@@ -639,11 +477,7 @@ id="accountName"
 placeholder="Example: MLBB Collector Account">
 
 
-<!-- INR -->
-
-<label>
-Price INR
-</label>
+<label>Price INR</label>
 
 <input
 type="number"
@@ -651,11 +485,7 @@ id="accountINR"
 placeholder="18000">
 
 
-<!-- USD -->
-
-<label>
-Price USD
-</label>
+<label>Price USD</label>
 
 <input
 type="number"
@@ -663,11 +493,7 @@ id="accountUSD"
 placeholder="180">
 
 
-<!-- IMAGE UPLOAD -->
-
-<label>
-Account Photo
-</label>
+<label>Account Photo</label>
 
 <div class="upload-box">
 
@@ -688,21 +514,14 @@ accept="image/*">
 id="imagePreview"
 alt="Account Photo Preview">
 
-<p
-style="color:#888;margin-top:10px;font-size:13px;">
-
+<p style="color:#888;margin-top:10px;font-size:13px;">
 Choose JPG, PNG or WEBP image
-
 </p>
 
 </div>
 
 
-<!-- DETAILS -->
-
-<label>
-Account Details
-</label>
+<label>Account Details</label>
 
 <textarea
 id="accountDetails"
@@ -710,724 +529,649 @@ placeholder="Example: 80+ skins, 10 collectors, rare skins...">
 </textarea>
 
 
-<button
-class="btn"
-onclick="addAccount()">
-
+<button class="btn" onclick="addAccount()">
 + ADD ACCOUNT
-
 </button>
 
 
-<!-- MANAGE -->
-
 <div class="admin-list">
 
-<h3
-style="color:#ffd700;margin-bottom:15px;">
-
+<h3 style="color:#ffd700;margin-bottom:15px;">
 MANAGE ACCOUNTS
-
 </h3>
 
-<div id="adminAccountList">
-</div>
+<div id="adminAccountList"></div>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
-
 © 2026 RYDEN INTERNATIONAL
 <br>
 Premium MLBB Account Marketplace
-
 </footer>
 
 
-<script>
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
 
+<script type="module">
 
-/* ==================================================
-   WHATSAPP
-================================================== */
+/*
+==========================================================
+IMPORTANT
 
-const WHATSAPP = "919233657553";
+BEFORE USING FIRESTORE:
 
+Replace the Firebase configuration below with YOUR
+Firebase Web App configuration.
 
-/* ==================================================
-   ADMIN PASSWORD
-================================================== */
+Firebase Console:
+Project Settings
+→ Your apps
+→ Web app
+→ SDK setup and configuration
+→ Config
+==========================================================
+*/
 
-const ADMIN_PASSWORD = "RYDEN123";
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-
-/* ==================================================
-   DEFAULT ACCOUNTS
-================================================== */
-
-const defaultAccounts = [
-
-{
-id:1,
-
-name:"MLBB Collector Account",
-
-inr:"18000",
-
-usd:"180",
-
-image:
-"https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT",
-
-details:
-"Premium MLBB account with Collector skins and rare items."
-},
-
-{
-id:2,
-
-name:"MLBB Epic Account",
-
-inr:"10000",
-
-usd:"120",
-
-image:
-"https://placehold.co/800x500/111111/FFD700?text=MLBB+ACCOUNT",
-
-details:
-"Epic account with multiple skins and valuable heroes."
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    doc,
+    query,
+    orderBy
 }
-
-];
-
-
-/* ==================================================
-   LOAD ACCOUNTS
-================================================== */
-
-let accounts =
-JSON.parse(
-localStorage.getItem("rydenAccounts")
-) || defaultAccounts;
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ==================================================
-   SAVE ACCOUNTS
-================================================== */
+/* ======================================================
+   FIREBASE CONFIG
+====================================================== */
 
-function saveAccounts(){
+const firebaseConfig = {
 
-localStorage.setItem(
-"rydenAccounts",
-JSON.stringify(accounts)
-);
+    apiKey: "PASTE_YOUR_API_KEY",
 
-}
+    authDomain: "PASTE_YOUR_AUTH_DOMAIN",
+
+    projectId: "PASTE_YOUR_PROJECT_ID",
+
+    storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
+
+    messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
+
+    appId: "PASTE_YOUR_APP_ID"
+
+};
 
 
-/* ==================================================
-   IMAGE UPLOAD
-================================================== */
+/* ======================================================
+   FIREBASE START
+====================================================== */
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+
+/* ======================================================
+   SETTINGS
+====================================================== */
+
+const WHATSAPP =
+"919233657553";
+
+
+const ADMIN_PASSWORD =
+"RYDEN123";
+
+
+/* ======================================================
+   COLLECTION
+====================================================== */
+
+const accountsCollection =
+collection(db,"accounts");
+
+
+/* ======================================================
+   IMAGE
+====================================================== */
 
 let uploadedImage = "";
 
 
 document
 .getElementById("accountImageFile")
-.addEventListener(
-"change",
-function(event){
+.addEventListener("change",function(event){
 
-const file =
-event.target.files[0];
+    const file =
+    event.target.files[0];
 
-if(!file){
-    return;
-}
+    if(!file){
+        return;
+    }
 
+    if(!file.type.startsWith("image/")){
 
-/* CHECK IMAGE */
+        alert("Please select an image file.");
 
-if(!file.type.startsWith("image/")){
+        return;
+    }
 
-alert("Please select an image file.");
+    if(file.size > 10 * 1024 * 1024){
 
-return;
+        alert(
+        "Image is too large. Please choose an image under 10MB."
+        );
 
-}
+        return;
+    }
 
+    const reader =
+    new FileReader();
 
-/* FILE SIZE */
+    reader.onload =
+    function(e){
 
-if(file.size > 10 * 1024 * 1024){
+        const img =
+        new Image();
 
-alert(
-"Image is too large. Please choose an image under 10MB."
-);
+        img.onload =
+        function(){
 
-return;
+            const canvas =
+            document.createElement("canvas");
 
-}
+            const maxWidth = 1200;
+            const maxHeight = 1200;
 
+            let width = img.width;
+            let height = img.height;
 
-/* READ IMAGE */
+            if(width > maxWidth){
 
-const reader =
-new FileReader();
+                height =
+                height * maxWidth / width;
 
+                width =
+                maxWidth;
+            }
 
-reader.onload = function(e){
+            if(height > maxHeight){
 
-const img =
-new Image();
+                width =
+                width * maxHeight / height;
 
+                height =
+                maxHeight;
+            }
 
-img.onload = function(){
+            canvas.width = width;
+            canvas.height = height;
 
-/* COMPRESS IMAGE */
+            const ctx =
+            canvas.getContext("2d");
 
-const canvas =
-document.createElement("canvas");
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+            );
 
-const maxWidth = 1200;
-const maxHeight = 1200;
+            uploadedImage =
+            canvas.toDataURL(
+                "image/jpeg",
+                0.70
+            );
 
-let width = img.width;
-let height = img.height;
+            const preview =
+            document.getElementById(
+                "imagePreview"
+            );
 
+            preview.src =
+            uploadedImage;
 
-if(width > maxWidth){
+            preview.style.display =
+            "block";
+        };
 
-height =
-height * maxWidth / width;
+        img.src =
+        e.target.result;
+    };
 
-width =
-maxWidth;
-
-}
-
-
-if(height > maxHeight){
-
-width =
-width * maxHeight / height;
-
-height =
-maxHeight;
-
-}
-
-
-canvas.width = width;
-canvas.height = height;
-
-
-const ctx =
-canvas.getContext("2d");
-
-
-ctx.drawImage(
-img,
-0,
-0,
-width,
-height
-);
-
-
-/* CREATE COMPRESSED IMAGE */
-
-uploadedImage =
-canvas.toDataURL(
-"image/jpeg",
-0.75
-);
-
-
-/* PREVIEW */
-
-const preview =
-document.getElementById("imagePreview");
-
-preview.src =
-uploadedImage;
-
-preview.style.display =
-"block";
-
-};
-
-
-img.src =
-e.target.result;
-
-};
-
-
-reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
 
 });
 
 
-/* ==================================================
-   DISPLAY ACCOUNTS
-================================================== */
+/* ======================================================
+   LOAD ACCOUNTS FROM FIRESTORE
+====================================================== */
 
-function displayAccounts(){
+async function loadAccounts(){
 
-const list =
-document.getElementById("accountList");
+    const list =
+    document.getElementById(
+        "accountList"
+    );
 
-list.innerHTML = "";
+    const loading =
+    document.getElementById(
+        "loadingMessage"
+    );
 
+    try{
 
-if(accounts.length === 0){
+        list.innerHTML = "";
 
-list.innerHTML =
-'<div class="empty">No accounts available right now.</div>';
+        loading.innerText =
+        "Loading accounts...";
 
-return;
+        const snapshot =
+        await getDocs(
+            accountsCollection
+        );
 
+        if(snapshot.empty){
+
+            loading.innerText =
+            "No accounts available right now.";
+
+            return;
+        }
+
+        loading.innerText = "";
+
+        snapshot.forEach(
+            function(accountDoc){
+
+                const account =
+                accountDoc.data();
+
+                displayAccount(
+                    accountDoc.id,
+                    account
+                );
+            }
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        loading.innerText =
+        "Unable to load accounts.";
+
+    }
 }
 
 
-accounts.forEach(account => {
-
-const card =
-document.createElement("div");
-
-card.className =
-"card";
-
-
-card.innerHTML = `
-
-<img
-src="${account.image}"
-alt="${account.name}"
-onerror="this.src='https://placehold.co/800x500/111111/FFD700?text=RYDEN+INTERNATIONAL'"
->
-
-<div class="card-content">
-
-<h3>
-${account.name}
-</h3>
-
-<div class="price">
-
-₹${Number(account.inr).toLocaleString("en-IN")}
-
-&nbsp; | &nbsp;
-
-$${account.usd}
-
-</div>
-
-<div class="details">
-
-${account.details}
-
-</div>
-
-<a
-class="btn buy"
-href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-"Hello RYDEN INTERNATIONAL, I want to buy: " +
-account.name +
-" | ₹" +
-account.inr +
-" | $" +
-account.usd
-)}"
-target="_blank">
-
-BUY NOW
-
-</a>
-
-</div>
-
-`;
-
-
-list.appendChild(card);
-
-});
-
-}
-
-
-/* ==================================================
-   ADMIN LOGIN
-================================================== */
-
-function loginAdmin(){
-
-const password =
-document
-.getElementById("adminPassword")
-.value;
-
-
-if(password === ADMIN_PASSWORD){
-
-document
-.getElementById("adminLogin")
-.style.display = "none";
-
-
-document
-.getElementById("adminPanel")
-.style.display = "block";
-
-
-document
-.getElementById("loginMessage")
-.innerText = "";
-
-
-loadAdminAccounts();
-
-
-window.location.hash =
-"admin";
-
-}else{
-
-document
-.getElementById("loginMessage")
-.innerText =
-"Wrong password.";
-
-}
-
-}
-
-
-/* ==================================================
-   LOGOUT
-================================================== */
-
-function logoutAdmin(){
-
-document
-.getElementById("adminPanel")
-.style.display = "none";
-
-
-document
-.getElementById("adminLogin")
-.style.display = "block";
-
-
-document
-.getElementById("adminPassword")
-.value = "";
-
-
-window.location.hash = "";
-
-}
-
-
-/* ==================================================
-   ADD ACCOUNT
-================================================== */
-
-function addAccount(){
-
-const name =
-document
-.getElementById("accountName")
-.value
-.trim();
-
-
-const inr =
-document
-.getElementById("accountINR")
-.value
-.trim();
-
-
-const usd =
-document
-.getElementById("accountUSD")
-.value
-.trim();
-
-
-const details =
-document
-.getElementById("accountDetails")
-.value
-.trim();
-
-
-/* VALIDATION */
-
-if(!name || !inr || !usd || !details){
-
-alert(
-"Please fill Account Name, INR, USD and Details."
-);
-
-return;
-
-}
-
-
-/* IMAGE */
-
-const image =
-uploadedImage ||
-"https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT";
-
-
-/* CREATE ACCOUNT */
-
-const newAccount = {
-
-id:Date.now(),
-
-name:name,
-
-inr:inr,
-
-usd:usd,
-
-image:image,
-
-details:details
-
-};
-
-
-/* ADD */
-
-accounts.push(newAccount);
-
-
-/* SAVE */
-
-saveAccounts();
-
-
-/* REFRESH */
-
-displayAccounts();
-
-loadAdminAccounts();
-
-
-/* CLEAR */
-
-document
-.getElementById("accountName")
-.value = "";
-
-
-document
-.getElementById("accountINR")
-.value = "";
-
-
-document
-.getElementById("accountUSD")
-.value = "";
-
-
-document
-.getElementById("accountDetails")
-.value = "";
-
-
-/* CLEAR IMAGE */
-
-document
-.getElementById("accountImageFile")
-.value = "";
-
-
-uploadedImage = "";
-
-
-document
-.getElementById("imagePreview")
-.src = "";
-
-
-document
-.getElementById("imagePreview")
-.style.display = "none";
-
-
-alert(
-"Account added successfully!"
-);
-
-}
-
-
-/* ==================================================
-   ADMIN ACCOUNT LIST
-================================================== */
-
-function loadAdminAccounts(){
-
-const list =
-document
-.getElementById("adminAccountList");
-
-
-list.innerHTML = "";
-
-
-if(accounts.length === 0){
-
-list.innerHTML =
-"<p style='color:#999;'>No accounts.</p>";
-
-return;
-
-}
-
-
-accounts.forEach(account => {
-
-const item =
-document.createElement("div");
-
-item.className =
-"admin-item";
-
-
-item.innerHTML = `
-
-<div>
-
-<img
-src="${account.image}"
-alt="Account">
-
-<strong
-style="color:#ffd700;">
-
-${account.name}
-
-</strong>
-
-<br>
-
-<span style="color:#aaa;">
-
-₹${Number(account.inr).toLocaleString("en-IN")}
-
-|
-
-$${account.usd}
-
-</span>
-
-</div>
-
-
-<button
-class="delete-btn"
-onclick="deleteAccount(${account.id})">
-
-DELETE
-
-</button>
-
-`;
-
-
-list.appendChild(item);
-
-});
-
-}
-
-
-/* ==================================================
-   DELETE ACCOUNT
-================================================== */
-
-function deleteAccount(id){
-
-const confirmDelete =
-confirm(
-"Are you sure you want to delete this account?"
-);
-
-
-if(!confirmDelete){
-    return;
-}
-
-
-accounts =
-accounts.filter(
-account => account.id !== id
-);
-
-
-saveAccounts();
-
-displayAccounts();
-
-loadAdminAccounts();
-
-}
-
-
-/* ==================================================
-   ADMIN HASH
-================================================== */
-
-function checkAdminHash(){
-
-if(
-window.location.hash === "#admin"
+/* ======================================================
+   DISPLAY ACCOUNT
+====================================================== */
+
+function displayAccount(
+    id,
+    account
 ){
 
-document
-.getElementById("adminLogin")
-.style.display = "block";
+    const list =
+    document.getElementById(
+        "accountList"
+    );
 
+    const card =
+    document.createElement("div");
 
-window.scrollTo(
-0,
-document
-.getElementById("adminLogin")
-.offsetTop
-);
+    card.className =
+    "card";
 
+    const safeImage =
+    account.image ||
+    "https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT";
+
+    card.innerHTML = `
+
+        <img
+        src="${safeImage}"
+        alt="${account.name || "MLBB Account"}"
+        onerror="this.src='https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT'">
+
+        <div class="card-content">
+
+            <h3>
+            ${escapeHTML(account.name || "MLBB Account")}
+            </h3>
+
+            <div class="price">
+
+            ₹${Number(account.inr || 0).toLocaleString("en-IN")}
+
+            &nbsp; | &nbsp;
+
+            $${escapeHTML(String(account.usd || "0"))}
+
+            </div>
+
+            <div class="details">
+
+            ${escapeHTML(account.details || "")}
+
+            </div>
+
+            <a
+            class="btn buy"
+            href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+                "Hello RYDEN INTERNATIONAL, I want to buy: " +
+                (account.name || "MLBB Account") +
+                " | ₹" +
+                (account.inr || "") +
+                " | $" +
+                (account.usd || "")
+            )}"
+            target="_blank">
+
+            BUY NOW
+
+            </a>
+
+        </div>
+    `;
+
+    list.appendChild(card);
 }
 
+
+/* ======================================================
+   ESCAPE HTML
+====================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
 
 
-/* ==================================================
-   START WEBSITE
-================================================== */
+/* ======================================================
+   ADMIN LOGIN
+====================================================== */
 
-displayAccounts();
+window.loginAdmin =
+function(){
 
-checkAdminHash();
+    const password =
+    document
+    .getElementById("adminPassword")
+    .value;
+
+    if(password === ADMIN_PASSWORD){
+
+        document
+        .getElementById("adminLogin")
+        .style.display =
+        "none";
+
+        document
+        .getElementById("adminPanel")
+        .style.display =
+        "block";
+
+        document
+        .getElementById("loginMessage")
+        .innerText = "";
+
+        loadAdminAccounts();
+
+        window.location.hash =
+        "admin";
+
+    }else{
+
+        document
+        .getElementById("loginMessage")
+        .innerText =
+        "Wrong password.";
+
+    }
+};
 
 
-</script>
+/* ======================================================
+   LOGOUT
+====================================================== */
 
-</body>
-</html>
+window.logoutAdmin =
+function(){
+
+    document
+    .getElementById("adminPanel")
+    .style.display =
+    "none";
+
+    document
+    .getElementById("adminLogin")
+    .style.display =
+    "block";
+
+    document
+    .getElementById("adminPassword")
+    .value = "";
+
+    window.location.hash = "";
+
+};
+
+
+/* ======================================================
+   ADD ACCOUNT
+====================================================== */
+
+window.addAccount =
+async function(){
+
+    const name =
+    document
+    .getElementById("accountName")
+    .value
+    .trim();
+
+    const inr =
+    document
+    .getElementById("accountINR")
+    .value
+    .trim();
+
+    const usd =
+    document
+    .getElementById("accountUSD")
+    .value
+    .trim();
+
+    const details =
+    document
+    .getElementById("accountDetails")
+    .value
+    .trim();
+
+    if(!name || !inr || !usd || !details){
+
+        alert(
+        "Please fill Account Name, INR, USD and Details."
+        );
+
+        return;
+    }
+
+    const image =
+    uploadedImage ||
+    "https://placehold.co/800x500/111111/FFD700?text=RYDEN+ACCOUNT";
+
+    try{
+
+        await addDoc(
+            accountsCollection,
+            {
+                name:name,
+                inr:inr,
+                usd:usd,
+                image:image,
+                details:details,
+                createdAt:Date.now()
+            }
+        );
+
+        alert(
+        "Account added successfully!"
+        );
+
+        clearForm();
+
+        loadAccounts();
+
+        loadAdminAccounts();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+        "Could not add account. Check Firebase configuration and Firestore Rules."
+        );
+
+    }
+};
+
+
+/* ======================================================
+   CLEAR FORM
+====================================================== */
+
+function clearForm(){
+
+    document
+    .getElementById("accountName")
+    .value = "";
+
+    document
+    .getElementById("accountINR")
+    .value = "";
+
+    document
+    .getElementById("accountUSD")
+    .value = "";
+
+    document
+    .getElementById("accountDetails")
+    .value = "";
+
+    document
+    .getElementById("accountImageFile")
+    .value = "";
+
+    document
+    .getElementById("imagePreview")
+    .src = "";
+
+    document
+    .getElementById("imagePreview")
+    .style.display =
+    "none";
+
+    uploadedImage = "";
+}
+
+
+/* ======================================================
+   ADMIN ACCOUNT LIST
+====================================================== */
+
+async function loadAdminAccounts(){
+
+    const list =
+    document
+    .getElementById(
+        "adminAccountList"
+    );
+
+    list.innerHTML =
+    "<p style='color:#999;'>Loading...</p>";
+
+    try{
+
+        const snapshot =
+        await getDocs(
+            accountsCollection
+        );
+
+        list.innerHTML = "";
+
+        if(snapshot.empty){
+
+            list.innerHTML =
+            "<p style='color:#999;'>No accounts.</p>";
+
+            return;
+        }
+
+        snapshot.forEach(
+            function(accountDoc){
+
+                const account =
+                accountDoc.data();
+
+                const item =
+                document.createElement("div");
+
+                item.className =
+                "admin-item";
+
+                item.innerHTML = `
+
+                <div>
+
+                    <img
+                    src="${
+                        account.image ||
+                        "https://placehold.co/800x500/111111/FFD700?text=ACCOUNT"
+                    }"
+                    alt="Account">
+
+                    <strong
+                    style="color:#ffd700;">
+
+                    ${escapeHTML(
+                        account.name || "MLBB Account"
+                    )}
+
+                    </strong>
+
+                    <br>
+
+                    <span style="color:#aaa;">
+
+                    ₹${Number(
+                        account.inr || 0
+                    )
