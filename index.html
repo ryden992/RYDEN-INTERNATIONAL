@@ -3,16 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RYDEN INTERNATIONAL | MLBB Account Marketplace</title>
 
 <style>
 *{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#050914;
   color:#fff;
 }
+
 header{
   padding:18px 20px;
   background:#07101f;
@@ -21,6 +28,7 @@ header{
   top:0;
   z-index:10;
 }
+
 nav{
   max-width:1100px;
   margin:auto;
@@ -30,47 +38,62 @@ nav{
   gap:15px;
   flex-wrap:wrap;
 }
+
 .logo{
   font-size:24px;
   font-weight:800;
   color:#39aaff;
   text-shadow:0 0 15px #168cff;
 }
+
 nav a{
   color:#fff;
   text-decoration:none;
   margin:0 8px;
   font-weight:700;
 }
-nav a:hover{color:#39aaff}
+
+nav a:hover{
+  color:#39aaff;
+}
 
 .hero{
   padding:70px 20px;
   text-align:center;
   background:radial-gradient(circle at center,#0b2850 0,#050914 60%);
 }
+
 .hero h1{
   font-size:clamp(35px,7vw,70px);
   margin:0 0 12px;
   color:#39aaff;
 }
-.hero p{color:#b9c8df;font-size:18px}
+
+.hero p{
+  color:#b9c8df;
+  font-size:18px;
+}
 
 .container{
   max-width:1100px;
   margin:auto;
   padding:35px 20px;
 }
+
 .section-title{
   font-size:30px;
   color:#39aaff;
   margin-bottom:20px;
 }
+
+/* ACCOUNT STORE */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
+
 .card{
   background:#091222;
   border:1px solid #173d70;
@@ -78,6 +101,7 @@ nav a:hover{color:#39aaff}
   padding:18px;
   box-shadow:0 0 20px rgba(0,130,255,.08);
 }
+
 .card img{
   width:100%;
   height:260px;
@@ -86,21 +110,33 @@ nav a:hover{color:#39aaff}
   background:#050914;
   display:block;
 }
-.card h3{margin:15px 0 8px;color:#fff}
-.meta{color:#9db1ce;line-height:1.7}
+
+.card h3{
+  margin:15px 0 8px;
+  color:#fff;
+}
+
+.meta{
+  color:#9db1ce;
+  line-height:1.7;
+}
+
 .price{
   font-size:23px;
   color:#39aaff;
   font-weight:800;
   margin:12px 0 4px;
 }
+
 .usd-price{
   color:#70c7ff;
   font-size:18px;
   font-weight:700;
   margin-bottom:12px;
 }
-button,.btn{
+
+button,
+.btn{
   border:0;
   border-radius:9px;
   padding:12px 16px;
@@ -111,9 +147,21 @@ button,.btn{
   text-decoration:none;
   display:inline-block;
 }
-button:hover,.btn:hover{background:#0872d8}
-.danger{background:#d83232}
-.danger:hover{background:#aa2222}
+
+button:hover,
+.btn:hover{
+  background:#0872d8;
+}
+
+.danger{
+  background:#d83232;
+}
+
+.danger:hover{
+  background:#aa2222;
+}
+
+/* FORMS */
 
 .form{
   max-width:650px;
@@ -123,8 +171,15 @@ button:hover,.btn:hover{background:#0872d8}
   padding:22px;
   border-radius:15px;
 }
-label{display:block;margin:12px 0 6px;font-weight:700}
-input,textarea{
+
+label{
+  display:block;
+  margin:12px 0 6px;
+  font-weight:700;
+}
+
+input,
+textarea{
   width:100%;
   padding:12px;
   border-radius:8px;
@@ -132,7 +187,12 @@ input,textarea{
   background:#050914;
   color:#fff;
 }
-textarea{min-height:110px;resize:vertical}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
 .image-preview{
   width:100%;
   max-height:260px;
@@ -143,18 +203,32 @@ textarea{min-height:110px;resize:vertical}
   margin-top:10px;
   display:none;
 }
+
 .image-help{
   display:block;
   color:#8fa6c4;
   font-size:13px;
   margin-top:7px;
 }
+
 .currency-note{
   color:#8fa6c4;
   font-size:13px;
   margin-top:6px;
 }
-.status{margin-top:12px;color:#39aaff}
+
+.status{
+  margin-top:12px;
+  color:#39aaff;
+}
+
+.admin-info{
+  max-width:650px;
+  margin:0 auto 20px;
+  color:#9db1ce;
+  line-height:1.6;
+}
+
 footer{
   text-align:center;
   padding:30px;
@@ -162,127 +236,384 @@ footer{
   border-top:1px solid #142b4b;
   margin-top:30px;
 }
-.hidden{display:none!important}
+
+.hidden{
+  display:none!important;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  header{
+    padding:15px 12px;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .logo{
+    width:100%;
+    text-align:center;
+  }
+
+  nav a{
+    margin:0 5px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:55px 15px;
+  }
+
+  .container{
+    padding:30px 15px;
+  }
+
+}
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
 <nav>
-<div class="logo">RYDEN INTERNATIONAL</div>
+
+<div class="logo">
+RYDEN INTERNATIONAL
+</div>
+
 <div>
 <a href="#home">HOME</a>
 <a href="#accounts">ACCOUNTS</a>
 <a href="#admin">ADMIN</a>
+<a href="#account-post">ACCOUNT POST</a>
 <a href="#contact">CONTACT</a>
 </div>
+
 </nav>
 </header>
 
+
+<!-- ================= HOME ================= -->
+
 <section class="hero" id="home">
+
 <h1>RYDEN INTERNATIONAL</h1>
-<p>Premium Mobile Legends: Bang Bang Account Marketplace</p>
-<a class="btn" href="#accounts">VIEW ACCOUNTS</a>
+
+<p>
+Premium Mobile Legends: Bang Bang Account Marketplace
+</p>
+
+<a class="btn" href="#accounts">
+VIEW ACCOUNTS
+</a>
+
 </section>
+
+
+<!-- ================= ACCOUNTS / STORE ================= -->
 
 <section class="container" id="accounts">
-<h2 class="section-title">MLBB ACCOUNTS</h2>
+
+<h2 class="section-title">
+MLBB ACCOUNTS
+</h2>
+
 <div id="accountsGrid" class="grid"></div>
-<div id="loading" class="status">Loading accounts...</div>
+
+<div id="loading" class="status">
+Loading accounts...
+</div>
+
 </section>
 
+
+<!-- ================= ADMIN LOGIN ================= -->
+
 <section class="container" id="admin">
-<h2 class="section-title">ADMIN PANEL</h2>
+
+<h2 class="section-title">
+ADMIN
+</h2>
+
+<div class="admin-info">
+
+Admin login is kept separate from Account Post.
+After successful login, the Account Post section becomes available.
+
+</div>
 
 <div id="loginBox" class="form">
-<h3>Admin Login</h3>
 
-<label>Email</label>
-<input type="email" id="email" placeholder="Enter email">
+<h3>
+Admin Login
+</h3>
 
-<label>Password</label>
-<input type="password" id="password" placeholder="Enter password">
+<label>
+Email
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter admin email"
+>
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter admin password"
+>
 
 <br><br>
-<button onclick="login()">LOGIN</button>
+
+<button onclick="login()">
+LOGIN
+</button>
+
 <div id="loginStatus" class="status"></div>
+
 </div>
+
+
+<div id="adminLoggedBox" class="form hidden">
+
+<h3>
+Admin Logged In
+</h3>
+
+<p class="meta">
+You are successfully logged in.
+Go to the ACCOUNT POST section to add a new MLBB account.
+</p>
+
+<a class="btn" href="#account-post">
+GO TO ACCOUNT POST
+</a>
+
+<br><br>
+
+<button class="danger" onclick="logout()">
+LOGOUT
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACCOUNT POST ================= -->
+
+<section class="container hidden" id="account-post">
+
+<h2 class="section-title">
+ACCOUNT POST
+</h2>
+
+<div id="accountPostLoginMessage" class="form hidden">
+
+<h3>
+Admin Login Required
+</h3>
+
+<p class="meta">
+Please login from the ADMIN section before posting an account.
+</p>
+
+<a class="btn" href="#admin">
+GO TO ADMIN LOGIN
+</a>
+
+</div>
+
 
 <div id="adminBox" class="form hidden">
-<h3>Add MLBB Account</h3>
 
-<label>Account Name</label>
-<input id="accountName" placeholder="e.g. Mythic Glory Account">
+<h3>
+Post New MLBB Account
+</h3>
 
-<label>Stars</label>
-<input id="stars" type="number" placeholder="e.g. 100">
 
-<label>Skins</label>
-<input id="skins" type="number" placeholder="e.g. 120">
+<label>
+Account Name
+</label>
 
-<label>Price (₹ INR)</label>
-<input id="priceINR" type="number" min="0" step="1" placeholder="e.g. 5000">
+<input
+id="accountName"
+placeholder="e.g. Mythic Glory Account"
+>
 
-<label>Price (US Dollar $)</label>
-<input id="priceUSD" type="number" min="0" step="0.01" placeholder="e.g. 55">
+
+<label>
+Stars
+</label>
+
+<input
+id="stars"
+type="number"
+min="0"
+placeholder="e.g. 100"
+>
+
+
+<label>
+Skins
+</label>
+
+<input
+id="skins"
+type="number"
+min="0"
+placeholder="e.g. 120"
+>
+
+
+<label>
+Price (₹ INR)
+</label>
+
+<input
+id="priceINR"
+type="number"
+min="0"
+step="1"
+placeholder="e.g. 5000"
+>
+
+
+<label>
+Price (US Dollar $)
+</label>
+
+<input
+id="priceUSD"
+type="number"
+min="0"
+step="0.01"
+placeholder="e.g. 55"
+>
+
 <div class="currency-note">
-Enter the USD price you want to display. INR and USD are stored separately.
+Enter the USD price you want to display.
+INR and USD are stored separately.
 </div>
 
-<label>Description</label>
-<textarea id="description" placeholder="Account details..."></textarea>
 
-<label>Account Image</label>
-<input type="file" id="imageFile" accept="image/*">
+<label>
+Description
+</label>
 
-<img id="imagePreview" class="image-preview" alt="Selected account image preview">
+<textarea
+id="description"
+placeholder="Account details..."
+></textarea>
+
+
+<label>
+Account Image
+</label>
+
+<input
+type="file"
+id="imageFile"
+accept="image/*"
+>
+
+
+<img
+id="imagePreview"
+class="image-preview"
+alt="Selected account image preview"
+>
+
 
 <span class="image-help">
-Choose an image from your phone or computer. The image will be compressed automatically before saving.
+Choose an image from your phone or computer.
+The image will be compressed automatically before saving.
 </span>
 
 <br><br>
 
-<button onclick="addAccount()">ADD ACCOUNT</button>
-<button class="danger" onclick="logout()">LOGOUT</button>
+<button onclick="addAccount()">
+POST ACCOUNT
+</button>
 
 <div id="adminStatus" class="status"></div>
+
 </div>
+
 </section>
+
+
+<!-- ================= CONTACT ================= -->
 
 <section class="container" id="contact">
-<h2 class="section-title">CONTACT</h2>
+
+<h2 class="section-title">
+CONTACT
+</h2>
+
 <div class="form">
-<p>Interested in an account? Contact us directly on WhatsApp.</p>
-<a class="btn"
-   href="https://wa.me/919233657553"
-   target="_blank"
-   rel="noopener">
+
+<p>
+Interested in an account?
+Contact us directly on WhatsApp.
+</p>
+
+<a
+class="btn"
+href="https://wa.me/919233657553"
+target="_blank"
+rel="noopener"
+>
 WHATSAPP US
 </a>
+
 </div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
 © 2026 RYDEN INTERNATIONAL — MLBB ACCOUNT MARKETPLACE
+
 </footer>
+
+
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
+
 import {
+
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   setPersistence,
   browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
 
 import {
+
   getFirestore,
   collection,
   addDoc,
@@ -290,318 +621,954 @@ import {
   deleteDoc,
   doc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-/* FIREBASE CONFIG */
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+/* ================= FIREBASE CONFIG ================= */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCDeW8JxsSCRBfdG3AcZ0Yub-_LqixbIjU",
-  authDomain: "ryden-international.firebaseapp.com",
-  projectId: "ryden-international",
-  storageBucket: "ryden-international.firebasestorage.app",
-  messagingSenderId: "841240405355",
-  appId: "1:841240405355:web:5b68fcc0acb5de67cf582e"
+
+  apiKey:
+  "AIzaSyCDeW8JxsSCRBfdG3AcZ0Yub-_LqixbIjU",
+
+  authDomain:
+  "ryden-international.firebaseapp.com",
+
+  projectId:
+  "ryden-international",
+
+  storageBucket:
+  "ryden-international.firebasestorage.app",
+
+  messagingSenderId:
+  "841240405355",
+
+  appId:
+  "1:841240405355:web:5b68fcc0acb5de67cf582e"
+
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-/* KEEP ADMIN LOGGED IN ON THIS BROWSER */
-setPersistence(auth, browserLocalPersistence).catch(error => {
-  console.error("Auth persistence error:", error);
-});
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-/* PLACEHOLDER IMAGE */
+
+/* ================= KEEP LOGIN ================= */
+
+setPersistence(
+  auth,
+  browserLocalPersistence
+).catch(error => {
+
+  console.error(
+    "Auth persistence error:",
+    error
+  );
+
+});
+
+
+/* ================= PLACEHOLDER ================= */
+
 const placeholder =
 "data:image/svg+xml;charset=UTF-8," +
 encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500">
-<rect width="100%" height="100%" fill="#07101f"/>
-<text x="50%" y="50%" fill="#39aaff" font-size="42"
-text-anchor="middle" dominant-baseline="middle">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="800"
+height="500"
+>
+
+<rect
+width="100%"
+height="100%"
+fill="#07101f"
+/>
+
+<text
+x="50%"
+y="50%"
+fill="#39aaff"
+font-size="42"
+text-anchor="middle"
+dominant-baseline="middle"
+>
+
 RYDEN INTERNATIONAL
+
 </text>
-</svg>`);
 
-/* IMAGE ELEMENTS */
-const imageFile = document.getElementById("imageFile");
-const imagePreview = document.getElementById("imagePreview");
+</svg>
 
-/* IMAGE COMPRESSION */
-function compressImage(file,maxWidth=1000,maxHeight=1000,maxBytes=600000){
+`);
+
+
+/* ================= IMAGE ELEMENTS ================= */
+
+const imageFile =
+document.getElementById("imageFile");
+
+const imagePreview =
+document.getElementById("imagePreview");
+
+
+/* ================= IMAGE COMPRESSION ================= */
+
+function compressImage(
+  file,
+  maxWidth=1000,
+  maxHeight=1000,
+  maxBytes=600000
+){
+
   return new Promise((resolve,reject)=>{
-    const reader = new FileReader();
+
+    const reader =
+    new FileReader();
+
 
     reader.onload = ()=>{
-      const img = new Image();
+
+      const img =
+      new Image();
+
 
       img.onload = ()=>{
-        let w = img.width;
-        let h = img.height;
 
-        const scale = Math.min(1,maxWidth/w,maxHeight/h);
-        w = Math.round(w*scale);
-        h = Math.round(h*scale);
+        let w =
+        img.width;
 
-        const canvas = document.createElement("canvas");
-        canvas.width = w;
-        canvas.height = h;
+        let h =
+        img.height;
 
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img,0,0,w,h);
 
-        let quality = 0.82;
+        const scale =
+        Math.min(
+          1,
+          maxWidth/w,
+          maxHeight/h
+        );
+
+
+        w =
+        Math.round(w*scale);
+
+        h =
+        Math.round(h*scale);
+
+
+        const canvas =
+        document.createElement("canvas");
+
+
+        canvas.width =
+        w;
+
+        canvas.height =
+        h;
+
+
+        const ctx =
+        canvas.getContext("2d");
+
+
+        ctx.drawImage(
+          img,
+          0,
+          0,
+          w,
+          h
+        );
+
+
+        let quality =
+        0.82;
+
 
         const makeBlob = ()=>{
-          canvas.toBlob(blob=>{
-            if(!blob){
-              reject(new Error("Image compression failed"));
-              return;
-            }
 
-            if(blob.size > maxBytes && quality > 0.35){
-              quality -= 0.08;
-              makeBlob();
-            }else{
-              const fr = new FileReader();
-              fr.onload = ()=>resolve(fr.result);
-              fr.onerror = reject;
-              fr.readAsDataURL(blob);
-            }
-          },"image/jpeg",quality);
+          canvas.toBlob(
+            blob=>{
+
+              if(!blob){
+
+                reject(
+                  new Error(
+                    "Image compression failed"
+                  )
+                );
+
+                return;
+              }
+
+
+              if(
+                blob.size > maxBytes &&
+                quality > 0.35
+              ){
+
+                quality -= 0.08;
+
+                makeBlob();
+
+              }else{
+
+                const fr =
+                new FileReader();
+
+
+                fr.onload =
+                ()=>resolve(fr.result);
+
+
+                fr.onerror =
+                reject;
+
+
+                fr.readAsDataURL(blob);
+
+              }
+
+            },
+            "image/jpeg",
+            quality
+          );
+
         };
 
+
         makeBlob();
+
       };
 
-      img.onerror = ()=>reject(new Error("Invalid image"));
-      img.src = reader.result;
+
+      img.onerror =
+      ()=>reject(
+        new Error("Invalid image")
+      );
+
+
+      img.src =
+      reader.result;
+
     };
 
-    reader.onerror = reject;
+
+    reader.onerror =
+    reject;
+
+
     reader.readAsDataURL(file);
+
   });
+
 }
 
-/* IMAGE PREVIEW */
-imageFile.addEventListener("change",()=>{
-  const file = imageFile.files[0];
 
-  if(!file){
-    imagePreview.style.display = "none";
-    return;
-  }
+/* ================= IMAGE PREVIEW ================= */
 
-  const reader = new FileReader();
+imageFile.addEventListener(
+  "change",
+  ()=>{
 
-  reader.onload = e=>{
-    imagePreview.src = e.target.result;
-    imagePreview.style.display = "block";
-  };
+    const file =
+    imageFile.files[0];
 
-  reader.readAsDataURL(file);
-});
 
-/* LOGIN */
-window.login = async()=>{
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const status = document.getElementById("loginStatus");
+    if(!file){
 
-  status.textContent = "Logging in...";
+      imagePreview.style.display =
+      "none";
 
-  try{
-    await signInWithEmailAndPassword(auth,email,password);
-    status.textContent = "Login successful.";
-  }catch(e){
-    status.textContent = "Login failed: " + e.message;
-  }
-};
-
-/* LOGOUT */
-window.logout = async()=>{
-  await signOut(auth);
-};
-
-/* AUTH STATE */
-onAuthStateChanged(auth,user=>{
-  document.getElementById("loginBox").classList.toggle("hidden",!!user);
-  document.getElementById("adminBox").classList.toggle("hidden",!user);
-  loadAccounts();
-});
-
-/* ADD ACCOUNT */
-window.addAccount = async()=>{
-  const status = document.getElementById("adminStatus");
-
-  const name = document.getElementById("accountName").value.trim();
-  const stars = document.getElementById("stars").value;
-  const skins = document.getElementById("skins").value;
-  const priceINR = document.getElementById("priceINR").value;
-  const priceUSD = document.getElementById("priceUSD").value;
-  const description = document.getElementById("description").value.trim();
-  const file = imageFile.files[0];
-
-  if(!name || (!priceINR && !priceUSD)){
-    status.textContent =
-      "Please enter Account Name and at least one price (INR or USD).";
-    return;
-  }
-
-  status.textContent = "Saving account...";
-
-  try{
-    let image = placeholder;
-
-    if(file){
-      image = await compressImage(file);
-    }
-
-    await addDoc(collection(db,"accounts"),{
-      name,
-      stars: Number(stars || 0),
-      skins: Number(skins || 0),
-      priceINR: Number(priceINR || 0),
-      priceUSD: Number(priceUSD || 0),
-      description,
-      image,
-      createdAt: serverTimestamp()
-    });
-
-    document.getElementById("accountName").value = "";
-    document.getElementById("stars").value = "";
-    document.getElementById("skins").value = "";
-    document.getElementById("priceINR").value = "";
-    document.getElementById("priceUSD").value = "";
-    document.getElementById("description").value = "";
-
-    imageFile.value = "";
-    imagePreview.src = "";
-    imagePreview.style.display = "none";
-
-    status.textContent = "Account added successfully.";
-    loadAccounts();
-
-  }catch(e){
-    status.textContent = "Error: " + e.message;
-  }
-};
-
-/* LOAD ACCOUNTS */
-async function loadAccounts(){
-  const grid = document.getElementById("accountsGrid");
-  const loading = document.getElementById("loading");
-
-  grid.innerHTML = "";
-  loading.textContent = "Loading accounts...";
-
-  try{
-    const snap = await getDocs(collection(db,"accounts"));
-
-    if(snap.empty){
-      loading.textContent = "No accounts listed yet.";
       return;
     }
 
-    loading.textContent = "";
 
-    snap.forEach(item=>{
-      const a = item.data();
-      const card = document.createElement("div");
-      card.className = "card";
+    const reader =
+    new FileReader();
 
-      const img = document.createElement("img");
-      img.src = a.image || placeholder;
-      img.alt = a.name || "MLBB Account";
 
-      const title = document.createElement("h3");
-      title.textContent = a.name || "MLBB Account";
+    reader.onload =
+    e=>{
 
-      const meta = document.createElement("div");
-      meta.className = "meta";
-      meta.innerHTML =
-        `⭐ ${Number(a.stars || 0)} Stars<br>
-         🎨 ${Number(a.skins || 0)} Skins`;
+      imagePreview.src =
+      e.target.result;
 
-      const priceINR = document.createElement("div");
-      priceINR.className = "price";
+      imagePreview.style.display =
+      "block";
 
-      const inrValue = Number(a.priceINR ?? a.price ?? 0);
-      priceINR.textContent =
-        "₹" + inrValue.toLocaleString("en-IN");
+    };
 
-      const priceUSD = document.createElement("div");
-      priceUSD.className = "usd-price";
 
-      const usdValue = Number(a.priceUSD || 0);
+    reader.readAsDataURL(file);
 
-      if(usdValue > 0){
-        priceUSD.textContent =
-          "$" + usdValue.toLocaleString("en-US",{
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-          }) + " USD";
-      }else{
-        priceUSD.textContent = "";
-      }
+  }
+);
 
-      const desc = document.createElement("p");
-      desc.className = "meta";
-      desc.textContent = a.description || "";
 
-      const contact = document.createElement("a");
-      contact.className = "btn";
-      contact.target = "_blank";
-      contact.rel = "noopener";
+/* ================= LOGIN ================= */
 
-      contact.href =
-        "https://wa.me/919233657553?text=" +
-        encodeURIComponent(
-          "Hello RYDEN INTERNATIONAL, I am interested in: " +
-          (a.name || "MLBB Account") +
-          (usdValue > 0 ? " | Price: $" + usdValue : "") +
-          (inrValue > 0 ? " | ₹" + inrValue : "")
-        );
+window.login =
+async()=>{
 
-      contact.textContent = "BUY / CONTACT";
+  const email =
+  document.getElementById(
+    "email"
+  ).value.trim();
 
-      card.append(img,title,meta,priceINR,priceUSD,desc,contact);
 
-      if(auth.currentUser){
-        const br = document.createElement("div");
-        br.style.height = "10px";
+  const password =
+  document.getElementById(
+    "password"
+  ).value;
 
-        const del = document.createElement("button");
-        del.className = "danger";
-        del.textContent = "DELETE";
 
-        del.onclick = async()=>{
-          if(!confirm("Delete this account?")) return;
+  const status =
+  document.getElementById(
+    "loginStatus"
+  );
 
-          try{
-            await deleteDoc(doc(db,"accounts",item.id));
-            loadAccounts();
-          }catch(e){
-            alert("Delete failed: " + e.message);
-          }
-        };
 
-        card.append(br,del);
-      }
+  status.textContent =
+  "Logging in...";
 
-      grid.appendChild(card);
-    });
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+
+    status.textContent =
+    "Login successful.";
 
   }catch(e){
-    loading.textContent =
-      "Could not load accounts: " + e.message;
+
+    status.textContent =
+    "Login failed: " +
+    e.message;
+
   }
-}
 
-/* START */
-loadAccounts();
+};
 
-</script>
-</body>
-</html>
+
+/* ================= LOGOUT ================= */
+
+window.logout =
+async()=>{
+
+  await signOut(auth);
+
+};
+
+
+/* ================= AUTH STATE ================= */
+
+onAuthStateChanged(
+  auth,
+  user=>{
+
+    const loginBox =
+    document.getElementById(
+      "loginBox"
+    );
+
+
+    const adminLoggedBox =
+    document.getElementById(
+      "adminLoggedBox"
+    );
+
+
+    const accountPost =
+    document.getElementById(
+      "account-post"
+    );
+
+
+    const adminBox =
+    document.getElementById(
+      "adminBox"
+    );
+
+
+    const loginMessage =
+    document.getElementById(
+      "accountPostLoginMessage"
+    );
+
+
+    if(user){
+
+      /* ADMIN LOGIN */
+
+      loginBox.classList.add(
+        "hidden"
+      );
+
+      adminLoggedBox.classList.remove(
+        "hidden"
+      );
+
+
+      /* ACCOUNT POST AVAILABLE */
+
+      accountPost.classList.remove(
+        "hidden"
+      );
+
+      adminBox.classList.remove(
+        "hidden"
+      );
+
+      loginMessage.classList.add(
+        "hidden"
+      );
+
+    }else{
+
+      /* ADMIN LOGGED OUT */
+
+      loginBox.classList.remove(
+        "hidden"
+      );
+
+      adminLoggedBox.classList.add(
+        "hidden"
+      );
+
+
+      /* ACCOUNT POST HIDDEN */
+
+      accountPost.classList.remove(
+        "hidden"
+      );
+
+      adminBox.classList.add(
+        "hidden"
+      );
+
+      loginMessage.classList.remove(
+        "hidden"
+      );
+
+    }
+
+
+    loadAccounts();
+
+  }
+);
+
+
+/* ================= ADD ACCOUNT ================= */
+
+window.addAccount =
+async()=>{
+
+  if(!auth.currentUser){
+
+    alert(
+      "Please login as admin first."
+    );
+
+    return;
+
+  }
+
+
+  const status =
+  document.getElementById(
+    "adminStatus"
+  );
+
+
+  const name =
+  document.getElementById(
+    "accountName"
+  ).value.trim();
+
+
+  const stars =
+  document.getElementById(
+    "stars"
+  ).value;
+
+
+  const skins =
+  document.getElementById(
+    "skins"
+  ).value;
+
+
+  const priceINR =
+  document.getElementById(
+    "priceINR"
+  ).value;
+
+
+  const priceUSD =
+  document.getElementById(
+    "priceUSD"
+  ).value;
+
+
+  const description =
+  document.getElementById(
+    "description"
+  ).value.trim();
+
+
+  const file =
+  imageFile.files[0];
+
+
+  if(
+    !name ||
+    (!priceINR && !priceUSD)
+  ){
+
+    status.textContent =
+    "Please enter Account Name and at least one price (INR or USD).";
+
+    return;
+
+  }
+
+
+  status.textContent =
+  "Posting account...";
+
+
+  try{
+
+    let image =
+    placeholder;
+
+
+    if(file){
+
+      image =
+      await compressImage(file);
+
+    }
+
+
+    await addDoc(
+      collection(db,"accounts"),
+      {
+
+        name,
+
+        stars:
+        Number(stars || 0),
+
+        skins:
+        Number(skins || 0),
+
+        priceINR:
+        Number(priceINR || 0),
+
+        priceUSD:
+        Number(priceUSD || 0),
+
+        description,
+
+        image,
+
+        createdAt:
+        serverTimestamp()
+
+      }
+    );
+
+
+    /* CLEAR FORM */
+
+    document.getElementById(
+      "accountName"
+    ).value = "";
+
+
+    document.getElementById(
+      "stars"
+    ).value = "";
+
+
+    document.getElementById(
+      "skins"
+    ).value = "";
+
+
+    document.getElementById(
+      "priceINR"
+    ).value = "";
+
+
+    document.getElementById(
+      "priceUSD"
+    ).value = "";
+
+
+    document.getElementById(
+      "description"
+    ).value = "";
+
+
+    imageFile.value =
+    "";
+
+
+    imagePreview.src =
+    "";
+
+
+    imagePreview.style.display =
+    "none";
+
+
+    status.textContent =
+    "Account posted successfully.";
+
+
+    loadAccounts();
+
+
+  }catch(e){
+
+    status.textContent =
+    "Error: " +
+    e.message;
+
+  }
+
+};
+
+
+/* ================= LOAD ACCOUNTS ================= */
+
+async function loadAccounts(){
+
+  const grid =
+  document.getElementById(
+    "accountsGrid"
+  );
+
+
+  const loading =
+  document.getElementById(
+    "loading"
+  );
+
+
+  grid.innerHTML =
+  "";
+
+
+  loading.textContent =
+  "Loading accounts...";
+
+
+  try{
+
+    const snap =
+    await getDocs(
+      collection(db,"accounts")
+    );
+
+
+    if(snap.empty){
+
+      loading.textContent =
+      "No accounts listed yet.";
+
+      return;
+
+    }
+
+
+    loading.textContent =
+    "";
+
+
+    snap.forEach(item=>{
+
+      const a =
+      item.data();
+
+
+      const card =
+      document.createElement(
+        "div"
+      );
+
+
+      card.className =
+      "card";
+
+
+      /* IMAGE */
+
+      const img =
+      document.createElement(
+        "img"
+      );
+
+
+      img.src =
+      a.image ||
+      placeholder;
+
+
+      img.alt =
+      a.name ||
+      "MLBB Account";
+
+
+      /* TITLE */
+
+      const title =
+      document.createElement(
+        "h3"
+      );
+
+
+      title.textContent =
+      a.name ||
+      "MLBB Account";
+
+
+      /* META */
+
+      const meta =
+      document.createElement(
+        "div"
+      );
+
+
+      meta.className =
+      "meta";
+
+
+      meta.innerHTML =
+      `⭐ ${Number(a.stars || 0)} Stars<br>
+       🎨 ${Number(a.skins || 0)} Skins`;
+
+
+      /* INR */
+
+      const priceINR =
+      document.createElement(
+        "div"
+      );
+
+
+      priceINR.className =
+      "price";
+
+
+      const inrValue =
+      Number(
+        a.priceINR ??
+        a.price ??
+        0
+      );
+
+
+      if(inrValue > 0){
+
+        priceINR.textContent =
+        "₹" +
+        inrValue.toLocaleString(
+          "en-IN"
+        );
+
+      }else{
+
+        priceINR.textContent =
+        "";
+
+      }
+
+
+      /* USD */
+
+      const priceUSD =
+      document.createElement(
+        "div"
+      );
+
+
+      priceUSD.className =
+      "usd-price";
+
+
+      const usdValue =
+      Number(
+        a.priceUSD ||
+        0
+      );
+
+
+      if(usdValue > 0){
+
+        priceUSD.textContent =
+        "$" +
+        usdValue.toLocaleString(
+          "en-US",
+          {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+          }
+        ) +
+        " USD";
+
+      }else{
+
+        priceUSD.textContent =
+        "";
+
+      }
+
+
+      /* DESCRIPTION */
+
+      const desc =
+      document.createElement(
+        "p"
+      );
+
+
+      desc.className =
+      "meta";
+
+
+      desc.textContent =
+      a.description ||
+      "";
+
+
+      /* WHATSAPP */
+
+      const contact =
+      document.createElement(
+        "a"
+      );
+
+
+      contact.className =
+      "btn";
+
+
+      contact.target =
+      "_blank";
+
+
+      contact.rel =
+      "noopener";
+
+
+      contact.href =
+      "https://wa.me/919233657553?text=" +
+      encodeURIComponent(
+
+        "Hello RYDEN INTERNATIONAL, " +
+        "I am interested in: " +
+        (a.name ||
+        "MLBB Account") +
+
+        (
+          usdValue > 0
+          ? " | Price: $" +
+            usdValue
+          : ""
+        ) +
+
+        (
+          inrValue > 0
+          ? " | ₹" +
+            inrValue
+          : ""
+        )
+
+      );
+
+
+      contact.textContent =
+      "BUY / CONTACT";
+
+
+      card.append(
+        img,
+        title,
+        meta,
+        priceINR,
+        priceUSD,
+        desc,
+        contact
+      );
+
+
+      /* DELETE ONLY FOR LOGGED ADMIN */
+
+      if(auth.currentUser){
+
+        const br =
+        document.createElement(
+          "div"
+        );
+
+
+        br.style.height =
+        "10px";
+
+
+        const del =
+        document.createElement(
+          "button"
+        );
+
+
+        del.className =
+        "danger";
+
+
+        del.textContent =
+        "DELETE";
+
+
+        del.onclick =
+        async()=>{
+
+          if(
+            !confirm(
+              "Delete this account?"
+            )
+          ) return;
+
+
+          try{
+
+            await deleteDoc(
+              doc(
+                db,
+                "accounts",
+                item.id
+              )
+            );
+
+
+            loadAccounts();
+
+
+          }catch(e){
