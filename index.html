@@ -1,306 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RYDEN INTERNATIONAL</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+/* WhatsApp Community Banner */
+.wa-banner-wrap {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0 20px;
 }
 
-html{
-    scroll-behavior:smooth;
+.wa-banner-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1f72ff 0%, #00d2ff 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 162, 255, 0.4);
+  text-align: center;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#05070d;
-    color:white;
+.wa-banner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 162, 255, 0.6);
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+/* Floating WhatsApp Corner Icon */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  transition: transform 0.2s;
 }
 
-button{
-    font-family:inherit;
+.floating-whatsapp:hover {
+  transform: scale(1.08);
 }
 
-.hidden{
-    display:none !important;
+.floating-whatsapp svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
 }
-
-/* ================= HEADER ================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:9999;
-    background:#080b13;
-    border-bottom:1px solid #272d3b;
-}
-
-.navbar{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
-    min-height:70px;
-    padding:12px 18px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.logo{
-    color:#ffd34e;
-    font-size:21px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:6px;
-    flex-wrap:wrap;
-}
-
-.nav-links a{
-    color:#ddd;
-    padding:9px 11px;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.nav-links a:hover{
-    background:#171d29;
-    color:#ffd34e;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    width:100%;
-    min-height:430px;
-
-    position:relative;
-    overflow:hidden;
-
-    background:
-        radial-gradient(circle at 75% 50%,rgba(255,193,7,.18),transparent 28%),
-        linear-gradient(120deg,#05070d,#101827 50%,#05070d);
-}
-
-/*
-  If banner.png exists, it will be shown.
-  If it doesn't exist, the CSS banner below remains visible.
-*/
-
-.hero-image{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    z-index:1;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:2;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(3,5,10,.95) 0%,
-            rgba(3,5,10,.65) 38%,
-            rgba(3,5,10,.10) 75%,
-            rgba(3,5,10,.35) 100%
-        );
-}
-
-.hero-content{
-    position:relative;
-    z-index:3;
-
-    width:min(1200px,92%);
-    min-height:430px;
-    margin:auto;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:flex-start;
-}
-
-.hero-small{
-    color:#ffd34e;
-    font-weight:bold;
-    letter-spacing:2px;
-    margin-bottom:12px;
-}
-
-.hero-title{
-    font-size:clamp(35px,6vw,75px);
-    line-height:1;
-    font-weight:1000;
-    color:white;
-}
-
-.hero-title span{
-    color:#ffd34e;
-}
-
-.hero-text{
-    margin-top:15px;
-    color:#c9ced9;
-    font-size:17px;
-    max-width:500px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    margin-top:25px;
-    flex-wrap:wrap;
-}
-
-.hero-btn{
-    border:0;
-    padding:13px 24px;
-    border-radius:8px;
-    font-weight:900;
-    cursor:pointer;
-}
-
-.hero-btn-primary{
-    background:#ffd34e;
-    color:#111;
-}
-
-.hero-btn-secondary{
-    background:#151c2b;
-    color:#fff;
-    border:1px solid #39445a;
-}
-
-/* ================= GENERAL ================= */
-
-.container{
-    width:min(1200px,94%);
-    margin:auto;
-    padding:60px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.section-title h2{
-    color:#ffd34e;
-    font-size:32px;
-    margin-bottom:8px;
-}
-
-.section-title p{
-    color:#9da6b7;
-}
-
-/* ================= ACCOUNTS ================= */
-
-.accounts-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.account-card{
-    background:linear-gradient(145deg,#111827,#080b12);
-    border:1px solid #293347;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
-
-.account-image{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-    display:block;
-    background:#111722;
-}
-
-.account-body{
-    padding:18px;
-}
-
-.account-body h3{
-    color:#ffd34e;
-    margin-bottom:12px;
-}
-
-.account-info{
-    display:grid;
-    gap:7px;
-    color:#cbd1dc;
-    font-size:14px;
-}
-
-.account-price{
-    color:#ffd34e;
-    font-size:24px;
-    font-weight:900;
-    margin:15px 0;
-}
-
-.card-buttons{
-    display:flex;
-    gap:9px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    border:0;
-    border-radius:8px;
-    padding:11px 16px;
-    cursor:pointer;
-    font-weight:800;
-}
-
-.btn-yellow{
-    background:#ffd34e;
-    color:#111;
-}
-
-.btn-red{
-    background:#e53935;
-    color:white;
-}
-
-.loading{
-    text-align:center;
-    color:#9da6b7;
-    padding:30px;
-}
-
-/* ================= DIAMONDS ================= */
-
-.diamond-grid{
-    display:grid;
-    grid-template-columns:
