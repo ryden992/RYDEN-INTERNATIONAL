@@ -2,13 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>RYDEN INTERNATIONAL | MLBB Digital Store</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="RYDEN INTERNATIONAL - MLBB accounts, diamond recharge and digital store."
+    content="RYDEN INTERNATIONAL — Premium Mobile Legends accounts and diamond recharge."
+  >
+
+  <title>RYDEN INTERNATIONAL</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Teko:wght@500;600;700&display=swap"
+    rel="stylesheet"
   >
 
   <link rel="stylesheet" href="style.css">
@@ -16,45 +36,67 @@
 
 <body>
 
-  <!-- =========================
+  <!-- =====================================================
        HEADER
-  ========================== -->
+  ====================================================== -->
+
   <header class="site-header">
 
     <div class="container navbar">
 
-      <a href="#home" class="logo">
-        <img src="store logo.jpeg" alt="RYDEN INTERNATIONAL Logo">
-        <div class="logo-text">
+      <a href="#home" class="brand">
+
+        <div class="brand-crown">👑</div>
+
+        <div class="brand-name">
           <strong>RYDEN</strong>
           <span>INTERNATIONAL</span>
         </div>
+
       </a>
+
+
+      <nav class="desktop-nav" id="desktopNav">
+
+        <a href="#home">Home</a>
+
+        <a href="#accounts">Accounts</a>
+
+        <a href="#recharge">Diamond Recharge</a>
+
+        <a href="#tools">Tools</a>
+
+        <a href="#contact">Contact</a>
+
+        <button
+          class="nav-account-btn"
+          type="button"
+          onclick="openAuthModal()"
+        >
+          Account
+        </button>
+
+      </nav>
+
 
       <button
         class="menu-toggle"
         id="menuToggle"
+        type="button"
         aria-label="Open menu"
       >
         ☰
       </button>
-
-      <nav class="desktop-nav" id="desktopNav">
-        <a href="#home">Home</a>
-        <a href="#accounts">Accounts</a>
-        <a href="#recharge">Diamond Recharge</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-      </nav>
 
     </div>
 
   </header>
 
 
-  <!-- =========================
-       RUNNING WHATSAPP BAR
-  ========================== -->
+  <!-- =====================================================
+       WHATSAPP RUNNING BAR
+  ====================================================== -->
+
   <div class="running-bar">
 
     <div class="running-track">
@@ -62,29 +104,33 @@
       <a
         href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        💬 Press here to join our WhatsApp Store
+        WhatsApp Store • Join our Store
       </a>
 
       <a
         href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        📢 Press here to join our WhatsApp Channel
+        WhatsApp Channel • Follow Updates
       </a>
 
       <a
         href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        💬 Press here to join our WhatsApp Store
+        WhatsApp Store • Join our Store
       </a>
 
       <a
         href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        📢 Press here to join our WhatsApp Channel
+        WhatsApp Channel • Follow Updates
       </a>
 
     </div>
@@ -92,87 +138,250 @@
   </div>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
-  <main>
+  <!-- =====================================================
+       HERO SLIDER
+  ====================================================== -->
 
-    <section class="hero" id="home">
+  <main id="home">
 
-      <div class="hero-overlay"></div>
+    <section class="hero-slider" id="heroSlider">
 
-      <div class="container hero-content">
+      <!-- SLIDE 1 -->
 
-        <div class="hero-text">
+      <article
+        class="hero-slide active"
+        style="background-image:url('web pic.jpeg');"
+      >
 
-          <div class="hero-badge">
-            🔥 PREMIUM MLBB DIGITAL STORE
-          </div>
+        <div class="hero-overlay"></div>
 
-          <h1>
-            RYDEN
-            <span>INTERNATIONAL</span>
-          </h1>
+        <div class="container hero-content">
 
-          <h2>
-            MLBB Accounts & Diamond Recharge
-          </h2>
+          <div class="hero-text">
 
-          <p>
-            Explore available Mobile Legends accounts,
-            diamond recharge packages and our digital store.
-          </p>
+            <span class="hero-badge">
+              PREMIUM MLBB STORE
+            </span>
 
-          <div class="hero-buttons">
+            <h1>
+              RYDEN
+              <span>INTERNATIONAL</span>
+            </h1>
 
-            <a
-              href="#accounts"
-              class="btn btn-primary"
-            >
-              👥 Available Account
-            </a>
+            <h2>
+              MLBB Accounts & Diamond Recharge
+            </h2>
 
-            <a
-              href="#recharge"
-              class="btn btn-gold"
-            >
-              💎 Diamond Recharge
-            </a>
+            <p>
+              Premium Mobile Legends accounts, diamond recharge
+              and trusted digital services — all in one place.
+            </p>
+
+            <div class="hero-buttons">
+
+              <a
+                href="#accounts"
+                class="btn btn-primary"
+              >
+                Explore Accounts
+              </a>
+
+              <a
+                href="#recharge"
+                class="btn btn-outline"
+              >
+                Diamond Recharge
+              </a>
+
+            </div>
 
           </div>
 
         </div>
+
+      </article>
+
+
+      <!-- SLIDE 2 -->
+
+      <article
+        class="hero-slide"
+        style="background-image:url('web pic.jpeg');"
+      >
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+
+          <div class="hero-text">
+
+            <span class="hero-badge">
+              FAST • SIMPLE • PREMIUM
+            </span>
+
+            <h1>
+              DIAMOND
+              <span>RECHARGE</span>
+            </h1>
+
+            <h2>
+              Choose Your Pack
+            </h2>
+
+            <p>
+              Select your preferred recharge option and
+              continue directly through our store.
+            </p>
+
+            <div class="hero-buttons">
+
+              <a
+                href="#recharge"
+                class="btn btn-primary"
+              >
+                View Recharge
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- SLIDE 3 -->
+
+      <article
+        class="hero-slide"
+        style="background-image:url('web pic.jpeg');"
+      >
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+
+          <div class="hero-text">
+
+            <span class="hero-badge">
+              RYDEN INTERNATIONAL
+            </span>
+
+            <h1>
+              YOUR
+              <span>COLLECTION</span>
+            </h1>
+
+            <h2>
+              Premium MLBB Accounts
+            </h2>
+
+            <p>
+              Browse available accounts and find the one
+              that matches your collection.
+            </p>
+
+            <div class="hero-buttons">
+
+              <a
+                href="#accounts"
+                class="btn btn-primary"
+              >
+                Browse Accounts
+              </a>
+
+              <a
+                href="#contact"
+                class="btn btn-outline"
+              >
+                Contact Us
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- SLIDER CONTROLS -->
+
+      <button
+        class="slider-arrow slider-prev"
+        id="sliderPrev"
+        type="button"
+        aria-label="Previous slide"
+      >
+        ‹
+      </button>
+
+      <button
+        class="slider-arrow slider-next"
+        id="sliderNext"
+        type="button"
+        aria-label="Next slide"
+      >
+        ›
+      </button>
+
+
+      <div class="slider-dots" id="sliderDots">
+
+        <button
+          class="slider-dot active"
+          type="button"
+          data-slide="0"
+          aria-label="Slide 1"
+        ></button>
+
+        <button
+          class="slider-dot"
+          type="button"
+          data-slide="1"
+          aria-label="Slide 2"
+        ></button>
+
+        <button
+          class="slider-dot"
+          type="button"
+          data-slide="2"
+          aria-label="Slide 3"
+        ></button>
 
       </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- ===================================================
          QUICK FEATURES
-    ========================== -->
+    ==================================================== -->
+
     <section class="quick-features">
 
       <div class="container quick-grid">
 
         <div class="quick-item">
-          <strong>💎 Premium Accounts</strong>
-          <span>Selected MLBB accounts</span>
+          <strong>Premium</strong>
+          <span>Curated Accounts</span>
         </div>
 
         <div class="quick-item">
-          <strong>⚡ Fast Response</strong>
-          <span>Direct WhatsApp support</span>
+          <strong>Multiple</strong>
+          <span>Recharge Options</span>
         </div>
 
         <div class="quick-item">
-          <strong>🔐 Customer First</strong>
-          <span>Simple & transparent</span>
+          <strong>Fast</strong>
+          <span>Order Process</span>
         </div>
 
         <div class="quick-item">
-          <strong>🌎 International</strong>
-          <span>Worldwide customers</span>
+          <strong>Support</strong>
+          <span>WhatsApp Contact</span>
         </div>
 
       </div>
@@ -180,29 +389,32 @@
     </section>
 
 
-    <!-- =========================
-         AVAILABLE ACCOUNTS
-    ========================== -->
-    <section class="section" id="accounts">
+    <!-- ===================================================
+         ACCOUNTS
+    ==================================================== -->
+
+    <section
+      class="section"
+      id="accounts"
+    >
 
       <div class="container">
 
         <div class="section-heading">
 
-          <span>MARKETPLACE</span>
+          <span>MLBB COLLECTION</span>
 
-          <h2>
-            AVAILABLE ACCOUNTS
-          </h2>
+          <h2>Available Accounts</h2>
 
           <p>
-            Search and filter currently available accounts.
+            Explore our available Mobile Legends accounts.
           </p>
 
         </div>
 
 
-        <!-- FILTERS -->
+        <!-- FILTER -->
+
         <div class="filter-box">
 
           <div class="filter-grid">
@@ -211,43 +423,28 @@
               type="search"
               id="accountSearch"
               class="input"
-              placeholder="🔎 Search account, skin, hero..."
+              placeholder="Search accounts..."
             >
-
 
             <select
               id="collectorFilter"
               class="input"
             >
-
               <option value="all">
-                All Collector Levels
+                All Collections
               </option>
 
-              <option value="expert">
-                Expert Collector
+              <option value="collector">
+                Collector
               </option>
 
-              <option value="renowned">
-                Renowned Collector
+              <option value="rare">
+                Rare
               </option>
 
-              <option value="exalted">
-                Exalted Collector
+              <option value="premium">
+                Premium
               </option>
-
-              <option value="mega">
-                Mega Collector
-              </option>
-
-              <option value="world">
-                World Collector
-              </option>
-
-              <option value="galaxy">
-                Galaxy Collector
-              </option>
-
             </select>
 
 
@@ -255,53 +452,20 @@
               id="priceFilter"
               class="input"
             >
-
               <option value="all">
                 All Prices
               </option>
 
-              <option value="1-5">
-                1–5K
+              <option value="under5000">
+                Under ₹5,000
               </option>
 
-              <option value="5-10">
-                5–10K
+              <option value="5000-15000">
+                ₹5,000 – ₹15,000
               </option>
 
-              <option value="10-20">
-                10–20K
-              </option>
-
-              <option value="20-30">
-                20–30K
-              </option>
-
-              <option value="30-40">
-                30–40K
-              </option>
-
-              <option value="40-50">
-                40–50K
-              </option>
-
-              <option value="50-60">
-                50–60K
-              </option>
-
-              <option value="60-70">
-                60–70K
-              </option>
-
-              <option value="70-80">
-                70–80K
-              </option>
-
-              <option value="80-90">
-                80–90K
-              </option>
-
-              <option value="100+">
-                100K+ Above
+              <option value="above15000">
+                Above ₹15,000
               </option>
 
             </select>
@@ -309,27 +473,24 @@
           </div>
 
 
-          <!-- CURRENCY -->
           <div class="currency-switch">
 
-            <span>
-              Display Currency:
-            </span>
+            <span>Currency:</span>
 
             <button
-              id="inrButton"
               class="currency-button active"
               data-currency="INR"
+              type="button"
             >
-              ₹ INR
+              INR
             </button>
 
             <button
-              id="usdButton"
               class="currency-button"
               data-currency="USD"
+              type="button"
             >
-              $ USD
+              USD
             </button>
 
           </div>
@@ -338,6 +499,7 @@
 
 
         <!-- ACCOUNT GRID -->
+
         <div
           class="account-grid"
           id="accountGrid"
@@ -345,18 +507,19 @@
 
 
           <!-- ACCOUNT 1 -->
+
           <article
             class="account-card"
             data-name="Premium Arlott Collector"
-            data-collector="expert"
             data-price="12000"
+            data-type="collector premium"
           >
 
             <div class="account-image">
 
               <img
                 src="web pic.jpeg"
-                alt="Premium MLBB Account"
+                alt="Premium Arlott Collector account"
               >
 
               <span class="available-badge">
@@ -365,12 +528,13 @@
 
               <span
                 class="account-price"
-                data-price="12000"
+                data-price-value="12000"
               >
                 ₹12,000
               </span>
 
             </div>
+
 
             <div class="account-content">
 
@@ -379,43 +543,38 @@
               </h3>
 
               <p>
-                Premium MLBB account
+                Premium MLBB Account
               </p>
+
 
               <div class="account-tags">
 
-                <span>
-                  🏆 Expert Collector
-                </span>
+                <span>Collector</span>
 
-                <span>
-                  ⭐ Rare Skins
-                </span>
+                <span>Premium</span>
 
-                <span>
-                  💎 Premium
-                </span>
+                <span>Verified</span>
 
               </div>
+
 
               <div class="card-buttons">
 
                 <button
-                  class="btn btn-outline account-details"
-                  data-title="Premium Arlott Collector"
-                  data-price="12000"
-                  data-collector="Expert Collector"
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="openAccountDetails(0)"
                 >
-                  Details
+                  View Details
                 </button>
 
-                <a
+                <button
                   class="btn btn-whatsapp"
-                  href="https://wa.me/919233657553"
-                  target="_blank"
+                  type="button"
+                  onclick="buyAccount(0)"
                 >
-                  WhatsApp
-                </a>
+                  Contact
+                </button>
 
               </div>
 
@@ -425,18 +584,19 @@
 
 
           <!-- ACCOUNT 2 -->
+
           <article
             class="account-card"
-            data-name="Premium Collector Account"
-            data-collector="renowned"
+            data-name="Premium Collector"
             data-price="18000"
+            data-type="collector premium"
           >
 
             <div class="account-image">
 
               <img
                 src="web pic.jpeg"
-                alt="Premium Collector Account"
+                alt="Premium Collector account"
               >
 
               <span class="available-badge">
@@ -445,12 +605,13 @@
 
               <span
                 class="account-price"
-                data-price="18000"
+                data-price-value="18000"
               >
                 ₹18,000
               </span>
 
             </div>
+
 
             <div class="account-content">
 
@@ -459,43 +620,38 @@
               </h3>
 
               <p>
-                High-value MLBB account
+                Premium MLBB Account
               </p>
+
 
               <div class="account-tags">
 
-                <span>
-                  👑 Renowned Collector
-                </span>
+                <span>Collector</span>
 
-                <span>
-                  💎 Premium
-                </span>
+                <span>Premium</span>
 
-                <span>
-                  🔥 Rare
-                </span>
+                <span>Rare</span>
 
               </div>
+
 
               <div class="card-buttons">
 
                 <button
-                  class="btn btn-outline account-details"
-                  data-title="Premium Collector"
-                  data-price="18000"
-                  data-collector="Renowned Collector"
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="openAccountDetails(1)"
                 >
-                  Details
+                  View Details
                 </button>
 
-                <a
+                <button
                   class="btn btn-whatsapp"
-                  href="https://wa.me/919233657553"
-                  target="_blank"
+                  type="button"
+                  onclick="buyAccount(1)"
                 >
-                  WhatsApp
-                </a>
+                  Contact
+                </button>
 
               </div>
 
@@ -505,18 +661,19 @@
 
 
           <!-- ACCOUNT 3 -->
+
           <article
             class="account-card"
             data-name="Rare Skin Account"
-            data-collector="expert"
             data-price="4500"
+            data-type="rare"
           >
 
             <div class="account-image">
 
               <img
                 src="web pic.jpeg"
-                alt="Rare Skin Account"
+                alt="Rare Skin account"
               >
 
               <span class="available-badge">
@@ -525,12 +682,13 @@
 
               <span
                 class="account-price"
-                data-price="4500"
+                data-price-value="4500"
               >
                 ₹4,500
               </span>
 
             </div>
+
 
             <div class="account-content">
 
@@ -539,43 +697,38 @@
               </h3>
 
               <p>
-                Affordable premium account
+                Rare Collection
               </p>
+
 
               <div class="account-tags">
 
-                <span>
-                  ⭐ Rare
-                </span>
+                <span>Rare</span>
 
-                <span>
-                  🎮 MLBB
-                </span>
+                <span>Verified</span>
 
-                <span>
-                  💙 Value
-                </span>
+                <span>MLBB</span>
 
               </div>
+
 
               <div class="card-buttons">
 
                 <button
-                  class="btn btn-outline account-details"
-                  data-title="Rare Skin Account"
-                  data-price="4500"
-                  data-collector="Expert Collector"
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="openAccountDetails(2)"
                 >
-                  Details
+                  View Details
                 </button>
 
-                <a
+                <button
                   class="btn btn-whatsapp"
-                  href="https://wa.me/919233657553"
-                  target="_blank"
+                  type="button"
+                  onclick="buyAccount(2)"
                 >
-                  WhatsApp
-                </a>
+                  Contact
+                </button>
 
               </div>
 
@@ -589,9 +742,9 @@
 
         <div
           class="no-results"
-          id="noResults"
+          id="noAccountResults"
         >
-          No matching accounts found.
+          No accounts found.
         </div>
 
       </div>
@@ -599,9 +752,10 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ===================================================
          DIAMOND RECHARGE
-    ========================== -->
+    ==================================================== -->
+
     <section
       class="section recharge-section"
       id="recharge"
@@ -611,14 +765,13 @@
 
         <div class="section-heading">
 
-          <span>DIGITAL STORE</span>
+          <span>MLBB DIAMONDS</span>
 
-          <h2>
-            DIAMOND RECHARGE
-          </h2>
+          <h2>Diamond Recharge</h2>
 
           <p>
-            Enter your MLBB details and select your recharge package.
+            Choose a recharge category and select your
+            preferred product.
           </p>
 
         </div>
@@ -627,14 +780,15 @@
         <div class="recharge-panel">
 
 
-          <!-- ENTER IDs -->
+          <!-- PLAYER ID -->
+
           <div class="id-panel">
 
             <h3>
-              ENTER IDs
+              Enter Your MLBB ID
             </h3>
 
-            <div class="yellow-line"></div>
+            <div class="blue-line"></div>
 
             <div class="id-grid">
 
@@ -642,283 +796,106 @@
                 type="text"
                 id="userId"
                 class="light-input"
-                placeholder="User ID"
+                placeholder="Game ID"
+                inputmode="numeric"
               >
 
               <input
                 type="text"
                 id="zoneId"
                 class="light-input"
-                placeholder="Zone ID / Server ID"
+                placeholder="Zone / Server ID"
+                inputmode="numeric"
               >
 
             </div>
 
+
             <button
               class="btn recharge-check"
-              id="checkPlayerButton"
+              id="checkPlayerBtn"
+              type="button"
             >
-              🔎 Check Player Name
+              Check Player Name
             </button>
 
-            <p
-              id="playerResult"
+
+            <div
               class="player-result"
-            ></p>
+              id="playerResult"
+            >
+              Enter your Game ID and Zone ID.
+            </div>
 
           </div>
 
 
-          <!-- PACKS -->
-          <div class="packs-section">
+          <!-- CATALOG -->
 
-            <div class="packs-title">
-              SELECT PACK
+          <div class="catalog-wrapper">
+
+            <div class="catalog-tabs" id="catalogTabs">
+
+              <button
+                class="catalog-tab active"
+                type="button"
+                data-category="indian"
+              >
+                <span>01</span>
+                Indian Server
+              </button>
+
+
+              <button
+                class="catalog-tab"
+                type="button"
+                data-category="weekly"
+              >
+                <span>02</span>
+                Weekly Pass
+              </button>
+
+
+              <button
+                class="catalog-tab"
+                type="button"
+                data-category="double"
+              >
+                <span>03</span>
+                Double Bonus
+              </button>
+
+
+              <button
+                class="catalog-tab"
+                type="button"
+                data-category="value"
+              >
+                <span>04</span>
+                Value Pass
+              </button>
+
+
+              <button
+                class="catalog-tab"
+                type="button"
+                data-category="small"
+              >
+                <span>05</span>
+                Small Pack
+              </button>
+
             </div>
 
 
-            <div class="pack-grid">
+            <!-- PRODUCT CATALOG -->
 
+            <div
+              class="product-catalog"
+              id="productCatalog"
+            >
 
-              <div
-                class="pack-card"
-                data-pack="86 Diamonds"
-                data-price="125"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    86 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="125"
-                  >
-                    ₹125
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="172 Diamonds"
-                data-price="255"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    172 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="255"
-                  >
-                    ₹255
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="257 Diamonds"
-                data-price="375"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    257 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="375"
-                  >
-                    ₹375
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="343 Diamonds"
-                data-price="495"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    343 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="495"
-                  >
-                    ₹495
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="429 Diamonds"
-                data-price="625"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    429 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="625"
-                  >
-                    ₹625
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="514 Diamonds"
-                data-price="745"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    514 Diamonds
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="745"
-                  >
-                    ₹745
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="Weekly Pass"
-                data-price="799"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    Weekly Pass
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="799"
-                  >
-                    ₹799
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
-
-              <div
-                class="pack-card"
-                data-pack="Weekly Pass x2"
-                data-price="1499"
-              >
-
-                <div class="diamond-icon">
-                  💎
-                </div>
-
-                <div class="pack-info">
-                  <strong>
-                    Weekly Pass ×2
-                  </strong>
-
-                  <span
-                    class="pack-price"
-                    data-price="1499"
-                  >
-                    ₹1,499
-                  </span>
-                </div>
-
-                <button class="buy-pack">
-                  Buy Now
-                </button>
-
-              </div>
-
+              <!-- Products are generated by script.js -->
 
             </div>
 
@@ -931,9 +908,10 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ===================================================
          TOOLS
-    ========================== -->
+    ==================================================== -->
+
     <section
       class="section"
       id="tools"
@@ -943,14 +921,12 @@
 
         <div class="section-heading">
 
-          <span>PLAYER TOOLS</span>
+          <span>STORE TOOLS</span>
 
-          <h2>
-            MLBB TOOLS
-          </h2>
+          <h2>Useful Tools</h2>
 
           <p>
-            Useful tools for customers.
+            Quick access to useful MLBB store features.
           </p>
 
         </div>
@@ -959,36 +935,95 @@
         <div class="tools-grid">
 
 
+          <!-- GAMES -->
+
+          <article class="tool-card">
+
+            <div class="tool-icon">
+              🎮
+            </div>
+
+            <h3>
+              Games
+            </h3>
+
+            <p>
+              Explore supported games and available
+              digital services.
+            </p>
+
+            <button
+              class="btn btn-primary tool-button"
+              type="button"
+              onclick="openTool('games')"
+            >
+              Open Games
+            </button>
+
+          </article>
+
+
           <!-- LEADERBOARD -->
-          <div class="tool-card">
+
+          <article class="tool-card">
 
             <div class="tool-icon">
               🏆
             </div>
 
             <h3>
-              Monthly Leaderboard
+              Leaderboard
             </h3>
 
             <p>
-              See who has recharged the most during the current month.
+              View leaderboard information and rankings.
             </p>
 
             <button
-              class="btn btn-outline tool-button"
-              data-tool="leaderboard"
+              class="btn btn-primary tool-button"
+              type="button"
+              onclick="openTool('leaderboard')"
             >
-              Open Leaderboard
+              View Leaderboard
             </button>
 
-          </div>
+          </article>
+
+
+          <!-- WALLET -->
+
+          <article class="tool-card">
+
+            <div class="tool-icon">
+              💳
+            </div>
+
+            <h3>
+              Wallet
+            </h3>
+
+            <p>
+              Wallet features can be connected to your
+              account system.
+            </p>
+
+            <button
+              class="btn btn-primary tool-button"
+              type="button"
+              onclick="openTool('wallet')"
+            >
+              Open Wallet
+            </button>
+
+          </article>
 
 
           <!-- HISTORY -->
-          <div class="tool-card">
+
+          <article class="tool-card">
 
             <div class="tool-icon">
-              🕒
+              🧾
             </div>
 
             <h3>
@@ -996,24 +1031,26 @@
             </h3>
 
             <p>
-              View previous recharge and order records.
+              Check your previous recharge activity.
             </p>
 
             <button
-              class="btn btn-outline tool-button"
-              data-tool="history"
+              class="btn btn-primary tool-button"
+              type="button"
+              onclick="openTool('history')"
             >
               View History
             </button>
 
-          </div>
+          </article>
 
 
           <!-- REGION -->
-          <div class="tool-card">
+
+          <article class="tool-card">
 
             <div class="tool-icon">
-              📍
+              🌍
             </div>
 
             <h3>
@@ -1021,17 +1058,48 @@
             </h3>
 
             <p>
-              Check your MLBB region using User ID and Zone ID.
+              Check available region information for
+              your Mobile Legends account.
             </p>
 
             <button
-              class="btn btn-outline"
-              id="regionButton"
+              class="btn btn-primary tool-button"
+              type="button"
+              onclick="openTool('region')"
             >
               Check Region
             </button>
 
-          </div>
+          </article>
+
+
+          <!-- SUPPORT -->
+
+          <article class="tool-card">
+
+            <div class="tool-icon">
+              💬
+            </div>
+
+            <h3>
+              Support
+            </h3>
+
+            <p>
+              Contact RYDEN INTERNATIONAL through
+              WhatsApp for assistance.
+            </p>
+
+            <a
+              href="https://wa.me/919233657553"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp tool-button"
+            >
+              WhatsApp Support
+            </a>
+
+          </article>
 
 
         </div>
@@ -1041,11 +1109,12 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ===================================================
          CONTACT
-    ========================== -->
+    ==================================================== -->
+
     <section
-      class="section"
+      class="section contact-section"
       id="contact"
     >
 
@@ -1053,14 +1122,12 @@
 
         <div class="section-heading">
 
-          <span>RYDEN INTERNATIONAL</span>
+          <span>CONNECT WITH US</span>
 
-          <h2>
-            CONNECT WITH US
-          </h2>
+          <h2>Contact RYDEN</h2>
 
           <p>
-            Tap any option to connect with us.
+            Follow our updates or contact us directly.
           </p>
 
         </div>
@@ -1069,14 +1136,22 @@
         <div class="contact-grid">
 
 
+          <!-- INSTAGRAM -->
+
           <a
-            class="contact-card"
-            href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
+            href="https://instagram.com/rydenglobal"
             target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
           >
 
-            <div class="contact-icon">
-              📸
+            <div class="contact-logo">
+
+              <img
+                src="instagram.png"
+                alt="Instagram"
+              >
+
             </div>
 
             <h3>
@@ -1090,14 +1165,22 @@
           </a>
 
 
+          <!-- WHATSAPP -->
+
           <a
-            class="contact-card"
             href="https://wa.me/919233657553"
             target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
           >
 
-            <div class="contact-icon">
-              💬
+            <div class="contact-logo">
+
+              <img
+                src="whatsapp.png"
+                alt="WhatsApp"
+              >
+
             </div>
 
             <h3>
@@ -1105,20 +1188,28 @@
             </h3>
 
             <p>
-              Direct WhatsApp Chat
+              Direct Support
             </p>
 
           </a>
 
 
+          <!-- STORE -->
+
           <a
-            class="contact-card"
             href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
             target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
           >
 
-            <div class="contact-icon">
-              🛍️
+            <div class="contact-logo">
+
+              <img
+                src="whatsapp.png"
+                alt="WhatsApp Store"
+              >
+
             </div>
 
             <h3>
@@ -1126,20 +1217,28 @@
             </h3>
 
             <p>
-              Join our store
+              Join Store
             </p>
 
           </a>
 
 
+          <!-- CHANNEL -->
+
           <a
-            class="contact-card"
             href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
             target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
           >
 
-            <div class="contact-icon">
-              📢
+            <div class="contact-logo">
+
+              <img
+                src="whatsapp.png"
+                alt="WhatsApp Channel"
+              >
+
             </div>
 
             <h3>
@@ -1147,7 +1246,7 @@
             </h3>
 
             <p>
-              Follow our channel
+              Follow Updates
             </p>
 
           </a>
@@ -1162,47 +1261,60 @@
   </main>
 
 
-  <!-- =========================
+  <!-- =====================================================
        FOOTER
-  ========================== -->
+  ====================================================== -->
+
   <footer class="site-footer">
 
     <div class="container footer-grid">
 
 
-      <div class="footer-column footer-brand">
+      <div class="footer-brand">
 
         <div class="footer-logo">
-          RYDEN
+
+          <div>RYDEN</div>
+
           <span>INTERNATIONAL</span>
+
         </div>
 
         <p>
-          MLBB accounts, diamond recharge
-          and digital store services.
+          Premium MLBB accounts and digital recharge
+          services by RYDEN INTERNATIONAL.
         </p>
+
 
         <div class="social-icons">
 
           <a
-            href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
+            href="https://instagram.com/rydenglobal"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
           >
-            📸
+
+            <img
+              src="instagram.png"
+              alt=""
+            >
+
           </a>
+
 
           <a
             href="https://wa.me/919233657553"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
           >
-            💬
-          </a>
 
-          <a
-            href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
-            target="_blank"
-          >
-            📢
+            <img
+              src="whatsapp.png"
+              alt=""
+            >
+
           </a>
 
         </div>
@@ -1212,70 +1324,61 @@
 
       <div class="footer-column">
 
-        <h3>
-          Quick Links
-        </h3>
+        <h3>Quick Links</h3>
 
-        <a href="#home">
-          Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#accounts">
-          Available Accounts
-        </a>
+        <a href="#accounts">Accounts</a>
 
-        <a href="#recharge">
-          Diamond Recharge
+        <a href="#recharge">Diamond Recharge</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Tools</h3>
+
+        <a href="#tools">Games</a>
+
+        <a href="#tools">Leaderboard</a>
+
+        <a href="#tools">Wallet</a>
+
+        <a href="#tools">Recharge History</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Support</h3>
+
+        <a href="#contact">Contact Us</a>
+
+        <a
+          href="https://wa.me/919233657553"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
         </a>
 
         <a href="#contact">
-          Contact
+          Social Media
         </a>
+
+        <button
+          class="footer-account-link"
+          type="button"
+          onclick="openAuthModal()"
+        >
+          My Account
+        </button>
 
       </div>
-
-
-      <div class="footer-column">
-
-        <h3>
-          Tools
-        </h3>
-
-        <a href="#tools">
-          Leaderboard
-        </a>
-
-        <a href="#tools">
-          Recharge History
-        </a>
-
-        <a href="#tools">
-          Region Checker
-        </a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h3>
-          Important Pages
-        </h3>
-
-        <a href="#">
-          Privacy Policy
-        </a>
-
-        <a href="#">
-          Terms & Conditions
-        </a>
-
-        <a href="#">
-          Refund Policy
-        </a>
-
-      </div>
-
 
     </div>
 
@@ -1290,36 +1393,50 @@
   </footer>
 
 
-  <!-- =========================
-       FLOATING BUTTONS
-  ========================== -->
+  <!-- =====================================================
+       FLOATING SOCIAL BUTTONS
+  ====================================================== -->
 
   <div class="floating-buttons">
 
-    <a
-      href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
-      target="_blank"
-      class="floating instagram"
-      aria-label="Instagram"
-    >
-      📸
-    </a>
 
     <a
+      class="floating instagram"
+      href="https://instagram.com/rydenglobal"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+
+      <img
+        src="instagram.png"
+        alt="Instagram"
+      >
+
+    </a>
+
+
+    <a
+      class="floating whatsapp"
       href="https://wa.me/919233657553"
       target="_blank"
-      class="floating whatsapp"
+      rel="noopener noreferrer"
       aria-label="WhatsApp"
     >
-      💬
+
+      <img
+        src="whatsapp.png"
+        alt="WhatsApp"
+      >
+
     </a>
 
   </div>
 
 
-  <!-- =========================
-       MOBILE BOTTOM NAVIGATION
-  ========================== -->
+  <!-- =====================================================
+       MOBILE BOTTOM NAV
+  ====================================================== -->
 
   <nav class="mobile-bottom-nav">
 
@@ -1329,49 +1446,51 @@
     </a>
 
     <a href="#accounts">
-      <span>👥</span>
+      <span>🎮</span>
       Accounts
     </a>
 
-    <a href="#tools">
-      <span>🏆</span>
-      Leaderboard
+    <a href="#recharge">
+      <span>💎</span>
+      Recharge
     </a>
 
     <a href="#tools">
-      <span>🕒</span>
-      History
+      <span>🛠</span>
+      Tools
     </a>
 
-    <a href="#tools" id="mobileRegionButton">
-      <span>📍</span>
-      Region
+    <a
+      href="javascript:void(0)"
+      onclick="openAuthModal()"
+    >
+      <span>👤</span>
+      Account
     </a>
 
   </nav>
 
 
-  <!-- =========================
-       MODAL
-  ========================== -->
+  <!-- =====================================================
+       MAIN MODAL
+  ====================================================== -->
 
   <div
     class="modal"
     id="mainModal"
+    aria-hidden="true"
   >
 
     <div class="modal-box">
 
       <button
         class="modal-close"
-        id="modalClose"
+        type="button"
+        onclick="closeModal()"
+        aria-label="Close"
       >
         ×
       </button>
-
-      <h2 id="modalTitle">
-        RYDEN INTERNATIONAL
-      </h2>
 
       <div id="modalContent"></div>
 
@@ -1380,7 +1499,66 @@
   </div>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- =====================================================
+       AUTH MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="authModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box auth-box">
+
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeAuthModal()"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="authContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       PRODUCT DETAILS MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="productModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box product-modal-box">
+
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeProductModal()"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="productModalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
   <script src="script.js"></script>
 
 </body>
