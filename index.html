@@ -4,118 +4,303 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RYDEN INTERNATIONAL | MLBB Marketplace</title>
+<title>RYDEN INTERNATIONAL</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#05070d;
-  color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#05070d;
+    color:white;
 }
 
 a{
-  text-decoration:none;
-  color:inherit;
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
 }
 
 .hidden{
-  display:none !important;
+    display:none !important;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#080b13;
-  border-bottom:1px solid #252b3a;
-  box-shadow:0 5px 20px rgba(0,0,0,.5);
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#080b13;
+    border-bottom:1px solid #272d3b;
 }
 
 .navbar{
-  max-width:1250px;
-  margin:auto;
-  min-height:70px;
-  padding:10px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    min-height:70px;
+    padding:12px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:1px;
-  color:#ffd34e;
-  white-space:nowrap;
+    color:#ffd34e;
+    font-size:21px;
+    font-weight:900;
+    white-space:nowrap;
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-  gap:8px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+    flex-wrap:wrap;
 }
 
 .nav-links a{
-  padding:10px 13px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:700;
-  color:#ddd;
-  transition:.2s;
+    color:#ddd;
+    padding:9px 11px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:bold;
 }
 
 .nav-links a:hover{
-  background:#171d2a;
-  color:#ffd34e;
+    background:#171d29;
+    color:#ffd34e;
 }
 
-/* HOME BANNER */
+/* ================= HERO ================= */
+
 .hero{
-  width:100%;
-  position:relative;
-  background:#000;
-  overflow:hidden;
+    width:100%;
+    min-height:430px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 75% 50%,rgba(255,193,7,.18),transparent 28%),
+        linear-gradient(120deg,#05070d,#101827 50%,#05070d);
 }
+
+/*
+  If banner.png exists, it will be shown.
+  If it doesn't exist, the CSS banner below remains visible.
+*/
 
 .hero-image{
-  display:block;
-  width:100%;
-  height:auto;
-  max-height:850px;
-  object-fit:cover;
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:1;
 }
 
-.hero-cta{
-  position:absolute;
-  left:7%;
-  top:58%;
-  width:38%;
-  height:12%;
-  cursor:pointer;
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,5,10,.95) 0%,
+            rgba(3,5,10,.65) 38%,
+            rgba(3,5,10,.10) 75%,
+            rgba(3,5,10,.35) 100%
+        );
 }
 
-/* SECTIONS */
+.hero-content{
+    position:relative;
+    z-index:3;
+
+    width:min(1200px,92%);
+    min-height:430px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.hero-small{
+    color:#ffd34e;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.hero-title{
+    font-size:clamp(35px,6vw,75px);
+    line-height:1;
+    font-weight:1000;
+    color:white;
+}
+
+.hero-title span{
+    color:#ffd34e;
+}
+
+.hero-text{
+    margin-top:15px;
+    color:#c9ced9;
+    font-size:17px;
+    max-width:500px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.hero-btn{
+    border:0;
+    padding:13px 24px;
+    border-radius:8px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.hero-btn-primary{
+    background:#ffd34e;
+    color:#111;
+}
+
+.hero-btn-secondary{
+    background:#151c2b;
+    color:#fff;
+    border:1px solid #39445a;
+}
+
+/* ================= GENERAL ================= */
+
 .container{
-  width:min(1200px,94%);
-  margin:auto;
-  padding:55px 0;
+    width:min(1200px,94%);
+    margin:auto;
+    padding:60px 0;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:30px;
+    text-align:center;
+    margin-bottom:30px;
 }
+
+.section-title h2{
+    color:#ffd34e;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#9da6b7;
+}
+
+/* ================= ACCOUNTS ================= */
+
+.accounts-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.account-card{
+    background:linear-gradient(145deg,#111827,#080b12);
+    border:1px solid #293347;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.account-image{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+    background:#111722;
+}
+
+.account-body{
+    padding:18px;
+}
+
+.account-body h3{
+    color:#ffd34e;
+    margin-bottom:12px;
+}
+
+.account-info{
+    display:grid;
+    gap:7px;
+    color:#cbd1dc;
+    font-size:14px;
+}
+
+.account-price{
+    color:#ffd34e;
+    font-size:24px;
+    font-weight:900;
+    margin:15px 0;
+}
+
+.card-buttons{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:11px 16px;
+    cursor:pointer;
+    font-weight:800;
+}
+
+.btn-yellow{
+    background:#ffd34e;
+    color:#111;
+}
+
+.btn-red{
+    background:#e53935;
+    color:white;
+}
+
+.loading{
+    text-align:center;
+    color:#9da6b7;
+    padding:30px;
+}
+
+/* ================= DIAMONDS ================= */
+
+.diamond-grid{
+    display:grid;
+    grid-template-columns:
