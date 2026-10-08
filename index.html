@@ -1,1588 +1,1387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RYDEN INTERNATIONAL | MLBB Account Marketplace</title>
+  <title>RYDEN INTERNATIONAL | MLBB Digital Store</title>
 
-<meta name="description" content="RYDEN INTERNATIONAL - Premium Mobile Legends account marketplace. Browse premium MLBB accounts and contact us through WhatsApp.">
+  <meta
+    name="description"
+    content="RYDEN INTERNATIONAL - MLBB accounts, diamond recharge and digital store."
+  >
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600;700&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#030711;
-    color:#fff;
-    font-family:Rajdhani,Arial,sans-serif;
-    min-height:100vh;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(3,7,17,.94);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(48,148,255,.25);
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    padding:12px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-    color:#fff;
-}
-
-.brand img{
-    width:48px;
-    height:48px;
-    border-radius:12px;
-    object-fit:cover;
-    border:1px solid #248cff;
-    box-shadow:0 0 18px rgba(36,140,255,.35);
-}
-
-.brand-text{
-    font-family:Teko,sans-serif;
-    font-size:25px;
-    line-height:.85;
-    letter-spacing:1px;
-}
-
-.brand-text span{
-    display:block;
-    color:#38a8ff;
-}
-
-.nav-links{
-    display:flex;
-    gap:25px;
-    align-items:center;
-}
-
-.nav-links a{
-    color:#dcecff;
-    text-decoration:none;
-    font-weight:600;
-    font-size:16px;
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:#35a9ff;
-}
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:0;
-    color:white;
-    font-size:28px;
-    cursor:pointer;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    position:relative;
-    overflow:hidden;
-    min-height:620px;
-    display:flex;
-    align-items:center;
-    background:
-        radial-gradient(circle at 15% 50%,rgba(0,128,255,.18),transparent 35%),
-        radial-gradient(circle at 90% 30%,rgba(0,213,255,.12),transparent 30%),
-        #030711;
-}
-
-.hero-content{
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    padding:70px 20px;
-    display:grid;
-    grid-template-columns:1fr 1.15fr;
-    gap:45px;
-    align-items:center;
-}
-
-.hero-copy{
-    position:relative;
-    z-index:2;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:7px 13px;
-    border-radius:30px;
-    border:1px solid rgba(56,168,255,.4);
-    background:rgba(16,80,145,.16);
-    color:#58b8ff;
-    font-weight:700;
-    margin-bottom:18px;
-}
-
-.hero h1{
-    font-family:Teko,sans-serif;
-    font-size:clamp(55px,8vw,100px);
-    line-height:.8;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.hero h1 span{
-    color:#39aaff;
-    text-shadow:0 0 25px rgba(57,170,255,.35);
-}
-
-.hero h2{
-    margin-top:18px;
-    color:#d8eaff;
-    font-size:25px;
-}
-
-.hero p{
-    margin-top:15px;
-    color:#91a7c2;
-    font-size:17px;
-    line-height:1.6;
-    max-width:550px;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:25px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:13px 20px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:700;
-    border:1px solid transparent;
-    transition:.2s;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:16px;
-}
-
-.btn-primary{
-    color:#00101e;
-    background:#39aaff;
-    box-shadow:0 0 25px rgba(57,170,255,.25);
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-    background:#66beff;
-}
-
-.btn-whatsapp{
-    background:#18c96e;
-    color:#fff;
-}
-
-.btn-whatsapp:hover{
-    background:#20e27c;
-    transform:translateY(-2px);
-}
-
-.btn-outline{
-    color:#dff1ff;
-    border-color:#245078;
-    background:rgba(12,30,50,.5);
-}
-
-.btn-outline:hover{
-    border-color:#39aaff;
-    color:#39aaff;
-}
-
-/* hero image */
-
-.hero-visual{
-    position:relative;
-}
-
-.hero-visual::before{
-    content:"";
-    position:absolute;
-    inset:10%;
-    background:#159bff;
-    filter:blur(100px);
-    opacity:.13;
-}
-
-.hero-visual img{
-    position:relative;
-    display:block;
-    width:100%;
-    max-height:470px;
-    object-fit:cover;
-    border-radius:22px;
-    border:1px solid rgba(74,177,255,.4);
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.65),
-        0 0 35px rgba(0,143,255,.18);
-}
-
-/* =========================
-   TRUST BAR
-========================= */
-
-.trust{
-    border-top:1px solid rgba(55,156,255,.15);
-    border-bottom:1px solid rgba(55,156,255,.15);
-    background:#050c18;
-}
-
-.trust-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:18px 20px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.trust-item{
-    text-align:center;
-    color:#b9d0e8;
-}
-
-.trust-item strong{
-    display:block;
-    color:#fff;
-    font-size:18px;
-}
-
-.trust-item span{
-    font-size:14px;
-    color:#7089a5;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-.section{
-    max-width:1200px;
-    margin:auto;
-    padding:75px 20px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.section-title .small{
-    color:#39aaff;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
-
-.section-title h2{
-    font-family:Teko,sans-serif;
-    font-size:48px;
-    line-height:1;
-    margin-top:5px;
-}
-
-.section-title p{
-    color:#758da8;
-    margin-top:10px;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-area{
-    background:#060e1b;
-    border:1px solid #122c49;
-    padding:20px;
-    border-radius:16px;
-    margin-bottom:30px;
-}
-
-.search-row{
-    display:grid;
-    grid-template-columns:1fr 190px 190px;
-    gap:12px;
-}
-
-.search-input,
-.filter{
-    width:100%;
-    padding:14px 15px;
-    background:#030812;
-    border:1px solid #1b3d60;
-    border-radius:10px;
-    color:#fff;
-    outline:none;
-    font-family:inherit;
-    font-size:16px;
-}
-
-.search-input:focus,
-.filter:focus{
-    border-color:#39aaff;
-    box-shadow:0 0 0 3px rgba(57,170,255,.08);
-}
-
-/* =========================
-   ACCOUNT CARDS
-========================= */
-
-.accounts-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.account-card{
-    overflow:hidden;
-    border-radius:16px;
-    background:linear-gradient(145deg,#081322,#050a13);
-    border:1px solid #173555;
-    transition:.25s;
-}
-
-.account-card:hover{
-    transform:translateY(-5px);
-    border-color:#258dd4;
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
-}
-
-.account-image{
-    height:190px;
-    position:relative;
-    overflow:hidden;
-    background:#02060c;
-}
-
-.account-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.status{
-    position:absolute;
-    top:12px;
-    left:12px;
-    padding:5px 9px;
-    border-radius:6px;
-    background:#12b967;
-    color:white;
-    font-size:12px;
-    font-weight:700;
-}
-
-.price{
-    position:absolute;
-    bottom:10px;
-    right:10px;
-    padding:6px 10px;
-    border-radius:7px;
-    background:rgba(0,0,0,.75);
-    color:#59baff;
-    font-weight:700;
-}
-
-.account-info{
-    padding:17px;
-}
-
-.account-info h3{
-    font-size:22px;
-}
-
-.account-info p{
-    color:#7890aa;
-    margin-top:5px;
-}
-
-.stats{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-    margin:14px 0;
-}
-
-.stat{
-    background:#091a2c;
-    border:1px solid #163651;
-    color:#b8cee3;
-    border-radius:6px;
-    padding:5px 8px;
-    font-size:12px;
-}
-
-.card-actions{
-    display:flex;
-    gap:8px;
-}
-
-.card-actions .btn{
-    flex:1;
-    padding:10px;
-    font-size:14px;
-}
-
-/* =========================
-   WHY US
-========================= */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.feature{
-    padding:22px;
-    background:#060e1a;
-    border:1px solid #122c49;
-    border-radius:14px;
-}
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:12px;
-}
-
-.feature h3{
-    font-size:20px;
-}
-
-.feature p{
-    color:#748ca6;
-    margin-top:7px;
-    line-height:1.5;
-}
-
-/* =========================
-   WHATSAPP CTA
-========================= */
-
-.whatsapp-section{
-    padding:0 20px 75px;
-}
-
-.whatsapp-box{
-    max-width:1160px;
-    margin:auto;
-    padding:35px;
-    border-radius:20px;
-    border:1px solid rgba(27,204,111,.3);
-    background:
-        radial-gradient(circle at 90% 30%,rgba(25,201,110,.13),transparent 35%),
-        #06130f;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-}
-
-.whatsapp-box h2{
-    font-family:Teko,sans-serif;
-    font-size:40px;
-}
-
-.whatsapp-box p{
-    color:#82a293;
-    margin-top:5px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    border-top:1px solid #102942;
-    background:#02060d;
-    padding:35px 20px;
-}
-
-.footer-inner{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.footer-brand{
-    color:#fff;
-    font-family:Teko,sans-serif;
-    font-size:28px;
-}
-
-.footer-brand span{
-    color:#39aaff;
-}
-
-footer p{
-    color:#657b94;
-    font-size:14px;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(8px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal.active{
-    display:flex;
-}
-
-.modal-box{
-    width:min(700px,100%);
-    max-height:90vh;
-    overflow:auto;
-    background:#07111f;
-    border:1px solid #24547e;
-    border-radius:18px;
-    padding:25px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:15px;
-    top:12px;
-    background:#101f31;
-    border:0;
-    color:#fff;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:20px;
-}
-
-.modal-box h2{
-    font-family:Teko,sans-serif;
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.detail-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin:20px 0;
-}
-
-.detail{
-    padding:12px;
-    background:#0a1929;
-    border-radius:8px;
-    border:1px solid #14334f;
-}
-
-.detail small{
-    display:block;
-    color:#69829d;
-}
-
-.detail strong{
-    display:block;
-    margin-top:3px;
-}
-
-/* =========================
-   EMPTY STATE
-========================= */
-
-.no-results{
-    display:none;
-    text-align:center;
-    padding:40px;
-    color:#7189a3;
-    border:1px dashed #1a3957;
-    border-radius:14px;
-}
-
-/* =========================
-   HIDDEN ADMIN
-========================= */
-
-#adminPanel{
-    display:none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-    .hero-content{
-        grid-template-columns:1fr;
-        padding-top:50px;
-    }
-
-    .hero-copy{
-        text-align:center;
-    }
-
-    .hero-copy p{
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-visual{
-        max-width:700px;
-        margin:auto;
-    }
-
-    .accounts-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .search-row{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .search-row .search-input{
-        grid-column:1/-1;
-    }
-}
-
-@media(max-width:650px){
-
-    .navbar{
-        padding:10px 14px;
-    }
-
-    .brand img{
-        width:42px;
-        height:42px;
-    }
-
-    .brand-text{
-        font-size:22px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:64px;
-        left:10px;
-        right:10px;
-        padding:15px;
-        background:#07101c;
-        border:1px solid #173755;
-        border-radius:12px;
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .nav-links.show{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:10px;
-        text-align:center;
-    }
-
-    .hero{
-        min-height:auto;
-    }
-
-    .hero-content{
-        padding:45px 15px 55px;
-        gap:30px;
-    }
-
-    .hero h1{
-        font-size:65px;
-    }
-
-    .hero h2{
-        font-size:21px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .hero-visual img{
-        border-radius:15px;
-    }
-
-    .trust-inner{
-        grid-template-columns:1fr;
-        gap:18px;
-    }
-
-    .section{
-        padding:55px 15px;
-    }
-
-    .section-title h2{
-        font-size:42px;
-    }
-
-    .search-row{
-        grid-template-columns:1fr;
-    }
-
-    .search-row .search-input{
-        grid-column:auto;
-    }
-
-    .accounts-grid{
-        grid-template-columns:1fr;
-    }
-
-    .account-image{
-        height:210px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .whatsapp-section{
-        padding:0 15px 55px;
-    }
-
-    .whatsapp-box{
-        padding:25px 20px;
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .whatsapp-box h2{
-        font-size:35px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .detail-list{
-        grid-template-columns:1fr;
-    }
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
 
-<header>
-    <div class="navbar">
+    <div class="container navbar">
 
-        <a href="#" class="brand">
-            <img src="store logo.jpeg" alt="RYDEN INTERNATIONAL">
-            <div class="brand-text">
-                RYDEN
-                <span>INTERNATIONAL</span>
-            </div>
-        </a>
-
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="#home" onclick="closeMenu()">Home</a>
-            <a href="#accounts" onclick="closeMenu()">Accounts</a>
-            <a href="#why-us" onclick="closeMenu()">Why Us</a>
-            <a href="#contact" onclick="closeMenu()">Contact</a>
-        </nav>
-
-    </div>
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<main id="home">
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-copy">
-
-            <div class="badge">
-                🔥 PREMIUM MLBB MARKETPLACE
-            </div>
-
-            <h1>
-                RYDEN
-                <span>INTERNATIONAL</span>
-            </h1>
-
-            <h2>Premium Mobile Legends Accounts</h2>
-
-            <p>
-                Discover premium MLBB accounts with rare skins,
-                collectors, high battle points and more.
-                Find your next account through RYDEN INTERNATIONAL.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#accounts" class="btn btn-primary">
-                    🛍️ Browse Accounts
-                </a>
-
-                <a
-                    href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
-                    target="_blank"
-                    class="btn btn-whatsapp"
-                >
-                    💬 Join WhatsApp Store
-                </a>
-
-            </div>
-
+      <a href="#home" class="logo">
+        <img src="store logo.jpeg" alt="RYDEN INTERNATIONAL Logo">
+        <div class="logo-text">
+          <strong>RYDEN</strong>
+          <span>INTERNATIONAL</span>
         </div>
+      </a>
 
-        <div class="hero-visual">
-            <img src="web pic.jpeg" alt="MLBB Arlott Collector">
-        </div>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <nav class="desktop-nav" id="desktopNav">
+        <a href="#home">Home</a>
+        <a href="#accounts">Accounts</a>
+        <a href="#recharge">Diamond Recharge</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
     </div>
 
-</section>
+  </header>
 
 
-<!-- =========================
-     TRUST BAR
-========================= -->
+  <!-- =========================
+       RUNNING WHATSAPP BAR
+  ========================== -->
+  <div class="running-bar">
 
-<section class="trust">
+    <div class="running-track">
 
-    <div class="trust-inner">
+      <a
+        href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
+        target="_blank"
+      >
+        💬 Press here to join our WhatsApp Store
+      </a>
 
-        <div class="trust-item">
-            <strong>💎 Premium Accounts</strong>
-            <span>Quality MLBB accounts</span>
-        </div>
+      <a
+        href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
+        target="_blank"
+      >
+        📢 Press here to join our WhatsApp Channel
+      </a>
 
-        <div class="trust-item">
-            <strong>⚡ Fast Response</strong>
-            <span>Contact us through WhatsApp</span>
-        </div>
+      <a
+        href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
+        target="_blank"
+      >
+        💬 Press here to join our WhatsApp Store
+      </a>
 
-        <div class="trust-item">
-            <strong>🔐 Customer First</strong>
-            <span>Simple and transparent marketplace</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ACCOUNTS
-========================= -->
-
-<section class="section" id="accounts">
-
-    <div class="section-title">
-
-        <div class="small">Marketplace</div>
-
-        <h2>FEATURED ACCOUNTS</h2>
-
-        <p>
-            Browse available Mobile Legends accounts.
-        </p>
+      <a
+        href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
+        target="_blank"
+      >
+        📢 Press here to join our WhatsApp Channel
+      </a>
 
     </div>
 
+  </div>
 
-    <div class="search-area">
 
-        <div class="search-row">
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+
+        <div class="hero-text">
+
+          <div class="hero-badge">
+            🔥 PREMIUM MLBB DIGITAL STORE
+          </div>
+
+          <h1>
+            RYDEN
+            <span>INTERNATIONAL</span>
+          </h1>
+
+          <h2>
+            MLBB Accounts & Diamond Recharge
+          </h2>
+
+          <p>
+            Explore available Mobile Legends accounts,
+            diamond recharge packages and our digital store.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#accounts"
+              class="btn btn-primary"
+            >
+              👥 Available Account
+            </a>
+
+            <a
+              href="#recharge"
+              class="btn btn-gold"
+            >
+              💎 Diamond Recharge
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK FEATURES
+    ========================== -->
+    <section class="quick-features">
+
+      <div class="container quick-grid">
+
+        <div class="quick-item">
+          <strong>💎 Premium Accounts</strong>
+          <span>Selected MLBB accounts</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>⚡ Fast Response</strong>
+          <span>Direct WhatsApp support</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>🔐 Customer First</strong>
+          <span>Simple & transparent</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>🌎 International</strong>
+          <span>Worldwide customers</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         AVAILABLE ACCOUNTS
+    ========================== -->
+    <section class="section" id="accounts">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>MARKETPLACE</span>
+
+          <h2>
+            AVAILABLE ACCOUNTS
+          </h2>
+
+          <p>
+            Search and filter currently available accounts.
+          </p>
+
+        </div>
+
+
+        <!-- FILTERS -->
+        <div class="filter-box">
+
+          <div class="filter-grid">
 
             <input
-                id="searchInput"
-                class="search-input"
-                type="search"
-                placeholder="🔎 Search accounts, skins, heroes..."
-                oninput="filterAccounts()"
+              type="search"
+              id="accountSearch"
+              class="input"
+              placeholder="🔎 Search account, skin, hero..."
             >
 
-            <select
-                id="priceFilter"
-                class="filter"
-                onchange="filterAccounts()"
-            >
-                <option value="all">All Prices</option>
-                <option value="low">Under ₹5,000</option>
-                <option value="mid">₹5,000 - ₹15,000</option>
-                <option value="high">Above ₹15,000</option>
-            </select>
 
             <select
-                id="skinFilter"
-                class="filter"
-                onchange="filterAccounts()"
+              id="collectorFilter"
+              class="input"
             >
-                <option value="all">All Types</option>
-                <option value="collector">Collector</option>
-                <option value="legend">Legend</option>
-                <option value="rare">Rare Skins</option>
+
+              <option value="all">
+                All Collector Levels
+              </option>
+
+              <option value="expert">
+                Expert Collector
+              </option>
+
+              <option value="renowned">
+                Renowned Collector
+              </option>
+
+              <option value="exalted">
+                Exalted Collector
+              </option>
+
+              <option value="mega">
+                Mega Collector
+              </option>
+
+              <option value="world">
+                World Collector
+              </option>
+
+              <option value="galaxy">
+                Galaxy Collector
+              </option>
+
             </select>
+
+
+            <select
+              id="priceFilter"
+              class="input"
+            >
+
+              <option value="all">
+                All Prices
+              </option>
+
+              <option value="1-5">
+                1–5K
+              </option>
+
+              <option value="5-10">
+                5–10K
+              </option>
+
+              <option value="10-20">
+                10–20K
+              </option>
+
+              <option value="20-30">
+                20–30K
+              </option>
+
+              <option value="30-40">
+                30–40K
+              </option>
+
+              <option value="40-50">
+                40–50K
+              </option>
+
+              <option value="50-60">
+                50–60K
+              </option>
+
+              <option value="60-70">
+                60–70K
+              </option>
+
+              <option value="70-80">
+                70–80K
+              </option>
+
+              <option value="80-90">
+                80–90K
+              </option>
+
+              <option value="100+">
+                100K+ Above
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CURRENCY -->
+          <div class="currency-switch">
+
+            <span>
+              Display Currency:
+            </span>
+
+            <button
+              id="inrButton"
+              class="currency-button active"
+              data-currency="INR"
+            >
+              ₹ INR
+            </button>
+
+            <button
+              id="usdButton"
+              class="currency-button"
+              data-currency="USD"
+            >
+              $ USD
+            </button>
+
+          </div>
 
         </div>
 
-    </div>
 
-
-    <div class="accounts-grid" id="accountsGrid">
-
-
-        <!-- ACCOUNT 1 -->
-
-        <article
-            class="account-card"
-            data-name="Arlott Collector Premium"
-            data-price="12000"
-            data-type="collector"
+        <!-- ACCOUNT GRID -->
+        <div
+          class="account-grid"
+          id="accountGrid"
         >
+
+
+          <!-- ACCOUNT 1 -->
+          <article
+            class="account-card"
+            data-name="Premium Arlott Collector"
+            data-collector="expert"
+            data-price="12000"
+          >
 
             <div class="account-image">
 
-                <img src="web pic.jpeg" alt="Arlott Collector">
+              <img
+                src="web pic.jpeg"
+                alt="Premium MLBB Account"
+              >
 
-                <div class="status">AVAILABLE</div>
+              <span class="available-badge">
+                AVAILABLE
+              </span>
 
-                <div class="price">₹12,000</div>
-
-            </div>
-
-            <div class="account-info">
-
-                <h3>Arlott Collector</h3>
-
-                <p>Premium MLBB Account</p>
-
-                <div class="stats">
-                    <span class="stat">🔥 Collector</span>
-                    <span class="stat">⭐ Rare Skins</span>
-                    <span class="stat">💎 Premium</span>
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn btn-outline"
-                        onclick="openDetails('Arlott Collector','12000','Collector','Premium MLBB account with rare skins and collector content.')"
-                    >
-                        Details
-                    </button>
-
-                    <a
-                        class="btn btn-whatsapp"
-                        target="_blank"
-                        href="https://wa.me/?text=Hello%20RYDEN%20INTERNATIONAL%2C%20I%20am%20interested%20in%20the%20Arlott%20Collector%20account."
-                    >
-                        WhatsApp
-                    </a>
-
-                </div>
+              <span
+                class="account-price"
+                data-price="12000"
+              >
+                ₹12,000
+              </span>
 
             </div>
 
-        </article>
+            <div class="account-content">
+
+              <h3>
+                Premium Arlott Collector
+              </h3>
+
+              <p>
+                Premium MLBB account
+              </p>
+
+              <div class="account-tags">
+
+                <span>
+                  🏆 Expert Collector
+                </span>
+
+                <span>
+                  ⭐ Rare Skins
+                </span>
+
+                <span>
+                  💎 Premium
+                </span>
+
+              </div>
+
+              <div class="card-buttons">
+
+                <button
+                  class="btn btn-outline account-details"
+                  data-title="Premium Arlott Collector"
+                  data-price="12000"
+                  data-collector="Expert Collector"
+                >
+                  Details
+                </button>
+
+                <a
+                  class="btn btn-whatsapp"
+                  href="https://wa.me/919233657553"
+                  target="_blank"
+                >
+                  WhatsApp
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
 
 
-        <!-- ACCOUNT 2 -->
-
-        <article
+          <!-- ACCOUNT 2 -->
+          <article
             class="account-card"
             data-name="Premium Collector Account"
+            data-collector="renowned"
             data-price="18000"
-            data-type="collector"
-        >
+          >
 
             <div class="account-image">
 
-                <img src="web pic.jpeg" alt="Premium Account">
+              <img
+                src="web pic.jpeg"
+                alt="Premium Collector Account"
+              >
 
-                <div class="status">AVAILABLE</div>
+              <span class="available-badge">
+                AVAILABLE
+              </span>
 
-                <div class="price">₹18,000</div>
-
-            </div>
-
-            <div class="account-info">
-
-                <h3>Premium Collector</h3>
-
-                <p>High-value MLBB account</p>
-
-                <div class="stats">
-                    <span class="stat">👑 Collector</span>
-                    <span class="stat">💎 Premium</span>
-                    <span class="stat">🔥 Rare</span>
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn btn-outline"
-                        onclick="openDetails('Premium Collector','18000','Collector','High-value account with premium collector content.')"
-                    >
-                        Details
-                    </button>
-
-                    <a
-                        class="btn btn-whatsapp"
-                        target="_blank"
-                        href="https://wa.me/?text=Hello%20RYDEN%20INTERNATIONAL%2C%20I%20am%20interested%20in%20the%20Premium%20Collector%20account."
-                    >
-                        WhatsApp
-                    </a>
-
-                </div>
+              <span
+                class="account-price"
+                data-price="18000"
+              >
+                ₹18,000
+              </span>
 
             </div>
 
-        </article>
+            <div class="account-content">
+
+              <h3>
+                Premium Collector
+              </h3>
+
+              <p>
+                High-value MLBB account
+              </p>
+
+              <div class="account-tags">
+
+                <span>
+                  👑 Renowned Collector
+                </span>
+
+                <span>
+                  💎 Premium
+                </span>
+
+                <span>
+                  🔥 Rare
+                </span>
+
+              </div>
+
+              <div class="card-buttons">
+
+                <button
+                  class="btn btn-outline account-details"
+                  data-title="Premium Collector"
+                  data-price="18000"
+                  data-collector="Renowned Collector"
+                >
+                  Details
+                </button>
+
+                <a
+                  class="btn btn-whatsapp"
+                  href="https://wa.me/919233657553"
+                  target="_blank"
+                >
+                  WhatsApp
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
 
 
-        <!-- ACCOUNT 3 -->
-
-        <article
+          <!-- ACCOUNT 3 -->
+          <article
             class="account-card"
             data-name="Rare Skin Account"
+            data-collector="expert"
             data-price="4500"
-            data-type="rare"
-        >
+          >
 
             <div class="account-image">
 
-                <img src="web pic.jpeg" alt="Rare Skin Account">
+              <img
+                src="web pic.jpeg"
+                alt="Rare Skin Account"
+              >
 
-                <div class="status">AVAILABLE</div>
+              <span class="available-badge">
+                AVAILABLE
+              </span>
 
-                <div class="price">₹4,500</div>
-
-            </div>
-
-            <div class="account-info">
-
-                <h3>Rare Skin Account</h3>
-
-                <p>Affordable premium account</p>
-
-                <div class="stats">
-                    <span class="stat">⭐ Rare</span>
-                    <span class="stat">🎮 MLBB</span>
-                    <span class="stat">💙 Value</span>
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn btn-outline"
-                        onclick="openDetails('Rare Skin Account','4500','Rare Skins','Affordable MLBB account with rare skins.')"
-                    >
-                        Details
-                    </button>
-
-                    <a
-                        class="btn btn-whatsapp"
-                        target="_blank"
-                        href="https://wa.me/?text=Hello%20RYDEN%20INTERNATIONAL%2C%20I%20am%20interested%20in%20the%20Rare%20Skin%20Account."
-                    >
-                        WhatsApp
-                    </a>
-
-                </div>
+              <span
+                class="account-price"
+                data-price="4500"
+              >
+                ₹4,500
+              </span>
 
             </div>
 
-        </article>
+            <div class="account-content">
+
+              <h3>
+                Rare Skin Account
+              </h3>
+
+              <p>
+                Affordable premium account
+              </p>
+
+              <div class="account-tags">
+
+                <span>
+                  ⭐ Rare
+                </span>
+
+                <span>
+                  🎮 MLBB
+                </span>
+
+                <span>
+                  💙 Value
+                </span>
+
+              </div>
+
+              <div class="card-buttons">
+
+                <button
+                  class="btn btn-outline account-details"
+                  data-title="Rare Skin Account"
+                  data-price="4500"
+                  data-collector="Expert Collector"
+                >
+                  Details
+                </button>
+
+                <a
+                  class="btn btn-whatsapp"
+                  href="https://wa.me/919233657553"
+                  target="_blank"
+                >
+                  WhatsApp
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
 
 
-    </div>
-
-
-    <div class="no-results" id="noResults">
-        😕 No matching accounts found.
-        <br>
-        Try another search or filter.
-    </div>
-
-</section>
-
-
-<!-- =========================
-     WHY US
-========================= -->
-
-<section class="section" id="why-us">
-
-    <div class="section-title">
-
-        <div class="small">RYDEN INTERNATIONAL</div>
-
-        <h2>WHY CHOOSE US?</h2>
-
-    </div>
-
-    <div class="features">
-
-        <div class="feature">
-            <div class="feature-icon">💎</div>
-            <h3>Premium Accounts</h3>
-            <p>
-                Browse carefully selected MLBB accounts
-                with valuable skins and content.
-            </p>
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">🔎</div>
-            <h3>Easy Search</h3>
-            <p>
-                Quickly search and filter accounts
-                according to your needs.
-            </p>
+
+        <div
+          class="no-results"
+          id="noResults"
+        >
+          No matching accounts found.
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">💬</div>
-            <h3>WhatsApp Support</h3>
-            <p>
-                Contact RYDEN INTERNATIONAL directly
-                for account information.
-            </p>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIAMOND RECHARGE
+    ========================== -->
+    <section
+      class="section recharge-section"
+      id="recharge"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>DIGITAL STORE</span>
+
+          <h2>
+            DIAMOND RECHARGE
+          </h2>
+
+          <p>
+            Enter your MLBB details and select your recharge package.
+          </p>
+
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">📱</div>
-            <h3>Mobile Friendly</h3>
-            <p>
-                Designed to work smoothly on phones,
-                tablets and computers.
-            </p>
-        </div>
 
-    </div>
-
-</section>
+        <div class="recharge-panel">
 
 
-<!-- =========================
-     WHATSAPP CTA
-========================= -->
+          <!-- ENTER IDs -->
+          <div class="id-panel">
 
-<section class="whatsapp-section" id="contact">
+            <h3>
+              ENTER IDs
+            </h3>
 
-    <div class="whatsapp-box">
+            <div class="yellow-line"></div>
 
-        <div>
-            <h2>JOIN OUR WHATSAPP STORE</h2>
-            <p>
-                Get updates about new MLBB accounts and availability.
-            </p>
-        </div>
+            <div class="id-grid">
 
-        <div>
+              <input
+                type="text"
+                id="userId"
+                class="light-input"
+                placeholder="User ID"
+              >
 
-            <a
-                href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
-                target="_blank"
-                class="btn btn-whatsapp"
+              <input
+                type="text"
+                id="zoneId"
+                class="light-input"
+                placeholder="Zone ID / Server ID"
+              >
+
+            </div>
+
+            <button
+              class="btn recharge-check"
+              id="checkPlayerButton"
             >
-                💬 Join Store Group
-            </a>
+              🔎 Check Player Name
+            </button>
 
-            <a
-                href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
-                target="_blank"
-                class="btn btn-outline"
-            >
-                📢 WhatsApp Channel
-            </a>
+            <p
+              id="playerResult"
+              class="player-result"
+            ></p>
+
+          </div>
+
+
+          <!-- PACKS -->
+          <div class="packs-section">
+
+            <div class="packs-title">
+              SELECT PACK
+            </div>
+
+
+            <div class="pack-grid">
+
+
+              <div
+                class="pack-card"
+                data-pack="86 Diamonds"
+                data-price="125"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    86 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="125"
+                  >
+                    ₹125
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="172 Diamonds"
+                data-price="255"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    172 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="255"
+                  >
+                    ₹255
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="257 Diamonds"
+                data-price="375"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    257 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="375"
+                  >
+                    ₹375
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="343 Diamonds"
+                data-price="495"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    343 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="495"
+                  >
+                    ₹495
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="429 Diamonds"
+                data-price="625"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    429 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="625"
+                  >
+                    ₹625
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="514 Diamonds"
+                data-price="745"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    514 Diamonds
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="745"
+                  >
+                    ₹745
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="Weekly Pass"
+                data-price="799"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    Weekly Pass
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="799"
+                  >
+                    ₹799
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+              <div
+                class="pack-card"
+                data-pack="Weekly Pass x2"
+                data-price="1499"
+              >
+
+                <div class="diamond-icon">
+                  💎
+                </div>
+
+                <div class="pack-info">
+                  <strong>
+                    Weekly Pass ×2
+                  </strong>
+
+                  <span
+                    class="pack-price"
+                    data-price="1499"
+                  >
+                    ₹1,499
+                  </span>
+                </div>
+
+                <button class="buy-pack">
+                  Buy Now
+                </button>
+
+              </div>
+
+
+            </div>
+
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-</main>
+    </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+    <!-- =========================
+         TOOLS
+    ========================== -->
+    <section
+      class="section"
+      id="tools"
+    >
 
-<footer>
+      <div class="container">
 
-    <div class="footer-inner">
+        <div class="section-heading">
 
-        <div class="footer-brand">
-            RYDEN <span>INTERNATIONAL</span>
+          <span>PLAYER TOOLS</span>
+
+          <h2>
+            MLBB TOOLS
+          </h2>
+
+          <p>
+            Useful tools for customers.
+          </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+          <!-- LEADERBOARD -->
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              🏆
+            </div>
+
+            <h3>
+              Monthly Leaderboard
+            </h3>
+
+            <p>
+              See who has recharged the most during the current month.
+            </p>
+
+            <button
+              class="btn btn-outline tool-button"
+              data-tool="leaderboard"
+            >
+              Open Leaderboard
+            </button>
+
+          </div>
+
+
+          <!-- HISTORY -->
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              🕒
+            </div>
+
+            <h3>
+              Recharge History
+            </h3>
+
+            <p>
+              View previous recharge and order records.
+            </p>
+
+            <button
+              class="btn btn-outline tool-button"
+              data-tool="history"
+            >
+              View History
+            </button>
+
+          </div>
+
+
+          <!-- REGION -->
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              📍
+            </div>
+
+            <h3>
+              MLBB Region Checker
+            </h3>
+
+            <p>
+              Check your MLBB region using User ID and Zone ID.
+            </p>
+
+            <button
+              class="btn btn-outline"
+              id="regionButton"
+            >
+              Check Region
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section
+      class="section"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>RYDEN INTERNATIONAL</span>
+
+          <h2>
+            CONNECT WITH US
+          </h2>
+
+          <p>
+            Tap any option to connect with us.
+          </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+          <a
+            class="contact-card"
+            href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
+            target="_blank"
+          >
+
+            <div class="contact-icon">
+              📸
+            </div>
+
+            <h3>
+              Instagram
+            </h3>
+
+            <p>
+              @rydenglobal
+            </p>
+
+          </a>
+
+
+          <a
+            class="contact-card"
+            href="https://wa.me/919233657553"
+            target="_blank"
+          >
+
+            <div class="contact-icon">
+              💬
+            </div>
+
+            <h3>
+              WhatsApp
+            </h3>
+
+            <p>
+              Direct WhatsApp Chat
+            </p>
+
+          </a>
+
+
+          <a
+            class="contact-card"
+            href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
+            target="_blank"
+          >
+
+            <div class="contact-icon">
+              🛍️
+            </div>
+
+            <h3>
+              WhatsApp Store
+            </h3>
+
+            <p>
+              Join our store
+            </p>
+
+          </a>
+
+
+          <a
+            class="contact-card"
+            href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
+            target="_blank"
+          >
+
+            <div class="contact-icon">
+              📢
+            </div>
+
+            <h3>
+              WhatsApp Channel
+            </h3>
+
+            <p>
+              Follow our channel
+            </p>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+      <div class="footer-column footer-brand">
+
+        <div class="footer-logo">
+          RYDEN
+          <span>INTERNATIONAL</span>
         </div>
 
         <p>
-            © 2026 RYDEN INTERNATIONAL. All rights reserved.
+          MLBB accounts, diamond recharge
+          and digital store services.
         </p>
+
+        <div class="social-icons">
+
+          <a
+            href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
+            target="_blank"
+          >
+            📸
+          </a>
+
+          <a
+            href="https://wa.me/919233657553"
+            target="_blank"
+          >
+            💬
+          </a>
+
+          <a
+            href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
+            target="_blank"
+          >
+            📢
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          Quick Links
+        </h3>
+
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#accounts">
+          Available Accounts
+        </a>
+
+        <a href="#recharge">
+          Diamond Recharge
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          Tools
+        </h3>
+
+        <a href="#tools">
+          Leaderboard
+        </a>
+
+        <a href="#tools">
+          Recharge History
+        </a>
+
+        <a href="#tools">
+          Region Checker
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          Important Pages
+        </h3>
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <a href="#">
+          Terms & Conditions
+        </a>
+
+        <a href="#">
+          Refund Policy
+        </a>
+
+      </div>
+
 
     </div>
 
-</footer>
+
+    <div class="container copyright">
+
+      © 2026 RYDEN INTERNATIONAL.
+      All rights reserved.
+
+    </div>
+
+  </footer>
 
 
-<!-- =========================
-     ACCOUNT DETAILS MODAL
-========================= -->
+  <!-- =========================
+       FLOATING BUTTONS
+  ========================== -->
 
-<div class="modal" id="detailsModal">
+  <div class="floating-buttons">
+
+    <a
+      href="https://instagram.com/rydenglobal?obrf=em5rd3UxbTJpMDIy"
+      target="_blank"
+      class="floating instagram"
+      aria-label="Instagram"
+    >
+      📸
+    </a>
+
+    <a
+      href="https://wa.me/919233657553"
+      target="_blank"
+      class="floating whatsapp"
+      aria-label="WhatsApp"
+    >
+      💬
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       MOBILE BOTTOM NAVIGATION
+  ========================== -->
+
+  <nav class="mobile-bottom-nav">
+
+    <a href="#home">
+      <span>⌂</span>
+      Home
+    </a>
+
+    <a href="#accounts">
+      <span>👥</span>
+      Accounts
+    </a>
+
+    <a href="#tools">
+      <span>🏆</span>
+      Leaderboard
+    </a>
+
+    <a href="#tools">
+      <span>🕒</span>
+      History
+    </a>
+
+    <a href="#tools" id="mobileRegionButton">
+      <span>📍</span>
+      Region
+    </a>
+
+  </nav>
+
+
+  <!-- =========================
+       MODAL
+  ========================== -->
+
+  <div
+    class="modal"
+    id="mainModal"
+  >
 
     <div class="modal-box">
 
-        <button class="close" onclick="closeDetails()">×</button>
+      <button
+        class="modal-close"
+        id="modalClose"
+      >
+        ×
+      </button>
 
-        <div class="badge">ACCOUNT DETAILS</div>
+      <h2 id="modalTitle">
+        RYDEN INTERNATIONAL
+      </h2>
 
-        <h2 id="modalTitle">Account</h2>
-
-        <p id="modalDescription" style="color:#8ba2bb;"></p>
-
-        <div class="detail-list">
-
-            <div class="detail">
-                <small>Price</small>
-                <strong id="modalPrice"></strong>
-            </div>
-
-            <div class="detail">
-                <small>Account Type</small>
-                <strong id="modalType"></strong>
-            </div>
-
-            <div class="detail">
-                <small>Status</small>
-                <strong style="color:#19d475;">AVAILABLE</strong>
-            </div>
-
-            <div class="detail">
-                <small>Platform</small>
-                <strong>Mobile Legends</strong>
-            </div>
-
-        </div>
-
-        <a
-            id="modalWhatsapp"
-            href="#"
-            target="_blank"
-            class="btn btn-whatsapp"
-            style="width:100%;"
-        >
-            💬 Ask About This Account
-        </a>
+      <div id="modalContent"></div>
 
     </div>
 
-</div>
+  </div>
 
 
-<!-- =========================
-     HIDDEN ADMIN PLACEHOLDER
-========================= -->
-
-<section id="adminPanel">
-    <!--
-        ADMIN SYSTEM WILL BE CONNECTED
-        TO FIREBASE AUTHENTICATION + FIRESTORE
-        IN THE NEXT STEP.
-
-        IMPORTANT:
-        Real admin security must NOT depend on
-        simply hiding this HTML with CSS.
-    -->
-</section>
-
-
-<script>
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-function toggleMenu(){
-
-    const menu = document.getElementById("navLinks");
-
-    menu.classList.toggle("show");
-
-}
-
-function closeMenu(){
-
-    document.getElementById("navLinks").classList.remove("show");
-
-}
-
-
-/* =========================
-   SEARCH + FILTER
-========================= */
-
-function filterAccounts(){
-
-    const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const price =
-        document.getElementById("priceFilter")
-        .value;
-
-    const type =
-        document.getElementById("skinFilter")
-        .value;
-
-    const cards =
-        document.querySelectorAll(".account-card");
-
-    let visible = 0;
-
-    cards.forEach(card => {
-
-        const name =
-            card.dataset.name.toLowerCase();
-
-        const cardPrice =
-            Number(card.dataset.price);
-
-        const cardType =
-            card.dataset.type;
-
-        let matchesSearch =
-            name.includes(search);
-
-        let matchesPrice = true;
-
-        if(price === "low"){
-            matchesPrice = cardPrice < 5000;
-        }
-
-        if(price === "mid"){
-            matchesPrice =
-                cardPrice >= 5000 &&
-                cardPrice <= 15000;
-        }
-
-        if(price === "high"){
-            matchesPrice = cardPrice > 15000;
-        }
-
-        let matchesType = true;
-
-        if(type !== "all"){
-            matchesType = cardType === type;
-        }
-
-        const show =
-            matchesSearch &&
-            matchesPrice &&
-            matchesType;
-
-        card.style.display =
-            show ? "block" : "none";
-
-        if(show){
-            visible++;
-        }
-
-    });
-
-    document.getElementById("noResults").style.display =
-        visible === 0 ? "block" : "none";
-}
-
-
-/* =========================
-   DETAILS MODAL
-========================= */
-
-function openDetails(title,price,type,description){
-
-    document.getElementById("modalTitle").textContent =
-        title;
-
-    document.getElementById("modalPrice").textContent =
-        "₹" + Number(price).toLocaleString("en-IN");
-
-    document.getElementById("modalType").textContent =
-        type;
-
-    document.getElementById("modalDescription").textContent =
-        description;
-
-    const message =
-        "Hello RYDEN INTERNATIONAL, I am interested in the " +
-        title +
-        " account priced at ₹" +
-        Number(price).toLocaleString("en-IN") +
-        ".";
-
-    document.getElementById("modalWhatsapp").href =
-        "https://wa.me/?text=" +
-        encodeURIComponent(message);
-
-    document.getElementById("detailsModal")
-        .classList.add("active");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeDetails(){
-
-    document.getElementById("detailsModal")
-        .classList.remove("active");
-
-    document.body.style.overflow = "";
-}
-
-
-document.getElementById("detailsModal")
-.addEventListener("click",function(e){
-
-    if(e.target === this){
-        closeDetails();
-    }
-
-});
-
-
-/* =========================
-   ESCAPE KEY
-========================= */
-
-document.addEventListener("keydown",function(e){
-
-    if(e.key === "Escape"){
-        closeDetails();
-    }
-
-});
-
-
-/* =========================
-   FIREBASE CONFIG
-   READY FOR NEXT STEP
-========================= */
-
-const firebaseConfig = {
-
-    apiKey: "AIzaSyCDeW8JxsSCRBfdG3AcZ0Yub-_LqixbIjU",
-
-    authDomain: "ryden-international.firebaseapp.com",
-
-    projectId: "ryden-international",
-
-    storageBucket: "ryden-international.firebasestorage.app",
-
-    messagingSenderId: "841240405355",
-
-    appId: "1:841240405355:web:5b68fcc0acb5de67cf582e"
-
-};
-
-
-/*
-    Firebase will be connected properly in the
-    next stage for:
-
-    • Firestore account listings
-    • Firebase Storage images
-    • Firebase Authentication
-    • Secure admin access
-    • Admin add/edit/delete
-    • Customer account details
-*/
-
-</script>
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
 </html>
