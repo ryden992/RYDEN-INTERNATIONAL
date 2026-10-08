@@ -2256,3 +2256,16 @@ img {
 }
 /* RYDEN HEADER - ORIGINAL COMPACT STYLE */
 
+/* RYDEN ORIGINAL COMPACT HEADER */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 125px;
+  height: auto;
+  display: block;
+}
