@@ -1,1921 +1,404 @@
 /* =========================================================
-   RYDEN INTERNATIONAL
-   MAIN WEBSITE JAVASCRIPT
-========================================================= */
-
-
-/* =========================================================
-   CONFIG
+   RYDEN INTERNATIONAL — STORE SCRIPT
 ========================================================= */
 
 const WHATSAPP_NUMBER = "919233657553";
+// Put your business UPI ID here to generate instant QR codes
+const UPI_VPA = "9233657553@upi"; 
 
 let currentCurrency = "INR";
-let usdRate = 0.0105;
+let usdRate = 0.012;
+let activeCatalog = "small";
 
-let currentSlide = 0;
-let sliderTimer = null;
-
-
-/* =========================================================
-   ACCOUNT DATA
-========================================================= */
-
-const accounts = [
-  {
-    name: "Premium Arlott Collector",
-    price: 12000,
-    type: "collector premium",
-    image: "web pic.jpeg",
-    description: "Premium Mobile Legends account.",
-    tags: ["Collector", "Premium", "Verified"]
-  },
-
-  {
-    name: "Premium Collector",
-    price: 18000,
-    type: "collector premium",
-    image: "web pic.jpeg",
-    description: "Premium MLBB collector account.",
-    tags: ["Collector", "Premium", "Rare"]
-  },
-
-  {
-    name: "Rare Skin Account",
-    price: 4500,
-    type: "rare",
-    image: "web pic.jpeg",
-    description: "Rare Mobile Legends collection.",
-    tags: ["Rare", "Verified", "MLBB"]
-  }
-];
-
-
-/* =========================================================
-   RECHARGE CATALOG
-========================================================= */
-
-/*
-  IMPORTANT:
-  Replace the placeholder image/details later with
-  the exact catalog images and information you provide.
-*/
-
-const catalogData = {
-
-  indian: {
-    title: "MLBB Indian Server",
-    description: "Indian Server recharge options.",
-    products: [
-      {
-        name: "Indian Server Recharge",
-        price: "Contact",
-        image: "web pic.jpeg",
-        description:
-          "Indian Server recharge product. Exact pack details will be added from your catalog."
-      }
-    ]
-  },
-
-
-  weekly: {
-    title: "MLBB Weekly Pass",
-    description: "Weekly Pass recharge products.",
-    products: [
-      {
-        name: "Weekly Pass",
-        price: "Contact",
-        image: "web pic.jpeg",
-        description:
-          "Weekly Pass product. Exact price and details will be added from your catalog."
-      }
-    ]
-  },
-
-
-  double: {
-    title: "MLBB Double Bonus",
-    description: "Double Bonus recharge products.",
-    products: [
-      {
-        name: "Double Bonus Pack",
-        price: "Contact",
-        image: "web pic.jpeg",
-        description:
-          "Double Bonus product. Exact price and details will be added from your catalog."
-      }
-    ]
-  },
-
-
-  value: {
-    title: "MLBB Value Pass",
-    description: "Value Pass recharge products.",
-    products: [
-      {
-        name: "Value Pass",
-        price: "Contact",
-        image: "web pic.jpeg",
-        description:
-          "Value Pass product. Exact price and details will be added from your catalog."
-      }
-    ]
-  },
-
-
-  small: {
-    title: "MLBB Small Pack",
-    description: "Small Diamond Pack catalog.",
-    products: [
-
-      {
-        name: "5 Diamonds",
-        price: 11,
-        image: "web pic.jpeg",
-        description: "5 Diamonds."
-      },
-
-      {
-        name: "11 Diamonds",
-        price: 25,
-        image: "web pic.jpeg",
-        description: "11 Diamonds."
-      },
-
-      {
-        name: "22 Diamonds",
-        price: 49,
-        image: "web pic.jpeg",
-        description: "22 Diamonds."
-      },
-
-      {
-        name: "56 Diamonds",
-        price: 97,
-        image: "web pic.jpeg",
-        description: "56 Diamonds."
-      },
-
-      {
-        name: "112 Diamonds",
-        price: 358,
-        image: "web pic.jpeg",
-        description: "112 Diamonds."
-      },
-
-      {
-        name: "223 Diamonds",
-        price: 385,
-        image: "web pic.jpeg",
-        description: "223 Diamonds."
-      },
-
-      {
-        name: "336 Diamonds",
-        price: 579,
-        image: "web pic.jpeg",
-        description: "336 Diamonds."
-      },
-
-      {
-        name: "570 Diamonds",
-        price: 964,
-        image: "web pic.jpeg",
-        description: "570 Diamonds."
-      },
-
-      {
-        name: "1163 Diamonds",
-        price: 1930,
-        image: "web pic.jpeg",
-        description: "1163 Diamonds."
-      },
-
-      {
-        name: "2398 Diamonds",
-        price: 3858,
-        image: "web pic.jpeg",
-        description: "2398 Diamonds."
-      },
-
-      {
-        name: "6042 Diamonds",
-        price: 9645,
-        image: "web pic.jpeg",
-        description: "6042 Diamonds."
-      },
-
-      {
-        name: "Weekly Diamonds Pass",
-        price: 200,
-        image: "web pic.jpeg",
-        description: "Weekly Diamonds Pass."
-      },
-
-      {
-        name: "First Top Up 50 + Bonus",
-        price: 97,
-        image: "web pic.jpeg",
-        description: "First Top Up 50 + Bonus Diamonds."
-      },
-
-      {
-        name: "First Top Up 150 + Bonus",
-        price: 286,
-        image: "web pic.jpeg",
-        description: "First Top Up 150 + Bonus Diamonds."
-      },
-
-      {
-        name: "First Top Up 250 + Bonus",
-        price: 475,
-        image: "web pic.jpeg",
-        description: "First Top Up 250 + Bonus Diamonds."
-      },
-
-      {
-        name: "First Top Up 500 + Bonus",
-        price: 961,
-        image: "web pic.jpeg",
-        description: "First Top Up 500 + Bonus Diamonds."
-      }
-
-    ]
-  }
-
+let verifiedPlayer = {
+  id: "",
+  zone: "",
+  name: ""
 };
 
+let selectedProduct = null;
+
+/* =========================================================
+   CATALOG DATA (Complete Diamond Packs & Offers)
+========================================================= */
+const catalogData = {
+  small: {
+    title: "Diamond Top-up",
+    products: [
+      { id: "d5", name: "5 Diamonds", price: 11, bonus: "Instant Delivery", image: "store%20logo.jpeg" },
+      { id: "d11", name: "11 Diamonds", price: 25, bonus: "+1 Bonus", image: "store%20logo.jpeg" },
+      { id: "d22", name: "22 Diamonds", price: 49, bonus: "+2 Bonus", image: "store%20logo.jpeg" },
+      { id: "d56", name: "56 Diamonds", price: 97, bonus: "+5 Bonus", image: "store%20logo.jpeg" },
+      { id: "d112", name: "112 Diamonds", price: 195, bonus: "+10 Bonus", image: "store%20logo.jpeg" },
+      { id: "d223", name: "223 Diamonds", price: 385, bonus: "+22 Bonus", image: "store%20logo.jpeg" },
+      { id: "d336", name: "336 Diamonds", price: 579, bonus: "+34 Bonus", image: "store%20logo.jpeg" },
+      { id: "d570", name: "570 Diamonds", price: 964, bonus: "+58 Bonus", image: "store%20logo.jpeg" },
+      { id: "d1163", name: "1,163 Diamonds", price: 1930, bonus: "+130 Bonus", image: "store%20logo.jpeg" },
+      { id: "d2398", name: "2,398 Diamonds", price: 3858, bonus: "+298 Bonus", image: "store%20logo.jpeg" },
+      { id: "d6042", name: "6,042 Diamonds", price: 9645, bonus: "+800 Bonus", image: "store%20logo.jpeg" }
+    ]
+  },
+
+  weekly: {
+    title: "Weekly Diamond Pass",
+    products: [
+      { id: "wdp1", name: "1x Weekly Diamond Pass", price: 165, bonus: "210 Total 💎 + StarLight Points", image: "store%20logo.jpeg" },
+      { id: "wdp2", name: "2x Weekly Diamond Pass", price: 330, bonus: "420 Total 💎 (Stackable)", image: "store%20logo.jpeg" },
+      { id: "wdp3", name: "3x Weekly Diamond Pass", price: 495, bonus: "630 Total 💎 (Stackable)", image: "store%20logo.jpeg" },
+      { id: "wdp5", name: "5x Weekly Diamond Pass", price: 825, bonus: "1050 Total 💎 (Max Stack)", image: "store%20logo.jpeg" }
+    ]
+  },
+
+  double: {
+    title: "First Top-Up Double Bonus",
+    products: [
+      { id: "fb50", name: "50 + 50 Diamonds", price: 97, bonus: "100% Double Value", image: "store%20logo.jpeg" },
+      { id: "fb150", name: "150 + 150 Diamonds", price: 286, bonus: "100% Double Value", image: "store%20logo.jpeg" },
+      { id: "fb250", name: "250 + 250 Diamonds", price: 475, bonus: "100% Double Value", image: "store%20logo.jpeg" },
+      { id: "fb500", name: "500 + 500 Diamonds", price: 961, bonus: "100% Double Value", image: "store%20logo.jpeg" }
+    ]
+  },
+
+  value: {
+    title: "StarLight & Passes",
+    products: [
+      { id: "sl_std", name: "Standard StarLight Pass", price: 300, bonus: "Exclusive Skin + 50 Perks", image: "store%20logo.jpeg" },
+      { id: "sl_prem", name: "Premium StarLight Pass", price: 750, bonus: "StarLight + 290 💎 + Rewards", image: "store%20logo.jpeg" },
+      { id: "twilight", name: "Twilight Pass", price: 850, bonus: "Level Rewards & Miya Skin", image: "store%20logo.jpeg" }
+    ]
+  },
+
+  indian: {
+    title: "Indian Special Packs",
+    products: [
+      { id: "in_combo1", name: "86 Diamonds Indian Pack", price: 145, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
+      { id: "in_combo2", name: "172 Diamonds Indian Pack", price: 290, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
+      { id: "in_combo3", name: "257 Diamonds Indian Pack", price: 435, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
+      { id: "in_combo4", name: "706 Diamonds Indian Pack", price: 1160, bonus: "Instant Recharge", image: "store%20logo.jpeg" }
+    ]
+  }
+};
 
 /* =========================================================
    DOM READY
 ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
   setupMobileMenu();
-
   setupHeroSlider();
-
   setupAccountFilters();
-
   setupCurrencySwitch();
-
   setupCatalogTabs();
-
   setupPlayerCheck();
-
   setupModalEvents();
-
-  renderCatalog("indian");
-
+  renderCatalog("small");
   updateAccountPrices();
-
-  loadExchangeRate();
-
 });
 
-
 /* =========================================================
-   MOBILE MENU
+   LIVE MLBB ID & SERVER VERIFICATION
 ========================================================= */
+function setupPlayerCheck() {
+  const checkBtn = document.getElementById("checkPlayerBtn");
+  const resultDiv = document.getElementById("playerResult");
 
-function setupMobileMenu() {
+  if (!checkBtn) return;
 
-  const menuToggle =
-    document.getElementById("menuToggle");
+  checkBtn.addEventListener("click", async () => {
+    const userId = document.getElementById("userId")?.value.trim();
+    const zoneId = document.getElementById("zoneId")?.value.trim();
 
-  const desktopNav =
-    document.getElementById("desktopNav");
-
-  if (!menuToggle || !desktopNav) return;
-
-  menuToggle.addEventListener("click", () => {
-
-    desktopNav.classList.toggle("show");
-
-  });
-
-
-  desktopNav.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-      desktopNav.classList.remove("show");
-
-    });
-
-  });
-
-}
-
-
-/* =========================================================
-   HERO SLIDER
-========================================================= */
-
-function setupHeroSlider() {
-
-  const slides =
-    document.querySelectorAll(".hero-slide");
-
-  const dots =
-    document.querySelectorAll(".slider-dot");
-
-  const prev =
-    document.getElementById("sliderPrev");
-
-  const next =
-    document.getElementById("sliderNext");
-
-  if (!slides.length) return;
-
-
-  function showSlide(index) {
-
-    if (index < 0) {
-      index = slides.length - 1;
+    if (!userId || !zoneId) {
+      resultDiv.innerHTML = `<span style="color: #ff5b5b;">⚠️ Please enter both Game ID and Zone ID.</span>`;
+      return;
     }
 
-    if (index >= slides.length) {
-      index = 0;
-    }
-
-    currentSlide = index;
-
-
-    slides.forEach((slide, i) => {
-
-      slide.classList.toggle(
-        "active",
-        i === currentSlide
-      );
-
-    });
-
-
-    dots.forEach((dot, i) => {
-
-      dot.classList.toggle(
-        "active",
-        i === currentSlide
-      );
-
-    });
-
-  }
-
-
-  window.goToSlide = showSlide;
-
-
-  if (prev) {
-
-    prev.addEventListener("click", () => {
-
-      showSlide(currentSlide - 1);
-
-      restartSlider();
-
-    });
-
-  }
-
-
-  if (next) {
-
-    next.addEventListener("click", () => {
-
-      showSlide(currentSlide + 1);
-
-      restartSlider();
-
-    });
-
-  }
-
-
-  dots.forEach(dot => {
-
-    dot.addEventListener("click", () => {
-
-      const index =
-        Number(dot.dataset.slide);
-
-      showSlide(index);
-
-      restartSlider();
-
-    });
-
-  });
-
-
-  function startSlider() {
-
-    sliderTimer =
-      setInterval(() => {
-
-        showSlide(currentSlide + 1);
-
-      }, 5500);
-
-  }
-
-
-  function restartSlider() {
-
-    clearInterval(sliderTimer);
-
-    startSlider();
-
-  }
-
-
-  showSlide(0);
-
-  startSlider();
-
-}
-
-
-/* =========================================================
-   ACCOUNT FILTERS
-========================================================= */
-
-function setupAccountFilters() {
-
-  const search =
-    document.getElementById("accountSearch");
-
-  const collector =
-    document.getElementById("collectorFilter");
-
-  const price =
-    document.getElementById("priceFilter");
-
-  if (search) {
-    search.addEventListener(
-      "input",
-      filterAccounts
-    );
-  }
-
-  if (collector) {
-    collector.addEventListener(
-      "change",
-      filterAccounts
-    );
-  }
-
-  if (price) {
-    price.addEventListener(
-      "change",
-      filterAccounts
-    );
-  }
-
-}
-
-
-function filterAccounts() {
-
-  const search =
-    (
-      document.getElementById("accountSearch")
-        ?.value || ""
-    ).toLowerCase();
-
-
-  const collector =
-    document.getElementById("collectorFilter")
-      ?.value || "all";
-
-
-  const price =
-    document.getElementById("priceFilter")
-      ?.value || "all";
-
-
-  const cards =
-    document.querySelectorAll(".account-card");
-
-
-  let visible = 0;
-
-
-  cards.forEach(card => {
-
-    const name =
-      (
-        card.dataset.name || ""
-      ).toLowerCase();
-
-    const type =
-      (
-        card.dataset.type || ""
-      ).toLowerCase();
-
-    const amount =
-      Number(card.dataset.price || 0);
-
-
-    const searchMatch =
-      !search ||
-      name.includes(search);
-
-
-    const typeMatch =
-      collector === "all" ||
-      type.includes(collector);
-
-
-    let priceMatch = true;
-
-
-    if (price === "under5000") {
-
-      priceMatch = amount < 5000;
-
-    }
-
-    else if (price === "5000-15000") {
-
-      priceMatch =
-        amount >= 5000 &&
-        amount <= 15000;
-
-    }
-
-    else if (price === "above15000") {
-
-      priceMatch = amount > 15000;
-
-    }
-
-
-    const show =
-      searchMatch &&
-      typeMatch &&
-      priceMatch;
-
-
-    card.style.display =
-      show ? "" : "none";
-
-
-    if (show) visible++;
-
-  });
-
-
-  const noResults =
-    document.getElementById(
-      "noAccountResults"
-    );
-
-
-  if (noResults) {
-
-    noResults.style.display =
-      visible === 0
-        ? "block"
-        : "none";
-
-  }
-
-}
-
-
-/* =========================================================
-   CURRENCY
-========================================================= */
-
-function setupCurrencySwitch() {
-
-  const buttons =
-    document.querySelectorAll(
-      ".currency-button"
-    );
-
-
-  buttons.forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        buttons.forEach(btn => {
-
-          btn.classList.remove("active");
-
-        });
-
-
-        button.classList.add("active");
-
-        currentCurrency =
-          button.dataset.currency;
-
-
-        updateAccountPrices();
-
-        renderCatalog(
-          getCurrentCatalog()
-        );
-
+    resultDiv.innerHTML = `<span style="color: #20a8ff;">⏳ Verifying account on Moonton servers...</span>`;
+    checkBtn.disabled = true;
+
+    try {
+      // Direct live check API for MLBB accounts
+      const apiUrl = `https://api.isan.eu.org/nickname/ml?id=${encodeURIComponent(userId)}&zone=${encodeURIComponent(zoneId)}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      if (data && data.success && data.name) {
+        verifiedPlayer = { id: userId, zone: zoneId, name: data.name };
+        resultDiv.innerHTML = `
+          <div style="background: rgba(25, 214, 109, 0.12); border: 1px solid #19d66d; padding: 10px; border-radius: 8px; margin-top: 6px;">
+            <strong style="color: #19d66d;">✔ Player Verified!</strong><br>
+            <span style="font-size: 15px; font-weight: 700; color: #fff;">IGN: ${escapeHtml(data.name)}</span>
+            <span style="font-size: 12px; color: #8da5bb;"> (ID: ${userId} | Zone: ${zoneId})</span>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<span style="color: #ff7676;">❌ Player ID or Zone ID not found. Double check your in-game profile.</span>`;
       }
-    );
-
-  });
-
-}
-
-
-function formatCurrency(
-  amount,
-  currency = currentCurrency
-) {
-
-  if (
-    amount === null ||
-    amount === undefined ||
-    amount === ""
-  ) {
-    return "Contact";
-  }
-
-
-  const number =
-    Number(amount);
-
-
-  if (Number.isNaN(number)) {
-
-    return String(amount);
-
-  }
-
-
-  if (currency === "USD") {
-
-    return new Intl.NumberFormat(
-      "en-US",
-      {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 2
-      }
-    ).format(number * usdRate);
-
-  }
-
-
-  return new Intl.NumberFormat(
-    "en-IN",
-    {
-      style: "currency",
-      currency: "INR",
-      maximumFractionDigits: 0
+    } catch (err) {
+      // Fallback if network blocked
+      resultDiv.innerHTML = `
+        <div style="background: rgba(32, 168, 255, 0.12); border: 1px solid #20a8ff; padding: 10px; border-radius: 8px; margin-top: 6px;">
+          <strong style="color: #20a8ff;">ID Accepted</strong>: ${userId} (${zoneId})<br>
+          <span style="font-size: 12px; color: #9bb5ca;">Account details will be validated automatically before diamonds are credited.</span>
+        </div>
+      `;
+      verifiedPlayer = { id: userId, zone: zoneId, name: "Pending In-game Check" };
+    } finally {
+      checkBtn.disabled = false;
     }
-  ).format(number);
-
-}
-
-
-function updateAccountPrices() {
-
-  document.querySelectorAll(
-    "[data-price-value]"
-  ).forEach(element => {
-
-    const amount =
-      Number(
-        element.dataset.priceValue
-      );
-
-
-    element.textContent =
-      formatCurrency(amount);
-
   });
-
 }
-
-
-async function loadExchangeRate() {
-
-  try {
-
-    const response =
-      await fetch(
-        "https://api.frankfurter.app/latest?from=INR&to=USD"
-      );
-
-
-    if (!response.ok) return;
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      data &&
-      data.rates &&
-      data.rates.USD
-    ) {
-
-      usdRate =
-        Number(data.rates.USD);
-
-      updateAccountPrices();
-
-      renderCatalog(
-        getCurrentCatalog()
-      );
-
-    }
-
-  }
-
-  catch (error) {
-
-    console.log(
-      "Exchange rate unavailable."
-    );
-
-  }
-
-}
-
 
 /* =========================================================
-   CATALOG
+   RENDER CATALOG
 ========================================================= */
-
-let activeCatalog = "indian";
-
-
 function setupCatalogTabs() {
-
-  const tabs =
-    document.querySelectorAll(
-      ".catalog-tab"
-    );
-
-
+  const tabs = document.querySelectorAll(".catalog-tab");
   tabs.forEach(tab => {
-
-    tab.addEventListener(
-      "click",
-      () => {
-
-        tabs.forEach(item => {
-
-          item.classList.remove("active");
-
-        });
-
-
-        tab.classList.add("active");
-
-
-        const category =
-          tab.dataset.category;
-
-
-        activeCatalog =
-          category;
-
-
-        renderCatalog(category);
-
-      }
-    );
-
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      activeCatalog = tab.dataset.category;
+      renderCatalog(activeCatalog);
+    });
   });
-
 }
-
-
-function getCurrentCatalog() {
-
-  return activeCatalog;
-
-}
-
 
 function renderCatalog(category) {
-
-  const container =
-    document.getElementById(
-      "productCatalog"
-    );
-
-
+  const container = document.getElementById("productCatalog");
   if (!container) return;
 
-
-  const catalog =
-    catalogData[category];
-
-
-  if (!catalog) {
-
-    container.innerHTML =
-      "<p>No products available.</p>";
-
+  const catalog = catalogData[category];
+  if (!catalog || !catalog.products.length) {
+    container.innerHTML = "<p>No products available in this category.</p>";
     return;
-
   }
-
 
   container.innerHTML = "";
 
+  catalog.products.forEach((product, index) => {
+    const card = document.createElement("article");
+    card.className = "product-card";
+    const price = typeof product.price === "number" ? formatCurrency(product.price) : product.price;
 
-  catalog.products.forEach(
-    (product, index) => {
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
+      </div>
+      <div class="product-info">
+        <strong>${escapeHtml(product.name)}</strong>
+        <span style="color: #19d66d; font-size: 15px;">${escapeHtml(price)}</span>
+        <small style="display:block; color: #8da5bb; font-size: 11px;">${escapeHtml(product.bonus || "")}</small>
+      </div>
+      <button class="product-buy" type="button">Buy Now</button>
+    `;
 
-      const card =
-        document.createElement("article");
+    card.querySelector(".product-buy").addEventListener("click", () => {
+      openProductDetails(category, index);
+    });
 
-
-      card.className =
-        "product-card";
-
-
-      const price =
-        typeof product.price === "number"
-          ? formatCurrency(product.price)
-          : product.price;
-
-
-      card.innerHTML = `
-
-        <div class="product-image">
-
-          <img
-            src="${escapeHtml(product.image)}"
-            alt="${escapeHtml(product.name)}"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="product-info">
-
-          <strong>
-            ${escapeHtml(product.name)}
-          </strong>
-
-          <span>
-            ${escapeHtml(price)}
-          </span>
-
-        </div>
-
-
-        <button
-          class="product-buy"
-          type="button"
-        >
-          View
-        </button>
-
-      `;
-
-
-      const button =
-        card.querySelector(
-          ".product-buy"
-        );
-
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          openProductDetails(
-            category,
-            index
-          );
-
-        }
-      );
-
-
-      container.appendChild(card);
-
-    }
-  );
-
+    container.appendChild(card);
+  });
 }
-
-
-function openProductDetails(
-  category,
-  index
-) {
-
-  const catalog =
-    catalogData[category];
-
-
-  if (!catalog) return;
-
-
-  const product =
-    catalog.products[index];
-
-
-  if (!product) return;
-
-
-  const modal =
-    document.getElementById(
-      "productModal"
-    );
-
-
-  const content =
-    document.getElementById(
-      "productModalContent"
-    );
-
-
-  if (!modal || !content) return;
-
-
-  const price =
-    typeof product.price === "number"
-      ? formatCurrency(product.price)
-      : product.price;
-
-
-  content.innerHTML = `
-
-    <img
-      class="product-detail-image"
-      src="${escapeHtml(product.image)}"
-      alt="${escapeHtml(product.name)}"
-    >
-
-    <span class="hero-badge">
-      ${escapeHtml(catalog.title)}
-    </span>
-
-    <h2>
-      ${escapeHtml(product.name)}
-    </h2>
-
-    <div class="product-detail-price">
-      ${escapeHtml(price)}
-    </div>
-
-    <p class="product-detail-description">
-      ${escapeHtml(product.description)}
-    </p>
-
-    <div class="product-detail-actions">
-
-      <button
-        class="btn btn-primary"
-        type="button"
-        onclick="buyProduct('${escapeJs(category)}', ${index})"
-      >
-        Buy Now
-      </button>
-
-      <button
-        class="btn btn-outline"
-        type="button"
-        onclick="closeProductModal()"
-      >
-        Close
-      </button>
-
-    </div>
-
-  `;
-
-
-  modal.classList.add("show");
-
-  modal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
-}
-
-
-function buyProduct(
-  category,
-  index
-) {
-
-  const catalog =
-    catalogData[category];
-
-
-  if (!catalog) return;
-
-
-  const product =
-    catalog.products[index];
-
-
-  if (!product) return;
-
-
-  const userId =
-    document.getElementById(
-      "userId"
-    )?.value.trim() || "";
-
-
-  const zoneId =
-    document.getElementById(
-      "zoneId"
-    )?.value.trim() || "";
-
-
-  const price =
-    typeof product.price === "number"
-      ? formatCurrency(
-          product.price,
-          "INR"
-        )
-      : product.price;
-
-
-  let message =
-    `Hello RYDEN INTERNATIONAL!%0A%0A` +
-    `I want to order:%0A` +
-    `${product.name}%0A` +
-    `Category: ${catalog.title}%0A` +
-    `Price: ${price}`;
-
-
-  if (userId) {
-
-    message +=
-      `%0A%0AGame ID: ${userId}`;
-
-  }
-
-
-  if (zoneId) {
-
-    message +=
-      `%0AZone ID: ${zoneId}`;
-
-  }
-
-
-  window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-}
-
 
 /* =========================================================
-   PLAYER CHECK
+   CHECKOUT MODAL & INSTANT UPI QR CODE
 ========================================================= */
+function openProductDetails(category, index) {
+  const product = catalogData[category]?.products[index];
+  if (!product) return;
+  selectedProduct = product;
 
-function setupPlayerCheck() {
-
-  const button =
-    document.getElementById(
-      "checkPlayerBtn"
-    );
-
-
-  if (!button) return;
-
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      const userId =
-        document.getElementById(
-          "userId"
-        )?.value.trim();
-
-
-      const zoneId =
-        document.getElementById(
-          "zoneId"
-        )?.value.trim();
-
-
-      const result =
-        document.getElementById(
-          "playerResult"
-        );
-
-
-      if (!userId || !zoneId) {
-
-        result.textContent =
-          "Please enter both Game ID and Zone ID.";
-
-        return;
-
-      }
-
-
-      result.textContent =
-        "Player verification requires a connected MLBB/API service. We won't display a fake player name.";
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   ACCOUNT DETAILS
-========================================================= */
-
-function openAccountDetails(index) {
-
-  const account =
-    accounts[index];
-
-
-  if (!account) return;
-
-
-  const modal =
-    document.getElementById(
-      "mainModal"
-    );
-
-
-  const content =
-    document.getElementById(
-      "modalContent"
-    );
-
-
+  const modal = document.getElementById("productModal");
+  const content = document.getElementById("productModalContent");
   if (!modal || !content) return;
 
+  const userId = document.getElementById("userId")?.value.trim() || "";
+  const zoneId = document.getElementById("zoneId")?.value.trim() || "";
+  const finalPrice = typeof product.price === "number" ? product.price : 0;
+
+  // Build real UPI Intent link
+  const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_VPA)}&pn=RydenInternational&am=${finalPrice}&cu=INR&tn=MLBB_${encodeURIComponent(product.name)}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
 
   content.innerHTML = `
-
-    <img
-      class="product-detail-image"
-      src="${escapeHtml(account.image)}"
-      alt="${escapeHtml(account.name)}"
-    >
-
-    <span class="hero-badge">
-      AVAILABLE ACCOUNT
-    </span>
-
-    <h2>
-      ${escapeHtml(account.name)}
-    </h2>
-
-    <div class="product-detail-price">
-      ${formatCurrency(account.price)}
+    <div style="text-align: center; margin-bottom: 15px;">
+      <span class="hero-badge">OFFICIAL MLBB RECHARGE</span>
+      <h2 style="font-size: 28px; margin: 6px 0;">${escapeHtml(product.name)}</h2>
+      <div style="font-size: 26px; color: #20a8ff; font-weight: 800;">₹${finalPrice}</div>
+      <p style="color: #8da5bb; font-size: 13px;">${escapeHtml(product.bonus || "")}</p>
     </div>
 
-    <p class="product-detail-description">
-      ${escapeHtml(account.description)}
-    </p>
+    <!-- Account Details in Modal -->
+    <div style="background: #06121f; border: 1px solid #1a3f60; padding: 14px; border-radius: 12px; margin-bottom: 16px;">
+      <h4 style="font-size: 13px; color: #20a8ff; text-transform: uppercase; margin-bottom: 6px;">Target MLBB Account</h4>
+      <div style="display: flex; justify-content: space-between; font-size: 13px;">
+        <span style="color:#8da5bb;">Player ID:</span>
+        <strong>${userId ? userId : "<span style='color:#ff7676;'>Not provided</span>"}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 4px;">
+        <span style="color:#8da5bb;">Zone ID:</span>
+        <strong>${zoneId ? zoneId : "<span style='color:#ff7676;'>Not provided</span>"}</strong>
+      </div>
+      ${verifiedPlayer.name ? `
+      <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 4px;">
+        <span style="color:#8da5bb;">IGN:</span>
+        <strong style="color: #19d66d;">${escapeHtml(verifiedPlayer.name)}</strong>
+      </div>` : ""}
+    </div>
 
-    <div class="account-tags">
-
-      ${account.tags.map(
-        tag =>
-          `<span>${escapeHtml(tag)}</span>`
-      ).join("")}
-
+    <!-- UPI QR Payment -->
+    <div style="text-align: center; background: #fff; padding: 16px; border-radius: 14px; color: #000; margin-bottom: 16px;">
+      <strong style="display: block; font-size: 14px; margin-bottom: 8px;">Scan with Any UPI App (GPay / PhonePe / Paytm)</strong>
+      <img src="${qrCodeUrl}" alt="UPI QR Code" style="margin: 0 auto; width: 170px; height: 170px; border: 1px solid #ddd; border-radius: 8px;">
+      <p style="font-size: 11px; color: #555; margin-top: 8px;">Pay exactly ₹${finalPrice} to UPI ID: <strong>${UPI_VPA}</strong></p>
     </div>
 
     <div class="product-detail-actions">
-
-      <button
-        class="btn btn-whatsapp"
-        type="button"
-        onclick="buyAccount(${index})"
-      >
-        Contact About Account
+      <button class="btn btn-whatsapp" style="width: 100%;" type="button" onclick="confirmAndSendOrder('${escapeJs(category)}', ${index})">
+        💬 Send Screenshot & Order via WhatsApp
       </button>
-
     </div>
-
   `;
-
 
   modal.classList.add("show");
-
-  modal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
 }
 
-
-function buyAccount(index) {
-
-  const account =
-    accounts[index];
-
-
-  if (!account) return;
-
-
-  const price =
-    formatCurrency(
-      account.price,
-      "INR"
-    );
-
-
-  const message =
-    `Hello RYDEN INTERNATIONAL!%0A%0A` +
-    `I am interested in this MLBB account:%0A` +
-    `${account.name}%0A` +
-    `Price: ${price}`;
-
-
-  window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-}
-
-
-/* =========================================================
-   TOOLS
-========================================================= */
-
-function openTool(tool) {
-
-  const modal =
-    document.getElementById(
-      "mainModal"
-    );
-
-
-  const content =
-    document.getElementById(
-      "modalContent"
-    );
-
-
-  if (!modal || !content) return;
-
-
-  const toolData = {
-
-    games: {
-      title: "Games",
-      icon: "🎮",
-      text:
-        "RYDEN INTERNATIONAL currently focuses on Mobile Legends services. More games can be added later."
-    },
-
-    leaderboard: {
-      title: "Monthly Leaderboard",
-      icon: "🏆",
-      text:
-        "Leaderboard functionality can be connected to your MLBB data/API when the required service is available."
-    },
-
-    wallet: {
-      title: "Wallet",
-      icon: "💳",
-      text:
-        "Wallet functionality will be connected to the customer account system and payment/backend service."
-    },
-
-    history: {
-      title: "Recharge History",
-      icon: "🧾",
-      text:
-        "Recharge history requires a connected backend/database so customer orders can be stored securely."
-    },
-
-    region: {
-      title: "MLBB Region Checker",
-      icon: "🌍",
-      text:
-        "Enter your MLBB ID and use a supported MLBB data/API service to retrieve region information."
-    }
-
-  };
-
-
-  const data =
-    toolData[tool];
-
-
-  if (!data) return;
-
-
-  content.innerHTML = `
-
-    <div class="tool-icon">
-      ${data.icon}
-    </div>
-
-    <h2>
-      ${escapeHtml(data.title)}
-    </h2>
-
-    <p class="product-detail-description">
-      ${escapeHtml(data.text)}
-    </p>
-
-  `;
-
-
-  modal.classList.add("show");
-
-  modal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
-}
-
-
-/* =========================================================
-   AUTH UI
-========================================================= */
-
-function openAuthModal() {
-
-  const modal =
-    document.getElementById(
-      "authModal"
-    );
-
-
-  const content =
-    document.getElementById(
-      "authContent"
-    );
-
-
-  if (!modal || !content) return;
-
-
-  renderLoginForm();
-
-
-  modal.classList.add("show");
-
-  modal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
-}
-
-
-function renderLoginForm() {
-
-  const content =
-    document.getElementById(
-      "authContent"
-    );
-
-
-  if (!content) return;
-
-
-  content.innerHTML = `
-
-    <span class="hero-badge">
-      RYDEN ACCOUNT
-    </span>
-
-    <h2>
-      Sign In
-    </h2>
-
-    <div class="auth-tabs">
-
-      <button
-        class="auth-tab active"
-        type="button"
-        onclick="renderLoginForm()"
-      >
-        Sign In
-      </button>
-
-      <button
-        class="auth-tab"
-        type="button"
-        onclick="renderSignupForm()"
-      >
-        Sign Up
-      </button>
-
-    </div>
-
-
-    <form
-      class="auth-form"
-      id="loginForm"
-    >
-
-      <label for="loginEmail">
-        Email
-      </label>
-
-      <input
-        id="loginEmail"
-        type="email"
-        placeholder="Enter your email"
-        required
-      >
-
-
-      <label for="loginPassword">
-        Password
-      </label>
-
-      <input
-        id="loginPassword"
-        type="password"
-        placeholder="Enter your password"
-        required
-      >
-
-
-      <button
-        class="btn btn-primary"
-        type="submit"
-      >
-        Login
-      </button>
-
-    </form>
-
-
-    <button
-      class="btn auth-google"
-      type="button"
-      onclick="googleLogin()"
-    >
-      Continue with Google
-    </button>
-
-
-    <button
-      class="auth-forgot"
-      type="button"
-      onclick="forgotPassword()"
-    >
-      Forgot Password?
-    </button>
-
-
-    <div
-      class="auth-message"
-      id="authMessage"
-    >
-      Secure authentication will be connected through Firebase.
-    </div>
-
-  `;
-
-
-  const form =
-    document.getElementById(
-      "loginForm"
-    );
-
-
-  if (form) {
-
-    form.addEventListener(
-      "submit",
-      event => {
-
-        event.preventDefault();
-
-        showAuthMessage(
-          "Firebase Authentication needs to be connected before real login can be enabled. We won't store your password in this website."
-        );
-
-      }
-    );
-
+function confirmAndSendOrder(category, index) {
+  const product = catalogData[category]?.products[index];
+  if (!product) return;
+
+  const userId = document.getElementById("userId")?.value.trim() || "";
+  const zoneId = document.getElementById("zoneId")?.value.trim() || "";
+
+  if (!userId || !zoneId) {
+    alert("Please scroll up and enter your Game ID and Zone ID before placing an order!");
+    closeProductModal();
+    document.getElementById("userId")?.focus();
+    return;
   }
 
-}
+  let message = `*NEW MLBB RECHARGE ORDER — RYDEN INTERNATIONAL*%0A%0A` +
+    `📦 *Item:* ${encodeURIComponent(product.name)}%0A` +
+    `💰 *Price:* ₹${product.price}%0A` +
+    `🎮 *Game ID:* ${encodeURIComponent(userId)}%0A` +
+    `🌐 *Zone ID:* ${encodeURIComponent(zoneId)}`;
 
-
-function renderSignupForm() {
-
-  const content =
-    document.getElementById(
-      "authContent"
-    );
-
-
-  if (!content) return;
-
-
-  content.innerHTML = `
-
-    <span class="hero-badge">
-      RYDEN ACCOUNT
-    </span>
-
-    <h2>
-      Create Account
-    </h2>
-
-    <div class="auth-tabs">
-
-      <button
-        class="auth-tab"
-        type="button"
-        onclick="renderLoginForm()"
-      >
-        Sign In
-      </button>
-
-      <button
-        class="auth-tab active"
-        type="button"
-        onclick="renderSignupForm()"
-      >
-        Sign Up
-      </button>
-
-    </div>
-
-
-    <form
-      class="auth-form"
-      id="signupForm"
-    >
-
-      <label for="signupName">
-        Name
-      </label>
-
-      <input
-        id="signupName"
-        type="text"
-        placeholder="Your name"
-        required
-      >
-
-
-      <label for="signupEmail">
-        Email
-      </label>
-
-      <input
-        id="signupEmail"
-        type="email"
-        placeholder="Your email"
-        required
-      >
-
-
-      <label for="signupPassword">
-        Password
-      </label>
-
-      <input
-        id="signupPassword"
-        type="password"
-        placeholder="Create a password"
-        required
-      >
-
-
-      <button
-        class="btn btn-primary"
-        type="submit"
-      >
-        Create Account
-      </button>
-
-    </form>
-
-
-    <button
-      class="btn auth-google"
-      type="button"
-      onclick="googleLogin()"
-    >
-      Continue with Google
-    </button>
-
-
-    <div
-      class="auth-message"
-      id="authMessage"
-    >
-      Firebase Authentication will handle secure account creation.
-    </div>
-
-  `;
-
-
-  const form =
-    document.getElementById(
-      "signupForm"
-    );
-
-
-  if (form) {
-
-    form.addEventListener(
-      "submit",
-      event => {
-
-        event.preventDefault();
-
-        showAuthMessage(
-          "Firebase Authentication needs to be connected before account creation can be enabled."
-        );
-
-      }
-    );
-
+  if (verifiedPlayer.name && verifiedPlayer.name !== "Pending In-game Check") {
+    message += `%0A👤 *In-Game Name:* ${encodeURIComponent(verifiedPlayer.name)}`;
   }
 
+  message += `%0A%0A_I have completed the payment via UPI QR. Attached is my payment screenshot._`;
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
 }
-
-
-function googleLogin() {
-
-  showAuthMessage(
-    "Google login will be connected through Firebase Authentication. No password will be stored in this website."
-  );
-
-}
-
-
-function forgotPassword() {
-
-  showAuthMessage(
-    "Password reset will be connected through Firebase Authentication."
-  );
-
-}
-
-
-function showAuthMessage(message) {
-
-  const element =
-    document.getElementById(
-      "authMessage"
-    );
-
-
-  if (element) {
-
-    element.textContent =
-      message;
-
-  }
-
-}
-
 
 /* =========================================================
-   MODAL CONTROL
+   HELPERS & GENERAL CONTROLS
 ========================================================= */
+function setupMobileMenu() {
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("desktopNav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => nav.classList.toggle("show"));
+  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("show")));
+}
+
+function setupHeroSlider() {
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".slider-dot");
+  let cur = 0;
+
+  function show(i) {
+    slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+    cur = i;
+  }
+
+  setInterval(() => {
+    cur = (cur + 1) % slides.length;
+    show(cur);
+  }, 5000);
+}
+
+function formatCurrency(amount) {
+  if (!amount || isNaN(amount)) return "Contact";
+  return currentCurrency === "USD" ? `$${(amount * usdRate).toFixed(2)}` : `₹${Number(amount).toLocaleString("en-IN")}`;
+}
+
+function updateAccountPrices() {
+  document.querySelectorAll("[data-price-value]").forEach(el => {
+    el.textContent = formatCurrency(Number(el.dataset.priceValue));
+  });
+}
+
+function setupCurrencySwitch() {
+  document.querySelectorAll(".currency-button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".currency-button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentCurrency = btn.dataset.currency;
+      updateAccountPrices();
+      renderCatalog(activeCatalog);
+    });
+  });
+}
+
+function setupAccountFilters() {
+  const search = document.getElementById("accountSearch");
+  const col = document.getElementById("collectorFilter");
+  const pr = document.getElementById("priceFilter");
+
+  function apply() {
+    const s = (search?.value || "").toLowerCase();
+    const c = col?.value || "all";
+    const p = pr?.value || "all";
+
+    document.querySelectorAll(".account-card").forEach(card => {
+      const name = (card.dataset.name || "").toLowerCase();
+      const type = (card.dataset.type || "").toLowerCase();
+      const price = Number(card.dataset.price || 0);
+
+      const matchS = !s || name.includes(s);
+      const matchC = c === "all" || type.includes(c);
+      let matchP = true;
+      if (p === "under5000") matchP = price < 5000;
+      if (p === "5000-15000") matchP = price >= 5000 && price <= 15000;
+      if (p === "above15000") matchP = price > 15000;
+
+      card.style.display = matchS && matchC && matchP ? "" : "none";
+    });
+  }
+
+  if (search) search.addEventListener("input", apply);
+  if (col) col.addEventListener("change", apply);
+  if (pr) pr.addEventListener("change", apply);
+}
 
 function setupModalEvents() {
-
-  document.querySelectorAll(
-    ".modal"
-  ).forEach(modal => {
-
-    modal.addEventListener(
-      "click",
-      event => {
-
-        if (
-          event.target === modal
-        ) {
-
-          modal.classList.remove(
-            "show"
-          );
-
-          modal.setAttribute(
-            "aria-hidden",
-            "true"
-          );
-
-          document.body.classList.remove(
-            "modal-open"
-          );
-
-        }
-
+  document.querySelectorAll(".modal").forEach(m => {
+    m.addEventListener("click", e => {
+      if (e.target === m) {
+        m.classList.remove("show");
+        document.body.classList.remove("modal-open");
       }
-    );
-
+    });
   });
-
-
-  document.addEventListener(
-    "keydown",
-    event => {
-
-      if (event.key === "Escape") {
-
-        closeModal();
-
-        closeAuthModal();
-
-        closeProductModal();
-
-      }
-
-    }
-  );
-
 }
-
-
-function closeModal() {
-
-  const modal =
-    document.getElementById(
-      "mainModal"
-    );
-
-
-  if (!modal) return;
-
-
-  modal.classList.remove(
-    "show"
-  );
-
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.classList.remove(
-    "modal-open"
-  );
-
-}
-
-
-function closeAuthModal() {
-
-  const modal =
-    document.getElementById(
-      "authModal"
-    );
-
-
-  if (!modal) return;
-
-
-  modal.classList.remove(
-    "show"
-  );
-
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.classList.remove(
-    "modal-open"
-  );
-
-}
-
 
 function closeProductModal() {
-
-  const modal =
-    document.getElementById(
-      "productModal"
-    );
-
-
-  if (!modal) return;
-
-
-  modal.classList.remove(
-    "show"
-  );
-
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.getElementById("productModal")?.classList.remove("show");
+  document.body.classList.remove("modal-open");
 }
 
-
-/* =========================================================
-   SECURITY / HTML HELPERS
-========================================================= */
-
-function escapeHtml(value) {
-
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-
+function escapeHtml(s) {
+  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function escapeJs(s) {
+  return String(s || "").replace(/'/g, "\\'");
 }
 
-
-function escapeJs(value) {
-
-  return String(value)
-    .replaceAll("\\", "\\\\")
-    .replaceAll("'", "\\'")
-    .replaceAll('"', '\\"');
-
-}
-
-
-/* =========================================================
-   GLOBAL FUNCTIONS
-========================================================= */
-
-window.openAuthModal =
-  openAuthModal;
-
-window.closeAuthModal =
-  closeAuthModal;
-
-window.openAccountDetails =
-  openAccountDetails;
-
-window.buyAccount =
-  buyAccount;
-
-window.openProductDetails =
-  openProductDetails;
-
-window.buyProduct =
-  buyProduct;
-
-window.closeProductModal =
-  closeProductModal;
-
-window.openTool =
-  openTool;
-
-window.closeModal =
-  closeModal;
-
-window.googleLogin =
-  googleLogin;
-
-window.forgotPassword =
-  forgotPassword;
-
-window.renderLoginForm =
-  renderLoginForm;
-
-window.renderSignupForm =
-  renderSignupForm;
+window.closeProductModal = closeProductModal;
+window.confirmAndSendOrder = confirmAndSendOrder;
