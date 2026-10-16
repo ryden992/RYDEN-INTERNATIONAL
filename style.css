@@ -2269,3 +2269,174 @@ img {
   height: auto;
   display: block;
 }
+/* =========================================
+   RYDEN RESPONSIVE FIX — FIRST STEP
+========================================= */
+
+/* Correct brand text from current HTML */
+.brand-text {
+  font-family: "Teko", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+}
+
+.brand-text span {
+  display: block;
+  color: var(--blue);
+  font-size: 15px;
+  letter-spacing: 1.2px;
+}
+
+/* Fix hero heading selectors */
+.hero-slide h1 {
+  font-family: "Teko", sans-serif;
+  font-size: clamp(58px, 9vw, 130px);
+  line-height: 0.85;
+  letter-spacing: 2px;
+  overflow-wrap: anywhere;
+}
+
+.hero-slide h1 span {
+  display: block;
+  color: var(--blue);
+}
+
+/* Keep images and product cards inside their containers */
+.account-card,
+.product-card,
+.tool-card,
+.contact-card {
+  min-width: 0;
+}
+
+.product-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.product-info strong {
+  line-height: 1.4;
+}
+
+/* Better touch targets */
+button,
+.btn,
+.desktop-nav a {
+  touch-action: manipulation;
+}
+
+/* Tablet and laptop improvements */
+@media (min-width: 701px) and (max-width: 1100px) {
+  .navbar {
+    gap: 12px;
+  }
+
+  .brand img {
+    width: 72px;
+  }
+
+  .brand-text {
+    font-size: 23px;
+  }
+
+  .brand-text span {
+    font-size: 12px;
+  }
+
+  .desktop-nav {
+    gap: 12px;
+  }
+
+  .desktop-nav a {
+    font-size: 12px;
+  }
+
+  .hero-content {
+    padding-top: 75px;
+    padding-bottom: 95px;
+  }
+}
+
+/* Phone improvements */
+@media (max-width: 700px) {
+  .brand img {
+    width: 65px;
+    max-height: 52px;
+    object-fit: contain;
+  }
+
+  .brand-text {
+    font-size: 23px;
+  }
+
+  .brand-text span {
+    font-size: 12px;
+  }
+
+  .hero-slide h1 {
+    font-size: clamp(49px, 12vw, 69px);
+    line-height: 0.9;
+  }
+
+  .hero-slide h2 {
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  .hero-slide p {
+    margin-inline: auto;
+    max-width: 460px;
+  }
+
+  .product-card {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .product-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .product-buy {
+    grid-column: 1 / -1;
+    min-height: 42px;
+  }
+
+  .floating-buttons {
+    bottom: 88px;
+  }
+
+  .mobile-bottom-nav {
+    padding-bottom: max(7px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand img {
+    width: 53px;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+
+  .brand-text span {
+    font-size: 10px;
+  }
+
+  .hero-slide h1 {
+    font-size: 46px;
+  }
+}
