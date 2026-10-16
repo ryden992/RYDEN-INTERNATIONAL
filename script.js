@@ -1,36 +1,19 @@
-/* ==========================================
-   RYDEN INTERNATIONAL — STORE ENGINE
-   Product Catalog | Search | Categories | Menu
-========================================== */
-
 "use strict";
 
-/* ---------- STORE SETTINGS ---------- */
+/* =========================================
+   RYDEN INTERNATIONAL — STORE JAVASCRIPT
+   Categories | Search | Product Details | Menu
+========================================= */
 
-const STORE = {
-  name: "RYDEN INTERNATIONAL",
-  whatsapp: "919233657553",
-  instagram: "https://instagram.com/rydenglobal"
-};
-
-/*
-  IMPORTANT:
-  These are sample catalogue prices for layout testing.
-  Verify every price, region, product and subscription
-  before publishing. This code does NOT connect to a
-  supplier API or automatically deliver products.
-*/
-
-/* ---------- PRODUCT CATALOG ---------- */
+const WHATSAPP_NUMBER = "919233657553";
 
 const products = [
-  // MOBILE LEGENDS
   {
     id: "mlbb-86",
     name: "86 MLBB Diamonds",
     category: "mlbb",
     price: 125,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -39,7 +22,7 @@ const products = [
     name: "172 MLBB Diamonds",
     category: "mlbb",
     price: 255,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -48,7 +31,7 @@ const products = [
     name: "257 MLBB Diamonds",
     category: "mlbb",
     price: 375,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -57,7 +40,7 @@ const products = [
     name: "343 MLBB Diamonds",
     category: "mlbb",
     price: 495,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -66,7 +49,7 @@ const products = [
     name: "429 MLBB Diamonds",
     category: "mlbb",
     price: 625,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -75,7 +58,7 @@ const products = [
     name: "514 MLBB Diamonds",
     category: "mlbb",
     price: 745,
-    description: "Mobile Legends diamond recharge",
+    description: "Mobile Legends diamond recharge.",
     region: "India",
     icon: "💎"
   },
@@ -84,7 +67,7 @@ const products = [
     name: "Weekly Pass",
     category: "mlbb",
     price: 799,
-    description: "Mobile Legends Weekly Pass",
+    description: "Mobile Legends Weekly Pass.",
     region: "India",
     icon: "🎟️"
   },
@@ -93,106 +76,90 @@ const products = [
     name: "Weekly Pass × 2",
     category: "mlbb",
     price: 1499,
-    description: "Two Mobile Legends Weekly Passes",
+    description: "Two Mobile Legends Weekly Passes.",
     region: "India",
     icon: "🎟️"
   },
-
-  // PUBG / BGMI
   {
     id: "pubg-uc",
     name: "PUBG / BGMI UC",
     category: "pubg",
-    price: 0,
-    description: "Contact us for the available UC packages",
-    region: "Confirm before ordering",
-    icon: "🎮",
-    contactOnly: true
+    price: null,
+    description: "Ask us about available UC packages.",
+    region: "Confirm region",
+    icon: "🎯"
   },
-
-  // OTT & SUBSCRIPTIONS
   {
-    id: "ott-subscription",
+    id: "ott",
     name: "OTT Subscriptions",
     category: "subscriptions",
-    price: 0,
-    description: "Ask us about currently available plans",
+    price: null,
+    description: "Ask us about available subscription options.",
     region: "Availability varies",
-    icon: "📺",
-    contactOnly: true
+    icon: "📺"
   },
   {
     id: "spotify",
     name: "Spotify",
     category: "subscriptions",
-    price: 0,
-    description: "Ask about available subscription options",
+    price: null,
+    description: "Ask us about available plans.",
     region: "Availability varies",
-    icon: "🎵",
-    contactOnly: true
+    icon: "🎵"
   },
   {
     id: "canva",
     name: "Canva",
     category: "subscriptions",
-    price: 0,
-    description: "Ask about available Canva plans",
+    price: null,
+    description: "Ask us about available Canva plans.",
     region: "Availability varies",
-    icon: "🎨",
-    contactOnly: true
+    icon: "🎨"
   },
   {
     id: "picsart",
     name: "Picsart",
     category: "subscriptions",
-    price: 0,
-    description: "Ask about available Picsart plans",
+    price: null,
+    description: "Ask us about available Picsart plans.",
     region: "Availability varies",
-    icon: "🖼️",
-    contactOnly: true
+    icon: "🖼️"
   },
-
-  // GIFT CARDS
   {
     id: "gift-cards",
     name: "Digital Gift Cards",
     category: "giftcards",
-    price: 0,
-    description: "Ask about available brands and regions",
-    region: "Check region compatibility",
-    icon: "🎁",
-    contactOnly: true
+    price: null,
+    description: "Ask about available brands and regions.",
+    region: "Check compatibility",
+    icon: "🎁"
   }
 ];
 
-/* ---------- CATEGORY LABELS ---------- */
-
 const categoryLabels = {
   all: "All Products",
-  mlbb: "MLBB Diamonds & Passes",
-  pubg: "PUBG / BGMI UC",
-  subscriptions: "OTT & Subscriptions",
-  giftcards: "Gift Cards",
-  accounts: "Available MLBB Accounts"
+  mlbb: "MLBB Diamonds",
+  pubg: "PUBG / BGMI",
+  subscriptions: "Subscriptions",
+  giftcards: "Gift Cards"
 };
-
-/* ---------- ELEMENTS ---------- */
-
-const productGrid = document.getElementById("productGrid");
-const productSearch = document.getElementById("productSearch");
-const categoryTitle = document.getElementById("categoryTitle");
-const productCount = document.getElementById("productCount");
-const emptyState = document.getElementById("emptyState");
-
-const menuToggle = document.getElementById("menuToggle");
-const desktopNav = document.getElementById("desktopNav");
-
-const productDialog = document.getElementById("productDialog");
-const dialogClose = document.getElementById("dialogClose");
-const dialogContent = document.getElementById("dialogContent");
 
 let activeCategory = "all";
 let searchQuery = "";
+
+const productGrid = document.getElementById("productGrid");
+const productSearch = document.getElementById("productSearch");
+const productCount = document.getElementById("productCount");
+const emptyState = document.getElementById("emptyState");
+
+const resetFilters = document.getElementById("resetFilters");
+
+const productDialog = document.getElementById("productDialog");
+const dialogContent = document.getElementById("dialogContent");
+const dialogClose = document.getElementById("dialogClose");
+
+const menuToggle = document.getElementById("menuToggle");
+const desktopNav = document.getElementById("desktopNav");
 
 /* ---------- HELPERS ---------- */
 
@@ -203,7 +170,7 @@ function escapeHTML(value) {
       "<": "&lt;",
       ">": "&gt;",
       '"': "&quot;",
-      "'": "&#039;"
+      "'": "&#39;"
     };
 
     return entities[character];
@@ -211,41 +178,33 @@ function escapeHTML(value) {
 }
 
 function formatPrice(price) {
-  if (!Number.isFinite(Number(price)) || Number(price) <= 0) {
-    return "Contact for price";
+  if (typeof price !== "number" || !Number.isFinite(price)) {
+    return "Ask for price";
   }
 
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
     maximumFractionDigits: 0
-  }).format(Number(price));
+  }).format(price);
 }
 
-function getWhatsAppLink(message) {
-  return (
+function contactWhatsApp(message) {
+  const url =
     "https://wa.me/" +
-    STORE.whatsapp +
+    WHATSAPP_NUMBER +
     "?text=" +
-    encodeURIComponent(message)
-  );
+    encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
-function openWhatsApp(message) {
-  window.open(
-    getWhatsAppLink(message),
-    "_blank",
-    "noopener,noreferrer"
-  );
-}
-
-/* ---------- PRODUCT FILTERING ---------- */
+/* ---------- FILTER PRODUCTS ---------- */
 
 function getFilteredProducts() {
   return products.filter(function (product) {
     const matchesCategory =
       activeCategory === "all" ||
-      activeCategory === "accounts" ||
       product.category === activeCategory;
 
     const searchableText = [
@@ -255,98 +214,40 @@ function getFilteredProducts() {
       product.region
     ].join(" ").toLowerCase();
 
-    const matchesSearch = searchableText.includes(
-      searchQuery.toLowerCase()
-    );
+    const matchesSearch =
+      searchableText.includes(searchQuery.toLowerCase());
 
     return matchesCategory && matchesSearch;
   });
 }
 
-/* ---------- RENDER PRODUCTS ---------- */
+/* ---------- DISPLAY PRODUCTS ---------- */
 
 function renderProducts() {
   if (!productGrid) return;
 
-  /*
-    Account cards have their own accountGrid.
-    Selecting Accounts scrolls to that section instead.
-  */
-  if (activeCategory === "accounts") {
-    productGrid.innerHTML = "";
-
-    if (categoryTitle) {
-      categoryTitle.textContent = categoryLabels.accounts;
-    }
-
-    if (productCount) {
-      productCount.textContent = "View available accounts below";
-    }
-
-    if (emptyState) {
-      emptyState.hidden = false;
-      emptyState.textContent =
-        "Browse the available account listings below.";
-    }
-
-    const accountGrid = document.getElementById("accountGrid");
-
-    if (accountGrid) {
-      accountGrid.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-
-    return;
-  }
-
-  const filteredProducts = getFilteredProducts();
-
-  if (categoryTitle) {
-    categoryTitle.textContent =
-      categoryLabels[activeCategory] || categoryLabels.all;
-  }
+  const filtered = getFilteredProducts();
 
   if (productCount) {
     productCount.textContent =
-      filteredProducts.length +
-      (filteredProducts.length === 1 ? " product" : " products");
+      filtered.length +
+      (filtered.length === 1 ? " product" : " products");
   }
 
   if (emptyState) {
-    emptyState.hidden = filteredProducts.length > 0;
+    emptyState.hidden = filtered.length > 0;
   }
 
-  if (filteredProducts.length === 0) {
+  if (filtered.length === 0) {
     productGrid.innerHTML = "";
     return;
   }
 
-  productGrid.innerHTML = filteredProducts.map(function (product) {
-    const priceText = formatPrice(product.price);
-
-    const buttonText = product.contactOnly
-      ? "Check Availability"
-      : "View Details";
-
+  productGrid.innerHTML = filtered.map(function (product) {
     return `
       <article class="product-card">
-        <div class="product-image" aria-hidden="true">
-          <span style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            min-height:120px;
-            height:100%;
-            font-size:3rem;
-            background:linear-gradient(
-              145deg,
-              rgba(22,133,255,.15),
-              rgba(9,14,23,.3)
-            );
-            border-radius:12px;
-          ">${escapeHTML(product.icon || "🎮")}</span>
+        <div class="product-art" aria-hidden="true">
+          ${escapeHTML(product.icon)}
         </div>
 
         <span class="product-badge">
@@ -357,13 +258,17 @@ function renderProducts() {
 
         <p>${escapeHTML(product.description)}</p>
 
-        <div class="product-price">${escapeHTML(priceText)}</div>
+        <div class="product-price">
+          ${escapeHTML(formatPrice(product.price))}
+        </div>
 
         <button
           class="btn btn-primary"
           type="button"
           data-product-id="${escapeHTML(product.id)}"
-        >${buttonText}</button>
+        >
+          View Details ↗
+        </button>
       </article>
     `;
   }).join("");
@@ -371,30 +276,22 @@ function renderProducts() {
 
 /* ---------- CATEGORY BUTTONS ---------- */
 
-function setCategory(category) {
-  activeCategory = categoryLabels[category] ? category : "all";
-
-  document.querySelectorAll("[data-category]").forEach(function (button) {
-    const buttonCategory = button.dataset.category;
-
-    button.classList.toggle(
-      "active",
-      buttonCategory === activeCategory
-    );
-
-    if (buttonCategory === activeCategory) {
-      button.setAttribute("aria-pressed", "true");
-    } else {
-      button.setAttribute("aria-pressed", "false");
-    }
-  });
-
-  renderProducts();
-}
-
 document.querySelectorAll("[data-category]").forEach(function (button) {
   button.addEventListener("click", function () {
-    setCategory(button.dataset.category);
+    const category = button.dataset.category;
+
+    activeCategory = categoryLabels[category]
+      ? category
+      : "all";
+
+    document.querySelectorAll("[data-category]").forEach(function (item) {
+      const selected = item.dataset.category === activeCategory;
+
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+
+    renderProducts();
   });
 });
 
@@ -407,74 +304,92 @@ if (productSearch) {
   });
 }
 
+/* ---------- RESET FILTERS ---------- */
+
+if (resetFilters) {
+  resetFilters.addEventListener("click", function () {
+    activeCategory = "all";
+    searchQuery = "";
+
+    if (productSearch) {
+      productSearch.value = "";
+    }
+
+    document.querySelectorAll("[data-category]").forEach(function (button) {
+      const selected = button.dataset.category === "all";
+
+      button.classList.toggle("active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+
+    renderProducts();
+  });
+}
+
 /* ---------- PRODUCT DETAILS ---------- */
 
-function showProductDetails(product) {
+function openProductDetails(product) {
   if (!product) return;
 
-  const priceText = formatPrice(product.price);
-
-  const orderMessage = product.contactOnly
-    ? `Hi ${STORE.name}, I want to check availability for: ${product.name}. Please share the current price, region and details.`
-    : `Hi ${STORE.name}, I am interested in ${product.name}. Displayed price: ${priceText}. Please confirm availability, final price and delivery details before I order.`;
-
-  const detailsHTML = `
-    <div style="text-align:center;padding:8px 0 18px">
-      <div style="font-size:3.5rem;margin-bottom:12px">
-        ${escapeHTML(product.icon || "🎮")}
-      </div>
-
-      <span class="product-badge">
-        ${escapeHTML(product.region)}
-      </span>
-
-      <h2 style="margin:16px 0 10px">
-        ${escapeHTML(product.name)}
-      </h2>
-
-      <p>${escapeHTML(product.description)}</p>
-
-      <div class="product-price" style="margin:18px 0">
-        ${escapeHTML(priceText)}
-      </div>
-
-      <p style="font-size:.82rem;margin-bottom:18px">
-        Confirm availability, region compatibility and final price
-        with the store before making payment.
-      </p>
-
-      <button
-        class="btn btn-primary"
-        type="button"
-        id="contactProductButton"
-        style="width:100%"
-      >Contact on WhatsApp</button>
-    </div>
-  `;
-
-  if (productDialog && dialogContent) {
-    dialogContent.innerHTML = detailsHTML;
-
-    const contactButton = document.getElementById(
-      "contactProductButton"
+  if (!productDialog || !dialogContent) {
+    contactWhatsApp(
+      "Hi RYDEN INTERNATIONAL, I want to ask about " +
+      product.name + "."
     );
-
-    if (contactButton) {
-      contactButton.addEventListener("click", function () {
-        openWhatsApp(orderMessage);
-      });
-    }
-
-    if (typeof productDialog.showModal === "function") {
-      productDialog.showModal();
-    } else {
-      openWhatsApp(orderMessage);
-    }
-
     return;
   }
 
-  openWhatsApp(orderMessage);
+  const message =
+    "Hi RYDEN INTERNATIONAL, I am interested in " +
+    product.name +
+    ". Please confirm the current price, availability and region compatibility.";
+
+  dialogContent.innerHTML = `
+    <div class="dialog-product">
+      <div class="dialog-product-icon">
+        ${escapeHTML(product.icon)}
+      </div>
+
+      <h2>${escapeHTML(product.name)}</h2>
+
+      <p>${escapeHTML(product.description)}</p>
+
+      <p>
+        <strong>Region:</strong>
+        ${escapeHTML(product.region)}
+      </p>
+
+      <div class="product-price">
+        ${escapeHTML(formatPrice(product.price))}
+      </div>
+
+      <p>
+        Please confirm the final price and availability
+        before making payment.
+      </p>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="productWhatsApp"
+      >
+        Ask on WhatsApp ↗
+      </button>
+    </div>
+  `;
+
+  if (typeof productDialog.showModal === "function") {
+    productDialog.showModal();
+  }
+
+  const whatsappButton =
+    document.getElementById("productWhatsApp");
+
+  if (whatsappButton) {
+    whatsappButton.addEventListener("click", function () {
+      contactWhatsApp(message);
+    });
+  }
 }
 
 if (productGrid) {
@@ -487,17 +402,15 @@ if (productGrid) {
       return item.id === button.dataset.productId;
     });
 
-    showProductDetails(product);
+    openProductDetails(product);
   });
 }
 
-/* ---------- DIALOG CLOSE ---------- */
+/* ---------- CLOSE PRODUCT DIALOG ---------- */
 
 if (dialogClose && productDialog) {
   dialogClose.addEventListener("click", function () {
-    if (typeof productDialog.close === "function") {
-      productDialog.close();
-    }
+    productDialog.close();
   });
 }
 
@@ -507,10 +420,6 @@ if (productDialog) {
       productDialog.close();
     }
   });
-
-  productDialog.addEventListener("cancel", function () {
-    // Allows the browser's normal Escape-key close behaviour.
-  });
 }
 
 /* ---------- MOBILE NAVIGATION ---------- */
@@ -518,24 +427,19 @@ if (productDialog) {
 function closeMobileMenu() {
   if (!menuToggle || !desktopNav) return;
 
-  desktopNav.classList.remove("open", "active");
+  desktopNav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open menu");
 }
 
 if (menuToggle && desktopNav) {
-  menuToggle.setAttribute("aria-expanded", "false");
-
   menuToggle.addEventListener("click", function () {
-    const isOpen =
-      desktopNav.classList.contains("open") ||
-      desktopNav.classList.contains("active");
+    const isOpen = desktopNav.classList.toggle("open");
 
-    desktopNav.classList.toggle("open", !isOpen);
-    desktopNav.classList.toggle("active", !isOpen);
-
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute(
-      "aria-expanded",
-      String(!isOpen)
+      "aria-label",
+      isOpen ? "Close menu" : "Open menu"
     );
   });
 
@@ -553,18 +457,23 @@ if (menuToggle && desktopNav) {
   });
 
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 700) {
+    if (window.innerWidth > 720) {
       closeMobileMenu();
     }
   });
 }
 
-/* ---------- CONTACT LINKS ---------- */
+/* ---------- PLAYER TOOLS ---------- */
 
-document.querySelectorAll("[data-contact-whatsapp]").forEach(function (button) {
-  button.addEventListener("click", function () {
-    openWhatsApp(
-      `Hi ${STORE.name}, I would like to know more about your products and services.`
+document.querySelectorAll("[data-tool]").forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const toolName = link.dataset.tool;
+
+    contactWhatsApp(
+      "Hi RYDEN INTERNATIONAL, I need help with " +
+      toolName + "."
     );
   });
 });
@@ -577,11 +486,16 @@ if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
 
-/* ---------- INITIALIZE ---------- */
+/* ---------- START STORE ---------- */
 
 renderProducts();
 
-console.log(
-  `${STORE.name} store interface loaded. ` +
-  "Supplier API and automated payment are not connected."
-);
+console.log("RYDEN INTERNATIONAL store loaded successfully.");
+
+/*
+  IMPORTANT BEFORE LAUNCH:
+  1. Verify all product prices.
+  2. Connect a legitimate supplier API through a secure backend.
+  3. Verify payments on the server.
+  4. Never put secret API keys in public JavaScript.
+*/
