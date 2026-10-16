@@ -1,12 +1,17 @@
+
 "use strict";
 
 /*
   RYDEN INTERNATIONAL
   Frontend catalog only.
-  No Firebase, supplier API, payment gateway or domain integration yet.
+  Firebase, supplier API and payment gateway are not connected yet.
 */
 
 const WHATSAPP_NUMBER = "919233657553";
+const WHATSAPP_CHANNEL =
+  "https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R";
+const BUSINESS_EMAIL = "rydenstore7@gmail.com";
+const INSTAGRAM_URL = "https://instagram.com/rydenglobal";
 
 const categories = [
   { id: "mlbb", title: "Mobile Legends Bang Bang" },
@@ -17,9 +22,9 @@ const categories = [
 ];
 
 /*
-  Set a real price later by replacing null with a number.
+  Replace null with a real price when ready.
   Example: price: 125
-  Homepage cards never display prices.
+  Homepage product cards do not display prices.
 */
 
 const products = [
@@ -75,9 +80,7 @@ const products = [
     name: "Double Diamonds Pack",
     category: "mlbb",
     image: "images/double-diamonds.jpg",
-    packs: [
-      { name: "Double Diamonds Pack", price: null }
-    ]
+    packs: [{ name: "Double Diamonds Pack", price: null }]
   },
   {
     id: "starlight",
@@ -94,90 +97,70 @@ const products = [
     name: "MLBB India",
     category: "mlbb",
     image: "images/mlbb-india.jpg",
-    packs: [
-      { name: "India Server Pack", price: null }
-    ]
+    packs: [{ name: "India Server Pack", price: null }]
   },
   {
     id: "mlbb-ph",
     name: "MLBB Philippines",
     category: "mlbb",
     image: "images/mlbb-philippines.jpg",
-    packs: [
-      { name: "Philippines Server Pack", price: null }
-    ]
+    packs: [{ name: "Philippines Server Pack", price: null }]
   },
   {
     id: "mlbb-sg",
     name: "MLBB Singapore",
     category: "mlbb",
     image: "images/mlbb-singapore.jpg",
-    packs: [
-      { name: "Singapore Server Pack", price: null }
-    ]
+    packs: [{ name: "Singapore Server Pack", price: null }]
   },
   {
     id: "mlbb-id",
     name: "MLBB Indonesia",
     category: "mlbb",
     image: "images/mlbb-indonesia.jpg",
-    packs: [
-      { name: "Indonesia Server Pack", price: null }
-    ]
+    packs: [{ name: "Indonesia Server Pack", price: null }]
   },
   {
     id: "mlbb-my",
     name: "MLBB Malaysia",
     category: "mlbb",
     image: "images/mlbb-malaysia.jpg",
-    packs: [
-      { name: "Malaysia Server Pack", price: null }
-    ]
+    packs: [{ name: "Malaysia Server Pack", price: null }]
   },
   {
     id: "mlbb-ru",
     name: "MLBB Russia",
     category: "mlbb",
     image: "images/mlbb-russia.jpg",
-    packs: [
-      { name: "Russia Server Pack", price: null }
-    ]
+    packs: [{ name: "Russia Server Pack", price: null }]
   },
   {
     id: "mlbb-tr",
     name: "MLBB Turkey",
     category: "mlbb",
     image: "images/mlbb-turkey.jpg",
-    packs: [
-      { name: "Turkey Server Pack", price: null }
-    ]
+    packs: [{ name: "Turkey Server Pack", price: null }]
   },
   {
     id: "mlbb-br",
     name: "MLBB Brazil",
     category: "mlbb",
     image: "images/mlbb-brazil.jpg",
-    packs: [
-      { name: "Brazil Server Pack", price: null }
-    ]
+    packs: [{ name: "Brazil Server Pack", price: null }]
   },
   {
     id: "mlbb-skins",
     name: "Skin Gifting",
     category: "mlbb",
     image: "images/skins-gifting.jpg",
-    packs: [
-      { name: "Skin Gifting", price: null }
-    ]
+    packs: [{ name: "Skin Gifting", price: null }]
   },
   {
     id: "mlbb-accounts",
     name: "Available MLBB Accounts",
     category: "mlbb",
     image: "images/mlbb-accounts.jpg",
-    packs: [
-      { name: "Available Account", price: null }
-    ]
+    packs: [{ name: "Available Account", price: null }]
   },
 
   // BGMI / PUBG
@@ -197,27 +180,21 @@ const products = [
     name: "PUBG Mobile Global",
     category: "pubg",
     image: "images/pubg-global.jpg",
-    packs: [
-      { name: "PUBG Global UC Pack", price: null }
-    ]
+    packs: [{ name: "PUBG Global UC Pack", price: null }]
   },
   {
     id: "pubg-india",
     name: "PUBG Mobile India",
     category: "pubg",
     image: "images/pubg-india.jpg",
-    packs: [
-      { name: "UC Pack", price: null }
-    ]
+    packs: [{ name: "UC Pack", price: null }]
   },
   {
     id: "pubg-uc",
     name: "PUBG UC Packs",
     category: "pubg",
     image: "images/pubg-uc.jpg",
-    packs: [
-      { name: "UC Pack", price: null }
-    ]
+    packs: [{ name: "UC Pack", price: null }]
   },
 
   // OTHER GAMES
@@ -226,54 +203,42 @@ const products = [
     name: "Call of Duty Mobile India",
     category: "games",
     image: "images/call-of-duty.jpg",
-    packs: [
-      { name: "COD Mobile Pack", price: null }
-    ]
+    packs: [{ name: "COD Mobile Pack", price: null }]
   },
   {
     id: "honor",
     name: "Honor of Kings",
     category: "games",
     image: "images/honor-of-kings.jpg",
-    packs: [
-      { name: "Honor of Kings Pack", price: null }
-    ]
+    packs: [{ name: "Honor of Kings Pack", price: null }]
   },
   {
     id: "wuthering",
     name: "Wuthering Waves",
     category: "games",
     image: "images/wuthering-waves.jpg",
-    packs: [
-      { name: "Wuthering Waves Pack", price: null }
-    ]
+    packs: [{ name: "Wuthering Waves Pack", price: null }]
   },
   {
     id: "honkai",
     name: "Honkai Star Rail",
     category: "games",
     image: "images/honkai-star-rail.jpg",
-    packs: [
-      { name: "Honkai Star Rail Pack", price: null }
-    ]
+    packs: [{ name: "Honkai Star Rail Pack", price: null }]
   },
   {
     id: "genshin",
     name: "Genshin Impact",
     category: "games",
     image: "images/genshin-impact.jpg",
-    packs: [
-      { name: "Genshin Impact Pack", price: null }
-    ]
+    packs: [{ name: "Genshin Impact Pack", price: null }]
   },
   {
     id: "magic-chess",
     name: "Magic Chess GoGo",
     category: "games",
     image: "images/magic-chess.jpg",
-    packs: [
-      { name: "Magic Chess Pack", price: null }
-    ]
+    packs: [{ name: "Magic Chess Pack", price: null }]
   },
 
   // OTT AND SUBSCRIPTIONS
@@ -282,144 +247,112 @@ const products = [
     name: "YouTube Premium",
     category: "ott",
     image: "images/youtube-premium.jpg",
-    packs: [
-      { name: "YouTube Premium", price: null }
-    ]
+    packs: [{ name: "YouTube Premium", price: null }]
   },
   {
     id: "netflix",
     name: "Netflix Premium",
     category: "ott",
     image: "images/netflix.jpg",
-    packs: [
-      { name: "Netflix Premium", price: null }
-    ]
+    packs: [{ name: "Netflix Premium", price: null }]
   },
   {
     id: "prime",
     name: "Prime Video",
     category: "ott",
     image: "images/prime-video.jpg",
-    packs: [
-      { name: "Prime Video", price: null }
-    ]
+    packs: [{ name: "Prime Video", price: null }]
   },
   {
     id: "hotstar",
     name: "JioHotstar",
     category: "ott",
     image: "images/jiohotstar.jpg",
-    packs: [
-      { name: "JioHotstar", price: null }
-    ]
+    packs: [{ name: "JioHotstar", price: null }]
   },
   {
     id: "spotify",
     name: "Spotify Premium",
     category: "ott",
     image: "images/spotify.jpg",
-    packs: [
-      { name: "Spotify Premium", price: null }
-    ]
+    packs: [{ name: "Spotify Premium", price: null }]
   },
   {
     id: "crunchyroll",
     name: "Crunchyroll Mega Fan",
     category: "ott",
     image: "images/crunchyroll.jpg",
-    packs: [
-      { name: "Crunchyroll Mega Fan", price: null }
-    ]
+    packs: [{ name: "Crunchyroll Mega Fan", price: null }]
   },
   {
     id: "canva",
     name: "Canva Pro",
     category: "ott",
     image: "images/canva-pro.jpg",
-    packs: [
-      { name: "Canva Pro", price: null }
-    ]
+    packs: [{ name: "Canva Pro", price: null }]
   },
   {
     id: "capcut",
     name: "CapCut Pro",
     category: "ott",
     image: "images/capcut-pro.jpg",
-    packs: [
-      { name: "CapCut Pro", price: null }
-    ]
+    packs: [{ name: "CapCut Pro", price: null }]
   },
   {
     id: "picsart",
     name: "PicsArt Pro",
     category: "ott",
     image: "images/picsart-pro.jpg",
-    packs: [
-      { name: "PicsArt Pro", price: null }
-    ]
+    packs: [{ name: "PicsArt Pro", price: null }]
   },
   {
     id: "sony",
     name: "Sony LIV",
     category: "ott",
     image: "images/sony-liv.jpg",
-    packs: [
-      { name: "Sony LIV Subscription", price: null }
-    ]
+    packs: [{ name: "Sony LIV Subscription", price: null }]
   },
   {
     id: "kuku",
     name: "Kuku TV",
     category: "ott",
     image: "images/kuku-tv.jpg",
-    packs: [
-      { name: "Kuku TV Subscription", price: null }
-    ]
+    packs: [{ name: "Kuku TV Subscription", price: null }]
   },
   {
     id: "fancode",
     name: "FanCode",
     category: "ott",
     image: "images/fancode.jpg",
-    packs: [
-      { name: "FanCode Subscription", price: null }
-    ]
+    packs: [{ name: "FanCode Subscription", price: null }]
   },
   {
     id: "gemini",
     name: "Gemini AI Pro",
     category: "ott",
     image: "images/gemini-ai-pro.jpg",
-    packs: [
-      { name: "Gemini AI Pro", price: null }
-    ]
+    packs: [{ name: "Gemini AI Pro", price: null }]
   },
   {
     id: "rakuten",
     name: "Rakuten Viki",
     category: "ott",
     image: "images/rakuten-viki.jpg",
-    packs: [
-      { name: "Rakuten Viki", price: null }
-    ]
+    packs: [{ name: "Rakuten Viki", price: null }]
   },
   {
     id: "zee5",
     name: "ZEE5",
     category: "ott",
     image: "images/zee5.jpg",
-    packs: [
-      { name: "ZEE5 Subscription", price: null }
-    ]
+    packs: [{ name: "ZEE5 Subscription", price: null }]
   },
   {
     id: "nordvpn",
     name: "NordVPN",
     category: "ott",
     image: "images/nordvpn.jpg",
-    packs: [
-      { name: "NordVPN Subscription", price: null }
-    ]
+    packs: [{ name: "NordVPN Subscription", price: null }]
   },
 
   // GIFT CARDS AND OTHER DIGITAL PRODUCTS
@@ -428,48 +361,39 @@ const products = [
     name: "Gift Cards",
     category: "giftcards",
     image: "images/gift-cards.jpg",
-    packs: [
-      { name: "Gift Card", price: null }
-    ]
+    packs: [{ name: "Gift Card", price: null }]
   },
   {
     id: "google-play",
     name: "Google Play Gift Card",
     category: "giftcards",
     image: "images/google-play.jpg",
-    packs: [
-      { name: "Google Play Gift Card", price: null }
-    ]
+    packs: [{ name: "Google Play Gift Card", price: null }]
   },
   {
     id: "apple-card",
     name: "Apple Gift Card",
     category: "giftcards",
     image: "images/apple-gift-card.jpg",
-    packs: [
-      { name: "Apple Gift Card", price: null }
-    ]
+    packs: [{ name: "Apple Gift Card", price: null }]
   },
   {
     id: "steam",
     name: "Steam Wallet",
     category: "giftcards",
     image: "images/steam-wallet.jpg",
-    packs: [
-      { name: "Steam Wallet", price: null }
-    ]
+    packs: [{ name: "Steam Wallet", price: null }]
   },
   {
     id: "playstation",
     name: "PlayStation Gift Card",
     category: "giftcards",
     image: "images/playstation.jpg",
-    packs: [
-      { name: "PlayStation Gift Card", price: null }
-    ]
+    packs: [{ name: "PlayStation Gift Card", price: null }]
   }
 ];
 
+// ELEMENTS
 const catalogSections = document.getElementById("catalogSections");
 const emptyState = document.getElementById("emptyState");
 const searchWrap = document.getElementById("searchWrap");
@@ -484,8 +408,9 @@ const infoContent = document.getElementById("infoContent");
 let activeCategory = "all";
 let activeSlide = 0;
 let slideTimer = null;
-let showAllByCategory = {};
+const showAllByCategory = {};
 
+// HELPERS
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({
     "&": "&amp;",
@@ -499,6 +424,14 @@ function escapeHTML(value) {
 function getCategoryName(categoryId) {
   const category = categories.find(item => item.id === categoryId);
   return category ? category.title : categoryId;
+}
+
+function openWhatsApp(message = "") {
+  const url = `https://wa.me/${WHATSAPP_NUMBER}${
+    message ? `?text=${encodeURIComponent(message)}` : ""
+  }`;
+
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 function renderProductCard(product) {
@@ -522,6 +455,7 @@ function renderProductCard(product) {
   `;
 }
 
+// CATALOG
 function renderCatalog() {
   const query = productSearch.value.trim().toLowerCase();
 
@@ -532,7 +466,8 @@ function renderCatalog() {
     const searchMatches =
       !query ||
       product.name.toLowerCase().includes(query) ||
-      getCategoryName(product.category).toLowerCase().includes(query);
+      getCategoryName(product.category).toLowerCase().includes(query) ||
+      product.packs.some(pack => pack.name.toLowerCase().includes(query));
 
     return categoryMatches && searchMatches;
   });
@@ -548,7 +483,7 @@ function renderCatalog() {
       product => product.category === category.id
     );
 
-    if (categoryProducts.length === 0) return;
+    if (!categoryProducts.length) return;
 
     const expanded = Boolean(showAllByCategory[category.id]);
     const visibleProducts = expanded
@@ -576,6 +511,7 @@ function renderCatalog() {
   emptyState.hidden = filteredProducts.length > 0;
 }
 
+// PRODUCT DETAILS
 function openProduct(productId) {
   const product = products.find(item => item.id === productId);
   if (!product) return;
@@ -620,54 +556,209 @@ function openProduct(productId) {
   productDialog.showModal();
 }
 
-function openInfo(title, message, options = {}) {
+// POLICY CONTENT
+const policies = {
+  privacy: {
+    title: "Privacy Policy",
+    body: `
+      <h3>RYDEN INTERNATIONAL — Privacy Policy</h3>
+
+      <h4>1. Information We Collect</h4>
+      <p>We may collect your name, contact details, order information, and necessary transaction details to process purchases and provide customer support.</p>
+
+      <h4>2. Use of Information</h4>
+      <p>Your information is used to manage orders, verify payments, resolve disputes, and improve our services.</p>
+
+      <h4>3. Data Security</h4>
+      <p>We take reasonable measures to protect your personal information against unauthorized access, misuse, or disclosure.</p>
+
+      <h4>4. Third-Party Services</h4>
+      <p>Payment providers and other service providers may process information as needed to provide their services. Their own privacy policies may also apply.</p>
+
+      <h4>5. Cookies</h4>
+      <p>Our website may use cookies to improve functionality and user experience. You can manage cookies through your browser settings where available.</p>
+
+      <h4>6. Data Retention</h4>
+      <p>We retain information only as long as reasonably necessary for business, security, legal, and transaction-related purposes.</p>
+
+      <h4>7. Your Privacy Rights</h4>
+      <p>You may contact us to request access to, correction of, or deletion of your personal information, subject to applicable legal requirements.</p>
+
+      <h4>8. Policy Updates</h4>
+      <p>We may update this policy when necessary. Changes will be published on this page.</p>
+
+      <h4>9. Contact Us</h4>
+      <p>RYDEN INTERNATIONAL</p>
+      <p>Email: <a href="mailto:${BUSINESS_EMAIL}">${BUSINESS_EMAIL}</a></p>
+      <p>Business Number: ${"9233657553"}</p>
+
+      <p>By using our website, you acknowledge this Privacy Policy.</p>
+    `
+  },
+
+  refund: {
+    title: "Refund Policy",
+    body: `
+      <h3>RYDEN INTERNATIONAL — Refund Policy</h3>
+
+      <h4>1. Refund Eligibility</h4>
+      <p>Refunds may be considered for verified non-delivery, duplicate sales, unauthorized transactions, or account issues caused by the seller.</p>
+
+      <h4>2. Non-Refundable Cases</h4>
+      <p>Refunds are generally not available for change of mind after delivery or problems caused by the buyer's actions. All requests are reviewed individually, subject to applicable law.</p>
+
+      <h4>3. Refund Process</h4>
+      <p>To request a refund, contact us with your order details, payment proof, and a clear explanation of the issue.</p>
+
+      <h4>4. Approval &amp; Processing</h4>
+      <p>Approved refunds will generally be sent through the original payment method. Processing time depends on the payment provider.</p>
+
+      <h4>5. Contact Us</h4>
+      <p>RYDEN INTERNATIONAL</p>
+      <p>Business Email: <a href="mailto:${BUSINESS_EMAIL}">${BUSINESS_EMAIL}</a></p>
+      <p>Business Number: 9233657553</p>
+
+      <p>By purchasing from our website, you acknowledge that you have reviewed this policy.</p>
+    `
+  },
+
+  terms: {
+    title: "Terms & Conditions",
+    body: `
+      <h3>RYDEN INTERNATIONAL — Terms &amp; Conditions</h3>
+
+      <h4>1. Acceptance of Terms</h4>
+      <p>By accessing our website or purchasing from RYDEN INTERNATIONAL, you agree to these Terms &amp; Conditions.</p>
+
+      <h4>2. User Eligibility</h4>
+      <p>Users must meet applicable age requirements and have the legal capacity to make purchases. Minors must obtain any required parental or guardian consent.</p>
+
+      <h4>3. Orders &amp; Payments</h4>
+      <p>Customers must provide accurate information and ensure payments are completed through agreed payment methods. Orders are subject to payment verification and product availability.</p>
+
+      <h4>4. Digital Account Purchases</h4>
+      <p>Customers should review account descriptions and ask questions before purchasing. Account transfers and use may be subject to the game publisher's rules and restrictions.</p>
+
+      <h4>5. Refunds &amp; Cancellations</h4>
+      <p>All refund and cancellation requests are handled according to our Refund Policy and applicable law.</p>
+
+      <h4>6. Prohibited Activities</h4>
+      <p>Users must not use our website for fraud, unlawful activities, unauthorized access, or activities that disrupt our services.</p>
+
+      <h4>7. Intellectual Property</h4>
+      <p>Website content, including our branding, text, graphics, and designs, may not be copied or used without permission, except as permitted by law.</p>
+
+      <h4>8. Third-Party Services</h4>
+      <p>We are not responsible for third-party websites or services beyond our control. Their respective terms and policies may apply.</p>
+
+      <h4>9. Limitation of Liability</h4>
+      <p>We aim to provide accurate listings and reliable service but cannot guarantee uninterrupted website availability. Nothing in these terms excludes liability that cannot legally be excluded.</p>
+
+      <h4>10. Changes to Terms</h4>
+      <p>We may update these terms when necessary. Updated versions will be published on this page.</p>
+
+      <h4>11. Contact Us</h4>
+      <p>RYDEN INTERNATIONAL</p>
+      <p>Email: <a href="mailto:${BUSINESS_EMAIL}">${BUSINESS_EMAIL}</a></p>
+      <p>Business Number: 9233657553</p>
+
+      <p>By using our website, you acknowledge that you have had the opportunity to review these Terms &amp; Conditions.</p>
+    `
+  }
+};
+
+// INFO DIALOG
+function openInfo(title, message = "", options = {}) {
   infoTitle.textContent = title;
 
-  if (options.type === "region") {
+  if (options.type === "support") {
+    infoContent.innerHTML = `
+      <div class="support-panel">
+        <h3>What Issues Are You Facing?</h3>
+        <h4>Customer Support</h4>
+
+        <p>At RYDEN INTERNATIONAL, we're committed to providing reliable customer support. Whether you need help with account purchases, payment issues, order updates, or account-related concerns, we're here to help.</p>
+
+        <p>Contact us for assistance, and our team will do its best to resolve your issue as quickly as possible.</p>
+
+        <div class="support-hours">24/7 SUPPORT</div>
+
+        <p><strong>Business Email:</strong><br>
+          <a href="mailto:${BUSINESS_EMAIL}">${BUSINESS_EMAIL}</a>
+        </p>
+
+        <p><strong>Business Number:</strong><br>
+          <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener noreferrer">9233657553</a>
+        </p>
+
+        <p>We're dedicated to providing a smooth, secure, and trustworthy buying experience.</p>
+
+        <a class="action-link"
+           href="https://wa.me/${WHATSAPP_NUMBER}"
+           target="_blank"
+           rel="noopener noreferrer">CHAT ON WHATSAPP</a>
+
+        <p><a href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">Join our WhatsApp Channel for updates</a></p>
+      </div>
+    `;
+
+  } else if (options.type === "policy") {
+    const policy = policies[options.policy];
+
+    if (!policy) {
+      infoContent.textContent = "Policy not found.";
+    } else {
+      infoTitle.textContent = policy.title;
+      infoContent.innerHTML = `<div class="policy-content">${policy.body}</div>`;
+    }
+
+  } else if (options.type === "region") {
     infoContent.innerHTML = `
       <p class="info-message">
         Enter your Mobile Legends details to prepare a region-check request.
         This demo does not verify the region automatically yet.
       </p>
+
       <form class="info-form" id="regionForm">
         <label>Player ID
           <input name="playerId" required placeholder="Enter Player ID">
         </label>
+
         <label>Zone ID
           <input name="zoneId" required placeholder="Enter Zone ID">
         </label>
+
         <button class="modal-action" type="submit">Send Region Request</button>
       </form>
     `;
 
     document.getElementById("regionForm").addEventListener("submit", event => {
       event.preventDefault();
+
       const form = new FormData(event.currentTarget);
       const playerId = String(form.get("playerId")).trim();
       const zoneId = String(form.get("zoneId")).trim();
 
-      const text = [
+      openWhatsApp([
         "Hello RYDEN INTERNATIONAL!",
         "Please help check my MLBB region.",
         `Player ID: ${playerId}`,
         `Zone ID: ${zoneId}`
-      ].join("\n");
+      ].join("\n"));
 
-      window.open(
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-        "_blank",
-        "noopener,noreferrer"
-      );
       infoDialog.close();
     });
 
   } else if (options.type === "purchase") {
     infoContent.innerHTML = `
       <p class="info-message">
-        Your future purchase history will appear here after order tracking
-        is connected. For now, select a product and contact support to enquire.
+        Your purchase history will appear here after order tracking is connected.
+        For now, select a product and contact support to enquire.
       </p>
-      <button class="modal-action" id="purchaseBrowse">Browse Products</button>
+
+      <button class="modal-action" id="purchaseBrowse" type="button">
+        Browse Products
+      </button>
     `;
 
     document.getElementById("purchaseBrowse").addEventListener("click", () => {
@@ -678,54 +769,259 @@ function openInfo(title, message, options = {}) {
   } else if (options.type === "leaderboard") {
     infoContent.innerHTML = `
       <p class="info-message">
-        The leaderboard will be displayed here when a verified data source is
-        connected. No rankings are being invented in this preview.
+        The leaderboard will appear here when a verified data source is connected.
+        Live rankings are not available in this preview yet.
       </p>
     `;
 
   } else if (options.type === "account") {
-    infoContent.innerHTML = `
-      <p class="info-message">
-        Account login and order history will be enabled after authentication
-        is implemented. This preview does not create or store accounts.
-      </p>
-      <a class="action-link"
-         href="https://wa.me/${WHATSAPP_NUMBER}"
-         target="_blank"
-         rel="noopener noreferrer">CONTACT SUPPORT</a>
-    `;
+    renderLoginForm();
 
   } else if (options.type === "reports") {
     infoContent.innerHTML = `
       <p class="info-message">
-        Order reports will appear here after an order tracking system is
-        connected. No order history is stored in this demo.
+        Order reports will appear here after an order tracking system is connected.
+        No order history is stored in this preview.
       </p>
     `;
 
-  } else if (options.type === "more") {
+  } else if (options.type === "reseller") {
     infoContent.innerHTML = `
-      <div class="pack-list">
-        <div class="pack-row"><strong>About RYDEN</strong><span class="pack-price">Digital Store</span></div>
-        <div class="pack-row"><strong>Instagram</strong>
-          <a class="action-link" href="https://instagram.com/rydenglobal"
-             target="_blank" rel="noopener noreferrer">OPEN</a>
-        </div>
-        <div class="pack-row"><strong>WhatsApp Support</strong>
-          <a class="action-link" href="https://wa.me/${WHATSAPP_NUMBER}"
-             target="_blank" rel="noopener noreferrer">CONTACT</a>
-        </div>
-      </div>
+      <h3>RYDEN INTERNATIONAL Reseller</h3>
+      <p class="info-message">
+        Interested in reseller access? Contact our team to discuss product availability,
+        pricing and requirements. Reseller access is not automated yet.
+      </p>
+      <a class="action-link"
+         href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello RYDEN INTERNATIONAL! I am interested in reseller access.")}"
+         target="_blank"
+         rel="noopener noreferrer">ENQUIRE ABOUT RESELLER ACCESS</a>
     `;
 
+  } else if (options.type === "more") {
+    renderMoreMenu();
+
   } else {
-    infoContent.innerHTML = `<p class="info-message">${escapeHTML(message || "")}</p>`;
+    infoContent.textContent = message;
   }
 
-  infoDialog.showModal();
+  if (!infoDialog.open) infoDialog.showModal();
 }
 
-// Product-card clicks
+// LOGIN / REGISTER UI
+function renderLoginForm(mode = "login") {
+  const isRegister = mode === "register";
+  const isForgot = mode === "forgot";
+
+  infoTitle.textContent = isForgot
+    ? "Reset Password"
+    : isRegister
+      ? "Create Account"
+      : "Login / Account";
+
+  if (isForgot) {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Enter your registered email address to request a password reset.
+        Password reset will work after Firebase Authentication is connected.
+      </p>
+
+      <form class="info-form" id="forgotPasswordForm">
+        <label>Email Address
+          <input type="email" name="email" required placeholder="Enter your email">
+        </label>
+
+        <button class="modal-action" type="submit">Request Password Reset</button>
+
+        <button class="text-action" id="backToLogin" type="button">Back to Login</button>
+      </form>
+    `;
+
+    document.getElementById("forgotPasswordForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      infoContent.insertAdjacentHTML(
+        "beforeend",
+        '<p class="info-message">Password reset is not active yet. Firebase Authentication must be connected first.</p>'
+      );
+    });
+
+    document.getElementById("backToLogin").addEventListener("click", () => {
+      renderLoginForm("login");
+    });
+
+    return;
+  }
+
+  infoContent.innerHTML = `
+    <div class="auth-panel">
+      <p class="info-message">
+        ${isRegister
+          ? "Create your RYDEN INTERNATIONAL account."
+          : "Sign in to your RYDEN INTERNATIONAL account."}
+      </p>
+
+      <form class="info-form" id="authForm">
+        ${isRegister ? `
+          <label>Full Name
+            <input type="text" name="name" required placeholder="Enter your name">
+          </label>
+        ` : ""}
+
+        <label>Email Address
+          <input type="email" name="email" required placeholder="Enter your email">
+        </label>
+
+        <label>Password
+          <input type="password" name="password" required minlength="6" placeholder="Enter password">
+        </label>
+
+        ${isRegister ? `
+          <label>Confirm Password
+            <input type="password" name="confirmPassword" required minlength="6" placeholder="Confirm password">
+          </label>
+        ` : `
+          <button class="text-action" id="forgotPasswordButton" type="button">
+            Forgot Password?
+          </button>
+        `}
+
+        <button class="modal-action" type="submit">
+          ${isRegister ? "Create Account" : "Login"}
+        </button>
+      </form>
+
+      <div class="auth-divider">OR</div>
+
+      <button class="modal-action google-login-button" id="googleLoginButton" type="button">
+        Continue with Google
+      </button>
+
+      <p class="info-message">
+        ${isRegister ? "Already have an account?" : "New to RYDEN INTERNATIONAL?"}
+        <button class="text-action" id="switchAuthMode" type="button">
+          ${isRegister ? "Login" : "Register / Sign Up"}
+        </button>
+      </p>
+
+      <p class="auth-notice">
+        Account authentication is not active yet. Firebase setup is required.
+      </p>
+    </div>
+  `;
+
+  document.getElementById("authForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+    const password = String(form.get("password") || "");
+
+    if (isRegister) {
+      const confirmPassword = String(form.get("confirmPassword") || "");
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+    }
+
+    alert(
+      "Login/Register is not active yet. Firebase Authentication must be connected first."
+    );
+  });
+
+  document.getElementById("googleLoginButton").addEventListener("click", () => {
+    alert(
+      "Google Login is not active yet. Firebase Google Authentication must be configured first."
+    );
+  });
+
+  document.getElementById("switchAuthMode").addEventListener("click", () => {
+    renderLoginForm(isRegister ? "login" : "register");
+  });
+
+  if (!isRegister) {
+    document.getElementById("forgotPasswordButton").addEventListener("click", () => {
+      renderLoginForm("forgot");
+    });
+  }
+}
+
+// MORE MENU
+function renderMoreMenu() {
+  infoTitle.textContent = "More Options";
+
+  const options = [
+    { label: "Home", type: "home", icon: "⌂" },
+    { label: "Account", type: "account", icon: "♙" },
+    { label: "Help & Support", type: "support", icon: "♧" },
+    { label: "Privacy Policy", type: "privacy", icon: "◈" },
+    { label: "Terms & Conditions", type: "terms", icon: "▤" },
+    { label: "Refund Policy", type: "refund", icon: "↩" },
+    { label: "Reseller", type: "reseller", icon: "◇" },
+    { label: "Reports", type: "reports", icon: "▥" },
+    { label: "Leaderboards", type: "leaderboard", icon: "♜" },
+    { label: "Login / Register", type: "login", icon: "♙" }
+  ];
+
+  infoContent.innerHTML = `
+    <div class="more-menu">
+      ${options.map(item => `
+        <button
+          class="more-menu-item"
+          type="button"
+          data-more-action="${item.type}">
+          <span class="more-menu-icon">${item.icon}</span>
+          <span>${item.label}</span>
+          <span class="more-menu-arrow">›</span>
+        </button>
+      `).join("")}
+
+      <a class="more-menu-item"
+         href="${INSTAGRAM_URL}"
+         target="_blank"
+         rel="noopener noreferrer">
+        <span class="more-menu-icon">◎</span>
+        <span>Follow on Instagram</span>
+        <span class="more-menu-arrow">↗</span>
+      </a>
+
+      <a class="more-menu-item"
+         href="${WHATSAPP_CHANNEL}"
+         target="_blank"
+         rel="noopener noreferrer">
+        <span class="more-menu-icon">◉</span>
+        <span>WhatsApp Channel</span>
+        <span class="more-menu-arrow">↗</span>
+      </a>
+    </div>
+  `;
+
+  infoContent.querySelectorAll("[data-more-action]").forEach(button => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.moreAction;
+
+      if (action === "home") {
+        infoDialog.close();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else if (action === "account" || action === "login") {
+        renderLoginForm("login");
+      } else if (action === "support") {
+        openInfo("Help & Support", "", { type: "support" });
+      } else if (action === "privacy" || action === "terms" || action === "refund") {
+        openInfo("", "", { type: "policy", policy: action });
+      } else if (action === "reseller") {
+        openInfo("Reseller", "", { type: "reseller" });
+      } else if (action === "reports") {
+        openInfo("Reports", "", { type: "reports" });
+      } else if (action === "leaderboard") {
+        openInfo("Leaderboards", "", { type: "leaderboard" });
+      }
+    });
+  });
+}
+
+// CATALOG EVENTS
 catalogSections.addEventListener("click", event => {
   const card = event.target.closest("[data-product-id]");
 
@@ -735,6 +1031,7 @@ catalogSections.addEventListener("click", event => {
   }
 
   const viewAllButton = event.target.closest("[data-view-all]");
+
   if (viewAllButton) {
     const categoryId = viewAllButton.dataset.viewAll;
     showAllByCategory[categoryId] = !showAllByCategory[categoryId];
@@ -752,7 +1049,7 @@ catalogSections.addEventListener("keydown", event => {
   openProduct(card.dataset.productId);
 });
 
-// Category filters
+// CATEGORY FILTERS
 document.querySelectorAll(".category-tab").forEach(button => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".category-tab").forEach(tab => {
@@ -765,7 +1062,7 @@ document.querySelectorAll(".category-tab").forEach(button => {
   });
 });
 
-// Search controls
+// SEARCH
 document.getElementById("searchToggle").addEventListener("click", () => {
   searchWrap.hidden = !searchWrap.hidden;
 
@@ -785,7 +1082,7 @@ document.getElementById("clearSearch").addEventListener("click", () => {
 
 productSearch.addEventListener("input", renderCatalog);
 
-// Rotating promotional banners
+// PROMOTIONAL SLIDER
 function showSlide(index) {
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll(".dot");
@@ -817,7 +1114,7 @@ document.querySelectorAll(".dot").forEach(dot => {
 
 startSlider();
 
-// Quick actions
+// QUICK ACTIONS
 document.querySelectorAll(".quick-card").forEach(button => {
   button.addEventListener("click", () => {
     const tool = button.dataset.tool;
@@ -832,12 +1129,12 @@ document.querySelectorAll(".quick-card").forEach(button => {
   });
 });
 
-// Top login button
+// HEADER LOGIN
 document.getElementById("loginButton").addEventListener("click", () => {
   openInfo("Login / Account", "", { type: "account" });
 });
 
-// Fixed bottom navigation
+// BOTTOM NAVIGATION
 document.querySelectorAll("[data-bottom]").forEach(button => {
   button.addEventListener("click", () => {
     const section = button.dataset.bottom;
@@ -845,16 +1142,13 @@ document.querySelectorAll("[data-bottom]").forEach(button => {
     document.querySelectorAll("[data-bottom]").forEach(item => {
       item.classList.remove("active");
     });
+
     button.classList.add("active");
 
     if (section === "Home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (section === "Support") {
-      window.open(
-        `https://wa.me/${WHATSAPP_NUMBER}`,
-        "_blank",
-        "noopener,noreferrer"
-      );
+      openInfo("Help & Support", "", { type: "support" });
     } else if (section === "Account") {
       openInfo("Account", "", { type: "account" });
     } else if (section === "Reports") {
@@ -865,7 +1159,7 @@ document.querySelectorAll("[data-bottom]").forEach(button => {
   });
 });
 
-// Modal close buttons
+// CLOSE BUTTONS
 document.getElementById("closeProductDialog").addEventListener("click", () => {
   productDialog.close();
 });
@@ -874,15 +1168,15 @@ document.getElementById("closeInfoDialog").addEventListener("click", () => {
   infoDialog.close();
 });
 
-// Clicking outside a dialog closes it
+// CLOSE DIALOGS WHEN CLICKING THE BACKDROP
 [productDialog, infoDialog].forEach(dialog => {
   dialog.addEventListener("click", event => {
     if (event.target === dialog) dialog.close();
   });
 });
 
-// Footer year
+// FOOTER YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// First render
+// INITIAL CATALOG RENDER
 renderCatalog();
