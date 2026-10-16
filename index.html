@@ -2,1559 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RYDEN INTERNATIONAL — gaming top-ups, digital products and available MLBB accounts.">
+  <title>RYDEN INTERNATIONAL | Digital Store</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="RYDEN INTERNATIONAL — Premium Mobile Legends accounts and diamond recharge."
-  >
-
-  <title>RYDEN INTERNATIONAL</title>
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Teko:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
-
   <header class="site-header">
+    <a class="brand" href="#home" aria-label="RYDEN INTERNATIONAL home">
+      <img src="store%20logo.jpeg" alt="RYDEN logo" onerror="this.style.display='none'">
+      <span class="brand-copy">
+        <strong>RYDEN</strong>
+        <small>INTERNATIONAL</small>
+      </span>
+    </a>
 
-    <div class="container navbar">
+    <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#catalog">Products</a>
+      <a href="#accounts">Available Accounts</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-      <a href="#home" class="brand">
-  <img src="store%20logo.jpeg" alt="RYDEN INTERNATIONAL">
-  <div class="brand-text">
-    RYDEN <span>INTERNATIONAL</span>
-  </div>
-</a>
-
-
-      <nav class="desktop-nav" id="desktopNav">
-
-        <a href="#home">Home</a>
-
-        <a href="#accounts">Accounts</a>
-
-        <a href="#recharge">Diamond Recharge</a>
-
-        <a href="#tools">Tools</a>
-
-        <a href="#contact">Contact</a>
-
-        <button
-          class="nav-account-btn"
-          type="button"
-          onclick="openAuthModal()"
-        >
-          Account
-        </button>
-
-      </nav>
-
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Open menu"
-      >
-        ☰
-      </button>
-
+    <div class="header-actions">
+      <button class="btn btn-quiet" id="loginButton" type="button">Login</button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
-
   </header>
 
-
-  <!-- =====================================================
-       WHATSAPP RUNNING BAR
-  ====================================================== -->
-
-  <div class="running-bar">
-
-    <div class="running-track">
-
-      <a
-        href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp Store • Join our Store
-      </a>
-
-      <a
-        href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp Channel • Follow Updates
-      </a>
-
-      <a
-        href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp Store • Join our Store
-      </a>
-
-      <a
-        href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WhatsApp Channel • Follow Updates
-      </a>
-
+  <main id="home">
+    <div class="announcement">
+      <div class="announcement-track">
+        <span>JOIN THE RYDEN COMMUNITY FOR STORE UPDATES</span>
+        <span>NEW PRODUCTS • OFFERS • SUPPORT</span>
+        <span>JOIN THE RYDEN COMMUNITY FOR STORE UPDATES</span>
+        <span>NEW PRODUCTS • OFFERS • SUPPORT</span>
+      </div>
     </div>
 
-  </div>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> YOUR DIGITAL GAMING STORE</span>
+        <h1>LEVEL UP YOUR<br><span>GAME.</span></h1>
+        <p>Gaming top-ups, digital products and selected MLBB accounts — discover everything in one place.</p>
 
-
-  <!-- =====================================================
-       HERO SLIDER
-  ====================================================== -->
-
-  <main id="home">
-
-    <section class="hero-slider" id="heroSlider">
-
-      <!-- SLIDE 1 -->
-
-      <article
-        class="hero-slide active"
-        style="background-image:url('web pic.jpeg');"
-      >
-
-        <div class="hero-overlay"></div>
-
-        <div class="container hero-content">
-
-          <div class="hero-text">
-
-            <span class="hero-badge">
-              PREMIUM MLBB STORE
-            </span>
-
-            <h1>
-              RYDEN
-              <span>INTERNATIONAL</span>
-            </h1>
-
-            <h2>
-              MLBB Accounts & Diamond Recharge
-            </h2>
-
-            <p>
-              Premium Mobile Legends accounts, diamond recharge
-              and trusted digital services — all in one place.
-            </p>
-
-            <div class="hero-buttons">
-
-              <a
-                href="#accounts"
-                class="btn btn-primary"
-              >
-                Available account
-              </a>
-
-              <a
-                href="#recharge"
-                class="btn btn-outline"
-              >
-                Diamond Recharge
-              </a>
-
-            </div>
-
-          </div>
-
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">Explore Products <span>↗</span></a>
+          <a class="btn btn-outline" href="#accounts">Available Accounts</a>
         </div>
 
-      </article>
-
-
-      <!-- SLIDE 2 -->
-
-      <article
-        class="hero-slide"
-        style="background-image:url('web pic.jpeg');"
-      >
-
-        <div class="hero-overlay"></div>
-
-        <div class="container hero-content">
-
-          <div class="hero-text">
-
-            <span class="hero-badge">
-              FAST • SIMPLE • PREMIUM
-            </span>
-
-            <h1>
-              DIAMOND
-              <span>RECHARGE</span>
-            </h1>
-
-            <h2>
-              Choose Your Pack
-            </h2>
-
-            <p>
-              Select your preferred recharge option and
-              continue directly through our store.
-            </p>
-
-            <div class="hero-buttons">
-
-              <a
-                href="#recharge"
-                class="btn btn-primary"
-              >
-                View Recharge
-              </a>
-
-            </div>
-
-          </div>
-
+        <div class="hero-proof">
+          <span><b>01</b> Browse categories</span>
+          <span><b>02</b> Choose a product</span>
+          <span><b>03</b> Follow checkout instructions</span>
         </div>
-
-      </article>
-
-
-      <!-- SLIDE 3 -->
-
-      <article
-        class="hero-slide"
-        style="background-image:url('web pic.jpeg');"
-      >
-
-        <div class="hero-overlay"></div>
-
-        <div class="container hero-content">
-
-          <div class="hero-text">
-
-            <span class="hero-badge">
-              RYDEN INTERNATIONAL
-            </span>
-
-            <h1>
-              YOUR
-              <span>COLLECTION</span>
-            </h1>
-
-            <h2>
-              Available account
-            </h2>
-
-            <p>
-              Browse available accounts and find the one
-              that matches your collection.
-            </p>
-
-            <div class="hero-buttons">
-
-              <a
-                href="#accounts"
-                class="btn btn-primary"
-              >
-                Browse Accounts
-              </a>
-
-              <a
-                href="#contact"
-                class="btn btn-outline"
-              >
-                Contact Us
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- SLIDER CONTROLS -->
-
-      <button
-        class="slider-arrow slider-prev"
-        id="sliderPrev"
-        type="button"
-        aria-label="Previous slide"
-      >
-        ‹
-      </button>
-
-      <button
-        class="slider-arrow slider-next"
-        id="sliderNext"
-        type="button"
-        aria-label="Next slide"
-      >
-        ›
-      </button>
-
-
-      <div class="slider-dots" id="sliderDots">
-
-        <button
-          class="slider-dot active"
-          type="button"
-          data-slide="0"
-          aria-label="Slide 1"
-        ></button>
-
-        <button
-          class="slider-dot"
-          type="button"
-          data-slide="1"
-          aria-label="Slide 2"
-        ></button>
-
-        <button
-          class="slider-dot"
-          type="button"
-          data-slide="2"
-          aria-label="Slide 3"
-        ></button>
-
       </div>
 
+      <div class="hero-art" aria-label="RYDEN promotional banner">
+        <div class="hero-art-glow"></div>
+        <div class="art-label">RYDEN <span>INTERNATIONAL</span></div>
+        <div class="art-big">DIGITAL<br><em>POWER</em></div>
+        <div class="art-bottom">
+          <span>GAMING • TOP-UPS • MORE</span>
+          <span>RYDENSTORE.COM</span>
+        </div>
+      </div>
     </section>
 
-
-    <!-- ===================================================
-         QUICK FEATURES
-    ==================================================== -->
-
-    <section class="quick-features">
-
-      <div class="container quick-grid">
-
-        <div class="quick-item">
-          <strong>Premium</strong>
-          <span>Curated Accounts</span>
+    <section class="container category-section" id="catalog">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">BROWSE THE STORE</span>
+          <h2>Choose a category</h2>
         </div>
-
-        <div class="quick-item">
-          <strong>Multiple</strong>
-          <span>Recharge Options</span>
-        </div>
-
-        <div class="quick-item">
-          <strong>Fast</strong>
-          <span>Order Process</span>
-        </div>
-
-        <div class="quick-item">
-          <strong>Support</strong>
-          <span>WhatsApp Contact</span>
-        </div>
-
+        <p>Select a category to view its products.</p>
       </div>
 
+      <div class="category-tabs" role="tablist" aria-label="Product categories">
+        <button class="category-tab active" data-category="all" type="button">All Products</button>
+        <button class="category-tab" data-category="mlbb" type="button">MLBB</button>
+        <button class="category-tab" data-category="pubg" type="button">PUBG / BGMI</button>
+        <button class="category-tab" data-category="ott" type="button">OTT & Subscriptions</button>
+        <button class="category-tab" data-category="gift" type="button">Gift Cards</button>
+        <button class="category-tab" data-category="accounts" type="button">Available Accounts</button>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div>
+          <strong id="categoryTitle">All Products</strong>
+          <span id="productCount">8 products</span>
+        </div>
+
+        <label class="search-wrap">
+          <span>⌕</span>
+          <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
+        </label>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No products in this category yet. Add products in <code>script.js</code>.</p>
     </section>
 
+    <section class="feature-strip container">
+      <div>
+        <span class="feature-icon">◇</span>
+        <span><strong>Clear product details</strong><small>Review what you select</small></span>
+      </div>
+      <div>
+        <span class="feature-icon">↗</span>
+        <span><strong>Easy navigation</strong><small>Designed for mobile and desktop</small></span>
+      </div>
+      <div>
+        <span class="feature-icon">◉</span>
+        <span><strong>Support when needed</strong><small>Contact the store for assistance</small></span>
+      </div>
+    </section>
 
-    <!-- ===================================================
-         ACCOUNTS
-    ==================================================== -->
-
-    <section
-      class="section"
-      id="accounts"
-    >
-
+    <section class="account-section" id="accounts">
       <div class="container">
-
-        <div class="section-heading">
-
-          <span>MLBB COLLECTION</span>
-
-          <h2>Available Accounts</h2>
-
-          <p>
-            Explore our available Mobile Legends accounts.
-          </p>
-
-        </div>
-
-
-        <!-- FILTER -->
-
-        <div class="filter-box">
-
-          <div class="filter-grid">
-
-            <input
-              type="search"
-              id="accountSearch"
-              class="input"
-              placeholder="Search accounts..."
-            >
-
-            <select
-              id="collectorFilter"
-              class="input"
-            >
-              <option value="all">
-                All Collections
-              </option>
-
-              <option value="collector">
-                Collector
-              </option>
-
-              <option value="rare">
-                Rare
-              </option>
-
-              <option value="premium">
-                Premium
-              </option>
-            </select>
-
-
-            <select
-              id="priceFilter"
-              class="input"
-            >
-              <option value="all">
-                All Prices
-              </option>
-
-              <option value="under5000">
-                Under ₹5,000
-              </option>
-
-              <option value="5000-15000">
-                ₹5,000 – ₹15,000
-              </option>
-
-              <option value="above15000">
-                Above ₹15,000
-              </option>
-
-            </select>
-
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">MLBB COLLECTION</span>
+            <h2>Available Accounts</h2>
           </div>
-
-
-          <div class="currency-switch">
-
-            <span>Currency:</span>
-
-            <button
-              class="currency-button active"
-              data-currency="INR"
-              type="button"
-            >
-              INR
-            </button>
-
-            <button
-              class="currency-button"
-              data-currency="USD"
-              type="button"
-            >
-              USD
-            </button>
-
-          </div>
-
+          <p>Browse account listings, images and details. Replace the demo entries with your actual listings.</p>
         </div>
 
-
-        <!-- ACCOUNT GRID -->
-
-        <div
-          class="account-grid"
-          id="accountGrid"
-        >
-
-
-          <!-- ACCOUNT 1 -->
-
-          <article
-            class="account-card"
-            data-name="Premium Arlott Collector"
-            data-price="12000"
-            data-type="collector premium"
-          >
-
-            <div class="account-image">
-
-              <img
-                src="web pic.jpeg"
-                alt="Premium Arlott Collector account"
-              >
-
-              <span class="available-badge">
-                AVAILABLE
-              </span>
-
-              <span
-                class="account-price"
-                data-price-value="12000"
-              >
-                ₹12,000
-              </span>
-
-            </div>
-
-
-            <div class="account-content">
-
-              <h3>
-                Premium Arlott Collector
-              </h3>
-
-              <p>
-                Premium MLBB Account
-              </p>
-
-
-              <div class="account-tags">
-
-                <span>Collector</span>
-
-                <span>Premium</span>
-
-                <span>Verified</span>
-
-              </div>
-
-
-              <div class="card-buttons">
-
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  onclick="openAccountDetails(0)"
-                >
-                  View Details
-                </button>
-
-                <button
-                  class="btn btn-whatsapp"
-                  type="button"
-                  onclick="buyAccount(0)"
-                >
-                  Contact
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- ACCOUNT 2 -->
-
-          <article
-            class="account-card"
-            data-name="Premium Collector"
-            data-price="18000"
-            data-type="collector premium"
-          >
-
-            <div class="account-image">
-
-              <img
-                src="web pic.jpeg"
-                alt="Premium Collector account"
-              >
-
-              <span class="available-badge">
-                AVAILABLE
-              </span>
-
-              <span
-                class="account-price"
-                data-price-value="18000"
-              >
-                ₹18,000
-              </span>
-
-            </div>
-
-
-            <div class="account-content">
-
-              <h3>
-                Premium Collector
-              </h3>
-
-              <p>
-                Premium MLBB Account
-              </p>
-
-
-              <div class="account-tags">
-
-                <span>Collector</span>
-
-                <span>Premium</span>
-
-                <span>Rare</span>
-
-              </div>
-
-
-              <div class="card-buttons">
-
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  onclick="openAccountDetails(1)"
-                >
-                  View Details
-                </button>
-
-                <button
-                  class="btn btn-whatsapp"
-                  type="button"
-                  onclick="buyAccount(1)"
-                >
-                  Contact
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- ACCOUNT 3 -->
-
-          <article
-            class="account-card"
-            data-name="Rare Skin Account"
-            data-price="4500"
-            data-type="rare"
-          >
-
-            <div class="account-image">
-
-              <img
-                src="web pic.jpeg"
-                alt="Rare Skin account"
-              >
-
-              <span class="available-badge">
-                AVAILABLE
-              </span>
-
-              <span
-                class="account-price"
-                data-price-value="4500"
-              >
-                ₹4,500
-              </span>
-
-            </div>
-
-
-            <div class="account-content">
-
-              <h3>
-                Rare Skin Account
-              </h3>
-
-              <p>
-                Rare Collection
-              </p>
-
-
-              <div class="account-tags">
-
-                <span>Rare</span>
-
-                <span>Verified</span>
-
-                <span>MLBB</span>
-
-              </div>
-
-
-              <div class="card-buttons">
-
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  onclick="openAccountDetails(2)"
-                >
-                  View Details
-                </button>
-
-                <button
-                  class="btn btn-whatsapp"
-                  type="button"
-                  onclick="buyAccount(2)"
-                >
-                  Contact
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-
-        <div
-          class="no-results"
-          id="noAccountResults"
-        >
-          No accounts found.
-        </div>
-
+        <div class="account-grid" id="accountGrid"></div>
       </div>
-
     </section>
 
-
-    <!-- ===================================================
-         DIAMOND RECHARGE
-    ==================================================== -->
-
-    <section
-      class="section recharge-section"
-      id="recharge"
-    >
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span>MLBB DIAMONDS</span>
-
-          <h2>Diamond Recharge</h2>
-
-          <p>
-            Choose a recharge category and select your
-            preferred product.
-          </p>
-
-        </div>
-
-
-        <div class="recharge-panel">
-
-
-          <!-- PLAYER ID -->
-
-          <div class="id-panel">
-
-            <h3>
-              Enter Your MLBB ID
-            </h3>
-
-            <div class="blue-line"></div>
-
-            <div class="id-grid">
-
-              <input
-                type="text"
-                id="userId"
-                class="light-input"
-                placeholder="Game ID"
-                inputmode="numeric"
-              >
-
-              <input
-                type="text"
-                id="zoneId"
-                class="light-input"
-                placeholder="Zone / Server ID"
-                inputmode="numeric"
-              >
-
-            </div>
-
-
-            <button
-              class="btn recharge-check"
-              id="checkPlayerBtn"
-              type="button"
-            >
-              Check Player Name
-            </button>
-
-            <div
-              class="player-result"
-              id="playerResult"
-            >
-              Enter your Game ID and Zone ID.
-            </div>
-
-          </div>
-
-
-          <!-- CATALOG -->
-
-          <div class="catalog-wrapper">
-
-            <div class="catalog-tabs" id="catalogTabs">
-
-              <button
-                class="catalog-tab active"
-                type="button"
-                data-category="indian"
-              >
-                <span>01</span>
-                Indian Server
-              </button>
-
-
-              <button
-                class="catalog-tab"
-                type="button"
-                data-category="weekly"
-              >
-                <span>02</span>
-                Weekly Pass
-              </button>
-
-
-              <button
-                class="catalog-tab"
-                type="button"
-                data-category="double"
-              >
-                <span>03</span>
-                Double Bonus
-              </button>
-
-
-              <button
-                class="catalog-tab"
-                type="button"
-                data-category="value"
-              >
-                <span>04</span>
-                Value Pass
-              </button>
-
-
-              <button
-                class="catalog-tab"
-                type="button"
-                data-category="small"
-              >
-                <span>05</span>
-                Small Pack
-              </button>
-
-            </div>
-
-
-            <!-- PRODUCT CATALOG -->
-
-            <div
-              class="product-catalog"
-              id="productCatalog"
-            >
-
-              <!-- Products are generated by script.js -->
-
-            </div>
-
-          </div>
-
-        </div>
-
+    <section class="community container" id="contact">
+      <div>
+        <span class="eyebrow">STAY CONNECTED</span>
+        <h2>Join the RYDEN community.</h2>
+        <p>Follow store updates or contact support before placing an order.</p>
       </div>
 
-    </section>
-
-
-    <!-- ===================================================
-         TOOLS
-    ==================================================== -->
-
-    <section
-      class="section"
-      id="tools"
-    >
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span>STORE TOOLS</span>
-
-          <h2>Useful Tools</h2>
-
-          <p>
-            Quick access to useful MLBB store features.
-          </p>
-
-        </div>
-
-
-        <div class="tools-grid">
-
-
-          <!-- GAMES -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              🎮
-            </div>
-
-            <h3>
-              Games
-            </h3>
-
-            <p>
-              Explore supported games and available
-              digital services.
-            </p>
-
-            <button
-              class="btn btn-primary tool-button"
-              type="button"
-              onclick="openTool('games')"
-            >
-              Open Games
-            </button>
-
-          </article>
-
-
-          <!-- LEADERBOARD -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              🏆
-            </div>
-
-            <h3>
-              Leaderboard
-            </h3>
-
-            <p>
-              View leaderboard information and rankings.
-            </p>
-
-            <button
-              class="btn btn-primary tool-button"
-              type="button"
-              onclick="openTool('leaderboard')"
-            >
-              View Leaderboard
-            </button>
-
-          </article>
-
-
-          <!-- WALLET -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              💳
-            </div>
-
-            <h3>
-              Wallet
-            </h3>
-
-            <p>
-              Wallet features can be connected to your
-              account system.
-            </p>
-
-            <button
-              class="btn btn-primary tool-button"
-              type="button"
-              onclick="openTool('wallet')"
-            >
-              Open Wallet
-            </button>
-
-          </article>
-
-
-          <!-- HISTORY -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              🧾
-            </div>
-
-            <h3>
-              Recharge History
-            </h3>
-
-            <p>
-              Check your previous recharge activity.
-            </p>
-
-            <button
-              class="btn btn-primary tool-button"
-              type="button"
-              onclick="openTool('history')"
-            >
-              View History
-            </button>
-
-          </article>
-
-
-          <!-- REGION -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              🌍
-            </div>
-
-            <h3>
-              MLBB Region Checker
-            </h3>
-
-            <p>
-              Check available region information for
-              your Mobile Legends account.
-            </p>
-
-            <button
-              class="btn btn-primary tool-button"
-              type="button"
-              onclick="openTool('region')"
-            >
-              Check Region
-            </button>
-
-          </article>
-
-
-          <!-- SUPPORT -->
-
-          <article class="tool-card">
-
-            <div class="tool-icon">
-              💬
-            </div>
-
-            <h3>
-              Support
-            </h3>
-
-            <p>
-              Contact RYDEN INTERNATIONAL through
-              WhatsApp for assistance.
-            </p>
-
-            <a
-              href="https://wa.me/919233657553"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp tool-button"
-            >
-              WhatsApp Support
-            </a>
-
-          </article>
-
-
-        </div>
-
+      <div class="community-actions">
+        <a class="btn btn-primary" href="https://instagram.com/rydenglobal" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a class="btn btn-outline" href="https://wa.me/919233657553" target="_blank" rel="noopener noreferrer">WhatsApp Support ↗</a>
       </div>
-
     </section>
-
-
-    <!-- ===================================================
-         CONTACT
-    ==================================================== -->
-
-    <section
-      class="section contact-section"
-      id="contact"
-    >
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span>CONNECT WITH US</span>
-
-          <h2>Contact RYDEN</h2>
-
-          <p>
-            Follow our updates or contact us directly.
-          </p>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-
-          <!-- INSTAGRAM -->
-
-          <a
-            href="https://instagram.com/rydenglobal"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-card"
-          >
-
-            <div class="contact-logo">
-
-              <img
-                src="instagram.png"
-                alt="Instagram"
-              >
-
-            </div>
-
-            <h3>
-              Instagram
-            </h3>
-
-            <p>
-              @rydenglobal
-            </p>
-
-          </a>
-
-
-          <!-- WHATSAPP -->
-
-          <a
-            href="https://wa.me/919233657553"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-card"
-          >
-
-            <div class="contact-logo">
-
-              <img
-                src="whatsapp.png"
-                alt="WhatsApp"
-              >
-
-            </div>
-
-            <h3>
-              WhatsApp
-            </h3>
-
-            <p>
-              Direct Support
-            </p>
-
-          </a>
-
-
-          <!-- STORE -->
-
-          <a
-            href="https://chat.whatsapp.com/FOGcpjqNbuPK7KNeolt7xo"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-card"
-          >
-
-            <div class="contact-logo">
-
-              <img
-                src="whatsapp.png"
-                alt="WhatsApp Store"
-              >
-
-            </div>
-
-            <h3>
-              WhatsApp Store
-            </h3>
-
-            <p>
-              Join Store
-            </p>
-
-          </a>
-
-
-          <!-- CHANNEL -->
-
-          <a
-            href="https://whatsapp.com/channel/0029VbAoBh172WTrjMGyzW1R"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-card"
-          >
-
-            <div class="contact-logo">
-
-              <img
-                src="whatsapp.png"
-                alt="WhatsApp Channel"
-              >
-
-            </div>
-
-            <h3>
-              WhatsApp Channel
-            </h3>
-
-            <p>
-              Follow Updates
-            </p>
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
   </main>
 
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer class="site-footer">
-
-    <div class="container footer-grid">
-
-
-      <div class="footer-brand">
-
-        <div class="footer-logo">
-
-          <div>RYDEN</div>
-
-          <span>INTERNATIONAL</span>
-
-        </div>
-
-        <p>
-          Premium MLBB accounts and digital recharge
-          services by RYDEN INTERNATIONAL.
-        </p>
-
-
-        <div class="social-icons">
-
-          <a
-            href="https://instagram.com/rydenglobal"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-
-            <img
-              src="instagram.png"
-              alt=""
-            >
-
-          </a>
-
-
-          <a
-            href="https://wa.me/919233657553"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-
-            <img
-              src="whatsapp.png"
-              alt=""
-            >
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h3>Quick Links</h3>
-
-        <a href="#home">Home</a>
-
-        <a href="#accounts">Accounts</a>
-
-        <a href="#recharge">Diamond Recharge</a>
-
-        <a href="#contact">Contact</a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h3>Tools</h3>
-
-        <a href="#tools">Games</a>
-
-        <a href="#tools">Leaderboard</a>
-
-        <a href="#tools">Wallet</a>
-
-        <a href="#tools">Recharge History</a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h3>Support</h3>
-
-        <a href="#contact">Contact Us</a>
-
-        <a
-          href="https://wa.me/919233657553"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WhatsApp
-        </a>
-
-        <a href="#contact">
-          Social Media
-        </a>
-
-        <button
-          class="footer-account-link"
-          type="button"
-          onclick="openAuthModal()"
-        >
-          My Account
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="container copyright">
-
-      © 2026 RYDEN INTERNATIONAL.
-      All rights reserved.
-
-    </div>
-
+  <footer class="footer container">
+    <a class="footer-brand" href="#home">RYDEN <span>INTERNATIONAL</span></a>
+    <span>© <span id="year"></span> RYDEN INTERNATIONAL. All rights reserved.</span>
+    <a href="#home">Back to top ↑</a>
   </footer>
 
-
-  <!-- =====================================================
-       FLOATING SOCIAL BUTTONS
-  ====================================================== -->
-
-  <div class="floating-buttons">
-
-
-    <a
-      class="floating instagram"
-      href="https://instagram.com/rydenglobal"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-    >
-
-      <img
-        src="instagram.png"
-        alt="Instagram"
-      >
-
-    </a>
-
-
-    <a
-      class="floating whatsapp"
-      href="https://wa.me/919233657553"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="WhatsApp"
-    >
-
-      <img
-        src="whatsapp.png"
-        alt="WhatsApp"
-      >
-
-    </a>
-
-  </div>
-
-
-  <!-- =====================================================
-       MOBILE BOTTOM NAV
-  ====================================================== -->
-
-  <nav class="mobile-bottom-nav">
-
-    <a href="#home">
-      <span>⌂</span>
-      Home
-    </a>
-
-    <a href="#accounts">
-      <span>🎮</span>
-      Accounts
-    </a>
-
-    <a href="#recharge">
-      <span>💎</span>
-      Recharge
-    </a>
-
-    <a href="#tools">
-      <span>🛠</span>
-      Tools
-    </a>
-
-    <a
-      href="javascript:void(0)"
-      onclick="openAuthModal()"
-    >
-      <span>👤</span>
-      Account
-    </a>
-
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#home"><span>⌂</span>Home</a>
+    <a href="#catalog"><span>▦</span>Products</a>
+    <a href="#accounts"><span>◇</span>Accounts</a>
+    <a href="#contact"><span>◎</span>Support</a>
   </nav>
 
-
-  <!-- =====================================================
-       MAIN MODAL
-  ====================================================== -->
-
-  <div
-    class="modal"
-    id="mainModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-box">
-
-      <button
-        class="modal-close"
-        type="button"
-        onclick="closeModal()"
-        aria-label="Close"
-      >
-        ×
-      </button>
-
-      <div id="modalContent"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       AUTH MODAL
-  ====================================================== -->
-
-  <div
-    class="modal"
-    id="authModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-box auth-box">
-
-      <button
-        class="modal-close"
-        type="button"
-        onclick="closeAuthModal()"
-        aria-label="Close"
-      >
-        ×
-      </button>
-
-      <div id="authContent"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       PRODUCT DETAILS MODAL
-  ====================================================== -->
-
-  <div
-    class="modal"
-    id="productModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-box product-modal-box">
-
-      <button
-        class="modal-close"
-        type="button"
-        onclick="closeProductModal()"
-        aria-label="Close"
-      >
-        ×
-      </button>
-
-      <div id="productModalContent"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
+  <dialog class="product-dialog" id="productDialog">
+    <button class="dialog-close" id="dialogClose" type="button" aria-label="Close details">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
 
   <script src="script.js"></script>
-
 </body>
 </html>
