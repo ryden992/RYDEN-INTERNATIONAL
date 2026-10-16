@@ -678,3 +678,173 @@ button {
     padding: 9px;
   }
 }
+/* RYDEN MOBILE HEADER HOTFIX */
+@media (max-width: 760px) {
+  .header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    min-height: 68px;
+    background: #080b12;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    max-width: calc(100% - 110px);
+  }
+
+  .brand img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .brand span {
+    min-width: 0;
+  }
+
+  .brand b {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .brand small {
+    font-size: 8px;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    display: block;
+    flex-shrink: 0;
+    margin-left: auto;
+    color: #fff;
+    background: #101725;
+    border: 1px solid #26364c;
+    border-radius: 9px;
+    padding: 10px 13px;
+  }
+
+  .header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px 20px 18px;
+    background: #080b12;
+    border-bottom: 1px solid #26364c;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .header nav.open {
+    display: flex;
+  }
+
+  .header nav a {
+    display: block;
+    padding: 13px 0;
+    font-size: 14px;
+  }
+
+  .contact-btn {
+    display: none;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px 18px;
+    gap: 24px;
+  }
+
+  .hero-content,
+  .hero-art {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-art {
+    min-height: 190px;
+  }
+
+  .hero-notes {
+    gap: 10px;
+    line-height: 1.7;
+  }
+
+  .store-section {
+    padding: 35px 16px 50px;
+  }
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  #productSearch {
+    width: 100%;
+    min-width: 0;
+    background: #101725;
+    color: #fff;
+    border: 1px solid #26364c;
+  }
+
+  .category-tabs {
+    display: flex;
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .category-btn {
+    flex-shrink: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .community {
+    margin: 0 16px 40px;
+    padding: 22px;
+  }
+}
+
+/* Prevent navigation links from appearing outside the menu */
+@media (min-width: 761px) {
+  .header nav {
+    display: flex;
+    position: static;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
