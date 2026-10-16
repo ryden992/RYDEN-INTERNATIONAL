@@ -3,255 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#05070c">
-  <meta name="description" content="RYDEN INTERNATIONAL — Gaming top-ups and digital products.">
+  <meta name="theme-color" content="#080b12">
   <title>RYDEN INTERNATIONAL | Digital Store</title>
+  <meta name="description" content="Explore gaming top-ups, memberships, gift cards and digital products at RYDEN INTERNATIONAL.">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="announcement">WELCOME TO RYDEN INTERNATIONAL · YOUR DIGITAL STORE</div>
 
-  <div class="announcement">
-    <span class="live-dot"></span>
-    <span>RYDEN INTERNATIONAL</span>
-    <span class="announcement-sep">•</span>
-    <span>DIGITAL STORE</span>
-    <a href="https://instagram.com/rydenglobal" target="_blank" rel="noopener">Follow @rydenglobal ↗</a>
-  </div>
+  <header class="header">
+    <a href="#" class="brand">
+      <img src="images/ryden-logo.png" alt="RYDEN logo">
+      <span><b>RYDEN</b><small>INTERNATIONAL</small></span>
+    </a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#" aria-label="RYDEN INTERNATIONAL Home">
-        <img src="store%20logo.jpeg" alt="RYDEN Logo">
-        <span class="brand-text">
-          <strong>RYDEN</strong>
-          <small>INTERNATIONAL</small>
-        </span>
-      </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
-      <nav class="desktop-nav" id="desktopNav">
-        <a href="#catalog">Store</a>
-        <a href="#tools">Player Tools</a>
-        <a href="#accounts">MLBB Accounts</a>
-        <a href="#community">Community</a>
-      </nav>
+    <nav id="mainNav">
+      <a href="#store">Store</a>
+      <a href="#games">Games</a>
+      <a href="#community">Community</a>
+      <a href="https://instagram.com/rydenglobal" target="_blank" rel="noopener">Instagram</a>
+    </nav>
 
-      <div class="header-actions">
-        <a class="btn btn-outline login-link" href="#community">Contact Us</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
+    <a class="contact-btn" href="https://wa.me/919233657553" target="_blank" rel="noopener">Contact Us</a>
   </header>
 
   <main>
-
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="live-dot"></span> YOUR DIGITAL GAMING STORE</div>
-
-          <h1>Level up your<br><span class="gradient-text">game experience.</span></h1>
-
-          <p class="hero-description">
-            Explore gaming top-ups, digital subscriptions and selected MLBB accounts — all in one place.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalog">Explore Store ↗</a>
-            <a class="btn btn-outline" href="#accounts">Browse Accounts</a>
-          </div>
-
-          <div class="hero-points">
-            <span><b>✓</b> Clear product details</span>
-            <span><b>✓</b> Support via WhatsApp</span>
-          </div>
+      <div class="hero-content">
+        <span class="eyebrow">YOUR DIGITAL DESTINATION</span>
+        <h1>LEVEL UP YOUR<br><span>DIGITAL WORLD.</span></h1>
+        <p>Gaming top-ups, memberships and digital products — explore the catalog and select what you need.</p>
+        <a class="primary-btn" href="#store">Explore Products <span>→</span></a>
+        <div class="hero-notes">
+          <span>✓ Product catalog</span>
+          <span>✓ Order assistance</span>
         </div>
-
-        <div class="hero-visual">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-
-          <div class="hero-emblem">
-            <span>👑</span>
-            <strong>RYDEN</strong>
-            <small>INTERNATIONAL</small>
-            <i>DIGITAL STORE</i>
-          </div>
-
-          <div class="floating-chip chip-top">✦ PREMIUM DIGITAL</div>
-          <div class="floating-chip chip-bottom"><span class="live-dot"></span> WELCOME TO RYDEN</div>
+      </div>
+      <div class="hero-art">
+        <img src="images/hero-banner.jpg" alt="RYDEN gaming banner"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-image')">
+        <div class="hero-fallback">
+          <span>RYDEN</span>
+          <b>GAME. CONNECT. LEVEL UP.</b>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip">
-      <div class="container trust-grid">
+    <section class="store-section" id="store">
+      <div class="section-heading">
         <div>
-          <span class="trust-icon">⚡</span>
-          <span><strong>Simple Ordering</strong><small>Clear order enquiries</small></span>
+          <span class="eyebrow">EXPLORE OUR CATALOG</span>
+          <h2>Discover <span>Products</span></h2>
+          <p>Choose a product to view its available packs.</p>
         </div>
-        <div>
-          <span class="trust-icon">🎮</span>
-          <span><strong>Gaming Focused</strong><small>Top-ups and accounts</small></span>
-        </div>
-        <div>
-          <span class="trust-icon">🌐</span>
-          <span><strong>Digital Products</strong><small>Multiple categories</small></span>
-        </div>
-        <div>
-          <span class="trust-icon">💬</span>
-          <span><strong>Direct Support</strong><small>Contact our team</small></span>
-        </div>
+        <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
       </div>
+
+      <div class="category-tabs" id="categoryTabs">
+        <button class="category-btn active" data-category="all">All Products</button>
+        <button class="category-btn" data-category="mlbb">Mobile Legends</button>
+        <button class="category-btn" data-category="pubg">PUBG / BGMI</button>
+        <button class="category-btn" data-category="subscriptions">Subscriptions</button>
+        <button class="category-btn" data-category="giftcards">Gift Cards</button>
+        <button class="category-btn" data-category="other">Other Games</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No matching products found.</p>
     </section>
 
-    <section class="section catalog-section" id="catalog">
-      <div class="container">
-
-        <div class="section-top">
-          <div>
-            <div class="section-kicker">THE STORE</div>
-            <h2>Find your <span class="gradient-text">next upgrade.</span></h2>
-            <p class="section-description">Choose a category and explore available digital products.</p>
-          </div>
-          <div class="catalog-count" id="productCount">0 products</div>
-        </div>
-
-        <div class="category-row" id="categoryButtons">
-          <button class="category-btn active" data-category="all" aria-pressed="true">All Products</button>
-          <button class="category-btn" data-category="mlbb" aria-pressed="false">💎 MLBB Diamonds</button>
-          <button class="category-btn" data-category="pubg" aria-pressed="false">🎯 PUBG / BGMI</button>
-          <button class="category-btn" data-category="subscriptions" aria-pressed="false">📺 Subscriptions</button>
-          <button class="category-btn" data-category="giftcards" aria-pressed="false">🎁 Gift Cards</button>
-        </div>
-
-        <div class="catalog-toolbar">
-          <label class="search-wrap">
-            <span>⌕</span>
-            <input id="productSearch" type="search" placeholder="Search products..." autocomplete="off">
-          </label>
-          <span class="toolbar-note">Availability and final prices are confirmed before ordering.</span>
-        </div>
-
-        <div class="product-grid" id="productGrid"></div>
-
-        <div class="empty-state" id="emptyState" hidden>
-          <span>⌕</span>
-          <h3>No products found</h3>
-          <p>Try another search or category.</p>
-          <button class="btn btn-outline" id="resetFilters">Reset Filters</button>
-        </div>
-
+    <section class="community" id="community">
+      <div>
+        <span class="eyebrow">STAY CONNECTED</span>
+        <h2>Join the RYDEN <span>Community</span></h2>
+        <p>Follow our updates and contact us for product availability and order assistance.</p>
       </div>
+      <a class="primary-btn" href="https://instagram.com/rydenglobal" target="_blank" rel="noopener">Follow @rydenglobal ↗</a>
     </section>
-
-    <section class="section tools-section" id="tools">
-      <div class="container">
-        <div class="section-top">
-          <div>
-            <div class="section-kicker">PLAYER TOOLS</div>
-            <h2>Useful tools. <span class="gradient-text">One place.</span></h2>
-            <p class="section-description">Quick links for common player needs.</p>
-          </div>
-        </div>
-
-        <div class="tools-grid">
-          <article class="tool-card">
-            <div class="tool-icon">🌍</div>
-            <h3>Region Checker</h3>
-            <p>Confirm your game server and region before placing an order.</p>
-            <a class="text-link" data-tool="Region Checker" href="#community">Check Region ↗</a>
-          </article>
-
-          <article class="tool-card">
-            <div class="tool-icon">🧾</div>
-            <h3>Recharge History</h3>
-            <p>Need help with an earlier order? Contact support with your details.</p>
-            <a class="text-link" data-tool="Recharge History" href="#community">Get Support ↗</a>
-          </article>
-
-          <article class="tool-card">
-            <div class="tool-icon">🏆</div>
-            <h3>Monthly Leaderboard</h3>
-            <p>Leaderboard features can be added when verified player data is available.</p>
-            <a class="text-link" data-tool="Monthly Leaderboard" href="#community">Ask Us ↗</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section accounts-section" id="accounts">
-      <div class="container">
-        <div class="section-top">
-          <div>
-            <div class="section-kicker">SELECTED LISTINGS</div>
-            <h2>MLBB <span class="gradient-text">Accounts.</span></h2>
-            <p class="section-description">Ask about current listings, skins, rank and region before proceeding.</p>
-          </div>
-          <span class="listing-tag">ACCOUNT CATALOG</span>
-        </div>
-
-        <div class="account-placeholder">
-          <div class="placeholder-art">🎮</div>
-          <div>
-            <h3>Looking for a specific account?</h3>
-            <p>Message us to ask about currently available MLBB accounts.</p>
-            <a class="btn btn-primary" href="https://wa.me/919233657553?text=Hi%20RYDEN%20INTERNATIONAL%2C%20I%27d%20like%20to%20ask%20about%20available%20MLBB%20accounts." target="_blank" rel="noopener">Ask About Accounts ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="community-section" id="community">
-      <div class="container community-card">
-        <div class="community-symbol">✦</div>
-        <div class="section-kicker">STAY CONNECTED</div>
-        <h2>Join the RYDEN <span class="gradient-text">Community.</span></h2>
-        <p>Get store updates, new product announcements and support through our official channels.</p>
-
-        <div class="community-actions">
-          <a class="btn btn-primary" href="https://wa.me/919233657553" target="_blank" rel="noopener">WhatsApp Support ↗</a>
-          <a class="btn btn-outline" href="https://instagram.com/rydenglobal" target="_blank" rel="noopener">Follow Instagram ↗</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-main">
-      <a class="brand footer-brand" href="#">
-        <img src="store%20logo.jpeg" alt="RYDEN Logo">
-        <span class="brand-text"><strong>RYDEN</strong><small>INTERNATIONAL</small></span>
-      </a>
-
-      <p>Digital Store · Gaming Top-ups · Digital Products</p>
-
-      <div class="footer-links">
-        <a href="#catalog">Store</a>
-        <a href="#tools">Player Tools</a>
-        <a href="#accounts">Accounts</a>
-        <a href="#community">Support</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> RYDEN INTERNATIONAL. All rights reserved.</span>
-      <span>Confirm product availability and pricing before payment.</span>
-    </div>
+  <footer class="footer">
+    <a href="#" class="footer-brand">RYDEN INTERNATIONAL</a>
+    <p>Digital Store · Product availability and final prices are confirmed before ordering.</p>
+    <small>© <span id="year"></span> RYDEN INTERNATIONAL. All rights reserved.</small>
   </footer>
 
-  <a class="floating-whatsapp" href="https://wa.me/919233657553" target="_blank" rel="noopener" aria-label="Contact RYDEN on WhatsApp">✆</a>
+  <a class="whatsapp-float" href="https://wa.me/919233657553" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">W</a>
 
   <dialog id="productDialog" class="product-dialog">
-    <div class="dialog-top">
-      <span class="section-kicker">PRODUCT DETAILS</span>
-      <button id="dialogClose" class="dialog-close" aria-label="Close dialog">×</button>
+    <div class="dialog-header">
+      <div>
+        <span class="eyebrow">PRODUCT DETAILS</span>
+        <h2 id="dialogTitle">Product</h2>
+      </div>
+      <button id="closeDialog" class="close-dialog" aria-label="Close">✕</button>
     </div>
-    <div id="dialogContent"></div>
+    <div id="dialogBody"></div>
   </dialog>
 
+  <script src="script.js"></script>
 </body>
 </html>
