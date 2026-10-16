@@ -1,28 +1,48 @@
-// RYDEN INTERNATIONAL — Product Catalog
-// Home page cards show product names and images only.
-// Prices appear only after a product is opened.
+"use strict";
+
+/*
+  RYDEN INTERNATIONAL
+  Frontend catalog only.
+  No Firebase, supplier API, payment gateway or domain integration yet.
+*/
 
 const WHATSAPP_NUMBER = "919233657553";
 
+const categories = [
+  { id: "mlbb", title: "Mobile Legends Bang Bang" },
+  { id: "pubg", title: "BGMI / PUBG Mobile" },
+  { id: "games", title: "Other Games" },
+  { id: "ott", title: "OTT & Subscriptions" },
+  { id: "giftcards", title: "Gift Cards & Others" }
+];
+
+/*
+  Set a real price later by replacing null with a number.
+  Example: price: 125
+  Homepage cards never display prices.
+*/
+
 const products = [
+  // MOBILE LEGENDS
   {
     id: "mlbb-big",
-    name: "Mobile Legends (Big Packs)",
+    name: "MLBB Big Packs",
     category: "mlbb",
     image: "images/mlbb-big-packs.jpg",
-    description: "Choose from the available Mobile Legends diamond packs.",
     packs: [
-      { name: "Weekly Diamond Pass", price: null },
-      { name: "Big Diamond Pack", price: null },
-      { name: "Special Diamond Pack", price: null }
+      { name: "86 Diamonds", price: null },
+      { name: "172 Diamonds", price: null },
+      { name: "257 Diamonds", price: null },
+      { name: "343 Diamonds", price: null },
+      { name: "429 Diamonds", price: null },
+      { name: "514 Diamonds", price: null }
     ]
   },
   {
     id: "mlbb-small",
-    name: "Mobile Legends (Small Pack)",
+    name: "MLBB Small Pack",
     category: "mlbb",
     image: "images/mlbb-small-pack.jpg",
-    description: "Small diamond packs for Mobile Legends.",
     packs: [
       { name: "Small Diamond Pack", price: null },
       { name: "Medium Diamond Pack", price: null },
@@ -34,7 +54,6 @@ const products = [
     name: "Weekly Diamond Pass",
     category: "mlbb",
     image: "images/weekly-pass.jpg",
-    description: "Select a Weekly Diamond Pass option.",
     packs: [
       { name: "Weekly Diamond Pass", price: null },
       { name: "Weekly Pass × 2", price: null },
@@ -46,22 +65,9 @@ const products = [
     name: "Aspirants 5.0 Recharge Event",
     category: "mlbb",
     image: "images/aspirants-event.jpg",
-    description: "Recharge options for the Aspirants event.",
     packs: [
-      { name: "Event Recharge Pack", price: null },
+      { name: "Event Pack", price: null },
       { name: "Special Event Pack", price: null }
-    ]
-  },
-  {
-    id: "bgmi",
-    name: "BGMI UC Instant",
-    category: "pubg",
-    image: "images/bgmi-uc.jpg",
-    description: "Choose your BGMI UC pack.",
-    packs: [
-      { name: "UC Pack", price: null },
-      { name: "Special UC Pack", price: null },
-      { name: "Mega UC Pack", price: null }
     ]
   },
   {
@@ -69,10 +75,8 @@ const products = [
     name: "Double Diamonds Pack",
     category: "mlbb",
     image: "images/double-diamonds.jpg",
-    description: "View available Double Diamonds offers.",
     packs: [
-      { name: "Double Diamonds Pack", price: null },
-      { name: "Special Double Diamonds Pack", price: null }
+      { name: "Double Diamonds Pack", price: null }
     ]
   },
   {
@@ -80,267 +84,496 @@ const products = [
     name: "Starlight Gifting — 7 Days",
     category: "mlbb",
     image: "images/starlight.jpg",
-    description: "View available Starlight gifting options.",
     packs: [
-      { name: "Starlight Membership", price: null },
+      { name: "Normal Starlight", price: null },
       { name: "Premium Starlight", price: null }
     ]
   },
   {
-    id: "gift-cards",
-    name: "Gift Cards",
-    category: "giftcards",
-    image: "images/gift-cards.jpg",
-    description: "Browse available digital gift cards.",
+    id: "mlbb-india",
+    name: "MLBB India",
+    category: "mlbb",
+    image: "images/mlbb-india.jpg",
     packs: [
-      { name: "Gift Card", price: null }
+      { name: "India Server Pack", price: null }
     ]
   },
-
   {
     id: "mlbb-ph",
-    name: "Mobile Legends — Philippines",
+    name: "MLBB Philippines",
     category: "mlbb",
     image: "images/mlbb-philippines.jpg",
-    description: "Mobile Legends Philippines server products.",
-    packs: [{ name: "Select a Philippines pack", price: null }]
+    packs: [
+      { name: "Philippines Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-sg",
-    name: "Mobile Legends — Singapore",
+    name: "MLBB Singapore",
     category: "mlbb",
     image: "images/mlbb-singapore.jpg",
-    description: "Mobile Legends Singapore server products.",
-    packs: [{ name: "Select a Singapore pack", price: null }]
+    packs: [
+      { name: "Singapore Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-id",
-    name: "Mobile Legends — Indonesia",
+    name: "MLBB Indonesia",
     category: "mlbb",
     image: "images/mlbb-indonesia.jpg",
-    description: "Mobile Legends Indonesia server products.",
-    packs: [{ name: "Select an Indonesia pack", price: null }]
+    packs: [
+      { name: "Indonesia Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-my",
-    name: "Mobile Legends — Malaysia",
+    name: "MLBB Malaysia",
     category: "mlbb",
     image: "images/mlbb-malaysia.jpg",
-    description: "Mobile Legends Malaysia server products.",
-    packs: [{ name: "Select a Malaysia pack", price: null }]
+    packs: [
+      { name: "Malaysia Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-ru",
-    name: "Mobile Legends — Russia",
+    name: "MLBB Russia",
     category: "mlbb",
     image: "images/mlbb-russia.jpg",
-    description: "Mobile Legends Russia server products.",
-    packs: [{ name: "Select a Russia pack", price: null }]
+    packs: [
+      { name: "Russia Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-tr",
-    name: "Mobile Legends — Turkey",
+    name: "MLBB Turkey",
     category: "mlbb",
     image: "images/mlbb-turkey.jpg",
-    description: "Mobile Legends Turkey server products.",
-    packs: [{ name: "Select a Turkey pack", price: null }]
+    packs: [
+      { name: "Turkey Server Pack", price: null }
+    ]
   },
   {
     id: "mlbb-br",
-    name: "Mobile Legends — Brazil",
+    name: "MLBB Brazil",
     category: "mlbb",
     image: "images/mlbb-brazil.jpg",
-    description: "Mobile Legends Brazil server products.",
-    packs: [{ name: "Select a Brazil pack", price: null }]
+    packs: [
+      { name: "Brazil Server Pack", price: null }
+    ]
+  },
+  {
+    id: "mlbb-skins",
+    name: "Skin Gifting",
+    category: "mlbb",
+    image: "images/skins-gifting.jpg",
+    packs: [
+      { name: "Skin Gifting", price: null }
+    ]
+  },
+  {
+    id: "mlbb-accounts",
+    name: "Available MLBB Accounts",
+    category: "mlbb",
+    image: "images/mlbb-accounts.jpg",
+    packs: [
+      { name: "Available Account", price: null }
+    ]
   },
 
+  // BGMI / PUBG
   {
-    id: "youtube",
-    name: "YouTube Premium",
-    category: "subscriptions",
-    image: "images/youtube-premium.jpg",
-    description: "Check availability and subscription options.",
-    packs: [{ name: "YouTube Premium", price: null }]
-  },
-  {
-    id: "netflix",
-    name: "Netflix Premium",
-    category: "subscriptions",
-    image: "images/netflix.jpg",
-    description: "Check available subscription options.",
-    packs: [{ name: "Netflix Premium", price: null }]
-  },
-  {
-    id: "prime",
-    name: "Prime Video",
-    category: "subscriptions",
-    image: "images/prime-video.jpg",
-    description: "Check available Prime Video options.",
-    packs: [{ name: "Prime Video", price: null }]
-  },
-  {
-    id: "jiohotstar",
-    name: "JioHotstar",
-    category: "subscriptions",
-    image: "images/jiohotstar.jpg",
-    description: "Check subscription availability.",
-    packs: [{ name: "JioHotstar", price: null }]
-  },
-  {
-    id: "spotify",
-    name: "Spotify Premium",
-    category: "subscriptions",
-    image: "images/spotify.jpg",
-    description: "Check available Spotify plans.",
-    packs: [{ name: "Spotify Premium", price: null }]
-  },
-  {
-    id: "crunchyroll",
-    name: "Crunchyroll Mega Fan",
-    category: "subscriptions",
-    image: "images/crunchyroll.jpg",
-    description: "Check subscription availability.",
-    packs: [{ name: "Crunchyroll Mega Fan", price: null }]
-  },
-  {
-    id: "canva",
-    name: "Canva Pro",
-    category: "subscriptions",
-    image: "images/canva-pro.jpg",
-    description: "Check available Canva plans.",
-    packs: [{ name: "Canva Pro", price: null }]
-  },
-  {
-    id: "picsart",
-    name: "Picsart Pro",
-    category: "subscriptions",
-    image: "images/picsart-pro.jpg",
-    description: "Check available Picsart plans.",
-    packs: [{ name: "Picsart Pro", price: null }]
+    id: "bgmi-uc",
+    name: "BGMI UC Instant",
+    category: "pubg",
+    image: "images/bgmi-uc.jpg",
+    packs: [
+      { name: "UC Pack", price: null },
+      { name: "Special UC Pack", price: null },
+      { name: "Mega UC Pack", price: null }
+    ]
   },
   {
     id: "pubg-global",
     name: "PUBG Mobile Global",
     category: "pubg",
     image: "images/pubg-global.jpg",
-    description: "Choose an available PUBG Mobile Global UC pack.",
-    packs: [{ name: "PUBG Mobile Global UC", price: null }]
+    packs: [
+      { name: "PUBG Global UC Pack", price: null }
+    ]
   },
   {
+    id: "pubg-india",
+    name: "PUBG Mobile India",
+    category: "pubg",
+    image: "images/pubg-india.jpg",
+    packs: [
+      { name: "UC Pack", price: null }
+    ]
+  },
+  {
+    id: "pubg-uc",
+    name: "PUBG UC Packs",
+    category: "pubg",
+    image: "images/pubg-uc.jpg",
+    packs: [
+      { name: "UC Pack", price: null }
+    ]
+  },
+
+  // OTHER GAMES
+  {
     id: "codm",
-    name: "Call of Duty Mobile",
-    category: "other",
+    name: "Call of Duty Mobile India",
+    category: "games",
     image: "images/call-of-duty.jpg",
-    description: "Check available Call of Duty Mobile products.",
-    packs: [{ name: "COD Mobile Pack", price: null }]
+    packs: [
+      { name: "COD Mobile Pack", price: null }
+    ]
+  },
+  {
+    id: "honor",
+    name: "Honor of Kings",
+    category: "games",
+    image: "images/honor-of-kings.jpg",
+    packs: [
+      { name: "Honor of Kings Pack", price: null }
+    ]
+  },
+  {
+    id: "wuthering",
+    name: "Wuthering Waves",
+    category: "games",
+    image: "images/wuthering-waves.jpg",
+    packs: [
+      { name: "Wuthering Waves Pack", price: null }
+    ]
+  },
+  {
+    id: "honkai",
+    name: "Honkai Star Rail",
+    category: "games",
+    image: "images/honkai-star-rail.jpg",
+    packs: [
+      { name: "Honkai Star Rail Pack", price: null }
+    ]
   },
   {
     id: "genshin",
     name: "Genshin Impact",
-    category: "other",
+    category: "games",
     image: "images/genshin-impact.jpg",
-    description: "Check available Genshin Impact products.",
-    packs: [{ name: "Genshin Impact Pack", price: null }]
+    packs: [
+      { name: "Genshin Impact Pack", price: null }
+    ]
   },
   {
     id: "magic-chess",
-    name: "Magic Chess: Go Go",
-    category: "other",
+    name: "Magic Chess GoGo",
+    category: "games",
     image: "images/magic-chess.jpg",
-    description: "Check available Magic Chess products.",
-    packs: [{ name: "Magic Chess Pack", price: null }]
+    packs: [
+      { name: "Magic Chess Pack", price: null }
+    ]
+  },
+
+  // OTT AND SUBSCRIPTIONS
+  {
+    id: "youtube",
+    name: "YouTube Premium",
+    category: "ott",
+    image: "images/youtube-premium.jpg",
+    packs: [
+      { name: "YouTube Premium", price: null }
+    ]
   },
   {
-    id: "skins",
-    name: "MLBB Skins Gifting",
-    category: "mlbb",
-    image: "images/skins-gifting.jpg",
-    description: "Ask us about available skin gifting options.",
-    packs: [{ name: "Skin Gifting", price: null }]
+    id: "netflix",
+    name: "Netflix Premium",
+    category: "ott",
+    image: "images/netflix.jpg",
+    packs: [
+      { name: "Netflix Premium", price: null }
+    ]
   },
   {
-    id: "accounts",
-    name: "MLBB Accounts",
-    category: "mlbb",
-    image: "images/mlbb-accounts.jpg",
-    description: "Explore available Mobile Legends accounts.",
-    packs: [{ name: "Available Accounts", price: null }]
+    id: "prime",
+    name: "Prime Video",
+    category: "ott",
+    image: "images/prime-video.jpg",
+    packs: [
+      { name: "Prime Video", price: null }
+    ]
+  },
+  {
+    id: "hotstar",
+    name: "JioHotstar",
+    category: "ott",
+    image: "images/jiohotstar.jpg",
+    packs: [
+      { name: "JioHotstar", price: null }
+    ]
+  },
+  {
+    id: "spotify",
+    name: "Spotify Premium",
+    category: "ott",
+    image: "images/spotify.jpg",
+    packs: [
+      { name: "Spotify Premium", price: null }
+    ]
+  },
+  {
+    id: "crunchyroll",
+    name: "Crunchyroll Mega Fan",
+    category: "ott",
+    image: "images/crunchyroll.jpg",
+    packs: [
+      { name: "Crunchyroll Mega Fan", price: null }
+    ]
+  },
+  {
+    id: "canva",
+    name: "Canva Pro",
+    category: "ott",
+    image: "images/canva-pro.jpg",
+    packs: [
+      { name: "Canva Pro", price: null }
+    ]
   },
   {
     id: "capcut",
     name: "CapCut Pro",
-    category: "subscriptions",
+    category: "ott",
     image: "images/capcut-pro.jpg",
-    description: "Check subscription availability.",
-    packs: [{ name: "CapCut Pro", price: null }]
+    packs: [
+      { name: "CapCut Pro", price: null }
+    ]
+  },
+  {
+    id: "picsart",
+    name: "PicsArt Pro",
+    category: "ott",
+    image: "images/picsart-pro.jpg",
+    packs: [
+      { name: "PicsArt Pro", price: null }
+    ]
+  },
+  {
+    id: "sony",
+    name: "Sony LIV",
+    category: "ott",
+    image: "images/sony-liv.jpg",
+    packs: [
+      { name: "Sony LIV Subscription", price: null }
+    ]
+  },
+  {
+    id: "kuku",
+    name: "Kuku TV",
+    category: "ott",
+    image: "images/kuku-tv.jpg",
+    packs: [
+      { name: "Kuku TV Subscription", price: null }
+    ]
+  },
+  {
+    id: "fancode",
+    name: "FanCode",
+    category: "ott",
+    image: "images/fancode.jpg",
+    packs: [
+      { name: "FanCode Subscription", price: null }
+    ]
+  },
+  {
+    id: "gemini",
+    name: "Gemini AI Pro",
+    category: "ott",
+    image: "images/gemini-ai-pro.jpg",
+    packs: [
+      { name: "Gemini AI Pro", price: null }
+    ]
+  },
+  {
+    id: "rakuten",
+    name: "Rakuten Viki",
+    category: "ott",
+    image: "images/rakuten-viki.jpg",
+    packs: [
+      { name: "Rakuten Viki", price: null }
+    ]
   },
   {
     id: "zee5",
     name: "ZEE5",
-    category: "subscriptions",
+    category: "ott",
     image: "images/zee5.jpg",
-    description: "Check subscription availability.",
-    packs: [{ name: "ZEE5 Subscription", price: null }]
+    packs: [
+      { name: "ZEE5 Subscription", price: null }
+    ]
+  },
+  {
+    id: "nordvpn",
+    name: "NordVPN",
+    category: "ott",
+    image: "images/nordvpn.jpg",
+    packs: [
+      { name: "NordVPN Subscription", price: null }
+    ]
+  },
+
+  // GIFT CARDS AND OTHER DIGITAL PRODUCTS
+  {
+    id: "gift-cards",
+    name: "Gift Cards",
+    category: "giftcards",
+    image: "images/gift-cards.jpg",
+    packs: [
+      { name: "Gift Card", price: null }
+    ]
+  },
+  {
+    id: "google-play",
+    name: "Google Play Gift Card",
+    category: "giftcards",
+    image: "images/google-play.jpg",
+    packs: [
+      { name: "Google Play Gift Card", price: null }
+    ]
+  },
+  {
+    id: "apple-card",
+    name: "Apple Gift Card",
+    category: "giftcards",
+    image: "images/apple-gift-card.jpg",
+    packs: [
+      { name: "Apple Gift Card", price: null }
+    ]
+  },
+  {
+    id: "steam",
+    name: "Steam Wallet",
+    category: "giftcards",
+    image: "images/steam-wallet.jpg",
+    packs: [
+      { name: "Steam Wallet", price: null }
+    ]
+  },
+  {
+    id: "playstation",
+    name: "PlayStation Gift Card",
+    category: "giftcards",
+    image: "images/playstation.jpg",
+    packs: [
+      { name: "PlayStation Gift Card", price: null }
+    ]
   }
 ];
 
-const productGrid = document.getElementById("productGrid");
-const productSearch = document.getElementById("productSearch");
+const catalogSections = document.getElementById("catalogSections");
 const emptyState = document.getElementById("emptyState");
-const dialog = document.getElementById("productDialog");
+const searchWrap = document.getElementById("searchWrap");
+const productSearch = document.getElementById("productSearch");
+const productDialog = document.getElementById("productDialog");
 const dialogTitle = document.getElementById("dialogTitle");
-const dialogBody = document.getElementById("dialogBody");
+const dialogContent = document.getElementById("dialogContent");
+const infoDialog = document.getElementById("infoDialog");
+const infoTitle = document.getElementById("infoTitle");
+const infoContent = document.getElementById("infoContent");
 
 let activeCategory = "all";
+let activeSlide = 0;
+let slideTimer = null;
+let showAllByCategory = {};
 
 function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
+  return String(value).replace(/[&<>"']/g, char => ({
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
     '"': "&quot;",
     "'": "&#39;"
-  })[character]);
+  })[char]);
 }
 
-function renderProducts() {
-  const searchTerm = productSearch.value.trim().toLowerCase();
+function getCategoryName(categoryId) {
+  const category = categories.find(item => item.id === categoryId);
+  return category ? category.title : categoryId;
+}
 
-  const filteredProducts = products.filter(product => {
-    const categoryMatches =
-      activeCategory === "all" || product.category === activeCategory;
-
-    const searchMatches =
-      product.name.toLowerCase().includes(searchTerm) ||
-      product.description.toLowerCase().includes(searchTerm);
-
-    return categoryMatches && searchMatches;
-  });
-
-  productGrid.innerHTML = filteredProducts.map(product => `
-    <article class="product-card"
+function renderProductCard(product) {
+  return `
+    <article
+      class="product-card"
+      data-product-id="${escapeHTML(product.id)}"
       role="button"
       tabindex="0"
-      data-product-id="${escapeHTML(product.id)}"
-      aria-label="View ${escapeHTML(product.name)}">
+      aria-label="Open ${escapeHTML(product.name)}">
 
       <img
         class="product-image"
         src="${escapeHTML(product.image)}"
         alt="${escapeHTML(product.name)}"
         loading="lazy"
-        onerror="this.outerHTML='<div class=&quot;product-image-fallback&quot; aria-label=&quot;Product image placeholder&quot;>R</div>'">
+        onerror="this.outerHTML='<div class=&quot;product-placeholder&quot;>R</div>'">
 
-      <div class="product-info">
-        <span class="product-category">${escapeHTML(product.category)}</span>
-        <div class="product-name">${escapeHTML(product.name)}</div>
-        <div class="product-description">${escapeHTML(product.description)}</div>
-        <div class="view-product">VIEW PRODUCT DETAILS →</div>
-      </div>
+      <span class="product-name">${escapeHTML(product.name)}</span>
     </article>
-  `).join("");
+  `;
+}
 
-  emptyState.hidden = filteredProducts.length !== 0;
+function renderCatalog() {
+  const query = productSearch.value.trim().toLowerCase();
+
+  const filteredProducts = products.filter(product => {
+    const categoryMatches =
+      activeCategory === "all" || product.category === activeCategory;
+
+    const searchMatches =
+      !query ||
+      product.name.toLowerCase().includes(query) ||
+      getCategoryName(product.category).toLowerCase().includes(query);
+
+    return categoryMatches && searchMatches;
+  });
+
+  catalogSections.innerHTML = "";
+
+  const categoriesToShow = activeCategory === "all"
+    ? categories
+    : categories.filter(category => category.id === activeCategory);
+
+  categoriesToShow.forEach(category => {
+    const categoryProducts = filteredProducts.filter(
+      product => product.category === category.id
+    );
+
+    if (categoryProducts.length === 0) return;
+
+    const expanded = Boolean(showAllByCategory[category.id]);
+    const visibleProducts = expanded
+      ? categoryProducts
+      : categoryProducts.slice(0, 12);
+
+    const section = document.createElement("section");
+    section.className = "catalog-section";
+
+    section.innerHTML = `
+      <div class="catalog-heading">
+        <h2>${escapeHTML(category.title)}</h2>
+        <button type="button" data-view-all="${escapeHTML(category.id)}">
+          ${expanded ? "Show Less ↑" : "View All →"}
+        </button>
+      </div>
+      <div class="product-grid">
+        ${visibleProducts.map(renderProductCard).join("")}
+      </div>
+    `;
+
+    catalogSections.appendChild(section);
+  });
+
+  emptyState.hidden = filteredProducts.length > 0;
 }
 
 function openProduct(productId) {
@@ -349,53 +582,167 @@ function openProduct(productId) {
 
   dialogTitle.textContent = product.name;
 
-  const packMarkup = product.packs.map(pack => {
-    const priceText = Number.isFinite(pack.price)
+  const packRows = product.packs.map(pack => {
+    const price = Number.isFinite(pack.price)
       ? `₹${pack.price}`
       : "Price on request";
 
-    const message =
-      `Hello RYDEN INTERNATIONAL!%0A` +
-      `Product: ${encodeURIComponent(product.name)}%0A` +
-      `Pack: ${encodeURIComponent(pack.name)}%0A` +
-      `Please confirm availability and final price.`;
+    const message = [
+      "Hello RYDEN INTERNATIONAL!",
+      `Product: ${product.name}`,
+      `Pack: ${pack.name}`,
+      "Please confirm availability and final price."
+    ].join("\n");
 
-    const orderLink =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    const whatsappUrl =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
     return `
-      <div class="pack-option">
-        <b>${escapeHTML(pack.name)}</b>
-        <span class="pack-price">${priceText}</span>
-        <a class="order-btn"
-           href="${orderLink}"
+      <div class="pack-row">
+        <strong>${escapeHTML(pack.name)}</strong>
+        <span class="pack-price">${price}</span>
+        <a class="action-link"
+           href="${whatsappUrl}"
            target="_blank"
            rel="noopener noreferrer">ENQUIRE</a>
       </div>
     `;
   }).join("");
 
-  dialogBody.innerHTML = `
-    <p class="dialog-description">
-      ${escapeHTML(product.description)}
-      Final price and availability must be confirmed before ordering.
+  dialogContent.innerHTML = `
+    <p class="modal-description">
+      Select a pack below. Confirm the final price and availability with RYDEN
+      before ordering. Player ID or server details may be requested when needed.
     </p>
-    <div class="pack-list">${packMarkup}</div>
+    <div class="pack-list">${packRows}</div>
   `;
 
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-  } else {
-    dialog.setAttribute("open", "");
-  }
+  productDialog.showModal();
 }
 
-productGrid.addEventListener("click", event => {
+function openInfo(title, message, options = {}) {
+  infoTitle.textContent = title;
+
+  if (options.type === "region") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Enter your Mobile Legends details to prepare a region-check request.
+        This demo does not verify the region automatically yet.
+      </p>
+      <form class="info-form" id="regionForm">
+        <label>Player ID
+          <input name="playerId" required placeholder="Enter Player ID">
+        </label>
+        <label>Zone ID
+          <input name="zoneId" required placeholder="Enter Zone ID">
+        </label>
+        <button class="modal-action" type="submit">Send Region Request</button>
+      </form>
+    `;
+
+    document.getElementById("regionForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const playerId = String(form.get("playerId")).trim();
+      const zoneId = String(form.get("zoneId")).trim();
+
+      const text = [
+        "Hello RYDEN INTERNATIONAL!",
+        "Please help check my MLBB region.",
+        `Player ID: ${playerId}`,
+        `Zone ID: ${zoneId}`
+      ].join("\n");
+
+      window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+      infoDialog.close();
+    });
+
+  } else if (options.type === "purchase") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Your future purchase history will appear here after order tracking
+        is connected. For now, select a product and contact support to enquire.
+      </p>
+      <button class="modal-action" id="purchaseBrowse">Browse Products</button>
+    `;
+
+    document.getElementById("purchaseBrowse").addEventListener("click", () => {
+      infoDialog.close();
+      document.getElementById("store").scrollIntoView({ behavior: "smooth" });
+    });
+
+  } else if (options.type === "leaderboard") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        The leaderboard will be displayed here when a verified data source is
+        connected. No rankings are being invented in this preview.
+      </p>
+    `;
+
+  } else if (options.type === "account") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Account login and order history will be enabled after authentication
+        is implemented. This preview does not create or store accounts.
+      </p>
+      <a class="action-link"
+         href="https://wa.me/${WHATSAPP_NUMBER}"
+         target="_blank"
+         rel="noopener noreferrer">CONTACT SUPPORT</a>
+    `;
+
+  } else if (options.type === "reports") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Order reports will appear here after an order tracking system is
+        connected. No order history is stored in this demo.
+      </p>
+    `;
+
+  } else if (options.type === "more") {
+    infoContent.innerHTML = `
+      <div class="pack-list">
+        <div class="pack-row"><strong>About RYDEN</strong><span class="pack-price">Digital Store</span></div>
+        <div class="pack-row"><strong>Instagram</strong>
+          <a class="action-link" href="https://instagram.com/rydenglobal"
+             target="_blank" rel="noopener noreferrer">OPEN</a>
+        </div>
+        <div class="pack-row"><strong>WhatsApp Support</strong>
+          <a class="action-link" href="https://wa.me/${WHATSAPP_NUMBER}"
+             target="_blank" rel="noopener noreferrer">CONTACT</a>
+        </div>
+      </div>
+    `;
+
+  } else {
+    infoContent.innerHTML = `<p class="info-message">${escapeHTML(message || "")}</p>`;
+  }
+
+  infoDialog.showModal();
+}
+
+// Product-card clicks
+catalogSections.addEventListener("click", event => {
   const card = event.target.closest("[data-product-id]");
-  if (card) openProduct(card.dataset.productId);
+
+  if (card) {
+    openProduct(card.dataset.productId);
+    return;
+  }
+
+  const viewAllButton = event.target.closest("[data-view-all]");
+  if (viewAllButton) {
+    const categoryId = viewAllButton.dataset.viewAll;
+    showAllByCategory[categoryId] = !showAllByCategory[categoryId];
+    renderCatalog();
+  }
 });
 
-productGrid.addEventListener("keydown", event => {
+catalogSections.addEventListener("keydown", event => {
   if (event.key !== "Enter" && event.key !== " ") return;
 
   const card = event.target.closest("[data-product-id]");
@@ -405,43 +752,137 @@ productGrid.addEventListener("keydown", event => {
   openProduct(card.dataset.productId);
 });
 
-productSearch.addEventListener("input", renderProducts);
-
-document.querySelectorAll(".category-btn").forEach(button => {
+// Category filters
+document.querySelectorAll(".category-tab").forEach(button => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".category-btn").forEach(item => {
-      item.classList.remove("active");
+    document.querySelectorAll(".category-tab").forEach(tab => {
+      tab.classList.remove("active");
     });
 
     button.classList.add("active");
     activeCategory = button.dataset.category;
-    renderProducts();
+    renderCatalog();
   });
 });
 
-document.getElementById("closeDialog").addEventListener("click", () => {
-  dialog.close();
+// Search controls
+document.getElementById("searchToggle").addEventListener("click", () => {
+  searchWrap.hidden = !searchWrap.hidden;
+
+  if (!searchWrap.hidden) {
+    productSearch.focus();
+  } else {
+    productSearch.value = "";
+    renderCatalog();
+  }
 });
 
-dialog.addEventListener("click", event => {
-  if (event.target === dialog) dialog.close();
+document.getElementById("clearSearch").addEventListener("click", () => {
+  productSearch.value = "";
+  renderCatalog();
+  productSearch.focus();
 });
 
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+productSearch.addEventListener("input", renderCatalog);
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+// Rotating promotional banners
+function showSlide(index) {
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
 
-mainNav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
+  if (!slides.length) return;
+
+  activeSlide = (index + slides.length) % slides.length;
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === activeSlide);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === activeSlide);
+  });
+}
+
+function startSlider() {
+  if (slideTimer) clearInterval(slideTimer);
+  slideTimer = setInterval(() => showSlide(activeSlide + 1), 5000);
+}
+
+document.querySelectorAll(".dot").forEach(dot => {
+  dot.addEventListener("click", () => {
+    showSlide(Number(dot.dataset.slide));
+    startSlider();
   });
 });
 
+startSlider();
+
+// Quick actions
+document.querySelectorAll(".quick-card").forEach(button => {
+  button.addEventListener("click", () => {
+    const tool = button.dataset.tool;
+
+    if (tool === "Region Checker") {
+      openInfo("Region Checker", "", { type: "region" });
+    } else if (tool === "Purchase") {
+      openInfo("Purchase History", "", { type: "purchase" });
+    } else if (tool === "Leaderboard") {
+      openInfo("Leaderboard", "", { type: "leaderboard" });
+    }
+  });
+});
+
+// Top login button
+document.getElementById("loginButton").addEventListener("click", () => {
+  openInfo("Login / Account", "", { type: "account" });
+});
+
+// Fixed bottom navigation
+document.querySelectorAll("[data-bottom]").forEach(button => {
+  button.addEventListener("click", () => {
+    const section = button.dataset.bottom;
+
+    document.querySelectorAll("[data-bottom]").forEach(item => {
+      item.classList.remove("active");
+    });
+    button.classList.add("active");
+
+    if (section === "Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (section === "Support") {
+      window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    } else if (section === "Account") {
+      openInfo("Account", "", { type: "account" });
+    } else if (section === "Reports") {
+      openInfo("Reports", "", { type: "reports" });
+    } else if (section === "More") {
+      openInfo("More Options", "", { type: "more" });
+    }
+  });
+});
+
+// Modal close buttons
+document.getElementById("closeProductDialog").addEventListener("click", () => {
+  productDialog.close();
+});
+
+document.getElementById("closeInfoDialog").addEventListener("click", () => {
+  infoDialog.close();
+});
+
+// Clicking outside a dialog closes it
+[productDialog, infoDialog].forEach(dialog => {
+  dialog.addEventListener("click", event => {
+    if (event.target === dialog) dialog.close();
+  });
+});
+
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-renderProducts();
+// First render
+renderCatalog();
