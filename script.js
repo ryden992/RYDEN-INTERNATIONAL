@@ -1,404 +1,587 @@
-/* =========================================================
-   RYDEN INTERNATIONAL — STORE SCRIPT
-========================================================= */
+/* ==========================================
+   RYDEN INTERNATIONAL — STORE ENGINE
+   Product Catalog | Search | Categories | Menu
+========================================== */
 
-const WHATSAPP_NUMBER = "919233657553";
-// Put your business UPI ID here to generate instant QR codes
-const UPI_VPA = "9233657553@upi"; 
+"use strict";
 
-let currentCurrency = "INR";
-let usdRate = 0.012;
-let activeCatalog = "small";
+/* ---------- STORE SETTINGS ---------- */
 
-let verifiedPlayer = {
-  id: "",
-  zone: "",
-  name: ""
+const STORE = {
+  name: "RYDEN INTERNATIONAL",
+  whatsapp: "919233657553",
+  instagram: "https://instagram.com/rydenglobal"
 };
 
-let selectedProduct = null;
+/*
+  IMPORTANT:
+  These are sample catalogue prices for layout testing.
+  Verify every price, region, product and subscription
+  before publishing. This code does NOT connect to a
+  supplier API or automatically deliver products.
+*/
 
-/* =========================================================
-   CATALOG DATA (Complete Diamond Packs & Offers)
-========================================================= */
-const catalogData = {
-  small: {
-    title: "Diamond Top-up",
-    products: [
-      { id: "d5", name: "5 Diamonds", price: 11, bonus: "Instant Delivery", image: "store%20logo.jpeg" },
-      { id: "d11", name: "11 Diamonds", price: 25, bonus: "+1 Bonus", image: "store%20logo.jpeg" },
-      { id: "d22", name: "22 Diamonds", price: 49, bonus: "+2 Bonus", image: "store%20logo.jpeg" },
-      { id: "d56", name: "56 Diamonds", price: 97, bonus: "+5 Bonus", image: "store%20logo.jpeg" },
-      { id: "d112", name: "112 Diamonds", price: 195, bonus: "+10 Bonus", image: "store%20logo.jpeg" },
-      { id: "d223", name: "223 Diamonds", price: 385, bonus: "+22 Bonus", image: "store%20logo.jpeg" },
-      { id: "d336", name: "336 Diamonds", price: 579, bonus: "+34 Bonus", image: "store%20logo.jpeg" },
-      { id: "d570", name: "570 Diamonds", price: 964, bonus: "+58 Bonus", image: "store%20logo.jpeg" },
-      { id: "d1163", name: "1,163 Diamonds", price: 1930, bonus: "+130 Bonus", image: "store%20logo.jpeg" },
-      { id: "d2398", name: "2,398 Diamonds", price: 3858, bonus: "+298 Bonus", image: "store%20logo.jpeg" },
-      { id: "d6042", name: "6,042 Diamonds", price: 9645, bonus: "+800 Bonus", image: "store%20logo.jpeg" }
-    ]
+/* ---------- PRODUCT CATALOG ---------- */
+
+const products = [
+  // MOBILE LEGENDS
+  {
+    id: "mlbb-86",
+    name: "86 MLBB Diamonds",
+    category: "mlbb",
+    price: 125,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-172",
+    name: "172 MLBB Diamonds",
+    category: "mlbb",
+    price: 255,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-257",
+    name: "257 MLBB Diamonds",
+    category: "mlbb",
+    price: 375,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-343",
+    name: "343 MLBB Diamonds",
+    category: "mlbb",
+    price: 495,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-429",
+    name: "429 MLBB Diamonds",
+    category: "mlbb",
+    price: 625,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-514",
+    name: "514 MLBB Diamonds",
+    category: "mlbb",
+    price: 745,
+    description: "Mobile Legends diamond recharge",
+    region: "India",
+    icon: "💎"
+  },
+  {
+    id: "mlbb-weekly",
+    name: "Weekly Pass",
+    category: "mlbb",
+    price: 799,
+    description: "Mobile Legends Weekly Pass",
+    region: "India",
+    icon: "🎟️"
+  },
+  {
+    id: "mlbb-weekly-2",
+    name: "Weekly Pass × 2",
+    category: "mlbb",
+    price: 1499,
+    description: "Two Mobile Legends Weekly Passes",
+    region: "India",
+    icon: "🎟️"
   },
 
-  weekly: {
-    title: "Weekly Diamond Pass",
-    products: [
-      { id: "wdp1", name: "1x Weekly Diamond Pass", price: 165, bonus: "210 Total 💎 + StarLight Points", image: "store%20logo.jpeg" },
-      { id: "wdp2", name: "2x Weekly Diamond Pass", price: 330, bonus: "420 Total 💎 (Stackable)", image: "store%20logo.jpeg" },
-      { id: "wdp3", name: "3x Weekly Diamond Pass", price: 495, bonus: "630 Total 💎 (Stackable)", image: "store%20logo.jpeg" },
-      { id: "wdp5", name: "5x Weekly Diamond Pass", price: 825, bonus: "1050 Total 💎 (Max Stack)", image: "store%20logo.jpeg" }
-    ]
+  // PUBG / BGMI
+  {
+    id: "pubg-uc",
+    name: "PUBG / BGMI UC",
+    category: "pubg",
+    price: 0,
+    description: "Contact us for the available UC packages",
+    region: "Confirm before ordering",
+    icon: "🎮",
+    contactOnly: true
   },
 
-  double: {
-    title: "First Top-Up Double Bonus",
-    products: [
-      { id: "fb50", name: "50 + 50 Diamonds", price: 97, bonus: "100% Double Value", image: "store%20logo.jpeg" },
-      { id: "fb150", name: "150 + 150 Diamonds", price: 286, bonus: "100% Double Value", image: "store%20logo.jpeg" },
-      { id: "fb250", name: "250 + 250 Diamonds", price: 475, bonus: "100% Double Value", image: "store%20logo.jpeg" },
-      { id: "fb500", name: "500 + 500 Diamonds", price: 961, bonus: "100% Double Value", image: "store%20logo.jpeg" }
-    ]
+  // OTT & SUBSCRIPTIONS
+  {
+    id: "ott-subscription",
+    name: "OTT Subscriptions",
+    category: "subscriptions",
+    price: 0,
+    description: "Ask us about currently available plans",
+    region: "Availability varies",
+    icon: "📺",
+    contactOnly: true
+  },
+  {
+    id: "spotify",
+    name: "Spotify",
+    category: "subscriptions",
+    price: 0,
+    description: "Ask about available subscription options",
+    region: "Availability varies",
+    icon: "🎵",
+    contactOnly: true
+  },
+  {
+    id: "canva",
+    name: "Canva",
+    category: "subscriptions",
+    price: 0,
+    description: "Ask about available Canva plans",
+    region: "Availability varies",
+    icon: "🎨",
+    contactOnly: true
+  },
+  {
+    id: "picsart",
+    name: "Picsart",
+    category: "subscriptions",
+    price: 0,
+    description: "Ask about available Picsart plans",
+    region: "Availability varies",
+    icon: "🖼️",
+    contactOnly: true
   },
 
-  value: {
-    title: "StarLight & Passes",
-    products: [
-      { id: "sl_std", name: "Standard StarLight Pass", price: 300, bonus: "Exclusive Skin + 50 Perks", image: "store%20logo.jpeg" },
-      { id: "sl_prem", name: "Premium StarLight Pass", price: 750, bonus: "StarLight + 290 💎 + Rewards", image: "store%20logo.jpeg" },
-      { id: "twilight", name: "Twilight Pass", price: 850, bonus: "Level Rewards & Miya Skin", image: "store%20logo.jpeg" }
-    ]
-  },
-
-  indian: {
-    title: "Indian Special Packs",
-    products: [
-      { id: "in_combo1", name: "86 Diamonds Indian Pack", price: 145, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
-      { id: "in_combo2", name: "172 Diamonds Indian Pack", price: 290, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
-      { id: "in_combo3", name: "257 Diamonds Indian Pack", price: 435, bonus: "Instant Recharge", image: "store%20logo.jpeg" },
-      { id: "in_combo4", name: "706 Diamonds Indian Pack", price: 1160, bonus: "Instant Recharge", image: "store%20logo.jpeg" }
-    ]
+  // GIFT CARDS
+  {
+    id: "gift-cards",
+    name: "Digital Gift Cards",
+    category: "giftcards",
+    price: 0,
+    description: "Ask about available brands and regions",
+    region: "Check region compatibility",
+    icon: "🎁",
+    contactOnly: true
   }
+];
+
+/* ---------- CATEGORY LABELS ---------- */
+
+const categoryLabels = {
+  all: "All Products",
+  mlbb: "MLBB Diamonds & Passes",
+  pubg: "PUBG / BGMI UC",
+  subscriptions: "OTT & Subscriptions",
+  giftcards: "Gift Cards",
+  accounts: "Available MLBB Accounts"
 };
 
-/* =========================================================
-   DOM READY
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  setupMobileMenu();
-  setupHeroSlider();
-  setupAccountFilters();
-  setupCurrencySwitch();
-  setupCatalogTabs();
-  setupPlayerCheck();
-  setupModalEvents();
-  renderCatalog("small");
-  updateAccountPrices();
-});
+/* ---------- ELEMENTS ---------- */
 
-/* =========================================================
-   LIVE MLBB ID & SERVER VERIFICATION
-========================================================= */
-function setupPlayerCheck() {
-  const checkBtn = document.getElementById("checkPlayerBtn");
-  const resultDiv = document.getElementById("playerResult");
+const productGrid = document.getElementById("productGrid");
+const productSearch = document.getElementById("productSearch");
+const categoryTitle = document.getElementById("categoryTitle");
+const productCount = document.getElementById("productCount");
+const emptyState = document.getElementById("emptyState");
 
-  if (!checkBtn) return;
+const menuToggle = document.getElementById("menuToggle");
+const desktopNav = document.getElementById("desktopNav");
 
-  checkBtn.addEventListener("click", async () => {
-    const userId = document.getElementById("userId")?.value.trim();
-    const zoneId = document.getElementById("zoneId")?.value.trim();
+const productDialog = document.getElementById("productDialog");
+const dialogClose = document.getElementById("dialogClose");
+const dialogContent = document.getElementById("dialogContent");
 
-    if (!userId || !zoneId) {
-      resultDiv.innerHTML = `<span style="color: #ff5b5b;">⚠️ Please enter both Game ID and Zone ID.</span>`;
-      return;
-    }
+let activeCategory = "all";
+let searchQuery = "";
 
-    resultDiv.innerHTML = `<span style="color: #20a8ff;">⏳ Verifying account on Moonton servers...</span>`;
-    checkBtn.disabled = true;
+/* ---------- HELPERS ---------- */
 
-    try {
-      // Direct live check API for MLBB accounts
-      const apiUrl = `https://api.isan.eu.org/nickname/ml?id=${encodeURIComponent(userId)}&zone=${encodeURIComponent(zoneId)}`;
-      const response = await fetch(apiUrl);
-      const data = await response.json();
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, function (character) {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    };
 
-      if (data && data.success && data.name) {
-        verifiedPlayer = { id: userId, zone: zoneId, name: data.name };
-        resultDiv.innerHTML = `
-          <div style="background: rgba(25, 214, 109, 0.12); border: 1px solid #19d66d; padding: 10px; border-radius: 8px; margin-top: 6px;">
-            <strong style="color: #19d66d;">✔ Player Verified!</strong><br>
-            <span style="font-size: 15px; font-weight: 700; color: #fff;">IGN: ${escapeHtml(data.name)}</span>
-            <span style="font-size: 12px; color: #8da5bb;"> (ID: ${userId} | Zone: ${zoneId})</span>
-          </div>
-        `;
-      } else {
-        resultDiv.innerHTML = `<span style="color: #ff7676;">❌ Player ID or Zone ID not found. Double check your in-game profile.</span>`;
-      }
-    } catch (err) {
-      // Fallback if network blocked
-      resultDiv.innerHTML = `
-        <div style="background: rgba(32, 168, 255, 0.12); border: 1px solid #20a8ff; padding: 10px; border-radius: 8px; margin-top: 6px;">
-          <strong style="color: #20a8ff;">ID Accepted</strong>: ${userId} (${zoneId})<br>
-          <span style="font-size: 12px; color: #9bb5ca;">Account details will be validated automatically before diamonds are credited.</span>
-        </div>
-      `;
-      verifiedPlayer = { id: userId, zone: zoneId, name: "Pending In-game Check" };
-    } finally {
-      checkBtn.disabled = false;
-    }
+    return entities[character];
   });
 }
 
-/* =========================================================
-   RENDER CATALOG
-========================================================= */
-function setupCatalogTabs() {
-  const tabs = document.querySelectorAll(".catalog-tab");
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      activeCatalog = tab.dataset.category;
-      renderCatalog(activeCatalog);
-    });
+function formatPrice(price) {
+  if (!Number.isFinite(Number(price)) || Number(price) <= 0) {
+    return "Contact for price";
+  }
+
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(Number(price));
+}
+
+function getWhatsAppLink(message) {
+  return (
+    "https://wa.me/" +
+    STORE.whatsapp +
+    "?text=" +
+    encodeURIComponent(message)
+  );
+}
+
+function openWhatsApp(message) {
+  window.open(
+    getWhatsAppLink(message),
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+/* ---------- PRODUCT FILTERING ---------- */
+
+function getFilteredProducts() {
+  return products.filter(function (product) {
+    const matchesCategory =
+      activeCategory === "all" ||
+      activeCategory === "accounts" ||
+      product.category === activeCategory;
+
+    const searchableText = [
+      product.name,
+      product.description,
+      product.category,
+      product.region
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = searchableText.includes(
+      searchQuery.toLowerCase()
+    );
+
+    return matchesCategory && matchesSearch;
   });
 }
 
-function renderCatalog(category) {
-  const container = document.getElementById("productCatalog");
-  if (!container) return;
+/* ---------- RENDER PRODUCTS ---------- */
 
-  const catalog = catalogData[category];
-  if (!catalog || !catalog.products.length) {
-    container.innerHTML = "<p>No products available in this category.</p>";
+function renderProducts() {
+  if (!productGrid) return;
+
+  /*
+    Account cards have their own accountGrid.
+    Selecting Accounts scrolls to that section instead.
+  */
+  if (activeCategory === "accounts") {
+    productGrid.innerHTML = "";
+
+    if (categoryTitle) {
+      categoryTitle.textContent = categoryLabels.accounts;
+    }
+
+    if (productCount) {
+      productCount.textContent = "View available accounts below";
+    }
+
+    if (emptyState) {
+      emptyState.hidden = false;
+      emptyState.textContent =
+        "Browse the available account listings below.";
+    }
+
+    const accountGrid = document.getElementById("accountGrid");
+
+    if (accountGrid) {
+      accountGrid.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
     return;
   }
 
-  container.innerHTML = "";
+  const filteredProducts = getFilteredProducts();
 
-  catalog.products.forEach((product, index) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-    const price = typeof product.price === "number" ? formatCurrency(product.price) : product.price;
+  if (categoryTitle) {
+    categoryTitle.textContent =
+      categoryLabels[activeCategory] || categoryLabels.all;
+  }
 
-    card.innerHTML = `
-      <div class="product-image">
-        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
-      </div>
-      <div class="product-info">
-        <strong>${escapeHtml(product.name)}</strong>
-        <span style="color: #19d66d; font-size: 15px;">${escapeHtml(price)}</span>
-        <small style="display:block; color: #8da5bb; font-size: 11px;">${escapeHtml(product.bonus || "")}</small>
-      </div>
-      <button class="product-buy" type="button">Buy Now</button>
+  if (productCount) {
+    productCount.textContent =
+      filteredProducts.length +
+      (filteredProducts.length === 1 ? " product" : " products");
+  }
+
+  if (emptyState) {
+    emptyState.hidden = filteredProducts.length > 0;
+  }
+
+  if (filteredProducts.length === 0) {
+    productGrid.innerHTML = "";
+    return;
+  }
+
+  productGrid.innerHTML = filteredProducts.map(function (product) {
+    const priceText = formatPrice(product.price);
+
+    const buttonText = product.contactOnly
+      ? "Check Availability"
+      : "View Details";
+
+    return `
+      <article class="product-card">
+        <div class="product-image" aria-hidden="true">
+          <span style="
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:120px;
+            height:100%;
+            font-size:3rem;
+            background:linear-gradient(
+              145deg,
+              rgba(22,133,255,.15),
+              rgba(9,14,23,.3)
+            );
+            border-radius:12px;
+          ">${escapeHTML(product.icon || "🎮")}</span>
+        </div>
+
+        <span class="product-badge">
+          ${escapeHTML(product.region)}
+        </span>
+
+        <h3>${escapeHTML(product.name)}</h3>
+
+        <p>${escapeHTML(product.description)}</p>
+
+        <div class="product-price">${escapeHTML(priceText)}</div>
+
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-product-id="${escapeHTML(product.id)}"
+        >${buttonText}</button>
+      </article>
     `;
+  }).join("");
+}
 
-    card.querySelector(".product-buy").addEventListener("click", () => {
-      openProductDetails(category, index);
-    });
+/* ---------- CATEGORY BUTTONS ---------- */
 
-    container.appendChild(card);
+function setCategory(category) {
+  activeCategory = categoryLabels[category] ? category : "all";
+
+  document.querySelectorAll("[data-category]").forEach(function (button) {
+    const buttonCategory = button.dataset.category;
+
+    button.classList.toggle(
+      "active",
+      buttonCategory === activeCategory
+    );
+
+    if (buttonCategory === activeCategory) {
+      button.setAttribute("aria-pressed", "true");
+    } else {
+      button.setAttribute("aria-pressed", "false");
+    }
+  });
+
+  renderProducts();
+}
+
+document.querySelectorAll("[data-category]").forEach(function (button) {
+  button.addEventListener("click", function () {
+    setCategory(button.dataset.category);
+  });
+});
+
+/* ---------- SEARCH ---------- */
+
+if (productSearch) {
+  productSearch.addEventListener("input", function () {
+    searchQuery = productSearch.value.trim();
+    renderProducts();
   });
 }
 
-/* =========================================================
-   CHECKOUT MODAL & INSTANT UPI QR CODE
-========================================================= */
-function openProductDetails(category, index) {
-  const product = catalogData[category]?.products[index];
+/* ---------- PRODUCT DETAILS ---------- */
+
+function showProductDetails(product) {
   if (!product) return;
-  selectedProduct = product;
 
-  const modal = document.getElementById("productModal");
-  const content = document.getElementById("productModalContent");
-  if (!modal || !content) return;
+  const priceText = formatPrice(product.price);
 
-  const userId = document.getElementById("userId")?.value.trim() || "";
-  const zoneId = document.getElementById("zoneId")?.value.trim() || "";
-  const finalPrice = typeof product.price === "number" ? product.price : 0;
+  const orderMessage = product.contactOnly
+    ? `Hi ${STORE.name}, I want to check availability for: ${product.name}. Please share the current price, region and details.`
+    : `Hi ${STORE.name}, I am interested in ${product.name}. Displayed price: ${priceText}. Please confirm availability, final price and delivery details before I order.`;
 
-  // Build real UPI Intent link
-  const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_VPA)}&pn=RydenInternational&am=${finalPrice}&cu=INR&tn=MLBB_${encodeURIComponent(product.name)}`;
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
-
-  content.innerHTML = `
-    <div style="text-align: center; margin-bottom: 15px;">
-      <span class="hero-badge">OFFICIAL MLBB RECHARGE</span>
-      <h2 style="font-size: 28px; margin: 6px 0;">${escapeHtml(product.name)}</h2>
-      <div style="font-size: 26px; color: #20a8ff; font-weight: 800;">₹${finalPrice}</div>
-      <p style="color: #8da5bb; font-size: 13px;">${escapeHtml(product.bonus || "")}</p>
-    </div>
-
-    <!-- Account Details in Modal -->
-    <div style="background: #06121f; border: 1px solid #1a3f60; padding: 14px; border-radius: 12px; margin-bottom: 16px;">
-      <h4 style="font-size: 13px; color: #20a8ff; text-transform: uppercase; margin-bottom: 6px;">Target MLBB Account</h4>
-      <div style="display: flex; justify-content: space-between; font-size: 13px;">
-        <span style="color:#8da5bb;">Player ID:</span>
-        <strong>${userId ? userId : "<span style='color:#ff7676;'>Not provided</span>"}</strong>
+  const detailsHTML = `
+    <div style="text-align:center;padding:8px 0 18px">
+      <div style="font-size:3.5rem;margin-bottom:12px">
+        ${escapeHTML(product.icon || "🎮")}
       </div>
-      <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 4px;">
-        <span style="color:#8da5bb;">Zone ID:</span>
-        <strong>${zoneId ? zoneId : "<span style='color:#ff7676;'>Not provided</span>"}</strong>
+
+      <span class="product-badge">
+        ${escapeHTML(product.region)}
+      </span>
+
+      <h2 style="margin:16px 0 10px">
+        ${escapeHTML(product.name)}
+      </h2>
+
+      <p>${escapeHTML(product.description)}</p>
+
+      <div class="product-price" style="margin:18px 0">
+        ${escapeHTML(priceText)}
       </div>
-      ${verifiedPlayer.name ? `
-      <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 4px;">
-        <span style="color:#8da5bb;">IGN:</span>
-        <strong style="color: #19d66d;">${escapeHtml(verifiedPlayer.name)}</strong>
-      </div>` : ""}
-    </div>
 
-    <!-- UPI QR Payment -->
-    <div style="text-align: center; background: #fff; padding: 16px; border-radius: 14px; color: #000; margin-bottom: 16px;">
-      <strong style="display: block; font-size: 14px; margin-bottom: 8px;">Scan with Any UPI App (GPay / PhonePe / Paytm)</strong>
-      <img src="${qrCodeUrl}" alt="UPI QR Code" style="margin: 0 auto; width: 170px; height: 170px; border: 1px solid #ddd; border-radius: 8px;">
-      <p style="font-size: 11px; color: #555; margin-top: 8px;">Pay exactly ₹${finalPrice} to UPI ID: <strong>${UPI_VPA}</strong></p>
-    </div>
+      <p style="font-size:.82rem;margin-bottom:18px">
+        Confirm availability, region compatibility and final price
+        with the store before making payment.
+      </p>
 
-    <div class="product-detail-actions">
-      <button class="btn btn-whatsapp" style="width: 100%;" type="button" onclick="confirmAndSendOrder('${escapeJs(category)}', ${index})">
-        💬 Send Screenshot & Order via WhatsApp
-      </button>
+      <button
+        class="btn btn-primary"
+        type="button"
+        id="contactProductButton"
+        style="width:100%"
+      >Contact on WhatsApp</button>
     </div>
   `;
 
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-}
+  if (productDialog && dialogContent) {
+    dialogContent.innerHTML = detailsHTML;
 
-function confirmAndSendOrder(category, index) {
-  const product = catalogData[category]?.products[index];
-  if (!product) return;
+    const contactButton = document.getElementById(
+      "contactProductButton"
+    );
 
-  const userId = document.getElementById("userId")?.value.trim() || "";
-  const zoneId = document.getElementById("zoneId")?.value.trim() || "";
+    if (contactButton) {
+      contactButton.addEventListener("click", function () {
+        openWhatsApp(orderMessage);
+      });
+    }
 
-  if (!userId || !zoneId) {
-    alert("Please scroll up and enter your Game ID and Zone ID before placing an order!");
-    closeProductModal();
-    document.getElementById("userId")?.focus();
+    if (typeof productDialog.showModal === "function") {
+      productDialog.showModal();
+    } else {
+      openWhatsApp(orderMessage);
+    }
+
     return;
   }
 
-  let message = `*NEW MLBB RECHARGE ORDER — RYDEN INTERNATIONAL*%0A%0A` +
-    `📦 *Item:* ${encodeURIComponent(product.name)}%0A` +
-    `💰 *Price:* ₹${product.price}%0A` +
-    `🎮 *Game ID:* ${encodeURIComponent(userId)}%0A` +
-    `🌐 *Zone ID:* ${encodeURIComponent(zoneId)}`;
-
-  if (verifiedPlayer.name && verifiedPlayer.name !== "Pending In-game Check") {
-    message += `%0A👤 *In-Game Name:* ${encodeURIComponent(verifiedPlayer.name)}`;
-  }
-
-  message += `%0A%0A_I have completed the payment via UPI QR. Attached is my payment screenshot._`;
-
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+  openWhatsApp(orderMessage);
 }
 
-/* =========================================================
-   HELPERS & GENERAL CONTROLS
-========================================================= */
-function setupMobileMenu() {
-  const toggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("desktopNav");
-  if (!toggle || !nav) return;
+if (productGrid) {
+  productGrid.addEventListener("click", function (event) {
+    const button = event.target.closest("[data-product-id]");
 
-  toggle.addEventListener("click", () => nav.classList.toggle("show"));
-  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("show")));
-}
+    if (!button) return;
 
-function setupHeroSlider() {
-  const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".slider-dot");
-  let cur = 0;
+    const product = products.find(function (item) {
+      return item.id === button.dataset.productId;
+    });
 
-  function show(i) {
-    slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-    cur = i;
-  }
-
-  setInterval(() => {
-    cur = (cur + 1) % slides.length;
-    show(cur);
-  }, 5000);
-}
-
-function formatCurrency(amount) {
-  if (!amount || isNaN(amount)) return "Contact";
-  return currentCurrency === "USD" ? `$${(amount * usdRate).toFixed(2)}` : `₹${Number(amount).toLocaleString("en-IN")}`;
-}
-
-function updateAccountPrices() {
-  document.querySelectorAll("[data-price-value]").forEach(el => {
-    el.textContent = formatCurrency(Number(el.dataset.priceValue));
+    showProductDetails(product);
   });
 }
 
-function setupCurrencySwitch() {
-  document.querySelectorAll(".currency-button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".currency-button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentCurrency = btn.dataset.currency;
-      updateAccountPrices();
-      renderCatalog(activeCatalog);
-    });
+/* ---------- DIALOG CLOSE ---------- */
+
+if (dialogClose && productDialog) {
+  dialogClose.addEventListener("click", function () {
+    if (typeof productDialog.close === "function") {
+      productDialog.close();
+    }
   });
 }
 
-function setupAccountFilters() {
-  const search = document.getElementById("accountSearch");
-  const col = document.getElementById("collectorFilter");
-  const pr = document.getElementById("priceFilter");
+if (productDialog) {
+  productDialog.addEventListener("click", function (event) {
+    if (event.target === productDialog) {
+      productDialog.close();
+    }
+  });
 
-  function apply() {
-    const s = (search?.value || "").toLowerCase();
-    const c = col?.value || "all";
-    const p = pr?.value || "all";
-
-    document.querySelectorAll(".account-card").forEach(card => {
-      const name = (card.dataset.name || "").toLowerCase();
-      const type = (card.dataset.type || "").toLowerCase();
-      const price = Number(card.dataset.price || 0);
-
-      const matchS = !s || name.includes(s);
-      const matchC = c === "all" || type.includes(c);
-      let matchP = true;
-      if (p === "under5000") matchP = price < 5000;
-      if (p === "5000-15000") matchP = price >= 5000 && price <= 15000;
-      if (p === "above15000") matchP = price > 15000;
-
-      card.style.display = matchS && matchC && matchP ? "" : "none";
-    });
-  }
-
-  if (search) search.addEventListener("input", apply);
-  if (col) col.addEventListener("change", apply);
-  if (pr) pr.addEventListener("change", apply);
-}
-
-function setupModalEvents() {
-  document.querySelectorAll(".modal").forEach(m => {
-    m.addEventListener("click", e => {
-      if (e.target === m) {
-        m.classList.remove("show");
-        document.body.classList.remove("modal-open");
-      }
-    });
+  productDialog.addEventListener("cancel", function () {
+    // Allows the browser's normal Escape-key close behaviour.
   });
 }
 
-function closeProductModal() {
-  document.getElementById("productModal")?.classList.remove("show");
-  document.body.classList.remove("modal-open");
+/* ---------- MOBILE NAVIGATION ---------- */
+
+function closeMobileMenu() {
+  if (!menuToggle || !desktopNav) return;
+
+  desktopNav.classList.remove("open", "active");
+  menuToggle.setAttribute("aria-expanded", "false");
 }
 
-function escapeHtml(s) {
-  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-function escapeJs(s) {
-  return String(s || "").replace(/'/g, "\\'");
+if (menuToggle && desktopNav) {
+  menuToggle.setAttribute("aria-expanded", "false");
+
+  menuToggle.addEventListener("click", function () {
+    const isOpen =
+      desktopNav.classList.contains("open") ||
+      desktopNav.classList.contains("active");
+
+    desktopNav.classList.toggle("open", !isOpen);
+    desktopNav.classList.toggle("active", !isOpen);
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(!isOpen)
+    );
+  });
+
+  desktopNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      !desktopNav.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 700) {
+      closeMobileMenu();
+    }
+  });
 }
 
-window.closeProductModal = closeProductModal;
-window.confirmAndSendOrder = confirmAndSendOrder;
+/* ---------- CONTACT LINKS ---------- */
+
+document.querySelectorAll("[data-contact-whatsapp]").forEach(function (button) {
+  button.addEventListener("click", function () {
+    openWhatsApp(
+      `Hi ${STORE.name}, I would like to know more about your products and services.`
+    );
+  });
+});
+
+/* ---------- FOOTER YEAR ---------- */
+
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
+/* ---------- INITIALIZE ---------- */
+
+renderProducts();
+
+console.log(
+  `${STORE.name} store interface loaded. ` +
+  "Supplier API and automated payment are not connected."
+);
