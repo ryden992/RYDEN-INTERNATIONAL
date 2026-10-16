@@ -3,126 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b12">
+  <meta name="theme-color" content="#050a13">
   <title>RYDEN INTERNATIONAL | Digital Store</title>
-  <meta name="description" content="Explore gaming top-ups, memberships, gift cards and digital products at RYDEN INTERNATIONAL.">
-  <link rel="stylesheet" href="./style.css?v=2">
+  <meta name="description" content="Explore gaming top-ups, memberships, digital subscriptions and gift cards at RYDEN INTERNATIONAL.">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="announcement">WELCOME TO RYDEN INTERNATIONAL · YOUR DIGITAL STORE</div>
+  <header class="top-header">
+    <a class="brand" href="#home">
+      <img src="images/ryden-logo.png" alt="RYDEN logo">
+      <span>
+        <b>RYDEN</b>
+        <small>INTERNATIONAL</small>
+        <em>DIGITAL STORE</em>
+      </span>
+    </a>
 
-<header class="header">
-  <a href="#" class="brand">
-    <img
-      src="images/ryden-logo.png"
-      alt="RYDEN INTERNATIONAL Logo"
-      onerror="this.style.display='none'"
-    >
-    <span>
-      <b>RYDEN</b>
-      <small>INTERNATIONAL</small>
+    <div class="header-actions">
+      <button id="loginButton" class="login-button">♙ <span>Login</span></button>
+      <button id="searchToggle" class="icon-button" aria-label="Search">⌕</button>
+    </div>
+  </header>
+
+  <div class="search-wrap" id="searchWrap" hidden>
+    <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
+    <button id="clearSearch" type="button">✕</button>
+  </div>
+
+  <a class="whatsapp-banner" href="https://whatsapp.com/" target="_blank" rel="noopener noreferrer">
+    <span class="whatsapp-icon">◉</span>
+    <span class="marquee-window">
+      <span class="marquee-text">Join Our WhatsApp Channel&nbsp; • &nbsp;Get latest updates, offers & events!&nbsp; • &nbsp;</span>
     </span>
+    <span class="banner-arrow">›</span>
   </a>
 
-  <button
-    class="menu-toggle"
-    id="menuToggle"
-    type="button"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-  >☰</button>
-
-  <nav id="mainNav">
-    <a href="#store">Store</a>
-    <a href="#games">Games</a>
-    <a href="#community">Community</a>
-    <a href="https://instagram.com/rydenglobal"
-       target="_blank"
-       rel="noopener noreferrer">Instagram</a>
-  </nav>
-
-  <a
-    class="contact-btn"
-    href="https://wa.me/919233657553"
-    target="_blank"
-    rel="noopener noreferrer"
-  >Contact Us</a>
-</header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">YOUR DIGITAL DESTINATION</span>
-        <h1>LEVEL UP YOUR<br><span>DIGITAL WORLD.</span></h1>
-        <p>Gaming top-ups, memberships and digital products — explore the catalog and select what you need.</p>
-        <a class="primary-btn" href="#store">Explore Products <span>→</span></a>
-        <div class="hero-notes">
-          <span>✓ Product catalog</span>
-          <span>✓ Order assistance</span>
-        </div>
+  <main id="home">
+    <section class="hero-slider" aria-label="Promotional banners">
+      <div class="slides" id="slides">
+        <a class="slide active" href="#store">
+          <img src="images/banner-starlight.jpg" alt="Mobile Legends Starlight promotion"
+               onerror="this.style.display='none';this.parentElement.classList.add('banner-fallback')">
+          <div class="banner-placeholder">
+            <span>MOBILE LEGENDS</span>
+            <strong>STARLIGHT MEMBERSHIP</strong>
+            <small>SHINE BRIGHTER IN THE LAND OF DAWN</small>
+          </div>
+        </a>
+        <a class="slide" href="#store">
+          <img src="images/banner-aspirants.jpg" alt="Aspirants recharge event"
+               onerror="this.style.display='none';this.parentElement.classList.add('banner-fallback')">
+          <div class="banner-placeholder purple">
+            <span>MOBILE LEGENDS</span>
+            <strong>ASPIRANTS 5.0</strong>
+            <small>RECHARGE EVENT</small>
+          </div>
+        </a>
       </div>
-      <div class="hero-art">
-        <img src="images/hero-banner.jpg" alt="RYDEN gaming banner"
-             onerror="this.style.display='none';this.parentElement.classList.add('no-image')">
-        <div class="hero-fallback">
-          <span>RYDEN</span>
-          <b>GAME. CONNECT. LEVEL UP.</b>
-        </div>
+      <div class="slider-dots" id="sliderDots">
+        <button class="dot active" data-slide="0" aria-label="Show banner 1"></button>
+        <button class="dot" data-slide="1" aria-label="Show banner 2"></button>
       </div>
+    </section>
+
+    <section class="quick-actions" aria-label="Quick actions">
+      <button class="quick-card" data-tool="Region Checker">
+        <span class="quick-icon pin">●</span>
+        <span>Region Checker</span>
+      </button>
+      <button class="quick-card" data-tool="Purchase">
+        <span class="quick-icon purchase-icon">▤</span>
+        <span>Purchase</span>
+      </button>
+      <button class="quick-card" data-tool="Leaderboard">
+        <span class="quick-icon trophy">♜</span>
+        <span>Leaderboard</span>
+      </button>
     </section>
 
     <section class="store-section" id="store">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">EXPLORE OUR CATALOG</span>
-          <h2>Discover <span>Products</span></h2>
-          <p>Choose a product to view its available packs.</p>
-        </div>
-        <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
-      </div>
-
       <div class="category-tabs" id="categoryTabs">
-        <button class="category-btn active" data-category="all">All Products</button>
-        <button class="category-btn" data-category="mlbb">Mobile Legends</button>
-        <button class="category-btn" data-category="pubg">PUBG / BGMI</button>
-        <button class="category-btn" data-category="subscriptions">Subscriptions</button>
-        <button class="category-btn" data-category="giftcards">Gift Cards</button>
-        <button class="category-btn" data-category="other">Other Games</button>
+        <button class="category-tab active" data-category="all">ALL</button>
+        <button class="category-tab" data-category="mlbb">MLBB</button>
+        <button class="category-tab" data-category="pubg">PUBG/BGMI</button>
+        <button class="category-tab" data-category="games">GAMES</button>
+        <button class="category-tab" data-category="ott">OTT</button>
+        <button class="category-tab" data-category="giftcards">GIFT CARDS</button>
       </div>
 
-      <div class="product-grid" id="productGrid"></div>
-      <p class="empty-state" id="emptyState" hidden>No matching products found.</p>
-    </section>
-
-    <section class="community" id="community">
-      <div>
-        <span class="eyebrow">STAY CONNECTED</span>
-        <h2>Join the RYDEN <span>Community</span></h2>
-        <p>Follow our updates and contact us for product availability and order assistance.</p>
-      </div>
-      <a class="primary-btn" href="https://instagram.com/rydenglobal" target="_blank" rel="noopener">Follow @rydenglobal ↗</a>
+      <div id="catalogSections"></div>
+      <p class="empty-state" id="emptyState" hidden>No products found.</p>
     </section>
   </main>
 
-  <footer class="footer">
-    <a href="#" class="footer-brand">RYDEN INTERNATIONAL</a>
-    <p>Digital Store · Product availability and final prices are confirmed before ordering.</p>
-    <small>© <span id="year"></span> RYDEN INTERNATIONAL. All rights reserved.</small>
-  </footer>
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button data-bottom="Support">
+      <span class="bottom-icon">♧</span><small>Support</small>
+    </button>
+    <button data-bottom="Account">
+      <span class="bottom-icon">♙</span><small>Account</small>
+    </button>
+    <button class="home-nav active" data-bottom="Home">
+      <span class="bottom-icon">⌂</span><small>Home</small>
+    </button>
+    <button data-bottom="Reports">
+      <span class="bottom-icon">▤</span><small>Reports</small>
+    </button>
+    <button data-bottom="More">
+      <span class="bottom-icon">•••</span><small>More</small>
+    </button>
+  </nav>
 
-  <a class="whatsapp-float" href="https://wa.me/919233657553" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">W</a>
-
-  <dialog id="productDialog" class="product-dialog">
-    <div class="dialog-header">
+  <dialog id="productDialog" class="modal">
+    <div class="modal-header">
       <div>
-        <span class="eyebrow">PRODUCT DETAILS</span>
+        <small class="modal-eyebrow">RYDEN INTERNATIONAL</small>
         <h2 id="dialogTitle">Product</h2>
       </div>
-      <button id="closeDialog" class="close-dialog" aria-label="Close">✕</button>
+      <button class="modal-close" id="closeProductDialog" aria-label="Close">✕</button>
     </div>
-    <div id="dialogBody"></div>
+    <div id="dialogContent"></div>
   </dialog>
 
-  <script src="script.js"></script>
+  <dialog id="infoDialog" class="modal">
+    <div class="modal-header">
+      <h2 id="infoTitle">Information</h2>
+      <button class="modal-close" id="closeInfoDialog" aria-label="Close">✕</button>
+    </div>
+    <div id="infoContent"></div>
+  </dialog>
+
+  <footer class="site-footer">
+    <strong>RYDEN INTERNATIONAL</strong>
+    <p>Digital Store · Availability and final prices are confirmed before ordering.</p>
+    <small>© <span id="year"></span> RYDEN INTERNATIONAL</small>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
 </html>
