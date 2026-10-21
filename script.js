@@ -96,7 +96,7 @@ const products = [
     id: "mlbb-india",
     name: "MLBB India",
     category: "mlbb",
-    image: "images/mlbb-india.jpg",
+    image: "images/mlbb-india.jpeg",
     packs: [{ name: "India Server Pack", price: null }]
   },
   {
