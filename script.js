@@ -69,7 +69,7 @@ const products = [
     id: "aspirants",
     name: "Aspirants 5.0 Recharge Event",
     category: "mlbb",
-    image: "images/aspirants-event.jpg",
+    image: "images/aspirants-event.png",
     packs: [
       { name: "Event Pack", price: null },
       { name: "Special Event Pack", price: null }
@@ -103,49 +103,49 @@ const products = [
     id: "mlbb-ph",
     name: "MLBB Philippines",
     category: "mlbb",
-    image: "images/mlbb-philippines.jpg",
+    image: "images/mlbb-philippines.png",
     packs: [{ name: "Philippines Server Pack", price: null }]
   },
   {
     id: "mlbb-sg",
     name: "MLBB Singapore",
     category: "mlbb",
-    image: "images/mlbb-singapore.jpg",
+    image: "images/mlbb-singapore.png",
     packs: [{ name: "Singapore Server Pack", price: null }]
   },
   {
     id: "mlbb-id",
     name: "MLBB Indonesia",
     category: "mlbb",
-    image: "images/mlbb-indonesia.jpg",
+    image: "images/mlbb-indonesia.png",
     packs: [{ name: "Indonesia Server Pack", price: null }]
   },
   {
     id: "mlbb-my",
     name: "MLBB Malaysia",
     category: "mlbb",
-    image: "images/mlbb-malaysia.jpg",
+    image: "images/mlbb-malaysia.png",
     packs: [{ name: "Malaysia Server Pack", price: null }]
   },
   {
     id: "mlbb-ru",
     name: "MLBB Russia",
     category: "mlbb",
-    image: "images/mlbb-russia.jpg",
+    image: "images/mlbb-russia.png",
     packs: [{ name: "Russia Server Pack", price: null }]
   },
   {
     id: "mlbb-tr",
     name: "MLBB Turkey",
     category: "mlbb",
-    image: "images/mlbb-turkey.jpg",
+    image: "images/mlbb-turkey.png",
     packs: [{ name: "Turkey Server Pack", price: null }]
   },
   {
     id: "mlbb-br",
     name: "MLBB Brazil",
     category: "mlbb",
-    image: "images/mlbb-brazil.jpg",
+    image: "images/mlbb-brazil.png",
     packs: [{ name: "Brazil Server Pack", price: null }]
   },
   {
