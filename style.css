@@ -17,12 +17,51 @@ html {
   scroll-padding-top: 80px;
 }
 
+html {
+  background: #050a13;
+}
+
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   padding: 0 0 100px;
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* RYDEN premium blue-cyan flowing background ribbons */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -24%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 13% at 18% 28%, #087bff42 0%, transparent 72%),
+    radial-gradient(ellipse 38% 12% at 82% 62%, #36c5ff30 0%, transparent 74%),
+    radial-gradient(ellipse 28% 10% at 52% 88%, #087bff26 0%, transparent 75%),
+    linear-gradient(122deg, transparent 35%, #087bff0a 43%, #36c5ff22 48%, #087bff10 52%, transparent 61%);
+  filter: blur(24px);
+  opacity: .78;
+  transform: translate3d(-2%, -1%, 0) rotate(-5deg);
+  animation: rydenRibbonFlow 22s ease-in-out infinite alternate;
+}
+
+@keyframes rydenRibbonFlow {
+  0% {
+    transform: translate3d(-2%, -1%, 0) rotate(-5deg) scale(1);
+    background-position: 0% 0%, 100% 100%, 50% 100%, 0% 0%;
+  }
+  50% {
+    transform: translate3d(2%, 1.5%, 0) rotate(2deg) scale(1.04);
+    background-position: 18% 30%, 82% 55%, 42% 72%, 50% 50%;
+  }
+  100% {
+    transform: translate3d(-1%, 2%, 0) rotate(-2deg) scale(1.02);
+    background-position: 35% 65%, 60% 20%, 60% 35%, 100% 100%;
+  }
 }
 
 button, input, select { font: inherit; }
