@@ -903,7 +903,7 @@ function renderLoginForm(mode = "login") {
       <p class="info-message">
         ${isRegister ? "Already have an account?" : "New to RYDEN INTERNATIONAL?"}
         <button class="text-action" id="switchAuthMode" type="button">
-          ${isRegister ? "Login" : "Register / Sign Up"}
+          ${isRegister ? "Login" : "Register"}
         </button>
       </p>
 
