@@ -58,7 +58,7 @@ const products = [
     id: "weekly-pass",
     name: "Weekly Diamond Pass",
     category: "mlbb",
-    image: "images/weekly-pass.jpg",
+    image: "images/weekly-pass.jpg.jpg",
     packs: [
       { name: "Weekly Diamond Pass", price: null },
       { name: "Weekly Pass × 2", price: null },
