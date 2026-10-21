@@ -230,7 +230,7 @@ const products = [
     id: "genshin",
     name: "Genshin Impact",
     category: "games",
-    image: "images/genshin-impact.jpg",
+    image: "images/genshin-impact.webp",
     packs: [{ name: "Genshin Impact Pack", price: null }]
   },
   {
@@ -323,7 +323,7 @@ const products = [
     id: "fancode",
     name: "FanCode",
     category: "ott",
-    image: "images/fancode.jpg",
+    image: "images/fancode.png",
     packs: [{ name: "FanCode Subscription", price: null }]
   },
   {
