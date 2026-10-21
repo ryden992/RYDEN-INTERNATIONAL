@@ -349,8 +349,6 @@ a { color: inherit; text-decoration: none; }
 
 .catalog-section {
   margin-bottom: 28px;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 420px;
 }
 
 .catalog-heading {
@@ -391,6 +389,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+  contain: layout paint;
 }
 
 .product-card:active {
