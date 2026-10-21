@@ -448,6 +448,7 @@ function renderProductCard(product) {
         src="${escapeHTML(product.image)}"
         alt="${escapeHTML(product.name)}"
         loading="lazy"
+        decoding="async"
         onerror="this.outerHTML='<div class=&quot;product-placeholder&quot;>R</div>'">
 
       <span class="product-name">${escapeHTML(product.name)}</span>
@@ -472,7 +473,7 @@ function renderCatalog() {
     return categoryMatches && searchMatches;
   });
 
-  catalogSections.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
   const categoriesToShow = activeCategory === "all"
     ? categories
@@ -505,9 +506,11 @@ function renderCatalog() {
       </div>
     `;
 
-    catalogSections.appendChild(section);
+    fragment.appendChild(section);
   });
 
+  // Replace the catalog once per update instead of mutating the live DOM per category.
+  catalogSections.replaceChildren(fragment);
   emptyState.hidden = filteredProducts.length > 0;
 }
 
