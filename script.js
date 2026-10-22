@@ -1108,6 +1108,52 @@ function startSlider() {
   slideTimer = setInterval(() => showSlide(activeSlide + 1), 5000);
 }
 
+const sliderTrack = document.getElementById("slides");
+let swipeStartX = 0;
+let swipeStartY = 0;
+let swipeInProgress = false;
+let suppressSlideClick = false;
+
+if (sliderTrack) {
+  sliderTrack.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    swipeStartX = event.clientX;
+    swipeStartY = event.clientY;
+    swipeInProgress = true;
+    suppressSlideClick = false;
+  });
+
+  sliderTrack.addEventListener("pointerup", event => {
+    if (!swipeInProgress) return;
+    swipeInProgress = false;
+
+    const deltaX = event.clientX - swipeStartX;
+    const deltaY = event.clientY - swipeStartY;
+
+    // Only treat a clear horizontal gesture as a banner swipe.
+    if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) {
+      return;
+    }
+
+    suppressSlideClick = true;
+    showSlide(activeSlide + (deltaX < 0 ? 1 : -1));
+    startSlider();
+  });
+
+  sliderTrack.addEventListener("pointercancel", () => {
+    swipeInProgress = false;
+  });
+
+  // Prevent opening the banner link when the user's gesture was a swipe.
+  sliderTrack.addEventListener("click", event => {
+    if (!suppressSlideClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressSlideClick = false;
+  }, true);
+}
+
 document.querySelectorAll(".dot").forEach(dot => {
   dot.addEventListener("click", () => {
     showSlide(Number(dot.dataset.slide));
