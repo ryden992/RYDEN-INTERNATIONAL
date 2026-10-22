@@ -25,8 +25,8 @@
 
 
 
-// SCROLL-DIRECTION PRODUCT REVEAL: animate catalog items into view.
-(function initScrollDirectionProductReveal() {
+// LIGHTWEIGHT SCROLL-DIRECTION REVEAL: animate category sections only.
+(function initScrollDirectionReveal() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!("IntersectionObserver" in window)) return;
 
@@ -46,32 +46,31 @@
     });
   }, { passive: true });
 
-  const animationClasses = ["scroll-reveal-from-bottom", "scroll-reveal-from-top"];
+  const classes = ["scroll-reveal-from-bottom", "scroll-reveal-from-top"];
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const el = entry.target;
       if (entry.isIntersecting) {
-        el.classList.remove(...animationClasses);
-        // Force a style boundary so the animation reliably restarts on each entry.
+        el.classList.remove(...classes);
         void el.offsetWidth;
-        el.classList.add(direction === "down" ? animationClasses[0] : animationClasses[1]);
+        el.classList.add(direction === "down" ? classes[0] : classes[1]);
       } else {
-        el.classList.remove(...animationClasses);
+        el.classList.remove(...classes);
       }
     });
-  }, { root: null, rootMargin: "0px 0px -3% 0px", threshold: 0.01 });
+  }, { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0.02 });
 
-  function observeItems() {
-    document.querySelectorAll(".category-tabs, .catalog-section, .product-card").forEach(el => {
+  function observeSections() {
+    document.querySelectorAll(".category-tabs, .catalog-section").forEach(el => {
       if (el.dataset.scrollRevealObserved === "true") return;
       el.dataset.scrollRevealObserved = "true";
       observer.observe(el);
     });
   }
 
-  observeItems();
+  observeSections();
   const catalog = document.getElementById("catalogSections");
-  if (catalog) new MutationObserver(observeItems).observe(catalog, { childList: true, subtree: true });
+  if (catalog) new MutationObserver(observeSections).observe(catalog, { childList: true });
 })();
 
 
