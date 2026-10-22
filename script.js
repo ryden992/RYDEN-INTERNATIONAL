@@ -859,7 +859,7 @@ function renderLoginForm(mode = "login") {
   infoContent.innerHTML = `
     <div class="auth-panel">
       <section class="auth-brand-intro" aria-label="RYDEN INTERNATIONAL digital gaming services">
-        <span class="auth-brand-mark" aria-hidden="true">R</span>
+        <img class="auth-brand-logo" src="./store-logo.jpg" alt="RYDEN INTERNATIONAL logo" width="44" height="44" decoding="async">
         <p class="auth-brand-kicker">WELCOME TO</p>
         <h3 class="auth-brand-name">RYDEN <span>INTERNATIONAL</span></h3>
         <p class="auth-brand-tagline">MLBB Accounts &amp; Diamond Gaming Services</p>
