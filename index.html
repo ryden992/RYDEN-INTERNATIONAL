@@ -119,17 +119,33 @@
     <section class="quick-actions" aria-label="Quick actions">
 
       <button class="quick-card" data-tool="Region Checker" type="button">
-        <span class="quick-icon pin">●</span>
+        <span class="quick-icon pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="2.5"></circle>
+          </svg>
+        </span>
         <span>Region Checker</span>
       </button>
 
       <button class="quick-card" data-tool="Purchase" type="button">
-        <span class="quick-icon purchase-icon">▤</span>
+        <span class="quick-icon purchase-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <rect x="3" y="6" width="18" height="15" rx="2"></rect>
+            <path d="M3 10h18M16 15h2"></path>
+            <path d="M6 6V4.5A1.5 1.5 0 0 1 7.5 3H19"></path>
+          </svg>
+        </span>
         <span>Purchase</span>
       </button>
 
       <button class="quick-card" data-tool="Leaderboard" type="button">
-        <span class="quick-icon trophy">♜</span>
+        <span class="quick-icon trophy" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"></path>
+            <path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"></path>
+          </svg>
+        </span>
         <span>Leaderboard</span>
       </button>
 
