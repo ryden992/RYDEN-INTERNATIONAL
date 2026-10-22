@@ -21,46 +21,7 @@
 
 
 
-// BOTTOM NAVIGATION: hide while scrolling down, reveal while scrolling up.
-// Keeps the existing Support / Account / Home / Reports / More navigation intact.
-(function initBottomNavScrollMotion() {
-  const nav = document.querySelector(".bottom-nav");
-  if (!nav) return;
 
-  let lastY = Math.max(0, window.scrollY || 0);
-  let ticking = false;
-  const movementThreshold = 8;
-
-  function updateNavVisibility() {
-    const currentY = Math.max(0, window.scrollY || 0);
-    const delta = currentY - lastY;
-
-    if (currentY <= 24) {
-      nav.classList.remove("is-scroll-hidden");
-    } else if (delta > movementThreshold) {
-      nav.classList.add("is-scroll-hidden");
-    } else if (delta < -movementThreshold) {
-      nav.classList.remove("is-scroll-hidden");
-    }
-
-    if (Math.abs(delta) > movementThreshold || currentY <= 24) {
-      lastY = currentY;
-    }
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      ticking = true;
-      window.requestAnimationFrame(updateNavVisibility);
-    }
-  }, { passive: true });
-
-  window.addEventListener("pageshow", () => {
-    lastY = Math.max(0, window.scrollY || 0);
-    nav.classList.remove("is-scroll-hidden");
-  });
-})();
 
 
 
