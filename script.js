@@ -1062,7 +1062,8 @@ catalogSections.addEventListener("click", event => {
   const card = event.target.closest("[data-product-id]");
 
   if (card) {
-    openProduct(card.dataset.productId);
+    // Open a dedicated recharge page instead of a popup.
+    window.location.href = "./recharge.html?game=" + encodeURIComponent(card.dataset.productId);
     return;
   }
 
@@ -1082,7 +1083,7 @@ catalogSections.addEventListener("keydown", event => {
   if (!card) return;
 
   event.preventDefault();
-  openProduct(card.dataset.productId);
+  window.location.href = "./recharge.html?game=" + encodeURIComponent(card.dataset.productId);
 });
 
 // CATEGORY FILTERS
