@@ -789,6 +789,95 @@ a { color: inherit; text-decoration: none; }
   font-size: 20px;
 }
 
+/* Lightweight brand introduction for the login/register panel */
+.auth-brand-intro {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 20px;
+  padding: 22px 16px 19px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(18, 39, 64, .72), rgba(5, 10, 19, .96));
+  border: 1px solid #1d4264;
+  border-radius: 14px;
+  contain: paint;
+}
+
+.auth-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 10px;
+  color: #eaf6ff;
+  background: #071421;
+  border: 1px solid #168bff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(22, 139, 255, .08);
+  font-size: 21px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.auth-brand-kicker {
+  margin: 0 0 5px;
+  color: #93b9dc;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.auth-brand-name {
+  margin: 0;
+  color: #f5f9ff;
+  font-size: clamp(20px, 5.5vw, 27px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 1.1px;
+}
+
+.auth-brand-name span {
+  display: block;
+  margin-top: 4px;
+  color: #38baff;
+  font-size: .78em;
+  letter-spacing: 2.7px;
+}
+
+.auth-brand-tagline {
+  margin: 13px 0 0;
+  color: #e3efff;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.auth-brand-categories {
+  margin: 8px 0 0;
+  color: #91a9c4;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.auth-brand-categories span {
+  color: #38baff;
+  padding: 0 2px;
+}
+
+.auth-welcome-message {
+  font-size: 12px;
+}
+
+@media (max-width: 360px) {
+  .auth-brand-intro {
+    padding: 18px 10px 15px;
+  }
+
+  .auth-brand-categories {
+    font-size: 9px;
+  }
+}
+
 /* AUTHENTICATION UI — premium black, blue and white styling */
 
 .auth-panel {
