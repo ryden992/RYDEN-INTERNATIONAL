@@ -184,6 +184,7 @@ a { color: inherit; text-decoration: none; }
 .hero-slider { margin: 0 12px 19px; }
 
 .slides {
+  touch-action: pan-y;
   position: relative;
   width: 100%;
   aspect-ratio: 1.9 / 1;
