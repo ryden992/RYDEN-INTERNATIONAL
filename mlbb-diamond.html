@@ -11,9 +11,12 @@
 .mlbb-hub-page{max-width:1100px;margin:0 auto;padding:18px 16px 110px;color:#f4f8ff}
 .mlbb-hub-back{display:inline-flex;align-items:center;gap:8px;color:#b8d8ff;text-decoration:none;margin:8px 0 16px;font-weight:700}
 .mlbb-hub-banner{position:relative;isolation:isolate;overflow:hidden;min-height:210px;border:1px solid #258bff;border-radius:18px;background:radial-gradient(ellipse at 80% 20%,#0756a9 0,transparent 45%),linear-gradient(130deg,#06101f,#0a2440 58%,#03070e);display:flex;align-items:end;padding:22px;margin-bottom:20px}
-.mlbb-hub-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.mlbb-hub-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,17,.92),rgba(3,8,17,.25));z-index:-1}
-.mlbb-hub-banner-copy{max-width:700px}
+.mlbb-hub-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.mlbb-hub-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,17,.78),rgba(3,8,17,.2));z-index:1;pointer-events:none}
+.mlbb-hub-banner-copy{position:relative;z-index:2;max-width:700px}
+.mlbb-hub-sound-toggle{position:absolute;z-index:3;right:12px;bottom:12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 13px;border:1px solid #8acbff;border-radius:999px;background:rgba(3,12,24,.88);color:#f4f8ff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 4px 18px #0005;touch-action:manipulation}
+.mlbb-hub-sound-toggle:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.mlbb-hub-sound-toggle[hidden]{display:none}
 .mlbb-hub-kicker{font-size:10px;letter-spacing:.18em;color:#72d2ff;font-weight:900}
 .mlbb-hub-banner h1{font-size:clamp(24px,5vw,42px);line-height:1.15;margin:8px 0}
 .mlbb-hub-banner p{color:#c8d9ed;margin:0;max-width:540px}
@@ -38,13 +41,14 @@
 <main class="mlbb-hub-page">
 <a class="mlbb-hub-back" href="./index.html#store">← Back to all games</a>
 <section class="mlbb-hub-banner" aria-label="MLBB Diamond promotional video banner">
-<video id="mlbbHubVideo" autoplay muted loop playsinline preload="none" hidden aria-label="MLBB 3D promotional video"></video>
-<span class="mlbb-hub-video-label">3D VIDEO BANNER SLOT</span>
+<video id="mlbbHubVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" hidden aria-label="MLBB 3D promotional video"></video>
+<span class="mlbb-hub-video-label">3D VIDEO BANNER</span>
 <div class="mlbb-hub-banner-copy">
 <div class="mlbb-hub-kicker">RYDEN INTERNATIONAL • MLBB</div>
 <h1>MLBB DIAMOND PLUS ACCOUNT</h1>
-<p>Select one of the seven MLBB diamond and account service options below.</p>
+<p>Select one of the MLBB diamond and account service options below.</p>
 </div>
+<button class="mlbb-hub-sound-toggle" id="mlbbHubSoundToggle" type="button" aria-label="Turn banner sound on" aria-pressed="false" hidden>🔊 Turn Sound On</button>
 </section>
 <h2 class="mlbb-hub-section-title">Choose Your Option</h2>
 <section class="mlbb-hub-grid" aria-label="MLBB Diamond options">
@@ -57,14 +61,50 @@
 <a class="mlbb-hub-option" href="./recharge.html?game=mlbb-india"><img class="mlbb-hub-option-image" src="./images/mlbb-india.jpeg" alt="MLBB India" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>MLBB India</strong><span>VIEW PACKS <b>→</b></span></div></a>
 <a class="mlbb-hub-option" href="./recharge.html?game=mlbb-accounts"><img class="mlbb-hub-option-image mlbb-account-option-image" src="./images/mlbb-accounts.jpg" alt="Available MLBB Accounts" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>Available MLBB Accounts</strong><span>VIEW ACCOUNTS <b>→</b></span></div></a>
 </section>
-<p class="mlbb-hub-note">The 3D banner area is ready for your video. The video file has not been added yet, so this space will show the designed background until you provide the video.</p>
+<p class="mlbb-hub-note">Video sound starts muted where required by your browser. Tap “Turn Sound On” to hear it, or tap “Mute Sound” to turn it off.</p>
 </main>
 <script>
 "use strict";
-const video=document.getElementById("mlbbHubVideo");
-video.src="./videos/mlbb-diamond-banner.mp4";
-video.addEventListener("error",()=>{video.hidden=true;});
-video.addEventListener("loadeddata",()=>{video.hidden=false;});
+const video = document.getElementById("mlbbHubVideo");
+const soundToggle = document.getElementById("mlbbHubSoundToggle");
+video.src = "./videos/mlbb-diamond-banner.mp4";
+
+function updateSoundButton() {
+  const soundIsOn = !video.muted;
+  soundToggle.textContent = soundIsOn ? "🔇 Mute Sound" : "🔊 Turn Sound On";
+  soundToggle.setAttribute("aria-label", soundIsOn ? "Mute banner sound" : "Turn banner sound on");
+  soundToggle.setAttribute("aria-pressed", String(soundIsOn));
+}
+
+video.addEventListener("error", () => {
+  video.hidden = true;
+  soundToggle.hidden = true;
+});
+video.addEventListener("loadeddata", () => {
+  video.hidden = false;
+  soundToggle.hidden = false;
+  updateSoundButton();
+  const playAttempt = video.play();
+  if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+});
+
+soundToggle.addEventListener("click", async () => {
+  if (video.muted) {
+    video.muted = false;
+    video.volume = 1;
+    try {
+      await video.play();
+      updateSoundButton();
+    } catch (error) {
+      video.muted = true;
+      updateSoundButton();
+      soundToggle.textContent = "Tap to Enable Sound";
+    }
+  } else {
+    video.muted = true;
+    updateSoundButton();
+  }
+});
 </script>
 </body>
 </html>
