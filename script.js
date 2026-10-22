@@ -25,54 +25,6 @@
 
 
 
-// LIGHTWEIGHT SCROLL-DIRECTION REVEAL: animate category sections only.
-(function initScrollDirectionReveal() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  if (!("IntersectionObserver" in window)) return;
-
-  let direction = "down";
-  let previousY = Math.max(0, window.scrollY || 0);
-  let scheduled = false;
-
-  window.addEventListener("scroll", () => {
-    if (scheduled) return;
-    scheduled = true;
-    window.requestAnimationFrame(() => {
-      const y = Math.max(0, window.scrollY || 0);
-      if (y > previousY + 2) direction = "down";
-      else if (y < previousY - 2) direction = "up";
-      previousY = y;
-      scheduled = false;
-    });
-  }, { passive: true });
-
-  const classes = ["scroll-reveal-from-bottom", "scroll-reveal-from-top"];
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const el = entry.target;
-      if (entry.isIntersecting) {
-        el.classList.remove(...classes);
-        void el.offsetWidth;
-        el.classList.add(direction === "down" ? classes[0] : classes[1]);
-      } else {
-        el.classList.remove(...classes);
-      }
-    });
-  }, { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0.02 });
-
-  function observeSections() {
-    document.querySelectorAll(".category-tabs, .catalog-section").forEach(el => {
-      if (el.dataset.scrollRevealObserved === "true") return;
-      el.dataset.scrollRevealObserved = "true";
-      observer.observe(el);
-    });
-  }
-
-  observeSections();
-  const catalog = document.getElementById("catalogSections");
-  if (catalog) new MutationObserver(observeSections).observe(catalog, { childList: true });
-})();
-
 
 /*
   RYDEN INTERNATIONAL
