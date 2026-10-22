@@ -66,56 +66,53 @@
 
 // SCROLL-DIRECTION PRODUCT REVEAL: animate catalog items into view.
 (function initScrollDirectionProductReveal() {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
 
-  let scrollDirection = "down";
-  let lastScrollY = Math.max(0, window.scrollY || 0);
-  let scrollTicking = false;
+  let direction = "down";
+  let previousY = Math.max(0, window.scrollY || 0);
+  let scheduled = false;
 
   window.addEventListener("scroll", () => {
-    if (scrollTicking) return;
-    scrollTicking = true;
+    if (scheduled) return;
+    scheduled = true;
     window.requestAnimationFrame(() => {
-      const currentY = Math.max(0, window.scrollY || 0);
-      if (currentY > lastScrollY + 2) scrollDirection = "down";
-      else if (currentY < lastScrollY - 2) scrollDirection = "up";
-      lastScrollY = currentY;
-      scrollTicking = false;
+      const y = Math.max(0, window.scrollY || 0);
+      if (y > previousY + 2) direction = "down";
+      else if (y < previousY - 2) direction = "up";
+      previousY = y;
+      scheduled = false;
     });
   }, { passive: true });
 
+  const animationClasses = ["scroll-reveal-from-bottom", "scroll-reveal-from-top"];
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const element = entry.target;
+      const el = entry.target;
       if (entry.isIntersecting) {
-        element.style.setProperty("--reveal-offset", scrollDirection === "down" ? "22px" : "-22px");
-        element.classList.add("scroll-reveal-pending");
-        requestAnimationFrame(() => {
-          element.classList.remove("scroll-reveal-pending");
-          element.classList.add("scroll-reveal-visible");
-        });
+        el.classList.remove(...animationClasses);
+        // Force a style boundary so the animation reliably restarts on each entry.
+        void el.offsetWidth;
+        el.classList.add(direction === "down" ? animationClasses[0] : animationClasses[1]);
       } else {
-        element.classList.remove("scroll-reveal-visible", "scroll-reveal-pending");
-        element.style.setProperty("--reveal-offset", scrollDirection === "down" ? "22px" : "-22px");
+        el.classList.remove(...animationClasses);
       }
     });
-  }, { root: null, rootMargin: "0px 0px -4% 0px", threshold: 0.04 });
+  }, { root: null, rootMargin: "0px 0px -3% 0px", threshold: 0.01 });
 
-  function observeCatalogItems() {
-    document.querySelectorAll(".category-tabs, .catalog-section, .product-card").forEach(element => {
-      if (element.dataset.scrollRevealObserved === "true") return;
-      element.dataset.scrollRevealObserved = "true";
-      observer.observe(element);
+  function observeItems() {
+    document.querySelectorAll(".category-tabs, .catalog-section, .product-card").forEach(el => {
+      if (el.dataset.scrollRevealObserved === "true") return;
+      el.dataset.scrollRevealObserved = "true";
+      observer.observe(el);
     });
   }
 
-  observeCatalogItems();
+  observeItems();
   const catalog = document.getElementById("catalogSections");
-  if (catalog) {
-    new MutationObserver(observeCatalogItems).observe(catalog, { childList: true, subtree: true });
-  }
+  if (catalog) new MutationObserver(observeItems).observe(catalog, { childList: true, subtree: true });
 })();
+
 
 /*
   RYDEN INTERNATIONAL
