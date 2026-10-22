@@ -62,6 +62,61 @@
   });
 })();
 
+
+
+// SCROLL-DIRECTION PRODUCT REVEAL: animate catalog items into view.
+(function initScrollDirectionProductReveal() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  let scrollDirection = "down";
+  let lastScrollY = Math.max(0, window.scrollY || 0);
+  let scrollTicking = false;
+
+  window.addEventListener("scroll", () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      const currentY = Math.max(0, window.scrollY || 0);
+      if (currentY > lastScrollY + 2) scrollDirection = "down";
+      else if (currentY < lastScrollY - 2) scrollDirection = "up";
+      lastScrollY = currentY;
+      scrollTicking = false;
+    });
+  }, { passive: true });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const element = entry.target;
+      if (entry.isIntersecting) {
+        element.style.setProperty("--reveal-offset", scrollDirection === "down" ? "22px" : "-22px");
+        element.classList.add("scroll-reveal-pending");
+        requestAnimationFrame(() => {
+          element.classList.remove("scroll-reveal-pending");
+          element.classList.add("scroll-reveal-visible");
+        });
+      } else {
+        element.classList.remove("scroll-reveal-visible", "scroll-reveal-pending");
+        element.style.setProperty("--reveal-offset", scrollDirection === "down" ? "22px" : "-22px");
+      }
+    });
+  }, { root: null, rootMargin: "0px 0px -4% 0px", threshold: 0.04 });
+
+  function observeCatalogItems() {
+    document.querySelectorAll(".category-tabs, .catalog-section, .product-card").forEach(element => {
+      if (element.dataset.scrollRevealObserved === "true") return;
+      element.dataset.scrollRevealObserved = "true";
+      observer.observe(element);
+    });
+  }
+
+  observeCatalogItems();
+  const catalog = document.getElementById("catalogSections");
+  if (catalog) {
+    new MutationObserver(observeCatalogItems).observe(catalog, { childList: true, subtree: true });
+  }
+})();
+
 /*
   RYDEN INTERNATIONAL
   Frontend catalog only.
