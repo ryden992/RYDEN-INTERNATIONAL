@@ -486,12 +486,13 @@ function renderCatalog() {
   const query = productSearch.value.trim().toLowerCase();
   const diamondHubIds = new Set([
     "mlbb-big", "mlbb-small", "weekly-pass", "aspirants",
-    "double-diamonds", "starlight", "mlbb-india"
+    "double-diamonds", "starlight", "mlbb-india", "mlbb-accounts"
   ]);
   const diamondHubProducts = products.filter(product => diamondHubIds.has(product.id));
   const hubSearchMatches =
     !query ||
     "mlbb diamond plus account".includes(query) ||
+    "available mlbb accounts".includes(query) ||
     diamondHubProducts.some(product =>
       product.name.toLowerCase().includes(query) ||
       product.packs.some(pack => pack.name.toLowerCase().includes(query))
