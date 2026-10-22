@@ -871,6 +871,162 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+/* Lightweight cinematic opening: CSS-only, no heavy background video */
+.brand-intro {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 24px;
+  color: #f5f9ff;
+  background: #050a13;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .55s ease, visibility .55s ease;
+  isolation: isolate;
+}
+
+.brand-intro.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 460px);
+  text-align: center;
+  animation: intro-content-in .75s ease-out both;
+}
+
+.intro-logo {
+  display: block;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+  border-radius: 50%;
+  animation: intro-logo-in .8s ease-out both;
+}
+
+.intro-kicker {
+  margin: 0 0 9px;
+  color: #8fb9dc;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.intro-brand-name {
+  margin: 0;
+  color: #f5f9ff;
+  font-size: clamp(29px, 8vw, 48px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 1.5px;
+}
+
+.intro-brand-name span {
+  display: block;
+  margin-top: 7px;
+  color: #38baff;
+  font-size: .68em;
+  letter-spacing: clamp(3px, 1.3vw, 7px);
+}
+
+.intro-tagline {
+  margin: 22px auto 0;
+  color: #d9e8fa;
+  font-size: clamp(9px, 2.5vw, 11px);
+  font-weight: 800;
+  line-height: 1.9;
+  letter-spacing: 1px;
+}
+
+.intro-tagline i {
+  color: #38baff;
+  font-style: normal;
+  padding: 0 3px;
+}
+
+.intro-glow {
+  position: absolute;
+  z-index: 1;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: #087bff;
+  opacity: .12;
+  filter: blur(65px);
+  pointer-events: none;
+  animation: intro-glow-drift 4s ease-in-out infinite alternate;
+}
+
+.intro-glow-one {
+  top: 12%;
+  left: -110px;
+}
+
+.intro-glow-two {
+  right: -110px;
+  bottom: 8%;
+  background: #38baff;
+  animation-delay: -2s;
+}
+
+.intro-progress {
+  display: block;
+  width: 104px;
+  height: 2px;
+  margin: 30px auto 0;
+  overflow: hidden;
+  background: #1b2d43;
+  border-radius: 99px;
+}
+
+.intro-progress span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: #38baff;
+  border-radius: inherit;
+  animation: intro-progress-run 2.45s ease-in-out forwards;
+}
+
+@keyframes intro-content-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes intro-logo-in {
+  from { opacity: 0; transform: scale(.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes intro-glow-drift {
+  from { transform: translate3d(0, -8px, 0); }
+  to { transform: translate3d(12px, 10px, 0); }
+}
+
+@keyframes intro-progress-run {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-intro,
+  .intro-content,
+  .intro-logo,
+  .intro-glow,
+  .intro-progress span {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* AUTHENTICATION UI — premium black, blue and white styling */
 
 .auth-panel {
