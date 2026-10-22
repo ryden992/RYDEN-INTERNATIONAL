@@ -227,17 +227,23 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
 }
 
-/* Lightweight 3D eyes video banner: keep the full video visible on black. */
+/* 3D eyes video banner: fill the existing rectangle without black letterboxing. */
+.eyes-video-banner {
+  background: #050a13;
+}
+
 .eyes-video-slide {
-  background: #000;
+  overflow: hidden;
+  background: #050a13;
 }
 
 .eyes-banner-video {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #000;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
 }
 
 .banner-placeholder {
