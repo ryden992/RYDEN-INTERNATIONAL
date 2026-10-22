@@ -1083,7 +1083,7 @@ catalogSections.addEventListener("keydown", event => {
   if (!card) return;
 
   event.preventDefault();
-  openProduct(card.dataset.productId);
+  window.location.href = "./recharge.html?game=" + encodeURIComponent(card.dataset.productId);
 });
 
 // CATEGORY FILTERS
