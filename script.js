@@ -484,8 +484,23 @@ function renderProductCard(product) {
 // CATALOG
 function renderCatalog() {
   const query = productSearch.value.trim().toLowerCase();
+  const diamondHubIds = new Set([
+    "mlbb-big", "mlbb-small", "weekly-pass", "aspirants",
+    "double-diamonds", "starlight", "mlbb-india"
+  ]);
+  const diamondHubProducts = products.filter(product => diamondHubIds.has(product.id));
+  const hubSearchMatches =
+    !query ||
+    "mlbb diamond plus account".includes(query) ||
+    diamondHubProducts.some(product =>
+      product.name.toLowerCase().includes(query) ||
+      product.packs.some(pack => pack.name.toLowerCase().includes(query))
+    );
 
+  // These seven items live inside the MLBB Diamond Plus Account page now.
   const filteredProducts = products.filter(product => {
+    if (diamondHubIds.has(product.id)) return false;
+
     const categoryMatches =
       activeCategory === "all" || product.category === activeCategory;
 
@@ -509,7 +524,12 @@ function renderCatalog() {
       product => product.category === category.id
     );
 
-    if (!categoryProducts.length) return;
+    const showDiamondHub =
+      category.id === "mlbb" &&
+      (activeCategory === "all" || activeCategory === "mlbb") &&
+      hubSearchMatches;
+
+    if (!categoryProducts.length && !showDiamondHub) return;
 
     const expanded = Boolean(showAllByCategory[category.id]);
     const visibleProducts = expanded
@@ -526,9 +546,18 @@ function renderCatalog() {
           ${expanded ? "Show Less ↑" : "View All →"}
         </button>
       </div>
-      <div class="product-grid">
-        ${visibleProducts.map(renderProductCard).join("")}
-      </div>
+      ${showDiamondHub ? `
+        <a class="mlbb-diamond-hub" href="./mlbb-diamond.html" aria-label="Open MLBB Diamond Plus Account">
+          <span class="mlbb-diamond-hub-kicker">DIAMONDS • ACCOUNT SERVICES</span>
+          <strong>MLBB DIAMOND PLUS ACCOUNT</strong>
+          <span class="mlbb-diamond-hub-subtitle">OPEN 7 RECHARGE OPTIONS <span aria-hidden="true">→</span></span>
+        </a>
+      ` : ""}
+      ${categoryProducts.length ? `
+        <div class="product-grid">
+          ${visibleProducts.map(renderProductCard).join("")}
+        </div>
+      ` : ""}
     `;
 
     fragment.appendChild(section);
