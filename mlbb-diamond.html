@@ -20,13 +20,13 @@
 .mlbb-hub-video-label{position:absolute;right:12px;top:12px;border:1px dashed #8acbff99;border-radius:8px;padding:6px 9px;color:#d3eaff;background:#06111bb8;font-size:9px;letter-spacing:.06em}
 .mlbb-hub-section-title{font-size:18px;margin:22px 0 13px}
 .mlbb-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.mlbb-hub-option{min-height:108px;display:flex;flex-direction:column;justify-content:space-between;gap:13px;padding:15px;text-decoration:none;color:#f4f8ff;background:radial-gradient(ellipse at 100% 0,rgba(0,143,255,.17),transparent 55%),#071321;border:1px solid #234d73;border-radius:14px}
+.mlbb-hub-option{min-height:0;display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;text-decoration:none;color:#f4f8ff;background:radial-gradient(ellipse at 100% 0,rgba(0,143,255,.17),transparent 55%),#071321;border:1px solid #234d73;border-radius:14px;transition:border-color .18s,transform .18s}.mlbb-hub-option-image{display:block;width:100%;height:132px;object-fit:cover;object-position:center;background:#06101d;border-bottom:1px solid #234d73}.mlbb-hub-option-copy{min-height:88px;display:flex;flex-direction:column;justify-content:space-between;gap:13px;padding:13px}.mlbb-hub-option:hover{border-color:#29baff;transform:translateY(-2px)}
 .mlbb-hub-option:active{border-color:#168dff;background:#0a2037}
 .mlbb-hub-option strong{font-size:14px;line-height:1.35}
 .mlbb-hub-option span{display:flex;justify-content:space-between;align-items:center;color:#8bd7ff;font-size:10px;font-weight:900;letter-spacing:.06em}
 .mlbb-hub-option span b{font-size:18px}
 .mlbb-hub-note{color:#9bb2cc;font-size:12px;line-height:1.6;margin-top:17px}
-@media(min-width:700px){.mlbb-hub-page{padding-top:26px}.mlbb-hub-banner{min-height:280px;padding:30px}.mlbb-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.mlbb-hub-option{min-height:125px;padding:18px}.mlbb-hub-option strong{font-size:16px}}
+@media(min-width:700px){.mlbb-hub-page{padding-top:26px}.mlbb-hub-banner{min-height:280px;padding:30px}.mlbb-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.mlbb-hub-option{min-height:0;padding:0}.mlbb-hub-option-image{height:150px}.mlbb-hub-option-copy{min-height:95px;padding:16px}.mlbb-hub-option strong{font-size:16px}}
 @media(max-width:360px){.mlbb-hub-page{padding-left:12px;padding-right:12px}.mlbb-hub-grid{grid-template-columns:1fr}.mlbb-hub-banner{padding:17px;min-height:185px}}
 </style>
 </head>
@@ -48,13 +48,13 @@
 </section>
 <h2 class="mlbb-hub-section-title">Choose Your Option</h2>
 <section class="mlbb-hub-grid" aria-label="MLBB Diamond options">
-<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-big"><strong>MLBB Big Pack</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-small"><strong>MLBB Small Pack</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=weekly-pass"><strong>Weekly Diamond Pass</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=aspirants"><strong>Aspirants 5.0 Recharge Event</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=double-diamonds"><strong>Double Diamonds Pack</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=starlight"><strong>Starlight Gifting — 7 Days</strong><span>VIEW PACKS <b>→</b></span></a>
-<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-india"><strong>MLBB India</strong><span>VIEW PACKS <b>→</b></span></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-big"><img class="mlbb-hub-option-image" src="./images/mlbb-big-packs.jpg" alt="MLBB Big Pack" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>MLBB Big Pack</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-small"><img class="mlbb-hub-option-image" src="./images/mlbb-small-pack.jpg" alt="MLBB Small Pack" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>MLBB Small Pack</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=weekly-pass"><img class="mlbb-hub-option-image" src="./images/weekly-pass.jpg" alt="Weekly Diamond Pass" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>Weekly Diamond Pass</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=aspirants"><img class="mlbb-hub-option-image" src="./images/aspirants-event.png" alt="Aspirants 5.0 Recharge Event" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>Aspirants 5.0 Recharge Event</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=double-diamonds"><img class="mlbb-hub-option-image" src="./images/double-diamonds.jpg" alt="Double Diamonds Pack" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>Double Diamonds Pack</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=starlight"><img class="mlbb-hub-option-image" src="./images/starlight.jpg" alt="Starlight Gifting — 7 Days" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>Starlight Gifting — 7 Days</strong><span>VIEW PACKS <b>→</b></span></div></a>
+<a class="mlbb-hub-option" href="./recharge.html?game=mlbb-india"><img class="mlbb-hub-option-image" src="./images/mlbb-india.jpeg" alt="MLBB India" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="mlbb-hub-option-copy"><strong>MLBB India</strong><span>VIEW PACKS <b>→</b></span></div></a>
 </section>
 <p class="mlbb-hub-note">The 3D banner area is ready for your video. The video file has not been added yet, so this space will show the designed background until you provide the video.</p>
 </main>
