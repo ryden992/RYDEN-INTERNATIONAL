@@ -16,7 +16,7 @@
 .recharge-hero-copy{max-width:680px}.recharge-kicker{font-size:11px;letter-spacing:.18em;color:#64c8ff;font-weight:800}.recharge-hero h1{font-size:clamp(25px,5vw,42px);margin:7px 0}.recharge-hero p{color:#c2d5eb;margin:0;max-width:560px}
 .banner-placeholder{position:absolute;right:14px;top:12px;border:1px dashed #8acbff99;border-radius:8px;padding:6px 9px;color:#d3eaff;background:#06111bb8;font-size:10px;letter-spacing:.06em}
 .recharge-panel{background:#071321;border:1px solid #1d3956;border-radius:16px;padding:18px;margin:14px 0}.recharge-panel h2{font-size:18px;margin:0 0 14px}
-.player-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player-form label{display:grid;gap:7px;color:#b8cce3;font-size:13px}.player-form input,.player-form select{width:100%;min-width:0;background:#030a13;color:#f4f8ff;border:1px solid #284765;border-radius:10px;padding:13px;font:inherit;outline:none}.player-form input:focus,.player-form select:focus{border-color:#168dff}.full{grid-column:1/-1}
+.player-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player-form label{display:grid;gap:7px;color:#b8cce3;font-size:13px}.player-form input,.player-form select{width:100%;min-width:0;background:#030a13;color:#f4f8ff;border:1px solid #284765;border-radius:10px;padding:13px;font:inherit;outline:none}.player-form input:focus,.player-form select:focus{border-color:#168dff}.full{grid-column:1/-1}.verify-id-button{grid-column:1/-1;border:1px solid #168dff;border-radius:10px;background:#08213b;color:#eaf6ff;font-weight:800;padding:12px;cursor:pointer}.verify-id-status{grid-column:1/-1;margin:0;font-size:12px;line-height:1.5;color:#9bb2cc}.verify-id-status.error{color:#ffb4b4}.verify-id-status.notice{color:#9bd8ff}
 .pack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pack-option{display:flex;align-items:center;gap:10px;text-align:left;color:#f4f8ff;background:#030b15;border:1px solid #23415e;border-radius:12px;padding:13px;cursor:pointer;min-width:0}.pack-option:has(input:checked){border-color:#168dff;background:#09203a;box-shadow:0 0 0 1px #168dff33}.pack-option input{accent-color:#168dff}.pack-option strong{display:block;font-size:13px}.pack-option small{display:block;color:#9bb2cc;margin-top:4px}.recharge-primary{display:block;width:100%;border:0;border-radius:11px;background:linear-gradient(100deg,#087bff,#36c5ff);color:white;font-weight:900;padding:14px;margin-top:15px;cursor:pointer}.recharge-note{font-size:12px;line-height:1.6;color:#9bb2cc}.form-error{color:#ffb4b4;font-size:13px;margin:10px 0 0}
 @media(min-width:720px){.recharge-page{padding-top:26px}.recharge-hero{min-height:270px;padding:30px}.player-form{grid-template-columns:repeat(2,minmax(0,1fr))}.pack-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:420px){.recharge-page{padding-left:12px;padding-right:12px}.recharge-hero{min-height:170px;padding:17px}.banner-placeholder{font-size:9px}.recharge-panel{padding:14px}.pack-grid{grid-template-columns:1fr}}
@@ -113,11 +113,22 @@ video.addEventListener("error",()=>{video.hidden=true;});
 video.addEventListener("loadeddata",()=>{video.hidden=false;});
 const playerFields=document.getElementById("playerFields");
 if(product.category==="mlbb"){
-playerFields.innerHTML='<label>Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter MLBB User ID"></label><label>Zone ID<input name="zoneId" inputmode="numeric" required placeholder="Enter Zone ID"></label><label class="full">Server / Region<select name="region"><option>India</option><option>Global</option><option>Philippines</option><option>Singapore</option><option>Indonesia</option><option>Malaysia</option><option>Russia</option><option>Turkey</option><option>Brazil</option><option>Other / Not sure</option></select></label>';
+playerFields.innerHTML='<label>Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter MLBB User ID"></label><label>Zone ID<input name="zoneId" inputmode="numeric" required placeholder="Enter Zone ID"></label><button class="verify-id-button" id="verifyMlbbId" type="button">Verify ID</button><p class="verify-id-status" id="verifyIdStatus" role="status">Enter your Player ID and Zone ID, then tap Verify ID to check the details.</p>';
 }else if(product.category==="pubg"){
 playerFields.innerHTML='<label class="full">Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter BGMI / PUBG Player ID"></label><label class="full">Region<select name="region"><option>India (BGMI)</option><option>Global</option><option>Other / Not sure</option></select></label>';
 }else{
 playerFields.innerHTML='<label class="full">Email or Player ID (if required)<input name="playerId" placeholder="Enter details if applicable"></label><label class="full">Region / Notes<input name="region" placeholder="Optional"></label>';
+}
+if(product.category==="mlbb"){
+ document.getElementById("verifyMlbbId").addEventListener("click",()=>{
+  const playerId=playerFields.querySelector('[name="playerId"]').value.trim();
+  const zoneId=playerFields.querySelector('[name="zoneId"]').value.trim();
+  const status=document.getElementById("verifyIdStatus");
+  status.className="verify-id-status";
+  if(!playerId||!zoneId){status.textContent="Please enter both Player ID and Zone ID first.";status.classList.add("error");return;}
+  status.textContent="Player ID and Zone ID entered. Live account-name verification is not connected yet, so the account name cannot be confirmed until a trusted MLBB verification API is connected.";
+  status.classList.add("notice");
+ });
 }
 const packGrid=document.getElementById("packGrid");
 packGrid.innerHTML=product.packs.map((pack,i)=>'<label class="pack-option"><input type="radio" name="pack" value="'+pack.replace(/"/g,"&quot;")+'" '+(i===0?"required":"")+'><span><strong>'+pack+'</strong><small>Price on request</small></span></label>').join("");
