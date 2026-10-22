@@ -94,41 +94,19 @@
     <!-- PROMOTIONAL BANNERS -->
     <section class="hero-slider" aria-label="Promotional banners">
 
-      <div class="slides" id="slides">
-
-        <a class="slide active" href="#store">
-          <img
-            src="./images/banner-starlight.png"
-            alt="Mobile Legends Starlight promotion"
-            onerror="this.style.display='none';this.parentElement.classList.add('banner-fallback')"
-          >
-
-          <div class="banner-placeholder">
-            <span>MOBILE LEGENDS</span>
-            <strong>STARLIGHT MEMBERSHIP</strong>
-            <small>SHINE BRIGHTER IN THE LAND OF DAWN</small>
-          </div>
-        </a>
-
-        <a class="slide" href="#store">
-          <img
-            src="./images/aspirants-event.png"
-            alt="Mobile Legends Aspirants recharge event"
-            onerror="this.style.display='none';this.parentElement.classList.add('banner-fallback')"
-          >
-
-          <div class="banner-placeholder purple">
-            <span>MOBILE LEGENDS</span>
-            <strong>ASPIRANTS 5.0</strong>
-            <small>RECHARGE EVENT</small>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="slider-dots" id="sliderDots">
-        <button class="dot active" data-slide="0" type="button" aria-label="Show banner 1"></button>
-        <button class="dot" data-slide="1" type="button" aria-label="Show banner 2"></button>
+      <div class="slides eyes-video-banner" id="slides">
+        <div class="slide active eyes-video-slide">
+          <video
+            class="eyes-banner-video"
+            src="./banner-eyes.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Animated 3D eyes banner"
+          ></video>
+        </div>
       </div>
 
     </section>
