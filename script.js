@@ -858,7 +858,15 @@ function renderLoginForm(mode = "login") {
 
   infoContent.innerHTML = `
     <div class="auth-panel">
-      <p class="info-message">
+      <section class="auth-brand-intro" aria-label="RYDEN INTERNATIONAL digital gaming services">
+        <span class="auth-brand-mark" aria-hidden="true">R</span>
+        <p class="auth-brand-kicker">WELCOME TO</p>
+        <h3 class="auth-brand-name">RYDEN <span>INTERNATIONAL</span></h3>
+        <p class="auth-brand-tagline">MLBB Accounts &amp; Diamond Gaming Services</p>
+        <p class="auth-brand-categories">PUBG / BGMI <span>•</span> Game Top-Ups <span>•</span> Subscriptions <span>•</span> Gift Cards</p>
+      </section>
+
+      <p class="info-message auth-welcome-message">
         ${isRegister
           ? "Create your RYDEN INTERNATIONAL account."
           : "Sign in to your RYDEN INTERNATIONAL account."}
