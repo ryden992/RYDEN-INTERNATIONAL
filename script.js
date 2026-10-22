@@ -1,6 +1,25 @@
 
 "use strict";
 
+// CINEMATIC INTRO: auto-dismiss on every fresh page load/refresh.
+(function initBrandIntro() {
+  const intro = document.getElementById("brandIntro");
+  if (!intro) return;
+
+  const finishIntro = () => {
+    intro.classList.add("is-leaving");
+    window.setTimeout(() => intro.remove(), 600);
+  };
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    finishIntro();
+    return;
+  }
+
+  window.setTimeout(finishIntro, 2700);
+})();
+
+
 /*
   RYDEN INTERNATIONAL
   Frontend catalog only.
