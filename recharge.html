@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050a13">
+<title>Game Recharge | RYDEN INTERNATIONAL</title>
+<meta name="description" content="Choose a game pack at RYDEN INTERNATIONAL.">
+<link rel="stylesheet" href="./style.css">
+<style>
+.recharge-page{max-width:1100px;margin:0 auto;padding:18px 16px 110px;color:#f4f8ff}
+.recharge-back{display:inline-flex;align-items:center;gap:8px;color:#b8d8ff;text-decoration:none;margin:8px 0 16px;font-weight:700}
+.recharge-hero{position:relative;overflow:hidden;isolation:isolate;min-height:190px;border:1px solid #1d3956;border-radius:18px;background:radial-gradient(ellipse at 75% 20%,#0756a9 0,transparent 42%),linear-gradient(130deg,#07101e,#0a2340 55%,#03070e);display:flex;align-items:end;padding:22px;margin-bottom:18px}
+.recharge-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.recharge-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,17,.92),rgba(3,8,17,.22));z-index:-1}
+.recharge-hero-copy{max-width:680px}.recharge-kicker{font-size:11px;letter-spacing:.18em;color:#64c8ff;font-weight:800}.recharge-hero h1{font-size:clamp(25px,5vw,42px);margin:7px 0}.recharge-hero p{color:#c2d5eb;margin:0;max-width:560px}
+.banner-placeholder{position:absolute;right:14px;top:12px;border:1px dashed #8acbff99;border-radius:8px;padding:6px 9px;color:#d3eaff;background:#06111bb8;font-size:10px;letter-spacing:.06em}
+.recharge-panel{background:#071321;border:1px solid #1d3956;border-radius:16px;padding:18px;margin:14px 0}.recharge-panel h2{font-size:18px;margin:0 0 14px}
+.player-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player-form label{display:grid;gap:7px;color:#b8cce3;font-size:13px}.player-form input,.player-form select{width:100%;min-width:0;background:#030a13;color:#f4f8ff;border:1px solid #284765;border-radius:10px;padding:13px;font:inherit;outline:none}.player-form input:focus,.player-form select:focus{border-color:#168dff}.full{grid-column:1/-1}
+.pack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pack-option{display:flex;align-items:center;gap:10px;text-align:left;color:#f4f8ff;background:#030b15;border:1px solid #23415e;border-radius:12px;padding:13px;cursor:pointer;min-width:0}.pack-option:has(input:checked){border-color:#168dff;background:#09203a;box-shadow:0 0 0 1px #168dff33}.pack-option input{accent-color:#168dff}.pack-option strong{display:block;font-size:13px}.pack-option small{display:block;color:#9bb2cc;margin-top:4px}.recharge-primary{display:block;width:100%;border:0;border-radius:11px;background:linear-gradient(100deg,#087bff,#36c5ff);color:white;font-weight:900;padding:14px;margin-top:15px;cursor:pointer}.recharge-note{font-size:12px;line-height:1.6;color:#9bb2cc}.form-error{color:#ffb4b4;font-size:13px;margin:10px 0 0}
+@media(min-width:720px){.recharge-page{padding-top:26px}.recharge-hero{min-height:270px;padding:30px}.player-form{grid-template-columns:repeat(2,minmax(0,1fr))}.pack-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.recharge-page{padding-left:12px;padding-right:12px}.recharge-hero{min-height:170px;padding:17px}.banner-placeholder{font-size:9px}.recharge-panel{padding:14px}.pack-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top-header">
+<a class="brand" href="./index.html" aria-label="RYDEN INTERNATIONAL Home"><img src="./store-logo.jpg" alt="RYDEN logo"><span><b>RYDEN</b><small>INTERNATIONAL</small><em>DIGITAL STORE</em></span></a>
+<a class="login-button" href="./index.html#home" style="text-decoration:none">Home</a>
+</header>
+<main class="recharge-page">
+<a class="recharge-back" href="./index.html#store">← Back to all games</a>
+<section class="recharge-hero" aria-label="Game video banner">
+<video id="gameBanner" autoplay muted loop playsinline preload="none" aria-label="Game promotional video banner" hidden></video>
+<span class="banner-placeholder">3D VIDEO BANNER SLOT</span>
+<div class="recharge-hero-copy"><div class="recharge-kicker">RYDEN INTERNATIONAL • GAME RECHARGE</div><h1 id="gameTitle">Game Recharge</h1><p id="gameSubtitle">Choose a pack and enter your player details.</p></div>
+</section>
+<form id="rechargeForm">
+<section class="recharge-panel" id="playerPanel">
+<h2>Player Details</h2>
+<div class="player-form" id="playerFields"></div>
+<p id="formError" class="form-error" hidden></p>
+</section>
+<section class="recharge-panel">
+<h2 id="packHeading">Select a Pack</h2>
+<div class="pack-grid" id="packGrid"></div>
+<p class="recharge-note">Prices and availability are confirmed before ordering. This page is a front-end enquiry flow; automatic player validation, supplier delivery and online payment are not connected yet.</p>
+<button class="recharge-primary" type="submit">Continue on WhatsApp</button>
+</section>
+</form>
+</main>
+<script>
+"use strict";
+const WHATSAPP_NUMBER="919233657553";
+const products={
+"mlbb-big":{name:"MLBB Big Packs",category:"mlbb",packs:["86 Diamonds","172 Diamonds","257 Diamonds","343 Diamonds","429 Diamonds","514 Diamonds"]},
+"mlbb-small":{name:"MLBB Small Pack",category:"mlbb",packs:["Small Diamond Pack","Medium Diamond Pack","Large Diamond Pack"]},
+"weekly-pass":{name:"Weekly Diamond Pass",category:"mlbb",packs:["Weekly Diamond Pass","Weekly Pass × 2","Weekly Pass × 3"]},
+"aspirants":{name:"Aspirants 5.0 Recharge Event",category:"mlbb",packs:["Event Pack","Special Event Pack"]},
+"double-diamonds":{name:"Double Diamonds Pack",category:"mlbb",packs:["Double Diamonds Pack"]},
+"starlight":{name:"Starlight Gifting — 7 Days",category:"mlbb",packs:["Normal Starlight","Premium Starlight"]},
+"mlbb-india":{name:"MLBB India",category:"mlbb",packs:["India Server Pack"]},
+"mlbb-ph":{name:"MLBB Philippines",category:"mlbb",packs:["Philippines Server Pack"]},
+"mlbb-sg":{name:"MLBB Singapore",category:"mlbb",packs:["Singapore Server Pack"]},
+"mlbb-id":{name:"MLBB Indonesia",category:"mlbb",packs:["Indonesia Server Pack"]},
+"mlbb-my":{name:"MLBB Malaysia",category:"mlbb",packs:["Malaysia Server Pack"]},
+"mlbb-ru":{name:"MLBB Russia",category:"mlbb",packs:["Russia Server Pack"]},
+"mlbb-tr":{name:"MLBB Turkey",category:"mlbb",packs:["Turkey Server Pack"]},
+"mlbb-br":{name:"MLBB Brazil",category:"mlbb",packs:["Brazil Server Pack"]},
+"mlbb-skins":{name:"Skin Gifting",category:"mlbb",packs:["Skin Gifting"]},
+"mlbb-accounts":{name:"Available MLBB Accounts",category:"mlbb",packs:["Available Account"]},
+"bgmi-uc":{name:"BGMI UC Instant",category:"pubg",packs:["UC Pack","Special UC Pack","Mega UC Pack"]},
+"pubg-global":{name:"PUBG Mobile Global",category:"pubg",packs:["PUBG Global UC Pack"]},
+"pubg-india":{name:"PUBG Mobile India",category:"pubg",packs:["UC Pack"]},
+"pubg-uc":{name:"PUBG UC Packs",category:"pubg",packs:["UC Pack"]},
+"codm":{name:"Call of Duty Mobile India",category:"games",packs:["COD Mobile Pack"]},
+"honor":{name:"Honor of Kings",category:"games",packs:["Honor of Kings Pack"]},
+"wuthering":{name:"Wuthering Waves",category:"games",packs:["Wuthering Waves Pack"]},
+"honkai":{name:"Honkai Star Rail",category:"games",packs:["Honkai Star Rail Pack"]},
+"genshin":{name:"Genshin Impact",category:"games",packs:["Genshin Impact Pack"]},
+"magic-chess":{name:"Magic Chess GoGo",category:"games",packs:["Magic Chess Pack"]},
+"youtube":{name:"YouTube Premium",category:"ott",packs:["YouTube Premium"]},
+"netflix":{name:"Netflix Premium",category:"ott",packs:["Netflix Premium"]},
+"prime":{name:"Prime Video",category:"ott",packs:["Prime Video"]},
+"hotstar":{name:"JioHotstar",category:"ott",packs:["JioHotstar"]},
+"spotify":{name:"Spotify Premium",category:"ott",packs:["Spotify Premium"]},
+"crunchyroll":{name:"Crunchyroll Mega Fan",category:"ott",packs:["Crunchyroll Mega Fan"]},
+"canva":{name:"Canva Pro",category:"ott",packs:["Canva Pro"]},
+"capcut":{name:"CapCut Pro",category:"ott",packs:["CapCut Pro"]},
+"picsart":{name:"PicsArt Pro",category:"ott",packs:["PicsArt Pro"]},
+"sony":{name:"Sony LIV",category:"ott",packs:["Sony LIV Subscription"]},
+"kuku":{name:"Kuku TV",category:"ott",packs:["Kuku TV Subscription"]},
+"fancode":{name:"FanCode",category:"ott",packs:["FanCode Subscription"]},
+"gemini":{name:"Gemini AI Pro",category:"ott",packs:["Gemini AI Pro"]},
+"rakuten":{name:"Rakuten Viki",category:"ott",packs:["Rakuten Viki"]},
+"zee5":{name:"ZEE5",category:"ott",packs:["ZEE5 Subscription"]},
+"nordvpn":{name:"NordVPN",category:"ott",packs:["NordVPN Subscription"]},
+"gift-cards":{name:"Gift Cards",category:"giftcards",packs:["Gift Card"]},
+"google-play":{name:"Google Play Gift Card",category:"giftcards",packs:["Google Play Gift Card"]},
+"apple-card":{name:"Apple Gift Card",category:"giftcards",packs:["Apple Gift Card"]},
+"steam":{name:"Steam Wallet",category:"giftcards",packs:["Steam Wallet"]},
+"playstation":{name:"PlayStation Gift Card",category:"giftcards",packs:["PlayStation Gift Card"]}
+};
+const id=new URLSearchParams(location.search).get("game")||"mlbb-big";
+const product=products[id]||products["mlbb-big"];
+document.title=product.name+" | RYDEN INTERNATIONAL";
+document.getElementById("gameTitle").textContent=product.name;
+document.getElementById("gameSubtitle").textContent=product.category==="mlbb"?"Mobile Legends: Bang Bang • Diamond Recharge":product.category==="pubg"?"BGMI / PUBG Mobile • UC Recharge":"Choose your product pack and continue";
+const bannerCategory=product.category==="mlbb"?"mlbb":product.category==="pubg"?"bgmi":product.category==="games"?"games":product.category;
+const video=document.getElementById("gameBanner");
+const videoSource="./videos/"+bannerCategory+"-banner.mp4";
+video.src=videoSource;
+video.addEventListener("error",()=>{video.hidden=true;});
+video.addEventListener("loadeddata",()=>{video.hidden=false;});
+const playerFields=document.getElementById("playerFields");
+if(product.category==="mlbb"){
+playerFields.innerHTML='<label>Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter MLBB User ID"></label><label>Zone ID<input name="zoneId" inputmode="numeric" required placeholder="Enter Zone ID"></label><label class="full">Server / Region<select name="region"><option>India</option><option>Global</option><option>Philippines</option><option>Singapore</option><option>Indonesia</option><option>Malaysia</option><option>Russia</option><option>Turkey</option><option>Brazil</option><option>Other / Not sure</option></select></label>';
+}else if(product.category==="pubg"){
+playerFields.innerHTML='<label class="full">Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter BGMI / PUBG Player ID"></label><label class="full">Region<select name="region"><option>India (BGMI)</option><option>Global</option><option>Other / Not sure</option></select></label>';
+}else{
+playerFields.innerHTML='<label class="full">Email or Player ID (if required)<input name="playerId" placeholder="Enter details if applicable"></label><label class="full">Region / Notes<input name="region" placeholder="Optional"></label>';
+}
+const packGrid=document.getElementById("packGrid");
+packGrid.innerHTML=product.packs.map((pack,i)=>'<label class="pack-option"><input type="radio" name="pack" value="'+pack.replace(/"/g,"&quot;")+'" '+(i===0?"required":"")+'><span><strong>'+pack+'</strong><small>Price on request</small></span></label>').join("");
+document.getElementById("rechargeForm").addEventListener("submit",event=>{
+event.preventDefault();
+const form=new FormData(event.currentTarget);
+const selected=form.get("pack");
+const playerId=String(form.get("playerId")||"").trim();
+const zoneId=String(form.get("zoneId")||"").trim();
+const region=String(form.get("region")||"").trim();
+if(!selected){const err=document.getElementById("formError");err.textContent="Please select a pack first.";err.hidden=false;return;}
+const message=["Hello RYDEN INTERNATIONAL!","Product: "+product.name,"Pack: "+selected,playerId?"Player ID / Email: "+playerId:"",zoneId?"Zone ID: "+zoneId:"",region?"Region: "+region:"","Please confirm final price and availability."].filter(Boolean).join("\n");
+window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+});
+</script>
+</body>
+</html>
