@@ -505,6 +505,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Individual image fixes requested for selected catalog products only. */
+.product-card[data-product-id="mlbb-accounts"] .product-image,
 .product-card[data-product-id="mlbb-india"] .product-image,
 .product-card[data-product-id="double-diamonds"] .product-image,
 .product-card[data-product-id="aspirants"] .product-image,
