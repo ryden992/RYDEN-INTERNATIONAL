@@ -449,6 +449,11 @@ a { color: inherit; text-decoration: none; }
   object-position: center;
 }
 
+/* Slightly lower the artwork inside the COD Mobile India square card. */
+.product-card[data-product-id="codm"] .product-image {
+  object-position: center 45%;
+}
+
 .product-placeholder {
   display: grid;
   place-items: center;
