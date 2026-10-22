@@ -565,7 +565,7 @@ function renderCatalog() {
 
   // Replace the catalog once per update instead of mutating the live DOM per category.
   catalogSections.replaceChildren(fragment);
-  emptyState.hidden = filteredProducts.length > 0;
+  emptyState.hidden = filteredProducts.length > 0 || (activeCategory !== "pubg" && activeCategory !== "games" && activeCategory !== "ott" && activeCategory !== "giftcards" && hubSearchMatches && (activeCategory === "all" || activeCategory === "mlbb"));
 }
 
 // PRODUCT DETAILS
