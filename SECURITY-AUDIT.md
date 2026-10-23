@@ -28,3 +28,19 @@ Branch: security-audit-fixes-2026-10
 - Firebase Authentication, database rules, App Check, email enumeration protection, and sign-in quotas must be configured and tested in the Firebase/Google Cloud project separately.
 - No rate limiting has been added by these changes. Do not claim brute-force protection until a supported auth/backend control is configured and verified.
 - No production files are deleted by this branch; only a duplicate JavaScript object key was removed.
+
+
+## Expanded repository inventory (branch scan)
+
+- Scanned all 62 tracked tree entries and all 8 text/config/document files in this branch.
+- Found 4 HTML pages, 1 shared JavaScript file, 1 shared stylesheet, 2 video assets, and image assets.
+- All literal local image/video references discovered in the scanned text files resolved to tracked paths.
+- `images/banner-starlight.png` was not referenced by any current page, stylesheet, or JavaScript in the branch and was marked as an orphan asset. It is proposed for removal from this branch to reduce repository size; its size was about 2.3 MB.
+- Removed inline `onerror` HTML event attributes from the main catalog and MLBB hub page. Image fallbacks are now attached with JavaScript event listeners.
+- GitHub code search returned no current-branch matches for common secret indicators (AIza, private_key, service_account, sk_live, secret_key). This is not proof that no secret exists in Git history, deployment settings, or unsupported files.
+- No package manifest, automated test workflow, server-side API, or Firebase security-rules file was present in the tracked tree.
+
+## Additional caveats
+
+- The public live domain could not be fetched through the available web inspection channel, so live HTTP response headers, browser console errors, and deployed-file parity remain unverified.
+- A repository-wide current-tree reference scan cannot prove that a future design will never use an orphan asset. The removal is confined to this draft branch and can be reverted before merge if needed.
