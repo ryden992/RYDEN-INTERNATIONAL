@@ -35,7 +35,7 @@ Branch: security-audit-fixes-2026-10
 - Scanned all 62 tracked tree entries and all 8 text/config/document files in this branch.
 - Found 4 HTML pages, 1 shared JavaScript file, 1 shared stylesheet, 2 video assets, and image assets.
 - All literal local image/video references discovered in the scanned text files resolved to tracked paths.
-- `images/banner-starlight.png` was not referenced by any current page, stylesheet, or JavaScript in the branch and was marked as an orphan asset. It is proposed for removal from this branch to reduce repository size; its size was about 2.3 MB.
+- `images/banner-starlight.png` was not referenced by any current page, stylesheet, or JavaScript in the branch and was marked as an orphan asset. It was removed from this branch to reduce repository size; its size was about 2.3 MB.
 - Removed inline `onerror` HTML event attributes from the main catalog and MLBB hub page. Image fallbacks are now attached with JavaScript event listeners.
 - GitHub code search returned no current-branch matches for common secret indicators (AIza, private_key, service_account, sk_live, secret_key). This is not proof that no secret exists in Git history, deployment settings, or unsupported files.
 - No package manifest, automated test workflow, server-side API, or Firebase security-rules file was present in the tracked tree.
@@ -44,3 +44,14 @@ Branch: security-audit-fixes-2026-10
 
 - The public live domain could not be fetched through the available web inspection channel, so live HTTP response headers, browser console errors, and deployed-file parity remain unverified.
 - A repository-wide current-tree reference scan cannot prove that a future design will never use an orphan asset. The removal is confined to this draft branch and can be reverted before merge if needed.
+
+
+## Post-change static validation
+
+- Final draft branch contains 61 tracked entries, including 4 HTML pages, 1 JavaScript file, 1 stylesheet, the security header configuration, and this report.
+- 71 local image/video references were checked; no missing local image/video paths were found.
+- After removing the orphan banner image, all 51 remaining tracked media assets are referenced by the current source scan.
+- All 47 product IDs in the homepage catalog have matching recharge-page entries; no duplicate product IDs were found in either list.
+- JavaScript syntax parsing passed for `script.js` and the three inline scripts in `available-mlbb-accounts.html`, `mlbb-diamond.html`, and `recharge.html`.
+- No inline HTML event-handler attributes remain in the scanned text files.
+- These are static checks only. They do not replace browser/device tests, dependency scanning, penetration testing, or live Hostinger header verification.
