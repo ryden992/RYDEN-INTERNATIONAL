@@ -486,7 +486,9 @@ function renderCatalog() {
   const query = productSearch.value.trim().toLowerCase();
   const diamondHubIds = new Set([
     "mlbb-big", "mlbb-small", "weekly-pass", "aspirants",
-    "double-diamonds", "starlight", "mlbb-india", "mlbb-accounts"
+    "double-diamonds", "starlight", "mlbb-india", "mlbb-accounts",
+    "mlbb-ph", "mlbb-sg", "mlbb-id", "mlbb-my",
+    "mlbb-ru", "mlbb-tr", "mlbb-br", "mlbb-skins"
   ]);
   const diamondHubProducts = products.filter(product => diamondHubIds.has(product.id));
   const hubSearchMatches =
