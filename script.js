@@ -195,9 +195,8 @@ const products = [
   },
   {
     id: "mlbb-accounts",
-    name: "Available MLBB Accounts",
+    name: "AVAILABLE MLBB ACCOUNT",
     category: "mlbb",
-    image: "images/mlbb-accounts.jpg",
     packs: [{ name: "Available Account", price: null }]
   },
 
@@ -473,6 +472,16 @@ function openWhatsApp(message = "") {
 }
 
 function renderProductCard(product) {
+  if (product.id === "mlbb-accounts") {
+    return `
+      <a class="available-accounts-hub" href="./available-mlbb-accounts.html" aria-label="Open AVAILABLE MLBB ACCOUNT">
+        <span class="available-accounts-kicker">MLBB • ACCOUNT SERVICES</span>
+        <strong>AVAILABLE MLBB ACCOUNT</strong>
+        <span class="available-accounts-subtitle">VIEW AVAILABLE ACCOUNTS <b aria-hidden="true">→</b></span>
+      </a>
+    `;
+  }
+
   return `
     <article
       class="product-card"
