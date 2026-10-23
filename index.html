@@ -245,8 +245,26 @@
     <small>© <span id="year"></span> RYDEN INTERNATIONAL</small>
   </footer>
 
-  <!-- JAVASCRIPT -->
+  <!-- Firebase Web SDK for the existing plain HTML/JavaScript site -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAYAFTfGLJSIgcOPi9fpW1TjLmROSVce4s",
+      authDomain: "rydenstore009.firebaseapp.com",
+      projectId: "rydenstore009",
+      storageBucket: "rydenstore009.firebasestorage.app",
+      messagingSenderId: "499794822871",
+      appId: "1:499794822871:web:0e4ead136c8b4f311f9292",
+      measurementId: "G-EW9Y27XL6F"
+    };
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Existing catalog/site behavior stays in script.js -->
   <script src="./script.js"></script>
+  <!-- Firebase auth overrides only the placeholder login/register behavior -->
+  <script src="./firebase-auth.js"></script>
 
 </body>
 </html>
