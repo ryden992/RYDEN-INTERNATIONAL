@@ -71,6 +71,12 @@
 "use strict";
 const video = document.getElementById("mlbbHubVideo");
 const soundToggle = document.getElementById("mlbbHubSoundToggle");
+const backToGames = document.querySelector(".mlbb-hub-back");
+backToGames?.addEventListener("click", () => {
+  try {
+    sessionStorage.setItem("rydenSkipIntroOnce", "1");
+  } catch (_) {}
+});
 video.src = "./videos/mlbb-diamond-banner.mp4";
 
 function updateSoundButton() {
