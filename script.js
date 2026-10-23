@@ -6,6 +6,19 @@
   const intro = document.getElementById("brandIntro");
   if (!intro) return;
 
+  // Returning from a product/detail page should land on Home immediately.
+  // The one-time flag is consumed here, so a later manual refresh still shows the intro.
+  let skipIntroOnce = false;
+  try {
+    skipIntroOnce = sessionStorage.getItem("rydenSkipIntroOnce") === "1";
+    if (skipIntroOnce) sessionStorage.removeItem("rydenSkipIntroOnce");
+  } catch (_) {}
+
+  if (skipIntroOnce) {
+    intro.remove();
+    return;
+  }
+
   const finishIntro = () => {
     intro.classList.add("is-leaving");
     window.setTimeout(() => intro.remove(), 600);
