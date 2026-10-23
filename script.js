@@ -572,10 +572,8 @@ function renderCatalog() {
         </button>
       </div>
       ${showDiamondHub ? `
-        <a class="mlbb-diamond-hub" href="./mlbb-diamond.html" aria-label="Open MLBB Diamond Plus Account">
-          <span class="mlbb-diamond-hub-kicker">DIAMONDS • ACCOUNT SERVICES</span>
-          <strong>MLBB DIAMOND PLUS ACCOUNT</strong>
-          <span class="mlbb-diamond-hub-subtitle">OPEN 7 RECHARGE OPTIONS <span aria-hidden="true">→</span></span>
+        <a class="mlbb-diamond-hub" href="./mlbb-diamond.html" aria-label="Open MLBB Diamond">
+          <strong>MLBB DIAMOND</strong>
         </a>
       ` : ""}
       ${categoryProducts.length ? `
