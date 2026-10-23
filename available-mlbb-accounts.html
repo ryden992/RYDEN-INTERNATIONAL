@@ -11,7 +11,7 @@
 .accounts-page{max-width:1100px;margin:0 auto;padding:18px 16px 100px;color:#f4f8ff}
 .accounts-back{display:inline-flex;align-items:center;gap:8px;color:#b8d8ff;text-decoration:none;margin:8px 0 16px;font-weight:700}
 .accounts-video-slot{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-width:0;box-sizing:border-box;min-height:0;aspect-ratio:16/9;max-height:360px;overflow:hidden;border:1px solid #258bff;border-radius:18px;background:radial-gradient(ellipse at 80% 20%,#0756a9 0,transparent 45%),linear-gradient(130deg,#06101f,#0a2440 58%,#03070e);box-shadow:inset 0 0 0 1px rgba(128,207,255,.08)}
-.accounts-video-slot video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;background:#050a13}\n.accounts-video-slot:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(45,174,255,.08) 50%,transparent 80%);pointer-events:none}
+.accounts-video-slot video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;background:#050a13}\n.accounts-sound-toggle{position:absolute;z-index:3;right:10px;bottom:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(125,202,255,.75);border-radius:50%;background:rgba(3,10,20,.82);color:#fff;font-size:16px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.35);backdrop-filter:blur(6px)}.accounts-sound-toggle:focus-visible{outline:2px solid #72d2ff;outline-offset:3px}\n.accounts-video-slot:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(45,174,255,.08) 50%,transparent 80%);pointer-events:none}
 .accounts-video-slot-copy{position:relative;text-align:center;padding:20px}
 .accounts-video-slot-copy span{display:block;color:#72d2ff;font-size:10px;font-weight:900;letter-spacing:.18em;margin-bottom:10px}
 .accounts-video-slot-copy strong{display:block;font-size:clamp(18px,4vw,28px);letter-spacing:.04em}
@@ -29,13 +29,52 @@
 <main class="accounts-page">
 <a class="accounts-back" href="./index.html#home">← Back to All Games</a>
 <section class="accounts-video-slot" aria-label="RYDEN INTERNATIONAL MLBB promotional video banner">
-<video autoplay muted loop playsinline preload="metadata" poster="./banner-aspirants.jpg" aria-label="RYDEN INTERNATIONAL 3D banner video">
+<video id="accountsBannerVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./banner-aspirants.jpg" aria-label="RYDEN INTERNATIONAL 3D banner video">
 <source src="./videos/available-mlbb-banner.mp4" type="video/mp4">
 Your browser does not support HTML video.
 </video>
+<button class="accounts-sound-toggle" id="accountsBannerSoundToggle" type="button" aria-label="Turn banner sound on" aria-pressed="false" title="Turn sound on">🔊</button>
 </section>
 <h2 class="accounts-section-title">AVAILABLE MLBB ACCOUNT</h2>
 <section class="accounts-empty-slot" aria-label="Available account listings placeholder">Account cards and your new images can be added here next.</section>
 </main>
+<script>
+"use strict";
+const bannerVideo = document.getElementById("accountsBannerVideo");
+const soundToggle = document.getElementById("accountsBannerSoundToggle");
+
+function updateBannerSoundButton() {
+  const soundIsOn = !bannerVideo.muted;
+  soundToggle.textContent = soundIsOn ? "🔇" : "🔊";
+  soundToggle.title = soundIsOn ? "Mute sound" : "Turn sound on";
+  soundToggle.setAttribute("aria-label", soundIsOn ? "Mute banner sound" : "Turn banner sound on");
+  soundToggle.setAttribute("aria-pressed", String(soundIsOn));
+}
+
+soundToggle.addEventListener("click", async () => {
+  if (bannerVideo.muted) {
+    bannerVideo.muted = false;
+    bannerVideo.volume = 1;
+    try {
+      await bannerVideo.play();
+      updateBannerSoundButton();
+    } catch (error) {
+      bannerVideo.muted = true;
+      updateBannerSoundButton();
+    }
+  } else {
+    bannerVideo.muted = true;
+    updateBannerSoundButton();
+  }
+});
+
+bannerVideo.addEventListener("error", () => {
+  soundToggle.hidden = true;
+});
+bannerVideo.addEventListener("loadeddata", () => {
+  soundToggle.hidden = false;
+  updateBannerSoundButton();
+});
+</script>
 </body>
 </html>
