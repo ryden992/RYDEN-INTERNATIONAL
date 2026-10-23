@@ -495,8 +495,7 @@ function renderProductCard(product) {
         src="${escapeHTML(product.image)}"
         alt="${escapeHTML(product.name)}"
         loading="lazy"
-        decoding="async"
-        onerror="this.outerHTML='<div class=&quot;product-placeholder&quot;>R</div>'">
+        decoding="async">
 
       <span class="product-name">${escapeHTML(product.name)}</span>
     </article>
@@ -1108,6 +1107,17 @@ function renderMoreMenu() {
     });
   });
 }
+
+// Replace failed catalog images without inline HTML event handlers.
+catalogSections.addEventListener("error", event => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement) || !image.classList.contains("product-image")) return;
+
+  const placeholder = document.createElement("div");
+  placeholder.className = "product-placeholder";
+  placeholder.textContent = "R";
+  image.replaceWith(placeholder);
+}, true);
 
 // CATALOG EVENTS
 catalogSections.addEventListener("click", event => {
