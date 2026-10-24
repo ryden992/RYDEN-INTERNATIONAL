@@ -1,0 +1,13 @@
+# RYDEN INTERNATIONAL — baseline HTTP security headers
+# Compatible with Apache/LiteSpeed when mod_headers is available.
+# HSTS is intentionally omitted until HTTPS and all subdomains are confirmed.
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Do not expose directory listings.
+Options -Indexes
