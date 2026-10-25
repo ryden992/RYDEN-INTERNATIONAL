@@ -1701,3 +1701,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     background-position:50% 50% !important;
   }
 }
+
+
+/* Strong shimmer override for category buttons */
+button.category-tab {
+  background-image:linear-gradient(110deg,#202FFF 0%,#3F55FF 24%,#8AA5FF 42%,#FFFFFF 50%,#8AA5FF 58%,#4C6BFF 76%,#202FFF 100%) !important;
+  background-size:300% 100% !important;
+  animation:rydenCategoryShimmer 3s linear infinite !important;
+  color:#050712 !important;
+  border:1px solid #8AA5FF !important;
+}
+@keyframes rydenCategoryShimmer {
+  0% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
