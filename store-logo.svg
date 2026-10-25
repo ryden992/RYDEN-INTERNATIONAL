@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+<title id="title">RYDEN INTERNATIONAL Blue Gradient Logo</title>
+<desc id="desc">RYDEN International emblem in white and silver on a black background with a vivid electric-blue gradient glow inspired by the supplied reference.</desc>
+<defs>
+ <linearGradient id="electricBlue" x1="0" y1="1" x2="1" y2="0">
+  <stop offset="0" stop-color="#252BFF"/><stop offset=".42" stop-color="#101BCE"/><stop offset=".72" stop-color="#080A39"/><stop offset="1" stop-color="#020307"/>
+ </linearGradient>
+ <linearGradient id="blueEdge" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#B9C7FF"/><stop offset=".38" stop-color="#4C6BFF"/><stop offset=".7" stop-color="#202FFF"/><stop offset="1" stop-color="#8AA5FF"/>
+ </linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C7D0E4"/><stop offset="1" stop-color="#FFFFFF"/>
+ </linearGradient>
+ <radialGradient id="glow" cx="50%" cy="100%" r="80%">
+  <stop offset="0" stop-color="#252BFF" stop-opacity=".95"/><stop offset=".38" stop-color="#101BCE" stop-opacity=".65"/><stop offset="1" stop-color="#050509" stop-opacity="0"/>
+ </radialGradient>
+ <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="13" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+</defs>
+<rect width="800" height="800" rx="56" fill="#030407"/>
+<rect width="800" height="800" rx="56" fill="url(#glow)"/>
+<circle cx="400" cy="355" r="320" fill="none" stroke="#1724C9" stroke-width="12" opacity=".5" filter="url(#softGlow)"/>
+<circle cx="400" cy="355" r="320" fill="none" stroke="url(#blueEdge)" stroke-width="5"/>
+<circle cx="400" cy="355" r="308" fill="none" stroke="#DCE5FF" stroke-opacity=".48" stroke-width="1.8"/>
+<g fill="url(#silver)" stroke="url(#blueEdge)" stroke-width="4" stroke-linejoin="round">
+ <path d="M285 163 L245 100 L328 145 L400 65 L472 145 L555 100 L515 163 L488 197 L312 197 Z"/>
+ <path d="M245 100 L285 163 L328 145 L400 65 L472 145 L515 163 L555 100 L528 190 L272 190 Z" fill="none" stroke-width="4"/>
+ <circle cx="245" cy="100" r="7"/><circle cx="400" cy="65" r="8"/><circle cx="555" cy="100" r="7"/>
+</g>
+<g fill="url(#silver)" stroke="url(#blueEdge)" stroke-width="3.5" stroke-linejoin="round">
+ <path d="M228 230 H452 Q520 230 520 290 Q520 330 481 353 L431 381 H332 L385 348 H436 Q467 348 467 317 Q467 287 437 287 H299 L355 343 L287 409 L220 525 L145 567 L235 369 L160 301 H228 Z"/>
+ <path d="M440 369 L566 267 L512 361 L626 322 L501 442 L587 482 L420 482 L359 440 Z"/>
+ <path d="M249 400 L322 457 L374 419 L340 403 L313 423 Z" fill="#141C66" stroke="#9CB1FF"/>
+</g>
+<path d="M264 245 H448 Q493 245 493 287" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+<path d="M455 389 L554 340 L489 415" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+<text x="400" y="620" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="bold" letter-spacing="12" fill="url(#silver)" stroke="#111B77" stroke-width="1">RYDEN</text>
+<text x="400" y="669" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="bold" letter-spacing="8" fill="#FFFFFF">INTERNATIONAL</text>
+<path d="M178 698 H287 M513 698 H622" stroke="url(#blueEdge)" stroke-width="4"/>
+<text x="400" y="714" text-anchor="middle" font-family="Georgia, serif" font-size="18" letter-spacing="4" fill="#D9E1FF">ESTABLISHED IN 2022</text>
+</svg>
