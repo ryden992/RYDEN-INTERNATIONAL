@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+<title id="title">RYDEN INTERNATIONAL Luxury Logo</title>
+<desc id="desc">A premium black emblem with a metallic gold and silver crown, stylized RK monogram, circular border, and RYDEN INTERNATIONAL wordmark.</desc>
+<defs>
+ <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#fff3bb"/><stop offset=".16" stop-color="#b98724"/><stop offset=".31" stop-color="#fff0a0"/><stop offset=".48" stop-color="#d6a83d"/><stop offset=".65" stop-color="#fff8d6"/><stop offset=".82" stop-color="#9d741d"/><stop offset="1" stop-color="#f6d879"/>
+ </linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#ffffff"/><stop offset=".25" stop-color="#9ba8b2"/><stop offset=".5" stop-color="#f7f8f8"/><stop offset=".75" stop-color="#7f8b96"/><stop offset="1" stop-color="#e9ecef"/>
+ </linearGradient>
+ <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+  <feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+</defs>
+<rect width="800" height="800" rx="40" fill="#050505"/>
+<circle cx="400" cy="370" r="326" fill="none" stroke="#4d3814" stroke-width="12"/>
+<circle cx="400" cy="370" r="320" fill="none" stroke="url(#metal)" stroke-width="5"/>
+<circle cx="400" cy="370" r="310" fill="none" stroke="url(#silver)" stroke-opacity=".52" stroke-width="1.5"/>
+<g filter="url(#glow)" fill="url(#metal)" stroke="#ffe7a0" stroke-width="2.5" stroke-linejoin="round">
+ <path d="M284 178 L246 112 L326 154 L400 72 L474 154 L554 112 L516 178 L490 212 L310 212 Z"/>
+ <path d="M246 112 L285 179 L326 154 L400 72 L474 154 L515 179 L554 112 L526 202 L274 202 Z" fill="none" stroke-width="4"/>
+ <circle cx="246" cy="112" r="7"/><circle cx="400" cy="72" r="8"/><circle cx="554" cy="112" r="7"/>
+</g>
+<g fill="url(#metal)" stroke="#f8d778" stroke-width="2" stroke-linejoin="round">
+ <path d="M228 244 H453 Q520 244 520 302 Q520 343 481 364 L431 392 H332 L385 359 H436 Q467 359 467 328 Q467 300 437 300 H299 L355 354 L287 420 L220 536 L145 578 L235 380 L160 315 H228 Z"/>
+ <path d="M440 380 L566 278 L512 372 L626 333 L501 453 L587 493 L420 493 L359 451 Z"/>
+ <path d="M249 411 L322 468 L374 430 L340 414 L313 434 Z" fill="url(#silver)" stroke="#d5dce0"/>
+</g>
+<path d="M264 259 H448 Q493 259 493 301" fill="none" stroke="url(#silver)" stroke-width="4" stroke-linecap="round"/>
+<path d="M455 404 L554 351 L489 426" fill="none" stroke="url(#silver)" stroke-width="3" stroke-linecap="round"/>
+<text x="400" y="632" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="bold" letter-spacing="12" fill="url(#metal)" stroke="#6d4d12" stroke-width="1">RYDEN</text>
+<text x="400" y="678" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="bold" letter-spacing="9" fill="url(#silver)">INTERNATIONAL</text>
+<path d="M178 706 H287 M513 706 H622" stroke="url(#metal)" stroke-width="4"/>
+<text x="400" y="718" text-anchor="middle" font-family="Georgia, serif" font-size="18" letter-spacing="4" fill="url(#metal)">ESTABLISHED IN 2022</text>
+</svg>
