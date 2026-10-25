@@ -2432,3 +2432,52 @@ body {
     background-color: #e5ebff;
   }
 }
+
+
+/* MOBILE PERFORMANCE TUNING: keep the glass look, reduce expensive effects on phones */
+@media (max-width: 699px) {
+  .top-header,
+  .search-wrap,
+  .quick-card,
+  .category-tab,
+  .product-card,
+  .mlbb-diamond-hub,
+  .available-accounts-hub,
+  .bottom-nav,
+  .modal,
+  .auth-brand-intro,
+  .more-menu-item,
+  .pack-row {
+    -webkit-backdrop-filter: blur(12px) saturate(145%);
+    backdrop-filter: blur(12px) saturate(145%);
+    box-shadow:
+      0 8px 20px #243f7a18,
+      inset 0 1px 0 #ffffffc0;
+  }
+  .top-header,
+  .search-wrap,
+  .quick-card,
+  .category-tab,
+  .product-card,
+  .mlbb-diamond-hub,
+  .available-accounts-hub,
+  .bottom-nav,
+  .modal,
+  .auth-brand-intro,
+  .more-menu-item,
+  .pack-row {
+    background-attachment: scroll;
+  }
+  .product-card { contain: layout paint; }
+  .product-image { content-visibility: auto; }
+  .eyes-banner-video { object-fit: cover; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
