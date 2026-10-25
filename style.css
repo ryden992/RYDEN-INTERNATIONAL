@@ -1659,3 +1659,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: #FFFFFF !important;
   fill: currentColor;
 }
+
+
+/* Fix WhatsApp marquee text: no dark block behind scrolling text */
+.whatsapp-banner .marquee-window {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.whatsapp-banner .marquee-text {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  color: #FFFFFF !important;
+}
