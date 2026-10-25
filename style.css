@@ -2436,3 +2436,17 @@ button, a, .product-card, .quick-card, .category-tab {
     background-position: 50% 50% !important;
   }
 }
+
+
+/* Uploaded store logo: crisp circular crop */
+.brand img,
+.intro-logo {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  overflow: hidden;
+}
+.brand img {
+  border: 1px solid #C9A44C !important;
+  outline: 1px solid #D5DCE055;
+  outline-offset: 2px;
+}
