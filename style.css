@@ -1486,3 +1486,157 @@ body { color:#F4F6FF !important; background:#030407 !important; }
   outline: 1px solid #244DFF66;
   outline-offset: 3px;
 }
+
+
+/* SITE-WIDE ELECTRIC BLUE GRADIENT THEME — ALL INTERFACES */
+:root {
+  color-scheme: dark;
+  --bg:#030407;
+  --panel:#080B18;
+  --panel2:#10152B;
+  --blue:#344CFF;
+  --cyan:#8AA5FF;
+  --text:#F4F6FF;
+  --muted:#A8B4D8;
+  --line:#2637D8;
+}
+html, body {
+  background-color:#030407 !important;
+  color:#F4F6FF !important;
+}
+body {
+  background-image:radial-gradient(ellipse at 50% 100%,#252BFF22 0,transparent 58%) !important;
+}
+main, section, article, aside, footer, header, nav,
+.store-section, .hero-slider, .slides, .slide,
+.recharge-page, .accounts-page, .mlbb-hub-page {
+  color:#F4F6FF;
+}
+.top-header, .site-footer, .search-wrap, .bottom-nav,
+.modal, .modal-content, .auth-panel, .support-panel,
+.policy-content, .more-menu, .more-menu-panel,
+.report-panel, .account-panel, .report-card,
+.recharge-panel, .account-details-panel {
+  background-color:#080B18 !important;
+  color:#F4F6FF !important;
+  border-color:#2637D8 !important;
+}
+.quick-card, .product-card, .pack-row, .more-menu-item,
+.recharge-panel, .account-details-panel, .mlbb-hub-option,
+.account-card, .account-item, .account-empty, .account-filter,
+.account-search, .pack-option, .report-card {
+  background-image:linear-gradient(145deg,#10152B 0%,#080B18 55%,#050712 100%) !important;
+  color:#F4F6FF !important;
+  border-color:#2637D8 !important;
+  box-shadow:0 4px 16px #101BCE12 !important;
+}
+input, select, textarea, .search-wrap input,
+.player-form input, .player-form select,
+.info-form input, .info-form select,
+.auth-panel input, .auth-panel select {
+  background-color:#10152B !important;
+  color:#F4F6FF !important;
+  border-color:#344CFF !important;
+  accent-color:#4C6BFF;
+}
+input::placeholder, textarea::placeholder { color:#A8B4D8 !important; }
+button, .login-button, .action-link, .modal-action,
+.recharge-primary, .verify-id-button, .accounts-page button,
+.mlbb-hub-page button, .player-form button, .text-action,
+.category-tab.active, .bottom-nav button.active {
+  border-color:#8AA5FF !important;
+}
+button:not(.icon-button):not(.accounts-sound-toggle):not(.mlbb-hub-sound-toggle):not(.bottom-nav button):not(.quick-card),
+.login-button, .action-link, .modal-action, .recharge-primary,
+.verify-id-button, .accounts-page .account-button,
+.mlbb-hub-page .action-button {
+  background-image:linear-gradient(110deg,#202FFF 0%,#3F55FF 24%,#8AA5FF 42%,#FFFFFF 50%,#8AA5FF 58%,#4C6BFF 76%,#202FFF 100%) !important;
+  background-size:240% 100%;
+  color:#050712 !important;
+}
+.quick-card {
+  background-image:linear-gradient(145deg,#10152B,#070912) !important;
+  color:#F4F6FF !important;
+}
+.category-tab {
+  color:#DCE3FF !important;
+  background:#080B18 !important;
+  border-color:#2637D8 !important;
+}
+.category-tab.active { color:#050712 !important; }
+a, .text-action, .catalog-heading button, .pack-price,
+.site-footer strong, .mlbb-hub-back, .recharge-back,
+.accounts-back, .mlbb-hub-kicker, .recharge-kicker,
+.accounts-video-slot-copy span, .mlbb-hub-option span,
+.pack-option small, .player-form label {
+  color:#9DB2FF !important;
+}
+h1,h2,h3,h4,h5,h6,p,label,small,strong,legend {
+  text-shadow:none;
+}
+.product-name, .catalog-heading h2, .modal-header h2,
+.recharge-panel h2, .account-details-panel h3,
+.mlbb-hub-section-title, .accounts-section-title {
+  color:#F4F6FF !important;
+}
+.whatsapp-banner {
+  border-color:#4C6BFF !important;
+  box-shadow:0 0 14px #252BFF25 !important;
+}
+.whatsapp-banner, .whatsapp-banner .marquee-text {
+  background-image:linear-gradient(110deg,#10152B,#080B18,#10152B) !important;
+}
+.mlbb-diamond-hub, .available-accounts-hub, .auth-brand-intro,
+.brand-intro, .accounts-video-slot, .mlbb-hub-banner, .recharge-hero {
+  background-color:#030407 !important;
+  background-image:radial-gradient(ellipse at 50% 100%,#252BFF77 0,transparent 62%),linear-gradient(135deg,#030407 0%,#0A103D 58%,#030407 100%) !important;
+  border-color:#344CFF !important;
+  box-shadow:none !important;
+}
+.accounts-title-frame {
+  background:#080B18 !important;
+  border-color:#344CFF !important;
+}
+.account-feature-image, .mlbb-hub-option-image, .product-image,
+.product-placeholder, .mlbb-region-flag {
+  border-color:#2637D8 !important;
+}
+.mlbb-region-flag {
+  background-image:radial-gradient(ellipse at 50% 0, #252BFF33 0, transparent 70%),linear-gradient(145deg,#10152B,#050712) !important;
+}
+.mlbb-hub-option:hover, .pack-option:has(input:checked),
+.product-card:focus-within, .quick-card:focus-visible {
+  border-color:#8AA5FF !important;
+  box-shadow:0 0 0 1px #4C6BFF55 !important;
+}
+.bottom-nav {
+  background:rgba(8,11,24,.98) !important;
+  border-color:#2637D8 !important;
+}
+.bottom-nav button { color:#A8B4D8 !important; }
+.bottom-nav button.active { color:#9DB2FF !important; }
+.modal, .auth-panel, .support-panel, .policy-content, .more-menu-panel {
+  background-image:linear-gradient(145deg,#10152B,#080B18 65%,#050712) !important;
+  border-color:#344CFF !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.auth-divider::before, .auth-divider::after { background:#344CFF !important; }
+.auth-notice { background:#10152B !important; border-color:#2637D8 !important; color:#C9D3F5 !important; }
+.info-message, .modal-description, .recharge-note, .account-details-placeholder {
+  color:#A8B4D8 !important;
+}
+.recharge-hero:after {
+  background:linear-gradient(90deg,rgba(3,4,7,.94),rgba(10,16,61,.45)) !important;
+}
+.verify-id-button {
+  background-image:linear-gradient(110deg,#202FFF,#3F55FF,#8AA5FF) !important;
+}
+.form-error, .verify-id-status.error { color:#FFB4C8 !important; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline:2px solid #8AA5FF !important;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
