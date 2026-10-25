@@ -1390,3 +1390,167 @@ a { color: inherit; text-decoration: none; }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* RYDEN THEME UPDATE: Electric Violet Purple + White */
+:root {
+  --bg: #673DE6;
+  --panel: #ffffff;
+  --panel2: #f3efff;
+  --blue: #673DE6;
+  --cyan: #8b5cf6;
+  --text: #ffffff;
+  --muted: #e8e0ff;
+  --line: #b9a5ff;
+  --green: #08ad5b;
+}
+body {
+  background: #673DE6;
+  color: #ffffff;
+}
+.top-header {
+  background: #5b2ed1;
+  border-bottom-color: #a58aff;
+}
+.brand b {
+  color: #ffffff;
+  background: none;
+  animation: none;
+}
+.brand small { color: #ffffff; }
+.brand em { color: #e7ddff; }
+.login-button,
+.category-tab.active,
+.bottom-nav .home-nav .bottom-icon,
+.action-link,
+.modal-action {
+  background: linear-gradient(135deg, #7c4dff, #5525cc);
+  border-color: #b9a5ff;
+}
+.icon-button { color: #ffffff; }
+.search-wrap { background: #5b2ed1; }
+.search-wrap input {
+  background: #ffffff;
+  color: #32116f;
+  border-color: #d6c8ff;
+}
+.search-wrap button { background: #7c4dff; border-color: #b9a5ff; }
+.hero-slider .slides,
+.slides {
+  background: #673DE6;
+  border-color: #b9a5ff;
+}
+.quick-card {
+  color: #32116f;
+  background: #ffffff;
+  border-color: #d6c8ff;
+}
+.quick-card:active { border-color: #673DE6; }
+.category-tab {
+  color: #ffffff;
+  background: #5b2ed1;
+  border-color: #b9a5ff;
+}
+.category-tab.active { color: #ffffff; }
+.catalog-heading h2 { color: #ffffff; }
+.catalog-heading button { color: #eee7ff; }
+.product-card:active { background: #f3efff; border-color: #673DE6; }
+.product-image,
+.product-placeholder {
+  background: #f3efff;
+  border-color: #b9a5ff;
+}
+.product-name { color: #ffffff; }
+.mlbb-diamond-hub,
+.available-accounts-hub {
+  color: #32116f;
+  background: linear-gradient(135deg, #ffffff, #eee7ff);
+  border-color: #b9a5ff;
+}
+.mlbb-diamond-hub-kicker,
+.available-accounts-kicker { color: #673DE6; }
+.mlbb-diamond-hub-subtitle,
+.available-accounts-subtitle { color: #4b2b91; }
+.mlbb-diamond-hub-subtitle span,
+.available-accounts-subtitle b { color: #673DE6; }
+.bottom-nav {
+  background: #ffffff;
+  border-color: #d6c8ff;
+  box-shadow: 0 -5px 25px #32116f30;
+}
+.bottom-nav button { color: #6b55a6; }
+.bottom-nav button.active { color: #32116f; }
+.site-footer { color: #eee7ff; border-top-color: #b9a5ff; }
+.site-footer strong { color: #ffffff; }
+.modal {
+  color: #32116f;
+  background: #ffffff;
+  border-color: #b9a5ff;
+}
+.modal-header h2 { color: #32116f; }
+.modal-close { color: #ffffff; background: #673DE6; border-color: #b9a5ff; }
+.modal-description,
+.info-message { color: #65528d; }
+.pack-row { background: #f3efff; border-color: #d6c8ff; }
+.pack-row strong { color: #32116f; }
+.pack-price { color: #673DE6; }
+.info-form label { color: #32116f; }
+.info-form input,
+.info-form select {
+  color: #32116f;
+  background: #ffffff;
+  border-color: #d6c8ff;
+}
+.info-form input::placeholder { color: #8a7aa9; }
+.support-panel p,
+.policy-content { color: #51416f; }
+.support-panel h4,
+.policy-content h4 { color: #673DE6; }
+.more-menu-item {
+  color: #32116f;
+  background: #f3efff;
+  border-color: #d6c8ff;
+}
+.more-menu-item:hover { background: #eee7ff; border-color: #673DE6; }
+.more-menu-icon { color: #673DE6; background: #eee7ff; border-color: #d6c8ff; }
+.auth-brand-intro {
+  background: linear-gradient(180deg, #eee7ff, #ffffff);
+  border-color: #d6c8ff;
+}
+.auth-brand-kicker { color: #673DE6; }
+.auth-brand-name { color: #32116f; }
+.auth-brand-name span { color: #673DE6; }
+.auth-brand-tagline { color: #4b2b91; }
+.auth-brand-categories { color: #65528d; }
+.brand-intro { background: #673DE6; color: #ffffff; }
+.intro-kicker { color: #eee7ff; }
+.intro-brand-name { color: #ffffff; }
+.intro-brand-name span { color: #eee7ff; }
+.intro-tagline { color: #ffffff; }
+.intro-tagline i { color: #eee7ff; }
+.intro-glow { background: #ffffff; opacity: .16; }
+.intro-progress { background: #9a7cf2; }
+.intro-progress span { background: #ffffff; }
+.auth-panel > .info-message:first-child {
+  color: #4b2b91;
+  background: #f3efff;
+  border-color: #d6c8ff;
+  border-left-color: #673DE6;
+}
+.auth-panel .info-form label { color: #32116f; }
+.auth-panel .info-form input {
+  color: #32116f;
+  background: #ffffff;
+  border-color: #d6c8ff;
+}
+.auth-panel .info-form input:focus { background: #ffffff; border-color: #673DE6; }
+.auth-panel .info-form input::placeholder { color: #8a7aa9; }
+.auth-panel .google-login-button {
+  color: #32116f;
+  background: #f3efff;
+  border-color: #d6c8ff;
+}
+.auth-divider { color: #65528d; }
+.auth-divider::before,
+.auth-divider::after { background: #d6c8ff; }
+.auth-notice { color: #65528d; background: #f3efff; border-color: #d6c8ff; }
