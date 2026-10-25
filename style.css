@@ -1456,3 +1456,33 @@ body { color:#F4F6FF !important; background:#030407 !important; }
 @media(prefers-reduced-motion:reduce) {
  .login-button,.action-link,.modal-action,.search-wrap button,.bottom-nav .home-nav .bottom-icon,.category-tab.active { animation:none !important; background-position:50% 50% !important; }
 }
+
+
+/* Circular crop for uploaded blue RYDEN logo */
+.brand img {
+  width: 43px;
+  height: 43px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #00BFFF;
+  outline: 1px solid #244DFF66;
+  outline-offset: 2px;
+  flex: 0 0 43px;
+}
+.intro-logo {
+  width: 68px;
+  height: 68px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #00BFFF;
+  outline: 1px solid #244DFF66;
+  outline-offset: 3px;
+}
