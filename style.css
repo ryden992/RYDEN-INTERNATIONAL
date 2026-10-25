@@ -2306,3 +2306,129 @@ body {
     background-color: #dbe4ff;
   }
 }
+
+
+/* RYDEN EXTRA GLASS: stronger translucency, refraction-like highlights and depth */
+body {
+  background:
+    radial-gradient(ellipse at 8% 8%, #ffffffdd 0, #ffffff00 25%),
+    radial-gradient(ellipse at 88% 22%, #3AB0FF99 0, #3AB0FF00 34%),
+    radial-gradient(ellipse at 30% 82%, #a8b9ffb0 0, #a8b9ff00 38%),
+    linear-gradient(135deg, #c7d2fe 0%, #b6d9ff 42%, #eaf0ff 100%);
+}
+.top-header,
+.search-wrap,
+.quick-card,
+.category-tab,
+.product-card,
+.mlbb-diamond-hub,
+.available-accounts-hub,
+.bottom-nav,
+.modal,
+.auth-brand-intro,
+.more-menu-item,
+.pack-row {
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  box-shadow:
+    0 18px 42px #243f7a20,
+    inset 0 1.5px 0 #ffffffd9,
+    inset 1px 0 0 #ffffff88,
+    inset 0 -1px 0 #6d8ed21c;
+}
+.top-header {
+  background: linear-gradient(135deg, #ffffff7a, #d9e4ff3d 55%, #ffffff52);
+  border-bottom: 1px solid #ffffffc9;
+}
+.search-wrap {
+  background: linear-gradient(135deg, #ffffff78, #e7efff3f);
+  border: 1px solid #ffffffd9;
+  border-radius: 24px;
+}
+.search-wrap input {
+  background: linear-gradient(135deg, #ffffffd9, #f3f6ffad);
+  border: 1px solid #ffffffed;
+  box-shadow: inset 0 2px 8px #6c83ad12, 0 4px 12px #ffffff30;
+}
+.quick-card {
+  background: linear-gradient(135deg, #ffffffa6 0%, #ffffff48 46%, #c9e7ff61 100%);
+  border: 1px solid #ffffffeb;
+  border-radius: 24px;
+  box-shadow:
+    0 16px 34px #315ca52b,
+    inset 0 2px 0 #ffffffed,
+    inset 1px 0 0 #ffffffa8,
+    inset 0 -2px 0 #789de52b;
+}
+.category-tab {
+  background: linear-gradient(145deg, #ffffff83, #dce7ff4d 58%, #b9dcff55);
+  border: 1px solid #ffffffcf;
+  box-shadow: 0 8px 20px #315ca51b, inset 0 1.5px 0 #ffffffdc;
+}
+.category-tab.active {
+  background: linear-gradient(135deg, #55bdffdf, #2585e8b8);
+  border: 1px solid #ffffffed;
+  box-shadow: 0 10px 24px #2585e84d, inset 0 1.5px 0 #ffffffd9, inset 0 -1px 0 #155fba40;
+}
+.product-card {
+  background: linear-gradient(140deg, #ffffff77 0%, #ffffff32 48%, #c9e7ff4a 100%);
+  border: 1px solid #ffffffd9;
+  box-shadow: 0 14px 32px #315ca526, inset 0 1.5px 0 #ffffffdf, inset 1px 0 0 #ffffff80;
+}
+.product-image,
+.product-placeholder {
+  border: 1px solid #ffffffdc;
+  box-shadow: inset 0 1px 0 #ffffff9c, 0 6px 16px #315ca51b;
+}
+.mlbb-diamond-hub,
+.available-accounts-hub {
+  background: linear-gradient(135deg, #ffffffbd 0%, #ffffff6b 38%, #d8e8ff82 72%, #b8ddff70 100%);
+  border: 1px solid #ffffffed;
+  border-radius: 28px;
+  box-shadow: 0 20px 45px #315ca52b, inset 0 2px 0 #ffffffed, inset 1px 0 0 #ffffffb0, inset 0 -2px 0 #8aa7dc25;
+}
+.bottom-nav {
+  background: linear-gradient(130deg, #ffffffa8 0%, #eef2ff7e 44%, #c8e6ff7a 100%);
+  border: 1px solid #ffffffef;
+  border-radius: 30px;
+  box-shadow: 0 20px 45px #243f7a38, inset 0 2px 0 #fffffffa, inset 1px 0 0 #ffffffb8;
+}
+.bottom-nav .home-nav .bottom-icon,
+.login-button,
+.action-link,
+.modal-action,
+.search-wrap button {
+  background: linear-gradient(140deg, #71caffed, #3ab0ffcf 48%, #2585e8db);
+  border: 1px solid #ffffffef;
+  box-shadow: 0 8px 22px #2585e84d, inset 0 2px 0 #ffffffc9, inset 0 -1px 0 #155fba35;
+}
+.modal {
+  background: linear-gradient(135deg, #ffffffd9, #f2f5ffbf 45%, #d8eaffbd);
+  border: 1px solid #ffffffef;
+  box-shadow: 0 26px 70px #243f7a45, inset 0 2px 0 #fffffffa, inset 1px 0 0 #ffffffc9;
+  border-radius: 28px;
+}
+.auth-brand-intro {
+  background: linear-gradient(135deg, #ffffffbd, #eef2ff88 52%, #c6e4ff9c);
+  border: 1px solid #ffffffeb;
+  box-shadow: 0 18px 40px #315ca524, inset 0 2px 0 #ffffffef;
+}
+.more-menu-item,
+.pack-row {
+  background: linear-gradient(135deg, #ffffffa8, #e8efff72 60%, #c9e6ff66);
+  border: 1px solid #ffffffdf;
+  box-shadow: 0 8px 22px #315ca51a, inset 0 1.5px 0 #ffffffdc;
+}
+.brand img {
+  border: 1.5px solid #ffffffef;
+  box-shadow: 0 8px 22px #315ca538, inset 0 1px 0 #ffffff99;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .top-header, .search-wrap, .quick-card, .category-tab, .product-card,
+  .mlbb-diamond-hub, .available-accounts-hub, .bottom-nav, .modal,
+  .auth-brand-intro, .more-menu-item, .pack-row {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: #e5ebff;
+  }
+}
