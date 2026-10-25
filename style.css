@@ -2479,3 +2479,97 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* RYDEN SIMPLE SOLID UI: remove heavy glass blur and translucent surfaces */
+*, *::before, *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+body {
+  background: #050a13 !important;
+  color: #f4f8ff;
+}
+.top-header {
+  background: #050a13 !important;
+  border-bottom: 1px solid #1d3956 !important;
+  box-shadow: none !important;
+}
+.search-wrap,
+.search-wrap input {
+  background: #081321 !important;
+  border: 1px solid #1d3956 !important;
+  box-shadow: none !important;
+}
+.quick-card,
+.category-tab,
+.product-card,
+.mlbb-diamond-hub,
+.available-accounts-hub,
+.bottom-nav,
+.modal,
+.auth-brand-intro,
+.more-menu-item,
+.pack-row,
+.slides {
+  background: #081321 !important;
+  color: #f4f8ff !important;
+  border: 1px solid #1d3956 !important;
+  box-shadow: none !important;
+}
+.category-tab.active {
+  background: #2585e8 !important;
+  color: #ffffff !important;
+  border-color: #3ab0ff !important;
+  box-shadow: none !important;
+}
+.login-button,
+.action-link,
+.modal-action,
+.search-wrap button,
+.bottom-nav .home-nav .bottom-icon,
+.modal-close {
+  background: #2585e8 !important;
+  color: #ffffff !important;
+  border: 1px solid #3ab0ff !important;
+  box-shadow: none !important;
+}
+.product-image,
+.product-placeholder,
+.more-menu-icon {
+  background: #0b1a2c !important;
+  border-color: #1d3956 !important;
+  box-shadow: none !important;
+}
+.brand img {
+  box-shadow: none !important;
+  border-color: #1d3956 !important;
+}
+.bottom-nav button { color: #9baec6; }
+.bottom-nav button.active { color: #f4f8ff; }
+.brand-intro {
+  background: #050a13 !important;
+}
+.intro-glow { opacity: .12 !important; }
+.intro-progress { background: #1d3956 !important; }
+.intro-progress span { background: #3ab0ff !important; }
+.whatsapp-banner {
+  box-shadow: none !important;
+}
+@media (max-width: 699px) {
+  .top-header,
+  .search-wrap,
+  .quick-card,
+  .category-tab,
+  .product-card,
+  .mlbb-diamond-hub,
+  .available-accounts-hub,
+  .bottom-nav,
+  .modal,
+  .auth-brand-intro,
+  .more-menu-item,
+  .pack-row {
+    box-shadow: none !important;
+    background-attachment: scroll;
+  }
+}
