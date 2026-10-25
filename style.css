@@ -1943,3 +1943,191 @@ body {
 .auth-divider::before,
 .auth-divider::after { background: #e2c4cc; }
 .auth-notice { color: #805565; background: #F6E6EA; border-color: #e2c4cc; }
+
+
+/* RYDEN COLOR COMBO: Lavender + Sky Blue */
+/* Palette from reference: Lavender #C7D2FE, Sky Blue #3AB0FF */
+:root {
+  --bg: #C7D2FE;
+  --panel: #eef1ff;
+  --panel2: #dce5ff;
+  --blue: #3AB0FF;
+  --cyan: #3AB0FF;
+  --text: #242b54;
+  --muted: #58658b;
+  --line: #9baee8;
+}
+body {
+  color: #242b54;
+  background:
+    radial-gradient(ellipse at 100% 0%, #3AB0FF44 0, transparent 38%),
+    linear-gradient(145deg, #C7D2FE, #b9c9fa);
+}
+.top-header {
+  background: linear-gradient(110deg, #b8c7fb, #dce5ff 58%, #C7D2FE);
+  border-bottom-color: #9baee8;
+}
+.brand img {
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  border: 1px solid #3AB0FF;
+  background: #C7D2FE;
+}
+.brand b { color: #242b54; }
+.brand small { color: #242b54; }
+.brand em { color: #2788cb; }
+.login-button,
+.category-tab.active,
+.bottom-nav .home-nav .bottom-icon,
+.action-link,
+.modal-action {
+  color: #ffffff;
+  background: linear-gradient(135deg, #3AB0FF, #2585e8);
+  border-color: #75caff;
+  box-shadow: 0 5px 18px #2585e833;
+}
+.icon-button { color: #242b54; }
+.search-wrap { background: #c0cdfb; }
+.search-wrap input {
+  color: #242b54;
+  background: #ffffff;
+  border-color: #a9baf0;
+}
+.search-wrap button {
+  color: #ffffff;
+  background: #3AB0FF;
+  border-color: #75caff;
+}
+.whatsapp-banner { border-color: #3AB0FF; }
+.slides {
+  background: #b8c7fb;
+  border-color: #75caff;
+}
+.quick-card {
+  color: #242b54;
+  background: linear-gradient(145deg, #ffffff, #eef1ff);
+  border-color: #a9baf0;
+}
+.quick-card:active { border-color: #3AB0FF; }
+.category-tab {
+  color: #303b6b;
+  background: linear-gradient(145deg, #e4eaff, #c7d2fe);
+  border-color: #9baee8;
+}
+.category-tab.active { color: #ffffff; }
+.catalog-heading h2,
+.product-name { color: #242b54; }
+.catalog-heading button { color: #187dbd; }
+.product-card:active {
+  background: #dce5ff;
+  border-color: #3AB0FF;
+}
+.product-image,
+.product-placeholder {
+  background: #e4eaff;
+  border-color: #9baee8;
+}
+.mlbb-diamond-hub,
+.available-accounts-hub {
+  color: #242b54;
+  background: linear-gradient(120deg, #ffffff 0%, #eef1ff 50%, #dce5ff 100%);
+  border-color: #9baee8;
+  box-shadow: 0 8px 26px #58658b24;
+}
+.mlbb-diamond-hub-kicker,
+.available-accounts-kicker { color: #2788cb; }
+.mlbb-diamond-hub-subtitle,
+.available-accounts-subtitle { color: #46527e; }
+.mlbb-diamond-hub-subtitle span,
+.available-accounts-subtitle b { color: #2585e8; }
+.bottom-nav {
+  background: linear-gradient(120deg, #ffffff, #eef1ff);
+  border-color: #a9baf0;
+  box-shadow: 0 -5px 28px #58658b35;
+}
+.bottom-nav button { color: #64709b; }
+.bottom-nav button.active { color: #242b54; }
+.site-footer { color: #46527e; border-top-color: #9baee8; }
+.site-footer strong { color: #242b54; }
+.modal {
+  color: #242b54;
+  background: linear-gradient(145deg, #ffffff, #eef1ff);
+  border-color: #a9baf0;
+}
+.modal-header h2 { color: #242b54; }
+.modal-close {
+  color: #ffffff;
+  background: linear-gradient(135deg, #3AB0FF, #2585e8);
+  border-color: #75caff;
+}
+.modal-description,
+.info-message { color: #58658b; }
+.pack-row { background: #ffffff; border-color: #c2cff6; }
+.pack-row strong { color: #242b54; }
+.pack-price { color: #187dbd; }
+.info-form label { color: #242b54; }
+.info-form input,
+.info-form select {
+  color: #242b54;
+  background: #ffffff;
+  border-color: #c2cff6;
+}
+.info-form input::placeholder { color: #7d89ad; }
+.support-panel p,
+.policy-content { color: #46527e; }
+.support-panel h4,
+.policy-content h4 { color: #187dbd; }
+.more-menu-item {
+  color: #242b54;
+  background: linear-gradient(120deg, #ffffff, #eef1ff);
+  border-color: #c2cff6;
+}
+.more-menu-item:hover { background: #dce5ff; border-color: #3AB0FF; }
+.more-menu-icon { color: #2585e8; background: #e4eaff; border-color: #c2cff6; }
+.auth-brand-intro {
+  background: linear-gradient(145deg, #ffffff, #eef1ff 60%, #dce5ff);
+  border-color: #c2cff6;
+}
+.auth-brand-kicker { color: #2585e8; }
+.auth-brand-name { color: #242b54; }
+.auth-brand-name span { color: #2585e8; }
+.auth-brand-tagline { color: #46527e; }
+.auth-brand-categories { color: #58658b; }
+.brand-intro {
+  background:
+    radial-gradient(ellipse at 80% 30%, #3AB0FF66, transparent 48%),
+    linear-gradient(135deg, #aabcf6, #C7D2FE 55%, #e2e8ff);
+  color: #242b54;
+}
+.intro-kicker { color: #46527e; }
+.intro-brand-name { color: #242b54; }
+.intro-brand-name span { color: #2585e8; }
+.intro-tagline { color: #242b54; }
+.intro-tagline i { color: #2585e8; }
+.intro-glow { background: #3AB0FF; opacity: .24; }
+.intro-progress { background: #9baee8; }
+.intro-progress span { background: #3AB0FF; }
+.auth-panel > .info-message:first-child {
+  color: #46527e;
+  background: #eef1ff;
+  border-color: #c2cff6;
+  border-left-color: #3AB0FF;
+}
+.auth-panel .info-form label { color: #242b54; }
+.auth-panel .info-form input {
+  color: #242b54;
+  background: #ffffff;
+  border-color: #c2cff6;
+}
+.auth-panel .info-form input:focus { background: #ffffff; border-color: #3AB0FF; }
+.auth-panel .info-form input::placeholder { color: #7d89ad; }
+.auth-panel .google-login-button {
+  color: #242b54;
+  background: #eef1ff;
+  border-color: #c2cff6;
+}
+.auth-divider { color: #58658b; }
+.auth-divider::before,
+.auth-divider::after { background: #c2cff6; }
+.auth-notice { color: #58658b; background: #eef1ff; border-color: #c2cff6; }
