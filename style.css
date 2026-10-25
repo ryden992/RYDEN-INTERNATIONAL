@@ -2131,3 +2131,178 @@ body {
 .auth-divider::before,
 .auth-divider::after { background: #c2cff6; }
 .auth-notice { color: #58658b; background: #eef1ff; border-color: #c2cff6; }
+
+
+/* RYDEN GLASSMORPHISM DESIGN — keep Lavender + Sky Blue palette */
+:root {
+  --bg: #C7D2FE;
+  --panel: rgba(255,255,255,.22);
+  --panel2: rgba(238,241,255,.34);
+  --blue: #3AB0FF;
+  --cyan: #3AB0FF;
+  --text: #242b54;
+  --muted: #58658b;
+  --line: rgba(255,255,255,.55);
+}
+body {
+  background:
+    radial-gradient(ellipse at 12% 12%, #ffffffb8 0, transparent 30%),
+    radial-gradient(ellipse at 88% 26%, #3AB0FF77 0, transparent 34%),
+    radial-gradient(ellipse at 40% 85%, #a5b8ff99 0, transparent 38%),
+    linear-gradient(135deg, #C7D2FE, #9ccfff 52%, #dfe5ff);
+  background-attachment: fixed;
+}
+.top-header {
+  background: rgba(199,210,254,.34);
+  border-bottom: 1px solid rgba(255,255,255,.6);
+  backdrop-filter: blur(22px) saturate(155%);
+  -webkit-backdrop-filter: blur(22px) saturate(155%);
+}
+.brand img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 5px 18px #355b9b30;
+}
+.search-wrap {
+  background: rgba(255,255,255,.3);
+  border: 1px solid rgba(255,255,255,.68);
+  box-shadow: 0 8px 26px #315ca51a, inset 0 1px 0 #ffffffa8;
+  backdrop-filter: blur(20px) saturate(155%);
+  -webkit-backdrop-filter: blur(20px) saturate(155%);
+}
+.search-wrap input {
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: inset 0 1px 4px #4c6ca610;
+}
+.search-wrap button {
+  background: linear-gradient(135deg, #3AB0FFdd, #2585e8dd);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 6px 18px #2585e833, inset 0 1px 0 #ffffff75;
+}
+.whatsapp-banner {
+  box-shadow: 0 8px 24px #315ca522, inset 0 1px 0 #ffffff55;
+}
+.slides {
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 12px 30px #315ca522, inset 0 1px 0 #ffffff70;
+}
+.quick-card {
+  color: #242b54;
+  background: linear-gradient(135deg, rgba(255,255,255,.62), rgba(238,241,255,.28));
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: 0 10px 25px #315ca522, inset 0 1px 0 #ffffffb0;
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+.quick-card:active {
+  border-color: #3AB0FF;
+  transform: translateY(1px);
+}
+.category-tab {
+  color: #303b6b;
+  background: rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.68);
+  box-shadow: 0 5px 15px #315ca51a, inset 0 1px 0 #ffffff75;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.category-tab.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(58,176,255,.92), rgba(37,133,232,.82));
+  border-color: rgba(255,255,255,.8);
+  box-shadow: 0 8px 22px #2585e844, inset 0 1px 0 #ffffff80;
+}
+.product-card {
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.62);
+  border-radius: 18px;
+  box-shadow: 0 10px 26px #315ca51c, inset 0 1px 0 #ffffff80;
+  backdrop-filter: blur(16px) saturate(145%);
+  -webkit-backdrop-filter: blur(16px) saturate(145%);
+}
+.product-card:active {
+  background: rgba(255,255,255,.4);
+  border-color: rgba(58,176,255,.85);
+}
+.product-image,
+.product-placeholder {
+  background: rgba(255,255,255,.3);
+  border-color: rgba(255,255,255,.72);
+}
+.mlbb-diamond-hub,
+.available-accounts-hub {
+  color: #242b54;
+  background: linear-gradient(135deg, rgba(255,255,255,.58), rgba(238,241,255,.25));
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 14px 32px #315ca526, inset 0 1px 0 #ffffffb8;
+  backdrop-filter: blur(22px) saturate(155%);
+  -webkit-backdrop-filter: blur(22px) saturate(155%);
+}
+.bottom-nav {
+  background: rgba(238,241,255,.48);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 12px 36px #315ca533, inset 0 1px 0 #ffffffcc;
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+}
+.bottom-nav button { color: #58658b; }
+.bottom-nav button.active { color: #242b54; }
+.bottom-nav .home-nav .bottom-icon {
+  background: linear-gradient(135deg, #3AB0FFee, #2585e8dd);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 7px 20px #2585e855, inset 0 1px 0 #ffffff80;
+}
+.login-button,
+.action-link,
+.modal-action {
+  background: linear-gradient(135deg, rgba(58,176,255,.92), rgba(37,133,232,.82));
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: 0 7px 20px #2585e833, inset 0 1px 0 #ffffff75;
+}
+.modal {
+  background: rgba(245,247,255,.76);
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow: 0 20px 55px #243f7a38, inset 0 1px 0 #ffffffc9;
+  backdrop-filter: blur(28px) saturate(165%);
+  -webkit-backdrop-filter: blur(28px) saturate(165%);
+}
+.modal-close {
+  color: #ffffff;
+  background: linear-gradient(135deg, #3AB0FF, #2585e8);
+  border: 1px solid rgba(255,255,255,.72);
+}
+.pack-row,
+.more-menu-item {
+  background: rgba(255,255,255,.48);
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: inset 0 1px 0 #ffffffa0;
+}
+.auth-brand-intro {
+  background: linear-gradient(135deg, rgba(255,255,255,.68), rgba(199,210,254,.38));
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 12px 30px #315ca51a, inset 0 1px 0 #ffffffc0;
+  backdrop-filter: blur(20px) saturate(155%);
+  -webkit-backdrop-filter: blur(20px) saturate(155%);
+}
+.brand-intro {
+  background:
+    radial-gradient(ellipse at 82% 24%, #3AB0FF99, transparent 45%),
+    linear-gradient(135deg, #C7D2FE, #a7d9ff 56%, #eef1ff);
+}
+.intro-glow { background: #ffffff; opacity: .35; }
+.intro-progress { background: rgba(255,255,255,.45); }
+.intro-progress span { background: #3AB0FF; }
+.more-menu-icon {
+  color: #2585e8;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.75);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .top-header, .search-wrap, .quick-card, .category-tab, .product-card,
+  .mlbb-diamond-hub, .available-accounts-hub, .bottom-nav, .modal, .auth-brand-intro {
+    background-color: #dbe4ff;
+  }
+}
