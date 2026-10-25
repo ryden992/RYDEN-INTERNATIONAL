@@ -2329,3 +2329,62 @@ button, a, .product-card, .quick-card, .category-tab {
     box-shadow: none !important;
   }
 }
+
+
+/* SUBTLE GOLD SHIMMER + LUXURY PAGE OVERRIDES */
+@keyframes rydenGoldShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.login-button,
+.action-link,
+.modal-action,
+.search-wrap button,
+.bottom-nav .home-nav .bottom-icon,
+.category-tab.active {
+  background-image: linear-gradient(110deg, #9A762B 0%, #C9A44C 28%, #F0D98F 48%, #C9A44C 68%, #9A762B 100%) !important;
+  background-size: 220% 100% !important;
+  animation: rydenGoldShimmer 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-button, .action-link, .modal-action, .search-wrap button,
+  .bottom-nav .home-nav .bottom-icon, .category-tab.active {
+    animation: none !important;
+    background-position: 50% 50% !important;
+  }
+}
+/* Keep every linked MLBB page on the same black-and-gold brand palette */
+.accounts-page, .mlbb-hub-page {
+  color: #F7F2E5 !important;
+  background: #070707 !important;
+}
+.accounts-back, .mlbb-hub-back { color: #E0BD63 !important; }
+.accounts-video-slot, .mlbb-hub-banner {
+  border-color: #C9A44C !important;
+  background: radial-gradient(ellipse at 80% 20%, #C9A44C24 0, transparent 45%), linear-gradient(130deg, #070707, #191714 58%, #080808) !important;
+  box-shadow: inset 0 0 0 1px #E8CF8610 !important;
+}
+.accounts-video-slot-copy span, .mlbb-hub-kicker { color: #E0BD63 !important; }
+.accounts-video-slot-copy p, .mlbb-hub-banner p { color: #B9B09B !important; }
+.accounts-title-frame {
+  border-color: #594622 !important;
+  background: #111111 !important;
+}
+.accounts-section-title, .mlbb-hub-section-title { color: #F0D98F !important; }
+.account-feature-image { border-color: #594622 !important; }
+.mlbb-hub-option {
+  color: #F7F2E5 !important;
+  background: linear-gradient(145deg, #191714, #0D0D0D) !important;
+  border-color: #594622 !important;
+  box-shadow: none !important;
+}
+.mlbb-hub-option:hover, .mlbb-hub-option:focus-visible {
+  border-color: #C9A44C !important;
+}
+.mlbb-hub-option strong, .mlbb-hub-option span { color: #F7F2E5 !important; }
+.mlbb-hub-option small, .mlbb-hub-muted { color: #B9B09B !important; }
+.accounts-empty, .mlbb-hub-empty {
+  color: #B9B09B !important;
+  background: #111111 !important;
+  border-color: #594622 !important;
+}
