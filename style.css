@@ -1675,3 +1675,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-shadow: none !important;
   color: #FFFFFF !important;
 }
+
+
+/* Match category tabs and every View All button to the login shimmer */
+.category-tabs .category-tab,
+.catalog-heading button {
+  color:#050712 !important;
+  background-image:linear-gradient(110deg,#202FFF 0%,#3F55FF 26%,#8AA5FF 43%,#FFFFFF 50%,#8AA5FF 58%,#4C6BFF 76%,#202FFF 100%) !important;
+  background-size:240% 100% !important;
+  animation:rydenBlueShimmer 8s ease-in-out infinite !important;
+  border:1px solid #8AA5FF !important;
+  box-shadow:0 3px 14px #252BFF28 !important;
+}
+.category-tabs .category-tab { border-radius:7px; }
+.category-tabs .category-tab.active { color:#050712 !important; }
+.catalog-heading button {
+  border-radius:7px;
+  padding:5px 8px !important;
+  white-space:nowrap;
+}
+@media(prefers-reduced-motion:reduce) {
+  .category-tabs .category-tab,
+  .catalog-heading button {
+    animation:none !important;
+    background-position:50% 50% !important;
+  }
+}
