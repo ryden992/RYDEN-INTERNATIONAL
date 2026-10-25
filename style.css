@@ -2388,3 +2388,51 @@ button, a, .product-card, .quick-card, .category-tab {
   background: #111111 !important;
   border-color: #594622 !important;
 }
+
+
+/* RYDEN BLACK + GOLD + SILVER FINISH */
+:root {
+  --bg: #050505;
+  --panel: #111111;
+  --panel2: #191714;
+  --blue: #C9A44C;
+  --cyan: #D5DCE0;
+  --text: #F4F1E8;
+  --muted: #AEB6BD;
+  --line: #65502A;
+}
+@keyframes rydenMetallicShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.login-button,
+.action-link,
+.modal-action,
+.search-wrap button,
+.bottom-nav .home-nav .bottom-icon,
+.category-tab.active {
+  background-image: linear-gradient(105deg, #98701f 0%, #C9A44C 24%, #F2DE9A 39%, #C9A44C 53%, #D5DCE0 64%, #C9A44C 77%, #98701f 100%) !important;
+  background-size: 240% 100% !important;
+  animation: rydenMetallicShimmer 8s ease-in-out infinite;
+}
+.top-header { border-bottom-color: #65502A !important; }
+.brand img {
+  border-color: #C9A44C !important;
+  outline: 1px solid #D5DCE055;
+  outline-offset: 2px;
+}
+.quick-card, .product-card, .category-tab, .bottom-nav, .modal,
+.mlbb-diamond-hub, .available-accounts-hub, .more-menu-item, .pack-row {
+  border-color: #65502A !important;
+}
+.catalog-heading button, .pack-price, .support-panel h4, .policy-content h4 {
+  color: #E1C36E !important;
+}
+.site-footer { border-top-color: #65502A !important; }
+@media (prefers-reduced-motion: reduce) {
+  .login-button, .action-link, .modal-action, .search-wrap button,
+  .bottom-nav .home-nav .bottom-icon, .category-tab.active {
+    animation: none !important;
+    background-position: 50% 50% !important;
+  }
+}
