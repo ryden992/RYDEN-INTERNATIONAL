@@ -1554,3 +1554,10 @@ body {
 .auth-divider::before,
 .auth-divider::after { background: #d6c8ff; }
 .auth-notice { color: #65528d; background: #f3efff; border-color: #d6c8ff; }
+
+
+/* Fit BGMI UC Instant artwork neatly inside its product tile. */
+.product-card[data-product-id="bgmi-uc"] .product-image {
+  object-fit: cover;
+  object-position: center;
+}
