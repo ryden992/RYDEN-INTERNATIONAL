@@ -2468,8 +2468,6 @@ body {
   .pack-row {
     background-attachment: scroll;
   }
-  .product-card { contain: layout paint; }
-  .product-image { content-visibility: auto; }
   .eyes-banner-video { object-fit: cover; }
 }
 @media (prefers-reduced-motion: reduce) {
