@@ -2573,3 +2573,209 @@ body {
     background-attachment: scroll;
   }
 }
+
+
+/* RYDEN PREMIUM SLATE PALETTE + LIGHTWEIGHT UI TUNING */
+/* Reference palette: #06141B #11212D #253745 #4A5C6A #9BA8AB #CCD0CF */
+:root {
+  --bg: #06141B;
+  --panel: #11212D;
+  --panel2: #253745;
+  --blue: #4A5C6A;
+  --cyan: #CCD0CF;
+  --text: #CCD0CF;
+  --muted: #9BA8AB;
+  --line: #253745;
+  --green: #08ad5b;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #06141B !important;
+  color: #CCD0CF;
+}
+.top-header {
+  background: #06141B !important;
+  border-bottom: 1px solid #253745 !important;
+}
+.brand b, .brand small { color: #CCD0CF !important; }
+.brand em { color: #9BA8AB !important; }
+.brand img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+}
+.login-button,
+.action-link,
+.modal-action,
+.search-wrap button,
+.bottom-nav .home-nav .bottom-icon,
+.modal-close {
+  background: #253745 !important;
+  color: #CCD0CF !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+}
+.search-wrap {
+  background: #11212D !important;
+  border: 1px solid #253745 !important;
+  box-shadow: none !important;
+}
+.search-wrap input {
+  color: #06141B !important;
+  background: #CCD0CF !important;
+  border: 1px solid #9BA8AB !important;
+  box-shadow: none !important;
+}
+.quick-card {
+  color: #CCD0CF !important;
+  background: #11212D !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+}
+.quick-card:active { background: #253745 !important; }
+.category-tab {
+  color: #CCD0CF !important;
+  background: #11212D !important;
+  border: 1px solid #253745 !important;
+  box-shadow: none !important;
+}
+.category-tab.active {
+  color: #06141B !important;
+  background: #9BA8AB !important;
+  border-color: #CCD0CF !important;
+  box-shadow: none !important;
+}
+.catalog-heading h2,
+.product-name { color: #CCD0CF !important; }
+.catalog-heading button { color: #9BA8AB !important; }
+.product-card {
+  color: #CCD0CF !important;
+  background: #11212D !important;
+  border: 1px solid #253745 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.product-card:active {
+  background: #253745 !important;
+  border-color: #4A5C6A !important;
+}
+.product-image,
+.product-placeholder {
+  background: #253745 !important;
+  border-color: #4A5C6A !important;
+  box-shadow: none !important;
+}
+.mlbb-diamond-hub,
+.available-accounts-hub {
+  color: #06141B !important;
+  background: linear-gradient(145deg, #CCD0CF 0%, #9BA8AB 52%, #4A5C6A 100%) !important;
+  border: 1px solid #CCD0CF !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.mlbb-diamond-hub-kicker,
+.available-accounts-kicker { color: #11212D !important; }
+.mlbb-diamond-hub-subtitle,
+.available-accounts-subtitle { color: #253745 !important; }
+.mlbb-diamond-hub-subtitle span,
+.available-accounts-subtitle b { color: #06141B !important; }
+.bottom-nav {
+  background: #11212D !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.bottom-nav button { color: #9BA8AB !important; }
+.bottom-nav button.active { color: #CCD0CF !important; }
+.modal {
+  color: #CCD0CF !important;
+  background: #11212D !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: 0 12px 30px #00000033 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.modal-header h2 { color: #CCD0CF !important; }
+.modal-description,
+.info-message { color: #9BA8AB !important; }
+.pack-row,
+.more-menu-item {
+  color: #CCD0CF !important;
+  background: #253745 !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+}
+.pack-row strong { color: #CCD0CF !important; }
+.pack-price,
+.support-panel h4,
+.policy-content h4 { color: #9BA8AB !important; }
+.info-form label { color: #CCD0CF !important; }
+.info-form input,
+.info-form select,
+.auth-panel .info-form input {
+  color: #06141B !important;
+  background: #CCD0CF !important;
+  border: 1px solid #9BA8AB !important;
+  box-shadow: none !important;
+}
+.info-form input::placeholder,
+.auth-panel .info-form input::placeholder { color: #4A5C6A !important; }
+.auth-brand-intro {
+  color: #06141B !important;
+  background: linear-gradient(145deg, #CCD0CF, #9BA8AB) !important;
+  border: 1px solid #4A5C6A !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.auth-brand-kicker,
+.auth-brand-name span { color: #253745 !important; }
+.auth-brand-name { color: #06141B !important; }
+.auth-brand-tagline,
+.auth-brand-categories { color: #253745 !important; }
+.brand-intro {
+  background: radial-gradient(ellipse at 80% 20%, #4A5C6A 0%, transparent 42%), #06141B !important;
+  color: #CCD0CF !important;
+}
+.intro-kicker,
+.intro-tagline,
+.intro-brand-name { color: #CCD0CF !important; }
+.intro-brand-name span,
+.intro-tagline i { color: #9BA8AB !important; }
+.intro-glow { background: #4A5C6A !important; opacity: .12 !important; }
+.intro-progress { background: #253745 !important; }
+.intro-progress span { background: #CCD0CF !important; }
+.site-footer { color: #9BA8AB !important; border-top-color: #253745 !important; }
+.site-footer strong { color: #CCD0CF !important; }
+.more-menu-icon {
+  color: #CCD0CF !important;
+  background: #253745 !important;
+  border-color: #4A5C6A !important;
+  box-shadow: none !important;
+}
+/* Smooth interactions without heavy filters or large animated shadows */
+button, a, .product-card, .quick-card, .category-tab {
+  transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .16s ease;
+}
+@media (max-width: 699px) {
+  .top-header, .search-wrap, .quick-card, .category-tab, .product-card,
+  .mlbb-diamond-hub, .available-accounts-hub, .bottom-nav, .modal,
+  .auth-brand-intro, .more-menu-item, .pack-row {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
