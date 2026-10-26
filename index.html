@@ -94,32 +94,21 @@
   <!-- MAIN CONTENT -->
   <main id="home">
 
-    <!-- PROMOTIONAL BANNERS: products can be added later through the admin panel -->
-    <section class="hero-slider" aria-label="Promotional banners">
-      <div class="slides ryden-offer-slider" id="slides">
-        <article class="slide active ryden-offer-slide">
-          <span class="offer-kicker">RYDEN INTERNATIONAL</span>
-          <h2>LIMITED OFFER</h2>
-          <p>Premium gaming deals are on the way.</p>
-          <span class="offer-chip">STAY TUNED</span>
-        </article>
-        <article class="slide ryden-offer-slide ryden-offer-slide-blue">
-          <span class="offer-kicker">LEVEL UP YOUR GAME</span>
-          <h2>EXCLUSIVE DEALS</h2>
-          <p>Discover your next gaming upgrade with RYDEN.</p>
-          <span class="offer-chip">COMING SOON</span>
-        </article>
-        <article class="slide ryden-offer-slide ryden-offer-slide-violet">
-          <span class="offer-kicker">YOUR GAMING DESTINATION</span>
-          <h2>BIG THINGS AHEAD</h2>
-          <p>New digital store updates are coming soon.</p>
-          <span class="offer-chip">RYDEN INTERNATIONAL</span>
-        </article>
-      </div>
-      <div class="slider-dots" aria-label="Choose promotional banner">
-        <button class="dot active" type="button" data-slide="0" aria-label="Banner 1"></button>
-        <button class="dot" type="button" data-slide="1" aria-label="Banner 2"></button>
-        <button class="dot" type="button" data-slide="2" aria-label="Banner 3"></button>
+    <!-- ORIGINAL 3D VIDEO BANNER: preserved separately from the offer carousel -->
+    <section class="hero-slider" aria-label="RYDEN 3D promotional banner">
+      <div class="slides eyes-video-banner">
+        <div class="slide active eyes-video-slide">
+          <video
+            class="eyes-banner-video"
+            src="./banner-eyes.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="RYDEN animated 3D eyes banner"
+          ></video>
+        </div>
       </div>
     </section>
 
@@ -180,6 +169,35 @@
         <button class="category-tab" data-category="ott" type="button">OTT</button>
         <button class="category-tab" data-category="giftcards" type="button">GIFT CARDS</button>
       </div>
+
+      <!-- RUNNING OFFER BANNER: placed below game/category options -->
+      <section class="hero-slider ryden-offers-under-categories" aria-label="Running promotional offers">
+        <div class="slides ryden-offer-slider" id="slides">
+          <article class="slide active ryden-offer-slide">
+            <span class="offer-kicker">RYDEN INTERNATIONAL</span>
+            <h2>LIMITED OFFER</h2>
+            <p>Premium gaming deals are on the way.</p>
+            <span class="offer-chip">STAY TUNED</span>
+          </article>
+          <article class="slide ryden-offer-slide ryden-offer-slide-blue">
+            <span class="offer-kicker">LEVEL UP YOUR GAME</span>
+            <h2>EXCLUSIVE DEALS</h2>
+            <p>Discover your next gaming upgrade with RYDEN.</p>
+            <span class="offer-chip">COMING SOON</span>
+          </article>
+          <article class="slide ryden-offer-slide ryden-offer-slide-violet">
+            <span class="offer-kicker">YOUR GAMING DESTINATION</span>
+            <h2>BIG THINGS AHEAD</h2>
+            <p>New digital store updates are coming soon.</p>
+            <span class="offer-chip">RYDEN INTERNATIONAL</span>
+          </article>
+        </div>
+        <div class="slider-dots" aria-label="Choose promotional banner">
+          <button class="dot active" type="button" data-slide="0" aria-label="Offer banner 1"></button>
+          <button class="dot" type="button" data-slide="1" aria-label="Offer banner 2"></button>
+          <button class="dot" type="button" data-slide="2" aria-label="Offer banner 3"></button>
+        </div>
+      </section>
 
       <div id="catalogSections"></div>
 
