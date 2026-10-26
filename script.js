@@ -1085,7 +1085,7 @@ function renderMoreMenu() {
 
     <div class="drawer-shortcuts" aria-label="Account shortcuts">
       <button class="drawer-shortcut" type="button" data-drawer-shortcut="wallet">
-        <span aria-hidden="true">＋</span><small>Add money</small>
+        <span class="drawer-add-icon" aria-hidden="true">+</span><small>Add money</small>
       </button>
       <button class="drawer-shortcut" type="button" data-drawer-shortcut="payments">
         <span class="drawer-shortcut-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3 9h18M6 14h4"></path></svg></span><small>Payments</small>
@@ -1106,11 +1106,11 @@ function renderMoreMenu() {
         <span>Register</span><span class="more-menu-arrow" aria-hidden="true">›</span>
       </button>
       <a class="more-menu-item" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.5" cy="6.5" r="1"></circle></svg></span>
+        <span class="more-menu-icon brand-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect class="instagram-bg" x="1" y="1" width="22" height="22" rx="6"></rect><rect class="instagram-lens" x="5.5" y="5.5" width="13" height="13" rx="4"></rect><circle class="instagram-dot" cx="17.5" cy="6.8" r="1.2"></circle></svg></span>
         <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="whatsapp-bubble" d="M20.52 3.48A11.78 11.78 0 0 0 2.03 17.7L.5 23.5l5.94-1.56A11.78 11.78 0 0 0 20.52 3.48ZM12 21.1a9.08 9.08 0 0 1-4.63-1.27l-.33-.2-3.52.92.94-3.43-.22-.35A9.08 9.08 0 1 1 12 21.1Z"></path><path class="whatsapp-handset" d="M8.14 6.7c-.25-.56-.52-.57-.76-.58h-.65c-.23 0-.6.09-.91.43-.32.35-1.2 1.17-1.2 2.85s1.23 3.3 1.4 3.53c.18.23 2.37 3.8 5.85 5.17 2.9 1.14 3.49.91 4.12.85.63-.06 2.03-.83 2.31-1.63.29-.8.29-1.49.2-1.63-.08-.14-.31-.23-.66-.4-.34-.17-2.03-1-2.34-1.11-.31-.11-.54-.17-.77.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.45-.54-2.76-1.72-1.02-.91-1.71-2.03-1.91-2.37-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.08-.17-.75-1.86-1.06-2.53Z"></path></svg></span>
+        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11" class="whatsapp-disc"></circle><path class="whatsapp-phone" d="M8.2 6.6c-.3-.2-.6-.2-.8.1l-.8 1.1c-.3.4-.3.9-.1 1.4 1.1 2.5 3.2 4.6 5.7 5.7.5.2 1 .2 1.4-.1l1.1-.8c.3-.2.3-.5.1-.8l-1.5-1.5c-.2-.2-.5-.2-.8-.1l-1 .5a7.6 7.6 0 0 1-2.6-2.6l.5-1c.1-.3.1-.6-.1-.8L8.2 6.6Z"></path></svg></span>
         <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
