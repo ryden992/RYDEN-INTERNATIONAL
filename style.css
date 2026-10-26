@@ -2529,3 +2529,43 @@ button.category-tab,
   .bottom-nav { left: 8px; right: 8px; bottom: calc(5px + env(safe-area-inset-bottom)); }
   .bottom-nav button { min-height: 46px; }
 }
+
+
+/* One shared rectangular navigation tray; individual tabs have no boxes. */
+.bottom-nav {
+  left: 12px !important;
+  right: 12px !important;
+  bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+  padding: 5px 7px !important;
+  min-height: 62px !important;
+  gap: 0 !important;
+  border: 1px solid #2637D8 !important;
+  border-radius: 12px !important;
+  background: #080B18 !important;
+  box-shadow: 0 -4px 18px #00000055 !important;
+}
+.bottom-nav button,
+.bottom-nav button.active {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  outline: none !important;
+}
+.bottom-nav button + button {
+  border-left: 1px solid #171d32 !important;
+}
+.bottom-nav button.active {
+  color: #F4F6FF !important;
+}
+.bottom-nav button.active .bottom-icon {
+  color: #9DB2FF !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.bottom-nav button:focus-visible {
+  outline: 1px solid #9DB2FF !important;
+  outline-offset: -3px !important;
+}
