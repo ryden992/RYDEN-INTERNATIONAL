@@ -2164,3 +2164,30 @@ button.category-tab,
   #infoDialog .auth-panel .modal-action { min-height: 49px; }
   #infoDialog .auth-divider { margin: 17px 0; }
 }
+
+
+/* Login button: reference shape and arrow icon; preserve existing RYDEN blue gradient. */
+.top-header .login-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border-radius:999px;
+  color:#fff;
+  background:linear-gradient(135deg,#8aa8ff 0%,#3c5bff 58%,#2342f0 100%);
+  border:1px solid #7994ff;
+  box-shadow:0 0 12px rgba(58,86,255,.22), inset 0 1px 0 rgba(255,255,255,.28);
+  font-weight:800;
+  letter-spacing:.15px;
+  white-space:nowrap;
+}
+.top-header .login-arrow-icon {
+  display:block;
+  width:15px;
+  height:15px;
+  flex:0 0 15px;
+}
+@media(max-width:380px) {
+  .top-header .login-button { gap:3px; }
+  .top-header .login-arrow-icon { width:14px; height:14px; flex-basis:14px; }
+}
