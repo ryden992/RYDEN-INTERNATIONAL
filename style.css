@@ -2569,3 +2569,85 @@ button.category-tab,
   outline: 1px solid #9DB2FF !important;
   outline-offset: -3px !important;
 }
+
+
+/* Premium continuous bottom navigation, inspired by the supplied reference.
+   Keep RYDEN's original black, blue and white palette. */
+.bottom-nav {
+  left: 12px !important;
+  right: 12px !important;
+  bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+  min-height: 70px !important;
+  padding: 6px 7px !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+  border: 1px solid rgba(63, 82, 255, .85) !important;
+  border-radius: 22px !important;
+  background: rgba(7, 10, 22, .97) !important;
+  box-shadow: 0 5px 22px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.035) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.bottom-nav button,
+.bottom-nav button.active {
+  min-width: 0 !important;
+  min-height: 56px !important;
+  padding: 5px 1px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  color: #AAB5D9 !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 15px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.bottom-nav button + button { border-left: 1px solid transparent !important; }
+.bottom-nav .bottom-icon,
+.bottom-nav .home-nav .bottom-icon,
+.bottom-nav button.active .bottom-icon {
+  width: 28px !important;
+  height: 27px !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  color: currentColor !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+}
+.bottom-nav button small {
+  color: inherit !important;
+  font-size: 10px !important;
+  line-height: 1.15 !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
+.bottom-nav button.active {
+  color: #F5F7FF !important;
+  background: linear-gradient(145deg, #111a35, #0b1022) !important;
+  border-color: rgba(70, 91, 255, .65) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 2px 8px rgba(0,0,0,.2) !important;
+}
+.bottom-nav button.active .bottom-icon { color: #AABEFF !important; }
+.bottom-nav button:focus-visible {
+  outline: 1px solid #9DB2FF !important;
+  outline-offset: -3px !important;
+}
+@media (max-width: 380px) {
+  .bottom-nav {
+    left: 8px !important; right: 8px !important;
+    min-height: 66px !important; padding: 5px !important; gap: 2px !important;
+  }
+  .bottom-nav button, .bottom-nav button.active {
+    min-height: 53px !important; border-radius: 12px !important;
+  }
+  .bottom-nav button small { font-size: 9px !important; }
+}
