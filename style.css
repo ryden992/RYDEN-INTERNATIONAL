@@ -1928,7 +1928,8 @@ button.category-tab,
 }
 
 
-/* Restore the approved circular RYDEN logo treatment: keep the blue ring and round crop. */
+/* Keep only the original blue circular logo ring from the source artwork.
+   No extra border or outline rings are added by CSS. */
 .top-header .brand img {
   width:43px !important;
   height:43px !important;
@@ -1939,9 +1940,8 @@ button.category-tab,
   object-fit:cover !important;
   object-position:center !important;
   border-radius:50% !important;
-  border:1px solid #4C6BFF !important;
-  outline:1px solid #8AA5FF55 !important;
-  outline-offset:2px !important;
+  border:0 !important;
+  outline:0 !important;
   box-shadow:none !important;
   overflow:hidden !important;
 }
