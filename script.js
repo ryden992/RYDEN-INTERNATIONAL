@@ -1055,7 +1055,7 @@ function renderLoginForm(mode = "login") {
 // MORE MENU — left-side navigation drawer
 function renderMoreMenu() {
   infoDialog.classList.add("side-drawer");
-  infoTitle.innerHTML = '<img class="drawer-title-logo" src="./store-logo.jpg" alt="" width="36" height="36" decoding="async"><span>Welcome Back</span>';
+  infoTitle.innerHTML = '<span class="drawer-title-mark"><img class="drawer-title-logo" src="./store-logo.jpg" alt="" width="44" height="44" decoding="async"></span><span>Welcome Back</span>';
 
   const options = [
     { label: "Home", type: "home", icon: "⌂" },
@@ -1110,7 +1110,7 @@ function renderMoreMenu() {
         <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.4 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20l1-4.8a8.4 8.4 0 1 1 16.4-3.5Z"></path><path d="M8.2 7.8c.2-.4.5-.4.8-.4h.4c.2 0 .3.1.4.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.4.7 1.1 1.4 1.8 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.2.4.4 0 .3-.2 1.2-.8 1.6-.5.4-1.1.6-1.8.4-1-.2-2.2-.8-3.4-1.9-1.1-1-1.8-2.2-2-3.2-.2-.8.1-1.4.5-1.9Z"></path></svg></span>
+        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.1-4.9a8.2 8.2 0 1 1 16.1-3.4Z"></path><path d="M8.2 7.5c.3-.4.5-.4.8-.4h.4c.2 0 .4.1.5.4l.8 1.9c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.9 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.4 0 .3-.2 1.2-.8 1.6-.6.4-1.2.6-1.9.4-1-.2-2.2-.8-3.5-1.9-1.2-1.1-1.9-2.3-2.1-3.3-.2-.8.1-1.4.6-1.8Z"></path></svg></span>
         <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
