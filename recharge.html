@@ -18,6 +18,31 @@
 .recharge-panel{background:#071321;border:1px solid #1d3956;border-radius:16px;padding:18px;margin:14px 0}.recharge-panel h2{font-size:18px;margin:0 0 14px}
 .player-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player-form label{display:grid;gap:7px;color:#b8cce3;font-size:13px}.player-form input,.player-form select{width:100%;min-width:0;background:#030a13;color:#f4f8ff;border:1px solid #284765;border-radius:10px;padding:13px;font:inherit;outline:none}.player-form input:focus,.player-form select:focus{border-color:#168dff}.full{grid-column:1/-1}.verify-id-button{grid-column:1/-1;border:1px solid #168dff;border-radius:10px;background:#08213b;color:#eaf6ff;font-weight:800;padding:12px;cursor:pointer}.verify-id-status{grid-column:1/-1;margin:0;font-size:12px;line-height:1.5;color:#9bb2cc}.verify-id-status.error{color:#ffb4b4}.verify-id-status.notice{color:#9bd8ff}
 .pack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pack-option{display:flex;align-items:center;gap:10px;text-align:left;color:#f4f8ff;background:#030b15;border:1px solid #23415e;border-radius:12px;padding:13px;cursor:pointer;min-width:0}.pack-option:has(input:checked){border-color:#168dff;background:#09203a;box-shadow:0 0 0 1px #168dff33}.pack-option input{accent-color:#168dff}.pack-option strong{display:block;font-size:13px}.pack-option small{display:block;color:#9bb2cc;margin-top:4px}.recharge-primary{display:block;width:100%;border:0;border-radius:11px;background:linear-gradient(100deg,#087bff,#36c5ff);color:white;font-weight:900;padding:14px;margin-top:15px;cursor:pointer}.recharge-note{font-size:12px;line-height:1.6;color:#9bb2cc}.form-error{color:#ffb4b4;font-size:13px;margin:10px 0 0}
+/* Product purchase contact strip and MLBB pack icons */
+.recharge-contact-card{display:grid;grid-template-columns:1fr;gap:0;background:#071321;border:1px solid #2637d8;border-radius:16px;overflow:hidden;margin:14px 0}
+.recharge-product-summary{display:flex;align-items:center;gap:13px;padding:15px;background:linear-gradient(135deg,#0b1830,#080c18)}
+.recharge-product-image{width:62px;height:62px;object-fit:cover;border-radius:50%;border:1px solid #3e64ff;flex-shrink:0;background:#03070e}
+.recharge-product-summary strong{display:block;font-size:15px;line-height:1.35;color:#f4f8ff}
+.recharge-product-summary small{display:block;color:#9baec6;margin-top:4px}
+.recharge-social-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#080d18;border-top:1px solid #1d2b55}
+.recharge-social-link{display:flex;align-items:center;justify-content:center;min-height:68px;color:#f4f8ff;text-decoration:none;border:0;background:transparent}
+.recharge-social-link+ .recharge-social-link{border-left:1px solid #17213b}
+.recharge-social-link svg{width:31px;height:31px;display:block}
+.recharge-social-link.email svg{color:#f4f8ff}
+.recharge-social-link.instagram svg{color:#ff66ba}
+.recharge-social-link.whatsapp svg{color:#20d879}
+.recharge-social-link:focus-visible{outline:2px solid #8aa5ff;outline-offset:-4px}
+.player-form.mlbb-player-form{grid-template-columns:minmax(0,1fr);gap:12px}
+.player-form.mlbb-player-form .verify-id-button{grid-column:1/-1;background:linear-gradient(110deg,#202fff,#4c6bff,#a8bcff)!important;color:#050712!important;border:1px solid #8aa5ff;padding:13px}
+.player-form.mlbb-player-form .verify-id-status{grid-column:1/-1}
+.pack-option-copy{display:flex;align-items:center;gap:11px;min-width:0}
+.pack-diamond-icon{width:40px;height:34px;flex-shrink:0;display:block}
+.pack-diamond-icon polygon{fill:#35c8ff;stroke:#8de5ff;stroke-width:1}
+.pack-diamond-icon .diamond-dark{fill:#087bff}
+.pack-diamond-icon .diamond-light{fill:#d8f7ff}
+.pack-option-copy>span{min-width:0}
+@media(max-width:420px){.recharge-social-link{min-height:62px}.recharge-product-image{width:58px;height:58px}.pack-diamond-icon{width:38px;height:32px}}
+
 @media(min-width:720px){.recharge-page{padding-top:26px}.recharge-hero{min-height:270px;padding:30px}.player-form{grid-template-columns:repeat(2,minmax(0,1fr))}.pack-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:420px){.recharge-page{padding-left:12px;padding-right:12px}.recharge-hero{min-height:170px;padding:17px}.banner-placeholder{font-size:9px}.recharge-panel{padding:14px}.pack-grid{grid-template-columns:1fr}}
 </style>
@@ -33,6 +58,23 @@
 <video id="gameBanner" autoplay muted loop playsinline preload="none" aria-label="Game promotional video banner" hidden></video>
 <span class="banner-placeholder">3D VIDEO BANNER SLOT</span>
 <div class="recharge-hero-copy"><div class="recharge-kicker">RYDEN INTERNATIONAL • GAME RECHARGE</div><h1 id="gameTitle">Game Recharge</h1><p id="gameSubtitle">Choose a pack and enter your player details.</p></div>
+</section>
+<section class="recharge-contact-card" aria-label="RYDEN INTERNATIONAL contact links">
+  <div class="recharge-product-summary">
+    <img class="recharge-product-image" id="rechargeProductImage" src="./images/mlbb-big-packs.jpg" alt="" onerror="this.style.display='none'">
+    <div><strong id="contactProductTitle">MLBB Big Packs</strong><small>RYDEN INTERNATIONAL · Digital Store</small></div>
+  </div>
+  <div class="recharge-social-links">
+    <a class="recharge-social-link email" href="mailto:rydenstore7@gmail.com" aria-label="Email RYDEN INTERNATIONAL">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7.2L20.4 7H3.6l8.4 5.2Zm0 2.3L3 8.2V17h18V8.2l-9 6.3Z"/></svg>
+    </a>
+    <a class="recharge-social-link instagram" href="https://instagram.com/rydenglobal" target="_blank" rel="noopener noreferrer" aria-label="Open RYDEN INTERNATIONAL Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2.2a3 3 0 0 0-3 3v9.6a3 3 0 0 0 3 3h9.6a3 3 0 0 0 3-3V7.2a3 3 0 0 0-3-3H7.2ZM12 6.8a5.2 5.2 0 1 1 0 10.4 5.2 5.2 0 0 1 0-10.4Zm0 2.2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.7-3.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+    </a>
+    <a class="recharge-social-link whatsapp" href="https://wa.me/919233657553" target="_blank" rel="noopener noreferrer" aria-label="Chat with RYDEN INTERNATIONAL on WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.7 9.7 0 0 0-8.3 14.7L2.4 22l5.5-1.4A9.7 9.7 0 1 0 12 2Zm0 17.3a7.5 7.5 0 0 1-3.8-1l-.4-.2-3.3.9.9-3.2-.2-.4A7.5 7.5 0 1 1 12 19.3Zm4.1-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1 0-.2-.1-.4-.2Z"/></svg>
+    </a>
+  </div>
 </section>
 <form id="rechargeForm">
 <section class="recharge-panel" id="playerPanel">
@@ -105,6 +147,10 @@ const id=new URLSearchParams(location.search).get("game")||"mlbb-big";
 const product=products[id]||products["mlbb-big"];
 document.title=product.name+" | RYDEN INTERNATIONAL";
 document.getElementById("gameTitle").textContent=product.name;
+document.getElementById("contactProductTitle").textContent=product.name;
+const productImages={"mlbb-big":"./images/mlbb-big-packs.jpg","mlbb-small":"./images/mlbb-small-pack.jpg","weekly-pass":"./images/weekly-pass.jpg","aspirants":"./images/aspirants-event.png","double-diamonds":"./images/double-diamonds.jpg","starlight":"./images/starlight.jpg","mlbb-india":"./images/mlbb-india.jpeg","mlbb-ph":"./images/mlbb-philippines.png","mlbb-sg":"./images/mlbb-singapore.png","mlbb-id":"./images/mlbb-indonesia.png","mlbb-my":"./images/mlbb-malaysia.png","mlbb-ru":"./images/mlbb-russia.png","mlbb-tr":"./images/mlbb-turkey.png","mlbb-br":"./images/mlbb-brazil.png","mlbb-skins":"./images/skins-gifting.jpg","bgmi-uc":"./images/bgmi-uc.jpg","pubg-global":"./images/pubg-global.jpg","pubg-india":"./images/pubg-india.jpg","pubg-uc":"./images/pubg-uc.jpg"};
+if(productImages[id]) document.getElementById("rechargeProductImage").src=productImages[id];
+
 document.getElementById("gameSubtitle").textContent=product.category==="mlbb"?"Mobile Legends: Bang Bang • Diamond Recharge":product.category==="pubg"?"BGMI / PUBG Mobile • UC Recharge":"Choose your product pack and continue";
 const bannerCategory=product.category==="mlbb"?"mlbb":product.category==="pubg"?"bgmi":product.category==="games"?"games":product.category;
 const video=document.getElementById("gameBanner");
@@ -114,7 +160,8 @@ video.addEventListener("error",()=>{video.hidden=true;});
 video.addEventListener("loadeddata",()=>{video.hidden=false;});
 const playerFields=document.getElementById("playerFields");
 if(product.category==="mlbb"){
-playerFields.innerHTML='<label>Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter MLBB User ID"></label><label>Zone ID<input name="zoneId" inputmode="numeric" required placeholder="Enter Zone ID"></label><button class="verify-id-button" id="verifyMlbbId" type="button">Verify ID</button><p class="verify-id-status" id="verifyIdStatus" role="status">Enter your Player ID and Zone ID, then tap Verify ID to check the details.</p>';
+playerFields.classList.add("mlbb-player-form");
+playerFields.innerHTML='<label>Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter MLBB User ID"></label><label>Zone ID<input name="zoneId" inputmode="numeric" required placeholder="Enter Zone ID"></label><button class="verify-id-button" id="verifyMlbbId" type="button">Validate</button><p class="verify-id-status" id="verifyIdStatus" role="status">Enter your Player ID and Zone ID, then tap Validate. Live verification is not connected yet.</p>';
 }else if(product.category==="pubg"){
 playerFields.innerHTML='<label class="full">Player ID<input name="playerId" inputmode="numeric" required placeholder="Enter BGMI / PUBG Player ID"></label><label class="full">Region<select name="region"><option>India (BGMI)</option><option>Global</option><option>Other / Not sure</option></select></label>';
 }else{
@@ -132,7 +179,8 @@ if(product.category==="mlbb"){
  });
 }
 const packGrid=document.getElementById("packGrid");
-packGrid.innerHTML=product.packs.map((pack,i)=>'<label class="pack-option"><input type="radio" name="pack" value="'+pack.replace(/"/g,"&quot;")+'" '+(i===0?"required":"")+'><span><strong>'+pack+'</strong><small>Price on request</small></span></label>').join("");
+const diamondIcon='<svg class="pack-diamond-icon" viewBox="0 0 48 36" aria-hidden="true"><polygon points="7,11 14,3 34,3 41,11 24,32"/><polygon class="diamond-light" points="14,3 20,11 7,11"/><polygon class="diamond-dark" points="20,11 28,11 24,32"/><polygon points="28,11 34,3 41,11"/><polygon class="diamond-light" points="14,3 20,11 28,11 34,3"/><polygon class="diamond-dark" points="7,11 20,11 24,32"/><polygon class="diamond-light" points="28,11 41,11 24,32"/></svg>';
+packGrid.innerHTML=product.packs.map((pack,i)=>'<label class="pack-option"><input type="radio" name="pack" value="'+pack.replace(/"/g,"&quot;")+'" '+(i===0?"required":"")+'><span class="pack-option-copy">'+(product.category==="mlbb"?diamondIcon:"")+'<span><strong>'+pack+'</strong><small>Price on request</small></span></span></label>').join("");
 document.getElementById("rechargeForm").addEventListener("submit",event=>{
 event.preventDefault();
 const form=new FormData(event.currentTarget);
