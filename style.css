@@ -2651,3 +2651,67 @@ button.category-tab,
   }
   .bottom-nav button small { font-size: 9px !important; }
 }
+
+
+/* Drawer quick actions: matching, evenly sized Add money / Payments / Orders tiles. */
+#infoDialog.side-drawer .drawer-shortcuts {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: start !important;
+  gap: 12px !important;
+  margin: 18px 0 !important;
+  padding: 18px 0 !important;
+  border-top: 1px solid rgba(130,148,205,.22) !important;
+  border-bottom: 1px solid rgba(130,148,205,.22) !important;
+}
+#infoDialog.side-drawer .drawer-shortcut {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 104px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 0 2px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #F4F6FF !important;
+}
+#infoDialog.side-drawer .drawer-shortcut > span {
+  width: 60px !important;
+  height: 60px !important;
+  flex: 0 0 60px !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(157,178,255,.55) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #111A35, #2637D8) !important;
+  color: #EAF0FF !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  box-shadow: 0 5px 14px rgba(38,55,216,.2) !important;
+}
+#infoDialog.side-drawer .drawer-shortcut small {
+  display: block !important;
+  width: 100% !important;
+  color: #E5E9FF !important;
+  font-size: 11px !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+@media(max-width:380px) {
+  #infoDialog.side-drawer .drawer-shortcuts { gap: 8px !important; }
+  #infoDialog.side-drawer .drawer-shortcut { height: 98px !important; }
+  #infoDialog.side-drawer .drawer-shortcut > span {
+    width: 54px !important;height: 54px !important;flex-basis:54px !important;
+    border-radius: 14px !important;font-size:25px !important;
+  }
+  #infoDialog.side-drawer .drawer-shortcut small { font-size:10px !important; }
+}
