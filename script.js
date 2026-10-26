@@ -1342,8 +1342,8 @@ document.querySelectorAll("[data-bottom]").forEach(button => {
       openInfo("Help & Support", "", { type: "support" });
     } else if (section === "Account") {
       openInfo("Account", "", { type: "account" });
-    } else if (section === "Reports") {
-      openInfo("Reports", "", { type: "reports" });
+    } else if (section === "Orders") {
+      openInfo("Order History", "", { type: "purchase" });
     } else if (section === "More") {
       openInfo("More Options", "", { type: "more" });
     }
