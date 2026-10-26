@@ -2284,3 +2284,59 @@ button.category-tab,
 @media(prefers-reduced-motion:reduce) {
   #infoDialog.side-drawer,.bottom-nav button { transition:none; }
 }
+
+
+/* Reference-inspired drawer layout, retaining RYDEN's black/blue theme. */
+#infoDialog.side-drawer .modal-header { align-items:center; }
+#infoDialog.side-drawer .modal-header h2 {
+  margin:0;
+  font-size:16px;
+  font-weight:500;
+  color:#A8B4D8;
+}
+#infoDialog.side-drawer .modal-close {
+  width:36px;height:36px;flex:0 0 36px;
+}
+.drawer-profile {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;margin:0 0 20px;padding:0 4px 20px;
+  border-bottom:1px solid #171d32;color:#F4F6FF;font-size:18px;
+}
+.drawer-avatar {
+  display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;
+  border-radius:50%;font-size:20px;font-weight:800;color:#F4F6FF;
+  background:linear-gradient(145deg,#314cff,#111a3a);
+  border:1px solid #5267ff;
+}
+#infoDialog.side-drawer .drawer-main-links {gap:3px;}
+#infoDialog.side-drawer .drawer-main-links .more-menu-item,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-item {
+  min-height:48px;padding:8px 5px;background:transparent;
+  border:0;border-radius:10px;font-size:14px;font-weight:500;
+}
+#infoDialog.side-drawer .drawer-main-links .more-menu-item:hover,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-item:hover {
+  background:#10152B;
+}
+#infoDialog.side-drawer .drawer-main-links .more-menu-icon,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon {
+  width:28px;height:30px;flex-basis:28px;border:0;background:transparent;
+  color:#9DB2FF;font-size:20px;
+}
+.drawer-shortcuts {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;margin:22px 0;padding:15px 0;
+  border-top:1px solid #171d32;border-bottom:1px solid #171d32;
+}
+.drawer-shortcut {
+  min-width:0;min-height:78px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;padding:9px 3px;
+  color:#F4F6FF;background:#10152B;border:1px solid #202b54;
+  border-radius:15px;
+}
+.drawer-shortcut > span {font-size:25px;line-height:1;color:#9DB2FF;font-weight:700;}
+.drawer-shortcut small {font-size:11px;white-space:nowrap;}
+.drawer-useful-label {
+  margin:12px 0 8px;color:#8D98B8;font-size:11px;
+  letter-spacing:1.2px;font-weight:700;
+}
