@@ -3078,3 +3078,34 @@ button.category-tab,
   height:26px;
   stroke-width:2;
 }
+
+
+/* Bottom navigation icons inspired by the supplied Home and Support reference. */
+.bottom-nav .bottom-icon svg {
+  display:block;
+  width:25px;
+  height:25px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bottom-nav .bottom-home-icon svg {
+  width:27px;
+  height:27px;
+  fill:currentColor;
+  stroke:currentColor;
+  stroke-width:1.2;
+}
+.bottom-nav .bottom-support-icon svg {
+  width:26px;
+  height:26px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+}
+.bottom-nav button.active .bottom-support-icon svg,
+.bottom-nav button.active .bottom-home-icon svg {
+  filter:drop-shadow(0 0 3px rgba(130,155,255,.18));
+}
