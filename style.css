@@ -3109,3 +3109,29 @@ button.category-tab,
 .bottom-nav button.active .bottom-home-icon svg {
   filter:drop-shadow(0 0 3px rgba(130,155,255,.18));
 }
+
+
+/* Clean account and shopping-bag icons, matching the supplied bottom-navigation reference. */
+.bottom-nav .bottom-account-icon svg,
+.bottom-nav .bottom-orders-icon svg {
+  display:block;
+  width:26px;
+  height:26px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bottom-nav .bottom-account-icon svg circle {
+  fill:currentColor;
+  stroke:currentColor;
+}
+.bottom-nav .bottom-account-icon svg path {
+  fill:none;
+}
+.bottom-nav .bottom-orders-icon svg {
+  width:27px;
+  height:27px;
+  stroke-width:2.1;
+}
