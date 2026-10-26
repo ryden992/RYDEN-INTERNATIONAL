@@ -2340,3 +2340,114 @@ button.category-tab,
   margin:12px 0 8px;color:#8D98B8;font-size:11px;
   letter-spacing:1.2px;font-weight:700;
 }
+
+
+/* Refined luxury drawer spacing: restrained surfaces, existing RYDEN palette. */
+#infoDialog.side-drawer {
+  width:min(86vw,370px) !important;
+  padding:18px 15px calc(22px + env(safe-area-inset-bottom)) !important;
+  border-radius:0 22px 22px 0 !important;
+  box-shadow:18px 0 42px rgba(0,0,0,.38);
+}
+#infoDialog.side-drawer .modal-header {
+  top:-18px !important;
+  margin:-18px -15px 0 !important;
+  padding:18px 15px 15px !important;
+  min-height:62px;
+  border-bottom:1px solid rgba(93,117,255,.25) !important;
+}
+#infoDialog.side-drawer .modal-close {
+  border-radius:13px !important;
+}
+#infoDialog.side-drawer #infoContent {
+  padding-top:17px !important;
+}
+#infoDialog.side-drawer .drawer-profile {
+  margin:0 0 17px !important;
+  padding:0 3px 17px !important;
+  font-size:17px !important;
+}
+#infoDialog.side-drawer .drawer-avatar {
+  width:43px !important;height:43px !important;flex-basis:43px !important;
+}
+#infoDialog.side-drawer .drawer-main-links,
+#infoDialog.side-drawer .drawer-useful-links {
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+}
+#infoDialog.side-drawer .drawer-main-links .more-menu-item,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-item {
+  min-height:53px !important;
+  padding:9px 10px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:11px !important;
+  border:1px solid rgba(100,123,255,.15) !important;
+  border-radius:13px !important;
+  color:#F4F6FF !important;
+  background:#0D1223 !important;
+  background-image:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025) !important;
+  font-size:14px !important;
+  font-weight:550 !important;
+}
+#infoDialog.side-drawer .drawer-main-links .more-menu-item:hover,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-item:hover {
+  background:#121A34 !important;
+  border-color:rgba(100,123,255,.4) !important;
+}
+#infoDialog.side-drawer .drawer-main-links .more-menu-icon,
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon {
+  width:31px !important;height:31px !important;flex:0 0 31px !important;
+  display:grid !important;place-items:center !important;
+  border-radius:10px !important;
+  background:#141C38 !important;
+  color:#A7B8FF !important;
+  font-size:17px !important;
+}
+#infoDialog.side-drawer .more-menu-arrow {
+  margin-left:auto !important;
+  color:#8799E8 !important;
+  font-size:22px !important;
+}
+#infoDialog.side-drawer .drawer-shortcuts {
+  gap:9px !important;
+  margin:19px 0 !important;
+  padding:17px 0 !important;
+}
+#infoDialog.side-drawer .drawer-shortcut {
+  min-height:76px !important;
+  padding:10px 3px !important;
+  gap:9px !important;
+  border-radius:14px !important;
+  background:#0D1223 !important;
+  background-image:none !important;
+  border:1px solid rgba(100,123,255,.22) !important;
+  box-shadow:none !important;
+}
+#infoDialog.side-drawer .drawer-shortcut > span {
+  color:#A7B8FF !important;font-size:23px !important;
+}
+#infoDialog.side-drawer .drawer-shortcut small {
+  color:#E5E9FF !important;font-size:11px !important;
+}
+#infoDialog.side-drawer .drawer-useful-label {
+  margin:17px 0 11px !important;
+  font-size:10px !important;
+  letter-spacing:1.35px !important;
+}
+@media(max-width:380px) {
+  #infoDialog.side-drawer {
+    width:min(89vw,350px) !important;
+    padding-left:12px !important;padding-right:12px !important;
+  }
+  #infoDialog.side-drawer .modal-header {
+    margin-left:-12px !important;margin-right:-12px !important;
+    padding-left:12px !important;padding-right:12px !important;
+  }
+  #infoDialog.side-drawer .drawer-main-links .more-menu-item,
+  #infoDialog.side-drawer .drawer-useful-links .more-menu-item {
+    min-height:49px !important;padding:8px !important;
+  }
+}
