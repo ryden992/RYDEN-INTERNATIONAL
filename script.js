@@ -864,9 +864,9 @@ function openInfo(title, message = "", options = {}) {
 
   } else if (options.type === "membership") {
     infoContent.innerHTML = `
-      <h3>BIP Membership</h3>
+      <h3>VIP Member</h3>
       <p class="info-message">
-        BIP Membership details and benefits will be announced here. Membership plans and prices have not been added yet.
+        VIP Member details and benefits will be announced here. Membership plans and prices have not been added yet.
       </p>
     `;
 
@@ -1276,8 +1276,8 @@ document.querySelectorAll(".quick-card").forEach(button => {
       openInfo("Purchase History", "", { type: "purchase" });
     } else if (tool === "Leaderboard") {
       openInfo("Leaderboard", "", { type: "leaderboard" });
-    } else if (tool === "BIP Membership") {
-      openInfo("BIP Membership", "", { type: "membership" });
+    } else if (tool === "VIP Member") {
+      openInfo("VIP Member", "", { type: "membership" });
     }
   });
 });
