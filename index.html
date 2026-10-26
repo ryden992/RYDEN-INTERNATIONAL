@@ -90,24 +90,33 @@
   <!-- MAIN CONTENT -->
   <main id="home">
 
-    <!-- PROMOTIONAL BANNERS -->
+    <!-- PROMOTIONAL BANNERS: products can be added later through the admin panel -->
     <section class="hero-slider" aria-label="Promotional banners">
-
-      <div class="slides eyes-video-banner" id="slides">
-        <div class="slide active eyes-video-slide">
-          <video
-            class="eyes-banner-video"
-            src="./banner-eyes.mp4"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            aria-label="Animated 3D eyes banner"
-          ></video>
-        </div>
+      <div class="slides ryden-offer-slider" id="slides">
+        <article class="slide active ryden-offer-slide">
+          <span class="offer-kicker">RYDEN INTERNATIONAL</span>
+          <h2>LIMITED OFFER</h2>
+          <p>Premium gaming deals are on the way.</p>
+          <span class="offer-chip">STAY TUNED</span>
+        </article>
+        <article class="slide ryden-offer-slide ryden-offer-slide-blue">
+          <span class="offer-kicker">LEVEL UP YOUR GAME</span>
+          <h2>EXCLUSIVE DEALS</h2>
+          <p>Discover your next gaming upgrade with RYDEN.</p>
+          <span class="offer-chip">COMING SOON</span>
+        </article>
+        <article class="slide ryden-offer-slide ryden-offer-slide-violet">
+          <span class="offer-kicker">YOUR GAMING DESTINATION</span>
+          <h2>BIG THINGS AHEAD</h2>
+          <p>New digital store updates are coming soon.</p>
+          <span class="offer-chip">RYDEN INTERNATIONAL</span>
+        </article>
       </div>
-
+      <div class="slider-dots" aria-label="Choose promotional banner">
+        <button class="dot active" type="button" data-slide="0" aria-label="Banner 1"></button>
+        <button class="dot" type="button" data-slide="1" aria-label="Banner 2"></button>
+        <button class="dot" type="button" data-slide="2" aria-label="Banner 3"></button>
+      </div>
     </section>
 
     <!-- QUICK ACTIONS -->
@@ -164,6 +173,28 @@
         No products found.
       </p>
 
+    </section>
+
+    <!-- PAYMENT METHODS: display only; no payment gateway is connected yet -->
+    <section class="payment-methods" aria-labelledby="paymentMethodsTitle">
+      <div class="payment-heading">
+        <span class="payment-accent" aria-hidden="true"></span>
+        <h2 id="paymentMethodsTitle">PAYMENT METHODS</h2>
+      </div>
+      <div class="payment-method-grid">
+        <div class="payment-method"><strong class="pay-upi">UPI</strong><span>Unified Payments</span></div>
+        <div class="payment-method"><strong class="pay-phonepe"><span class="pay-mark">पे</span> PhonePe</strong></div>
+        <div class="payment-method"><strong class="pay-gpay"><span>G</span> Pay</strong></div>
+        <div class="payment-method"><strong class="pay-paytm">paytm</strong></div>
+        <div class="payment-method"><strong class="pay-bhim">BHIM UPI</strong></div>
+        <div class="payment-method"><strong class="pay-amazon">amazon <span>pay</span></strong></div>
+        <div class="payment-method"><strong class="pay-airtel">Airtel <span>Payments Bank</span></strong></div>
+        <div class="payment-method"><strong class="pay-jio"><span>Jio</span>Pay</strong></div>
+        <div class="payment-method"><strong class="pay-fampay">FamPay</strong></div>
+        <div class="payment-method payment-ryo"><span class="ryo-coin-icon" aria-hidden="true">R</span><strong>RYO Coin</strong></div>
+      </div>
+      <div class="payment-more" aria-label="Additional payment methods">••• <span>More payment methods may be added later</span></div>
+      <p class="payment-security"><span aria-hidden="true">♢</span> Payment options shown for display only <small>Online payment processing is not connected yet.</small></p>
     </section>
 
   </main>
