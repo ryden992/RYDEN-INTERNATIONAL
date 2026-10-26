@@ -901,6 +901,7 @@ function openInfo(title, message = "", options = {}) {
     infoContent.textContent = message;
   }
 
+  if (options.type !== "more") infoDialog.classList.remove("side-drawer");
   if (!infoDialog.open) infoDialog.showModal();
 }
 
@@ -1053,7 +1054,8 @@ function renderLoginForm(mode = "login") {
 
 // MORE MENU
 function renderMoreMenu() {
-  infoTitle.textContent = "More Options";
+  infoDialog.classList.add("side-drawer");
+  infoTitle.textContent = "Navigation";
 
   const options = [
     { label: "Home", type: "home", icon: "⌂" },
@@ -1323,6 +1325,7 @@ document.getElementById("closeProductDialog").addEventListener("click", () => {
 });
 
 document.getElementById("closeInfoDialog").addEventListener("click", () => {
+  infoDialog.classList.remove("side-drawer");
   infoDialog.close();
 });
 
