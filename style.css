@@ -1904,3 +1904,25 @@ button.category-tab,
   }
   .ryo-header-coin { width:17px; height:17px; flex-basis:17px; font-size:10px; }
 }
+
+
+/* Header spacing correction: prevent RYO Coin touching the brand and keep Login near Search. */
+.top-header { gap:8px; }
+.brand { flex:1 1 auto; min-width:0; gap:7px; }
+.brand > span { min-width:0; }
+.header-actions { gap:7px; }
+.ryo-wallet-button { flex:0 0 90px; width:90px; min-width:90px; }
+.login-button { flex:0 0 68px; width:68px; min-width:68px; }
+#searchToggle { flex:0 0 32px; width:32px; min-width:32px; margin-left:0; }
+@media(max-width:380px) {
+  .top-header { gap:6px; padding-left:10px; padding-right:10px; }
+  .brand { gap:5px; }
+  .brand img { width:30px; height:30px; }
+  .brand b { font-size:15px; }
+  .brand small { font-size:9px; letter-spacing:.7px; }
+  .brand em { font-size:6px; letter-spacing:1.2px; }
+  .header-actions { gap:5px; }
+  .ryo-wallet-button { flex-basis:86px; width:86px; min-width:86px; }
+  .login-button { flex-basis:64px; width:64px; min-width:64px; }
+  #searchToggle { flex-basis:29px; width:29px; min-width:29px; font-size:27px; }
+}
