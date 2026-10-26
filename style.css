@@ -1953,3 +1953,214 @@ button.category-tab,
     flex-basis:43px !important;
   }
 }
+
+
+/* Premium authentication panel spacing — targeted login/register polish */
+#infoDialog.modal {
+  width: min(92vw, 470px);
+  max-width: 470px;
+  max-height: 88dvh;
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid #344CFF;
+  border-radius: 24px;
+  background: linear-gradient(150deg, #0c1022 0%, #070914 62%, #05060d 100%) !important;
+  box-shadow: 0 22px 70px #000b, 0 0 28px #344cff18;
+  scrollbar-width: thin;
+  scrollbar-color: #344CFF #080B18;
+}
+#infoDialog .modal-header { margin-bottom: 12px; }
+#infoDialog .auth-panel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 25px);
+  border: 1px solid #2839c9;
+  border-radius: 20px;
+  background: linear-gradient(155deg, #0b1020 0%, #080b17 72%, #060812 100%) !important;
+  box-shadow: inset 0 1px 0 #ffffff08, 0 10px 30px #0005;
+}
+#infoDialog .auth-brand-intro {
+  margin: 0 0 22px;
+  padding: 20px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  border: 1px solid #2637a955;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at 50% 0%, #2739ff20, transparent 72%), #080b18 !important;
+}
+#infoDialog .auth-brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 2px;
+}
+#infoDialog .auth-brand-kicker {
+  margin: 0;
+  color: #9db2ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+#infoDialog .auth-brand-name {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #f5f6ff;
+  font-size: clamp(19px, 5vw, 25px);
+  line-height: 1.05;
+  letter-spacing: .08em;
+}
+#infoDialog .auth-brand-name span {
+  color: #aebdff;
+  font-size: .56em;
+  letter-spacing: .2em;
+}
+#infoDialog .auth-brand-tagline {
+  margin: 3px 0 0;
+  color: #c6cde8;
+  font-size: 11px;
+  line-height: 1.5;
+}
+#infoDialog .auth-brand-categories {
+  margin: 0;
+  color: #828eaf;
+  font-size: 10px;
+  line-height: 1.6;
+}
+#infoDialog .auth-welcome-message {
+  margin: 0 0 18px;
+  color: #aeb8d7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+#infoDialog .info-form {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+}
+#infoDialog .info-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  color: #aebdff;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+#infoDialog .info-form input {
+  width: 100%;
+  min-width: 0;
+  height: 54px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid #344CFF !important;
+  border-radius: 14px;
+  background: #10152b !important;
+  color: #f4f6ff !important;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: inset 0 1px 3px #0004;
+}
+#infoDialog .info-form input::placeholder { color: #8490b2 !important; }
+#infoDialog .auth-panel .text-action {
+  width: fit-content;
+  min-height: 0;
+  margin: 0;
+  padding: 4px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #aebdff !important;
+  font-size: 13px;
+  font-weight: 750;
+  text-align: left;
+  text-decoration: none;
+}
+#infoDialog .auth-panel .text-action:hover { color: #ffffff !important; }
+#infoDialog .auth-panel .modal-action {
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 13px 16px;
+  border: 1px solid #7186ff !important;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  box-shadow: 0 7px 20px #2538ff20;
+}
+#infoDialog .auth-panel .modal-action:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+#infoDialog .auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 21px 0;
+  color: #8f9cbe;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+#infoDialog .auth-divider::before,
+#infoDialog .auth-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, #344CFF);
+}
+#infoDialog .auth-divider::after { background: linear-gradient(90deg, #344CFF, transparent); }
+#infoDialog .auth-panel > .modal-action {
+  display: block;
+  margin: 0 0 12px;
+}
+#infoDialog .auth-panel > .info-message:not(.auth-welcome-message) {
+  margin: 18px 0 0;
+  color: #aeb8d7;
+  font-size: 13px;
+  line-height: 1.7;
+}
+#infoDialog .auth-panel > .info-message .text-action {
+  display: inline;
+  vertical-align: baseline;
+  margin-left: 4px;
+}
+#infoDialog .auth-panel .auth-notice {
+  margin: 20px 0 0;
+  padding: 13px 14px;
+  border: 1px solid #2637a9 !important;
+  border-radius: 13px;
+  background: #0d1225 !important;
+  color: #aeb8d7 !important;
+  font-size: 12px;
+  line-height: 1.7;
+}
+#infoDialog #rydenAuthMessage {
+  overflow-wrap: anywhere;
+}
+#infoDialog .auth-panel #ryden-recaptcha-container { min-height: 0; }
+@media (max-width: 480px) {
+  #infoDialog.modal {
+    width: calc(100vw - 24px);
+    max-height: 86dvh;
+    padding: 10px;
+    border-radius: 21px;
+  }
+  #infoDialog .auth-panel { padding: 15px; border-radius: 17px; }
+  #infoDialog .auth-brand-intro { margin-bottom: 18px; padding: 16px 10px; }
+  #infoDialog .info-form { gap: 13px; }
+  #infoDialog .info-form input { height: 51px; font-size: 14px; }
+  #infoDialog .auth-panel .modal-action { min-height: 49px; }
+  #infoDialog .auth-divider { margin: 17px 0; }
+}
