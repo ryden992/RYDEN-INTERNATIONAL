@@ -3317,3 +3317,92 @@ button.category-tab,
   fill:#fff;
   stroke:none;
 }
+
+
+/* Corrected final icon rendering: real-looking social marks, no doubled outlines. */
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon {
+  display:grid !important;
+  place-items:center !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  flex:0 0 42px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:50% !important;
+  color:#fff !important;
+  background:#25D366 !important;
+  box-shadow:none !important;
+  overflow:hidden !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon svg {
+  display:block !important;
+  width:36px !important;
+  height:36px !important;
+  fill:none !important;
+  stroke:none !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon .wa-bubble {
+  fill:none !important;
+  stroke:#fff !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon .wa-phone {
+  fill:#fff !important;
+  stroke:none !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-instagram-icon {
+  display:grid !important;
+  place-items:center !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  flex:0 0 42px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:12px !important;
+  color:#fff !important;
+  background:linear-gradient(135deg,#833AB4 0%,#C13584 28%,#E1306C 52%,#F77737 76%,#FCAF45 100%) !important;
+  box-shadow:none !important;
+  overflow:hidden !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-instagram-icon svg {
+  display:block !important;
+  width:29px !important;
+  height:29px !important;
+  fill:none !important;
+  stroke:#fff !important;
+  stroke-width:2 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-instagram-icon .instagram-dot {
+  fill:#fff !important;
+  stroke:none !important;
+}
+#infoDialog.side-drawer .drawer-shortcut .drawer-add-icon {
+  display:grid !important;
+  place-items:center !important;
+  width:56px !important;
+  height:56px !important;
+  flex:0 0 56px !important;
+  padding:0 !important;
+  font-size:0 !important;
+  line-height:1 !important;
+  color:#fff !important;
+  background:linear-gradient(145deg,#3048d9,#17256e) !important;
+  border:1px solid #687bff !important;
+  border-radius:18px !important;
+  box-shadow:0 5px 16px rgba(38,67,205,.28) !important;
+}
+#infoDialog.side-drawer .drawer-shortcut .drawer-add-icon svg {
+  display:block !important;
+  width:32px !important;
+  height:32px !important;
+  fill:none !important;
+  stroke:#fff !important;
+  stroke-width:4.5 !important;
+  stroke-linecap:square !important;
+}
