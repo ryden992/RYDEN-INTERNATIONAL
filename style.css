@@ -3135,3 +3135,47 @@ button.category-tab,
   height:27px;
   stroke-width:2.1;
 }
+
+
+/* Make the drawer Orders shortcut icon larger and more recognizable. */
+.drawer-shortcut .drawer-orders-icon {
+  width:56px;
+  height:56px;
+  flex:0 0 56px;
+  border-radius:18px;
+  color:#eef2ff;
+  background:linear-gradient(145deg,#3048d9,#17256e);
+  border:1px solid #687bff;
+  box-shadow:0 5px 16px rgba(38,67,205,.28);
+}
+.drawer-shortcut .drawer-orders-icon svg {
+  width:34px;
+  height:34px;
+  stroke-width:2;
+}
+
+/* Crisp WhatsApp silhouette instead of the thin hand-drawn-looking mark. */
+#infoDialog.side-drawer .brand-whatsapp-icon {
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  border:1px solid rgba(37,211,102,.24);
+  border-radius:14px;
+  color:#25D366;
+  background:linear-gradient(145deg,#0d2b22,#0a1715);
+}
+#infoDialog.side-drawer .brand-whatsapp-icon svg {
+  width:31px;
+  height:31px;
+  stroke:none;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon .whatsapp-bubble {
+  fill:currentColor;
+  stroke:none;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon .whatsapp-handset {
+  fill:#0b211b;
+  stroke:none;
+}
