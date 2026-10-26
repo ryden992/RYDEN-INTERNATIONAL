@@ -1055,7 +1055,7 @@ function renderLoginForm(mode = "login") {
 // MORE MENU — left-side navigation drawer
 function renderMoreMenu() {
   infoDialog.classList.add("side-drawer");
-  infoTitle.textContent = "Welcome Back";
+  infoTitle.innerHTML = '<img class="drawer-title-logo" src="./store-logo.jpg" alt="" width="36" height="36" decoding="async"><span>Welcome Back</span>';
 
   const options = [
     { label: "Home", type: "home", icon: "⌂" },
@@ -1088,7 +1088,7 @@ function renderMoreMenu() {
         <span aria-hidden="true">＋</span><small>Add money</small>
       </button>
       <button class="drawer-shortcut" type="button" data-drawer-shortcut="payments">
-        <span aria-hidden="true">▣</span><small>Payments</small>
+        <span class="drawer-shortcut-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3 9h18M6 14h4"></path></svg></span><small>Payments</small>
       </button>
       <button class="drawer-shortcut" type="button" data-drawer-shortcut="orders">
         <span aria-hidden="true">◷</span><small>Orders</small>
@@ -1098,19 +1098,19 @@ function renderMoreMenu() {
     <p class="drawer-useful-label">USEFUL LINKS</p>
     <div class="more-menu drawer-useful-links">
       <button class="more-menu-item" type="button" data-more-action="login">
-        <span class="more-menu-icon" aria-hidden="true">⇥</span>
+        <span class="more-menu-icon brand-login-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M10 17l5-5-5-5M15 12H3"></path><path d="M13 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"></path></svg></span>
         <span>Login</span><span class="more-menu-arrow" aria-hidden="true">›</span>
       </button>
       <button class="more-menu-item" type="button" data-more-action="register">
-        <span class="more-menu-icon" aria-hidden="true">♙</span>
+        <span class="more-menu-icon brand-register-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="9" cy="7" r="4"></circle><path d="M2 21v-2a7 7 0 0 1 14 0v2zM19 8v6M16 11h6"></path></svg></span>
         <span>Register</span><span class="more-menu-arrow" aria-hidden="true">›</span>
       </button>
       <a class="more-menu-item" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon" aria-hidden="true">◎</span>
+        <span class="more-menu-icon brand-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.5" cy="6.5" r="1"></circle></svg></span>
         <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon" aria-hidden="true">◉</span>
+        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.4 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20l1-4.8a8.4 8.4 0 1 1 16.4-3.5Z"></path><path d="M8.2 7.8c.2-.4.5-.4.8-.4h.4c.2 0 .3.1.4.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.4.7 1.1 1.4 1.8 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.2.4.4 0 .3-.2 1.2-.8 1.6-.5.4-1.1.6-1.8.4-1-.2-2.2-.8-3.4-1.9-1.1-1-1.8-2.2-2-3.2-.2-.8.1-1.4.5-1.9Z"></path></svg></span>
         <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
