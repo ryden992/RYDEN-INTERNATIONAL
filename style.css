@@ -1926,3 +1926,28 @@ button.category-tab,
   .login-button { flex-basis:64px; width:64px; min-width:64px; }
   #searchToggle { flex-basis:29px; width:29px; min-width:29px; font-size:27px; }
 }
+
+
+/* Restore the store logo exactly as its source image; do not crop or resize it for header spacing. */
+.top-header .brand img {
+  width:43px !important;
+  height:43px !important;
+  min-width:43px !important;
+  flex:0 0 43px !important;
+  aspect-ratio:1 / 1;
+  object-fit:contain !important;
+  object-position:center !important;
+  border-radius:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+}
+@media(max-width:380px) {
+  .top-header .brand img {
+    width:43px !important;
+    height:43px !important;
+    min-width:43px !important;
+    flex-basis:43px !important;
+  }
+}
