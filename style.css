@@ -3014,3 +3014,67 @@ button.category-tab,
   }
   .drawer-title-logo { width:34px;height:34px;flex-basis:34px; }
 }
+
+
+/* Fine-tune the drawer brand mark: enlarge the artwork inside a fixed-size frame. */
+#infoDialog.side-drawer .modal-header h2 { gap:11px; }
+.drawer-title-mark {
+  display:block;
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  overflow:hidden;
+  border-radius:50%;
+  border:1px solid rgba(105,132,255,.75);
+  background:#050914;
+  box-shadow:0 0 14px rgba(50,83,255,.22);
+}
+.drawer-title-logo {
+  display:block;
+  width:130%;
+  height:130%;
+  max-width:none;
+  object-fit:cover;
+  border:0;
+  border-radius:50%;
+  transform:translate(-11.5%,-11.5%);
+  box-shadow:none;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon,
+#infoDialog.side-drawer .brand-instagram-icon {
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon {
+  color:#25D366;
+  background:#0b211b;
+  border-radius:12px;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon svg {
+  width:27px;
+  height:27px;
+  stroke-width:2;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon svg path:first-child {
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+}
+#infoDialog.side-drawer .brand-whatsapp-icon svg path:last-child {
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#infoDialog.side-drawer .brand-instagram-icon {
+  color:#e7b8ff;
+  background:#21152d;
+  border-radius:12px;
+}
+#infoDialog.side-drawer .brand-instagram-icon svg {
+  width:26px;
+  height:26px;
+  stroke-width:2;
+}
