@@ -3406,3 +3406,21 @@ button.category-tab,
   stroke-width:4.5 !important;
   stroke-linecap:square !important;
 }
+
+
+/* WhatsApp final correction: one solid white brand glyph on a green circle. */
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon {
+  background:#25D366 !important;
+  border-radius:50% !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon svg {
+  width:28px !important;
+  height:28px !important;
+  fill:#fff !important;
+  stroke:none !important;
+}
+#infoDialog.side-drawer .drawer-useful-links .more-menu-icon.brand-whatsapp-icon .wa-logo {
+  fill:#fff !important;
+  stroke:none !important;
+  stroke-width:0 !important;
+}
