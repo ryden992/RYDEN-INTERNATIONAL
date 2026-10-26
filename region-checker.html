@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030407">
+  <meta name="description" content="Request a Mobile Legends region check from RYDEN INTERNATIONAL.">
+  <title>Region Checker | RYDEN INTERNATIONAL</title>
+  <style>
+    :root { color-scheme:dark; --blue:#344cff; --ice:#aebdff; --text:#f4f6ff; --muted:#a8b4d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; padding-bottom:28px; background:#030407; color:var(--text); font-family:Arial,Helvetica,sans-serif; }
+    .top { display:flex; align-items:center; gap:12px; padding:16px; background:#080b18; border-bottom:1px solid #2637d8; }
+    .back { display:grid; place-items:center; flex:0 0 40px; width:40px; height:40px; border:1px solid #344cff; border-radius:13px; color:#f4f6ff; text-decoration:none; font-size:25px; }
+    .brand { min-width:0; flex:1; text-align:center; }
+    .brand strong { display:block; font-size:clamp(15px,4vw,19px); font-weight:900; letter-spacing:1px; }
+    .brand span { display:block; margin-top:4px; color:#9db2ff; font-size:9px; font-weight:800; letter-spacing:2.2px; }
+    main { width:min(100% - 28px,560px); margin:24px auto; }
+    .panel { padding:clamp(20px,5vw,30px); border:1px solid #344cff; border-radius:24px; background:radial-gradient(ellipse at 90% 0%,#2637d82a,transparent 44%),linear-gradient(150deg,#0b1020,#070914 65%,#05060d); box-shadow:0 18px 48px #0008,inset 0 1px 0 #ffffff08; }
+    .eyebrow { color:#9dd9ff; font-size:10px; font-weight:900; letter-spacing:.2em; }
+    h1 { margin:12px 0 10px; font-size:clamp(27px,7vw,36px); line-height:1.1; letter-spacing:-.03em; }
+    .intro { margin:0 0 24px; color:var(--muted); font-size:14px; line-height:1.7; }
+    form { display:grid; gap:18px; }
+    label { display:grid; gap:9px; color:var(--ice); font-size:14px; font-weight:800; }
+    input { width:100%; min-width:0; height:56px; padding:0 16px; border:1px solid #344cff; border-radius:15px; outline:none; background:#10152b; color:#f4f6ff; font:500 15px Arial,Helvetica,sans-serif; box-shadow:inset 0 1px 3px #0004; }
+    input::placeholder { color:#818cad; }
+    input:focus { border-color:#aebdff; box-shadow:0 0 0 3px #344cff30; }
+    .submit { width:100%; min-height:54px; margin-top:3px; padding:14px 16px; border:1px solid #8aa5ff; border-radius:15px; background:linear-gradient(110deg,#344cff,#6179ff 60%,#e6eaff); color:#050712; font-size:14px; font-weight:900; letter-spacing:.03em; box-shadow:0 8px 22px #344cff25; cursor:pointer; }
+    .notice { margin-top:22px; padding:14px 15px; border:1px solid #2637a9; border-radius:14px; background:#0d1225; color:#aeb8d7; font-size:12px; line-height:1.7; }
+    .notice strong { display:block; margin-bottom:4px; color:#dce4ff; }
+    .message { display:none; margin:16px 0 0; color:#cbd5ff; font-size:13px; line-height:1.6; overflow-wrap:anywhere; }
+    .message.visible { display:block; }
+    @media(max-width:380px) { .top { padding:13px 12px; } main { margin-top:17px; } .panel { border-radius:20px; } input { height:52px; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="back" href="./index.html" aria-label="Back to home">‹</a>
+    <div class="brand"><strong>RYDEN INTERNATIONAL</strong><span>DIGITAL STORE</span></div>
+  </header>
+  <main>
+    <section class="panel">
+      <div class="eyebrow">MOBILE LEGENDS · PLAYER TOOLS</div>
+      <h1>Region Checker</h1>
+      <p class="intro">Enter your Mobile Legends Player ID and Zone ID to request a region check from RYDEN INTERNATIONAL support.</p>
+      <form id="regionCheckForm">
+        <label for="playerId">Player ID
+          <input id="playerId" name="playerId" inputmode="numeric" autocomplete="off" maxlength="30" required placeholder="Enter Player ID">
+        </label>
+        <label for="zoneId">Zone ID
+          <input id="zoneId" name="zoneId" inputmode="numeric" autocomplete="off" maxlength="15" required placeholder="Enter Zone ID">
+        </label>
+        <button class="submit" type="submit">CHECK REGION</button>
+      </form>
+      <p class="message" id="requestMessage" role="status" aria-live="polite"></p>
+      <div class="notice"><strong>How checking works</strong>Automatic region verification is not connected yet. Tapping CHECK REGION opens WhatsApp with your Player ID and Zone ID so support can check your request manually.</div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const form = document.getElementById("regionCheckForm");
+      const message = document.getElementById("requestMessage");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const playerId = document.getElementById("playerId").value.trim();
+        const zoneId = document.getElementById("zoneId").value.trim();
+        if (!playerId || !zoneId) return;
+        const text = [
+          "Hello RYDEN INTERNATIONAL!",
+          "Please check my Mobile Legends region.",
+          "Player ID: " + playerId,
+          "Zone ID: " + zoneId
+        ].join("\n");
+        message.textContent = "Opening WhatsApp to send your region-check request. The result will be confirmed by support.";
+        message.classList.add("visible");
+        const url = "https://wa.me/919233657553?text=" + encodeURIComponent(text);
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
+</body>
+</html>
