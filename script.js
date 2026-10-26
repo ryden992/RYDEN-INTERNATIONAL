@@ -1091,7 +1091,7 @@ function renderMoreMenu() {
         <span class="drawer-shortcut-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3 9h18M6 14h4"></path></svg></span><small>Payments</small>
       </button>
       <button class="drawer-shortcut" type="button" data-drawer-shortcut="orders">
-        <span aria-hidden="true">◷</span><small>Orders</small>
+        <span class="drawer-shortcut-icon drawer-orders-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="7" width="16" height="14" rx="2"></rect><path d="M8 7V5a4 4 0 0 1 8 0v2"></path><path d="M8 12h8M8 16h5"></path></svg></span><small>Orders</small>
       </button>
     </div>
 
@@ -1110,7 +1110,7 @@ function renderMoreMenu() {
         <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.1-4.9a8.2 8.2 0 1 1 16.1-3.4Z"></path><path d="M8.2 7.5c.3-.4.5-.4.8-.4h.4c.2 0 .4.1.5.4l.8 1.9c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.9 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.4 0 .3-.2 1.2-.8 1.6-.6.4-1.2.6-1.9.4-1-.2-2.2-.8-3.5-1.9-1.2-1.1-1.9-2.3-2.1-3.3-.2-.8.1-1.4.6-1.8Z"></path></svg></span>
+        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path class="whatsapp-bubble" d="M20.52 3.48A11.78 11.78 0 0 0 2.03 17.7L.5 23.5l5.94-1.56A11.78 11.78 0 0 0 20.52 3.48ZM12 21.1a9.08 9.08 0 0 1-4.63-1.27l-.33-.2-3.52.92.94-3.43-.22-.35A9.08 9.08 0 1 1 12 21.1Z"></path><path class="whatsapp-handset" d="M8.14 6.7c-.25-.56-.52-.57-.76-.58h-.65c-.23 0-.6.09-.91.43-.32.35-1.2 1.17-1.2 2.85s1.23 3.3 1.4 3.53c.18.23 2.37 3.8 5.85 5.17 2.9 1.14 3.49.91 4.12.85.63-.06 2.03-.83 2.31-1.63.29-.8.29-1.49.2-1.63-.08-.14-.31-.23-.66-.4-.34-.17-2.03-1-2.34-1.11-.31-.11-.54-.17-.77.17-.23.34-.88 1.11-1.08 1.34-.2.23-.4.26-.74.09-.34-.17-1.45-.54-2.76-1.72-1.02-.91-1.71-2.03-1.91-2.37-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.08-.17-.75-1.86-1.06-2.53Z"></path></svg></span>
         <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
