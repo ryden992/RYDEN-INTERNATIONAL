@@ -1928,20 +1928,22 @@ button.category-tab,
 }
 
 
-/* Restore the store logo exactly as its source image; do not crop or resize it for header spacing. */
+/* Restore the approved circular RYDEN logo treatment: keep the blue ring and round crop. */
 .top-header .brand img {
   width:43px !important;
   height:43px !important;
   min-width:43px !important;
   flex:0 0 43px !important;
   aspect-ratio:1 / 1;
-  object-fit:contain !important;
+  display:block;
+  object-fit:cover !important;
   object-position:center !important;
-  border-radius:0 !important;
-  border:0 !important;
-  outline:0 !important;
+  border-radius:50% !important;
+  border:1px solid #4C6BFF !important;
+  outline:1px solid #8AA5FF55 !important;
+  outline-offset:2px !important;
   box-shadow:none !important;
-  overflow:visible !important;
+  overflow:hidden !important;
 }
 @media(max-width:380px) {
   .top-header .brand img {
