@@ -1052,53 +1052,66 @@ function renderLoginForm(mode = "login") {
   }
 }
 
-// MORE MENU
+// MORE MENU — left-side navigation drawer
 function renderMoreMenu() {
   infoDialog.classList.add("side-drawer");
-  infoTitle.textContent = "Navigation";
+  infoTitle.textContent = "Welcome Back";
 
   const options = [
     { label: "Home", type: "home", icon: "⌂" },
-    { label: "Account", type: "account", icon: "♙" },
-    { label: "Help & Support", type: "support", icon: "♧" },
-    { label: "Privacy Policy", type: "privacy", icon: "◈" },
+    { label: "My Account", type: "account", icon: "♙" },
+    { label: "Leaderboard", type: "leaderboard", icon: "🏆" },
+    { label: "Support", type: "support", icon: "♧" },
     { label: "Terms & Conditions", type: "terms", icon: "▤" },
-    { label: "Refund Policy", type: "refund", icon: "↩" },
-    { label: "Reseller", type: "reseller", icon: "◇" },
-    { label: "Reports", type: "reports", icon: "▥" },
-    { label: "Leaderboards", type: "leaderboard", icon: "♜" },
-    { label: "Login / Register", type: "login", icon: "♙" }
+    { label: "Privacy Policy", type: "privacy", icon: "◈" },
+    { label: "Refund Policy", type: "refund", icon: "↩" }
   ];
 
   infoContent.innerHTML = `
-    <div class="more-menu">
+    <div class="drawer-profile">
+      <strong>Dear User</strong>
+      <span class="drawer-avatar" aria-hidden="true">R</span>
+    </div>
+
+    <div class="more-menu drawer-main-links">
       ${options.map(item => `
-        <button
-          class="more-menu-item"
-          type="button"
-          data-more-action="${item.type}">
-          <span class="more-menu-icon">${item.icon}</span>
+        <button class="more-menu-item" type="button" data-more-action="${item.type}">
+          <span class="more-menu-icon" aria-hidden="true">${item.icon}</span>
           <span>${item.label}</span>
-          <span class="more-menu-arrow">›</span>
+          <span class="more-menu-arrow" aria-hidden="true">›</span>
         </button>
       `).join("")}
+    </div>
 
-      <a class="more-menu-item"
-         href="${INSTAGRAM_URL}"
-         target="_blank"
-         rel="noopener noreferrer">
-        <span class="more-menu-icon">◎</span>
-        <span>Follow on Instagram</span>
-        <span class="more-menu-arrow">↗</span>
+    <div class="drawer-shortcuts" aria-label="Account shortcuts">
+      <button class="drawer-shortcut" type="button" data-drawer-shortcut="wallet">
+        <span aria-hidden="true">＋</span><small>Add money</small>
+      </button>
+      <button class="drawer-shortcut" type="button" data-drawer-shortcut="payments">
+        <span aria-hidden="true">▣</span><small>Payments</small>
+      </button>
+      <button class="drawer-shortcut" type="button" data-drawer-shortcut="orders">
+        <span aria-hidden="true">◷</span><small>Orders</small>
+      </button>
+    </div>
+
+    <p class="drawer-useful-label">USEFUL LINKS</p>
+    <div class="more-menu drawer-useful-links">
+      <button class="more-menu-item" type="button" data-more-action="login">
+        <span class="more-menu-icon" aria-hidden="true">⇥</span>
+        <span>Login</span><span class="more-menu-arrow" aria-hidden="true">›</span>
+      </button>
+      <button class="more-menu-item" type="button" data-more-action="register">
+        <span class="more-menu-icon" aria-hidden="true">♙</span>
+        <span>Register</span><span class="more-menu-arrow" aria-hidden="true">›</span>
+      </button>
+      <a class="more-menu-item" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer">
+        <span class="more-menu-icon" aria-hidden="true">◎</span>
+        <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
-
-      <a class="more-menu-item"
-         href="${WHATSAPP_CHANNEL}"
-         target="_blank"
-         rel="noopener noreferrer">
-        <span class="more-menu-icon">◉</span>
-        <span>WhatsApp Channel</span>
-        <span class="more-menu-arrow">↗</span>
+      <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
+        <span class="more-menu-icon" aria-hidden="true">◉</span>
+        <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
   `;
@@ -1106,22 +1119,40 @@ function renderMoreMenu() {
   infoContent.querySelectorAll("[data-more-action]").forEach(button => {
     button.addEventListener("click", () => {
       const action = button.dataset.moreAction;
-
       if (action === "home") {
         infoDialog.close();
+        infoDialog.classList.remove("side-drawer");
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else if (action === "account" || action === "login") {
+        infoDialog.classList.remove("side-drawer");
         renderLoginForm("login");
+      } else if (action === "register") {
+        infoDialog.classList.remove("side-drawer");
+        renderLoginForm("register");
       } else if (action === "support") {
         openInfo("Help & Support", "", { type: "support" });
       } else if (action === "privacy" || action === "terms" || action === "refund") {
         openInfo("", "", { type: "policy", policy: action });
-      } else if (action === "reseller") {
-        openInfo("Reseller", "", { type: "reseller" });
-      } else if (action === "reports") {
-        openInfo("Reports", "", { type: "reports" });
       } else if (action === "leaderboard") {
         openInfo("Leaderboards", "", { type: "leaderboard" });
+      }
+    });
+  });
+
+  infoContent.querySelectorAll("[data-drawer-shortcut]").forEach(button => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.drawerShortcut;
+      if (action === "wallet") {
+        infoDialog.classList.remove("side-drawer");
+        infoDialog.close();
+        document.getElementById("ryoCoinButton")?.click();
+      } else if (action === "payments") {
+        infoDialog.classList.remove("side-drawer");
+        infoDialog.close();
+        document.querySelector(".payment-section, #payments, .payment-methods")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        infoDialog.classList.remove("side-drawer");
+        openInfo("Reports", "", { type: "reports" });
       }
     });
   });
