@@ -3248,3 +3248,72 @@ button.category-tab,
   background:linear-gradient(145deg,#3048d9,#17256e);
   box-shadow:0 5px 16px rgba(38,67,205,.28);
 }
+
+
+/* Brand-accurate social icons: compact WhatsApp green and Instagram gradient. */
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon,
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon {
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  min-width:42px;
+  flex:0 0 42px;
+  padding:0;
+  border:0;
+  border-radius:12px;
+  box-shadow:none;
+  overflow:hidden;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon {
+  color:#fff;
+  background:#25D366;
+  border-radius:50%;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon svg {
+  display:block;
+  width:34px;
+  height:34px;
+  fill:none;
+  stroke:none;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon .whatsapp-disc {
+  fill:#25D366;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon .whatsapp-bubble {
+  fill:none;
+  stroke:#fff;
+  stroke-width:2.1;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-whatsapp-icon .whatsapp-phone {
+  fill:#fff;
+  stroke:none;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon {
+  color:#fff;
+  background:linear-gradient(45deg,#FCAF45 0%,#F77737 22%,#E1306C 48%,#C13584 68%,#833AB4 84%,#405DE6 100%);
+  border-radius:12px;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon svg {
+  display:block;
+  width:30px;
+  height:30px;
+  fill:none;
+  stroke:none;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon .instagram-lens {
+  fill:none;
+  stroke:#fff;
+  stroke-width:2.2;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon .instagram-lens-dot {
+  fill:none;
+  stroke:#fff;
+  stroke-width:2.2;
+}
+#infoDialog.side-drawer .drawer-useful-links .brand-instagram-icon .instagram-dot {
+  fill:#fff;
+  stroke:none;
+}
