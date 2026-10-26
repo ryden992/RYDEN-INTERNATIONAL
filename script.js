@@ -1106,11 +1106,11 @@ function renderMoreMenu() {
         <span>Register</span><span class="more-menu-arrow" aria-hidden="true">›</span>
       </button>
       <a class="more-menu-item" href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect class="instagram-bg" x="1" y="1" width="22" height="22" rx="6"></rect><rect class="instagram-lens" x="5.5" y="5.5" width="13" height="13" rx="4"></rect><circle class="instagram-dot" cx="17.5" cy="6.8" r="1.2"></circle></svg></span>
+        <span class="more-menu-icon brand-instagram-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><rect class="instagram-lens" x="4" y="4" width="24" height="24" rx="7"></rect><circle class="instagram-lens-dot" cx="16" cy="16" r="6"></circle><circle class="instagram-dot" cx="23.5" cy="8.8" r="1.7"></circle></svg></span>
         <span>Instagram</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="more-menu-item" href="${WHATSAPP_CHANNEL}" target="_blank" rel="noopener noreferrer">
-        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11" class="whatsapp-disc"></circle><path class="whatsapp-phone" d="M8.2 6.6c-.3-.2-.6-.2-.8.1l-.8 1.1c-.3.4-.3.9-.1 1.4 1.1 2.5 3.2 4.6 5.7 5.7.5.2 1 .2 1.4-.1l1.1-.8c.3-.2.3-.5.1-.8l-1.5-1.5c-.2-.2-.5-.2-.8-.1l-1 .5a7.6 7.6 0 0 1-2.6-2.6l.5-1c.1-.3.1-.6-.1-.8L8.2 6.6Z"></path></svg></span>
+        <span class="more-menu-icon brand-whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><circle class="whatsapp-disc" cx="16" cy="16" r="16"></circle><path class="whatsapp-bubble" d="M8 24.5l1.3-4A11 11 0 1 1 13 24l-5 0.5Z"></path><path class="whatsapp-phone" d="M12.1 10.2c-.4-.8-.8-.8-1.1-.8h-.9c-.3 0-.8.1-1.2.6-.4.4-1.5 1.5-1.5 3.6s1.5 4.2 1.7 4.5c.2.3 3 4.7 7.3 6.4 3.6 1.4 4.3 1.1 5.1 1 .8-.1 2.5-1 2.9-2 .3-1 .3-1.8.2-2-.1-.2-.4-.3-.8-.5s-2.5-1.2-2.9-1.3c-.4-.2-.7-.2-1 .2-.3.4-1.1 1.3-1.4 1.6-.3.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.3-1.3-3.1Z"></path></svg></span>
         <span>WhatsApp Channel</span><span class="more-menu-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
