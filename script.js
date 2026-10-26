@@ -854,6 +854,22 @@ function openInfo(title, message = "", options = {}) {
       </p>
     `;
 
+  } else if (options.type === "wallet") {
+    infoContent.innerHTML = `
+      <p class="info-message">
+        Your RYO Coin wallet will show its available balance here once the wallet and secure top-up system are connected.
+        No balance or payment has been added in this preview.
+      </p>
+    `;
+
+  } else if (options.type === "membership") {
+    infoContent.innerHTML = `
+      <h3>BIP Membership</h3>
+      <p class="info-message">
+        BIP Membership details and benefits will be announced here. Membership plans and prices have not been added yet.
+      </p>
+    `;
+
   } else if (options.type === "account") {
     renderLoginForm();
 
@@ -1260,8 +1276,15 @@ document.querySelectorAll(".quick-card").forEach(button => {
       openInfo("Purchase History", "", { type: "purchase" });
     } else if (tool === "Leaderboard") {
       openInfo("Leaderboard", "", { type: "leaderboard" });
+    } else if (tool === "BIP Membership") {
+      openInfo("BIP Membership", "", { type: "membership" });
     }
   });
+});
+
+// RYO COIN WALLET SHORTCUT
+document.getElementById("ryoCoinButton").addEventListener("click", () => {
+  openInfo("RYO Coin Wallet", "", { type: "wallet" });
 });
 
 // HEADER LOGIN
