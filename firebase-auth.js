@@ -324,10 +324,28 @@
 
   auth.onAuthStateChanged(function (user) {
     var button = document.getElementById("loginButton");
-    if (button) {
-      var label = button.querySelector("span");
-      if (label) label.textContent = user ? (user.displayName || "Account") : "Login";
-      button.setAttribute("aria-label", user ? "Signed in account" : "Login");
+    if (!button) return;
+
+    var label = button.querySelector("span:not(.login-arrow-icon)");
+    var arrow = button.querySelector(".login-arrow-icon");
+
+    if (user) {
+      var accountName = (user.displayName || "").trim();
+      if (!accountName && user.email) accountName = user.email.split("@")[0];
+      if (!accountName && user.phoneNumber) accountName = user.phoneNumber;
+      if (!accountName) accountName = "Account";
+
+      if (label) label.textContent = accountName;
+      if (arrow) arrow.hidden = true;
+      button.classList.add("is-authenticated");
+      button.setAttribute("aria-label", "Signed in as " + accountName);
+      button.title = accountName;
+    } else {
+      if (label) label.textContent = "Login";
+      if (arrow) arrow.hidden = false;
+      button.classList.remove("is-authenticated");
+      button.setAttribute("aria-label", "Login");
+      button.removeAttribute("title");
     }
   });
 })();
