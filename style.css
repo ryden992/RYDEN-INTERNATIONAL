@@ -3424,3 +3424,40 @@ button.category-tab,
   stroke:none !important;
   stroke-width:0 !important;
 }
+
+
+/* Authenticated header account name: no login arrow, no overlap, responsive width. */
+.top-header .login-button {
+  min-width: 0;
+  max-width: 160px;
+}
+.top-header .login-button > span:not(.login-arrow-icon) {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-header .login-button.is-authenticated {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: 160px;
+  padding: 7px 12px;
+  gap: 0;
+}
+.top-header .login-button.is-authenticated .login-arrow-icon {
+  display: none !important;
+}
+.top-header .login-button.is-authenticated > span:not(.login-arrow-icon) {
+  max-width: 132px;
+}
+@media (max-width: 380px) {
+  .top-header .login-button.is-authenticated {
+    max-width: 104px;
+    padding: 7px 8px;
+  }
+  .top-header .login-button.is-authenticated > span:not(.login-arrow-icon) {
+    max-width: 88px;
+  }
+}
