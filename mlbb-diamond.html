@@ -48,7 +48,7 @@
 <main class="mlbb-hub-page">
 <a class="mlbb-hub-back" href="./index.html#store">← Back to all games</a>
 <section class="mlbb-hub-banner" aria-label="MLBB Diamond promotional video banner">
-<video id="mlbbHubVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" hidden aria-label="MLBB 3D promotional video"></video>
+<video id="mlbbHubVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" aria-label="MLBB 3D promotional video"></video>
 <button class="mlbb-hub-sound-toggle" id="mlbbHubSoundToggle" type="button" aria-label="Turn banner sound on" aria-pressed="false" title="Turn sound on" hidden>🔊</button>
 </section>
 <h2 class="mlbb-hub-section-title">Choose Your Option</h2>
@@ -86,7 +86,24 @@ backToGames?.addEventListener("click", () => {
     sessionStorage.setItem("rydenSkipIntroOnce", "1");
   } catch (_) {}
 });
+video.muted = true;
+video.defaultMuted = true;
+video.playsInline = true;
+video.autoplay = true;
+video.loop = true;
+video.preload = "metadata";
 video.src = "./videos/mlbb-diamond-banner.mp4";
+
+function startMlbbBanner() {
+  if (document.visibilityState !== "visible" || !video.paused) return;
+  const attempt = video.play();
+  if (attempt && typeof attempt.catch === "function") attempt.catch(function () {});
+}
+["loadedmetadata", "canplay", "canplaythrough"].forEach(function (eventName) {
+  video.addEventListener(eventName, startMlbbBanner);
+});
+document.addEventListener("visibilitychange", startMlbbBanner);
+window.addEventListener("pageshow", startMlbbBanner);
 
 function updateSoundButton() {
   const soundIsOn = !video.muted;
