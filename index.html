@@ -115,6 +115,28 @@
         </div>
       </div>
     </section>
+    <script>
+      // Start the muted 3D hero video explicitly; mobile browsers may ignore autoplay until media is ready.
+      (function () {
+        const video = document.querySelector(".eyes-banner-video");
+        if (!video) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        video.autoplay = true;
+        const startVideo = function () {
+          if (document.visibilityState !== "visible" || !video.paused) return;
+          const attempt = video.play();
+          if (attempt && typeof attempt.catch === "function") attempt.catch(function () {});
+        };
+        ["loadedmetadata", "canplay", "canplaythrough"].forEach(function (eventName) {
+          video.addEventListener(eventName, startVideo);
+        });
+        document.addEventListener("visibilitychange", startVideo);
+        window.addEventListener("pageshow", startVideo);
+        startVideo();
+      })();
+    </script>
 
     <!-- QUICK ACTIONS -->
     <section class="quick-actions" aria-label="Quick actions">
