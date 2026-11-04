@@ -73,6 +73,23 @@ Post the full account screenshot here when it is ready.
 const bannerVideo = document.getElementById("accountsBannerVideo");
 const soundToggle = document.getElementById("accountsBannerSoundToggle");
 
+// Explicitly request muted inline playback and retry when the browser has enough media data.
+bannerVideo.muted = true;
+bannerVideo.defaultMuted = true;
+bannerVideo.playsInline = true;
+bannerVideo.autoplay = true;
+function startAccountsBanner() {
+  if (document.visibilityState !== "visible" || !bannerVideo.paused) return;
+  const attempt = bannerVideo.play();
+  if (attempt && typeof attempt.catch === "function") attempt.catch(function () {});
+}
+["loadedmetadata", "canplay", "canplaythrough"].forEach(function (eventName) {
+  bannerVideo.addEventListener(eventName, startAccountsBanner);
+});
+document.addEventListener("visibilitychange", startAccountsBanner);
+window.addEventListener("pageshow", startAccountsBanner);
+startAccountsBanner();
+
 function updateBannerSoundButton() {
   const soundIsOn = !bannerVideo.muted;
   soundToggle.textContent = soundIsOn ? "🔊" : "🔇";
