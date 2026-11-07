@@ -62,9 +62,21 @@
     try {
       values = JSON.parse(stored || "[]");
     } catch (_) {
-      return null;
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        values = [];
+      } catch (storageError) {
+        return null;
+      }
     }
-    if (!Array.isArray(values)) return null;
+    if (!Array.isArray(values)) {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        values = [];
+      } catch (storageError) {
+        return null;
+      }
+    }
 
     var now = Date.now();
     return values.filter(function (value) {
