@@ -51,19 +51,40 @@
   }
 
   function readSendTimes() {
-    var values = [];
-    try { values = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch (_) {}
-    if (!Array.isArray(values)) values = [];
+    var stored;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch (_) {
+      return null;
+    }
+
+    var values;
+    try {
+      values = JSON.parse(stored || "[]");
+    } catch (_) {
+      return null;
+    }
+    if (!Array.isArray(values)) return null;
+
     var now = Date.now();
     return values.filter(function (value) {
-      return typeof value === "number" && now - value < WINDOW_MS;
+      return Number.isSafeInteger(value) && value > 0 &&
+        value <= now && now - value < WINDOW_MS;
+    }).sort(function (a, b) {
+      return a - b;
     });
   }
 
   function recordSendAttempt(timestamp) {
     var values = readSendTimes();
+    if (!values) return false;
     values.push(timestamp);
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(values)); } catch (_) {}
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+      return true;
+    } catch (_) {
+      return false;
+    }
   }
 
   function clearVerifier() {
@@ -91,6 +112,13 @@
     }
 
     var times = readSendTimes();
+    if (!times) {
+      button.disabled = true;
+      button.textContent = "Enable browser storage";
+      if (timer) window.clearInterval(timer);
+      timer = null;
+      return;
+    }
     var now = Date.now();
     var latest = times.length ? times[times.length - 1] : 0;
     var cooldownLeft = Math.max(0, latest + COOLDOWN_MS - now);
@@ -150,6 +178,12 @@
         var phone = document.getElementById("rydenPhoneNumber").value.trim();
         var times = readSendTimes();
         var now = Date.now();
+
+        if (!times) {
+          showMessage("Browser storage is unavailable or damaged. Enable site storage, refresh the page, and try again.", true);
+          updateCooldown();
+          return;
+        }
         var latest = times.length ? times[times.length - 1] : 0;
 
         if (!/^\+[1-9]\d{7,14}$/.test(phone)) {
@@ -172,7 +206,11 @@
         sendButton.textContent = "Sending…";
         /* Count attempts before the network call so repeated failures are also slowed down.
            This browser-side guard is supplementary; Firebase enforces server-side quotas. */
-        recordSendAttempt(now);
+        if (!recordSendAttempt(now)) {
+          showMessage("Could not save the OTP request limit in this browser. Enable site storage and try again.", true);
+          updateCooldown();
+          return;
+        }
         beginCooldown();
 
         try {
